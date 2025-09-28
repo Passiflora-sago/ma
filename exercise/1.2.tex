@@ -1,0 +1,414 @@
+\section*{习题 1.2}
+
+\begin{exercise}[1.2.1]
+    用定义证明下面的结论:
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $\lim_{n\to\infty} \frac{n}{5+3n} = \frac{1}{3}$;
+        \task $\lim_{n\to\infty} \frac{\sin n}{n} = 0$;
+        \task $\lim_{n\to\infty} (-1)^n \frac{1}{\sqrt{n+1}} = 0$;
+        \task $\lim_{n\to\infty} \frac{n!}{n^n} = 0$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item $\forall \varepsilon > 0$, 取$N = \llceil \frac{5}{9\varepsilon} \rrceil$, 则当 $n > N$ 时, 有
+              $$
+                  \left| \frac{n}{5 + 3n} - \frac{1}{3} \right| = \left| \frac{3n - (5 + 3n)}{3(5 + 3n)} \right| = \frac{5}{3(5 + 3n)} < \frac{5}{9n} < \varepsilon.
+              $$
+        \item $\forall \varepsilon > 0$, 取$N = \llceil \frac{1}{\varepsilon} \rrceil$, 则当 $n > N$ 时, 有
+              $$
+                  \left| \frac{\sin n}{n} - 0 \right| = \frac{|\sin n|}{n} \les \frac{1}{n} < \varepsilon.
+              $$
+        \item $\forall \varepsilon > 0$, 取$N = \llceil \frac{1}{\varepsilon^2} - 1 \rrceil$, 则当 $n > N$ 时, 有
+              $$
+                  \left| (-1)^n \frac{1}{\sqrt{n + 1}} - 0 \right| = \frac{1}{\sqrt{n + 1}} < \varepsilon.
+              $$
+        \item $\forall \varepsilon > 0$, 取$N = \llceil \frac{1}{\varepsilon} \rrceil$, 则当 $n > N$ 时, 有
+              $$
+                  \left| \frac{n!}{n^n} - 0 \right| = \frac{n!}{n^n} = \frac{1}{n} \cdot \frac{2}{n} \cdots \frac{n - 1}{n} \cdot \frac{n}{n} < \frac{1}{n} < \varepsilon.
+              $$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.2.2]
+    若数列 $\{a_n\}$ ($n \ges 1$) 满足条件: 任给正数 $\varepsilon$, 存在正整数 $N$, 使得当 $n > N$ 时, 有 $|a_n - a| < M\varepsilon$ (其中 $M$ 为常数), 则 $\{a_n\}$ 必以 $a$ 为极限.
+\end{exercise}
+
+$M$为常数指的是$M$不依赖于$\ve$和$n$. 例如$M=2, M=1000$等都是常数.也就是说, 上述$(2)$ 其实等价于
+$\forall M > 0, \forall \ve >0, \exists N\in \mathbb{N}^*, \forall n>N $都有 $|a_n-a|<M \ve$ 成立.
+
+\begin{exercise}[1.2.3]
+    证明: 当且仅当 $\lim_{n\to\infty} (a_n - a) = 0$ 时, 有 $\lim_{n\to\infty} a_n = a$. (数列极限的许多证明问题, 都可用同样的方法处理.)
+\end{exercise}
+
+\begin{proof}
+    充分性: 由$\lim_{n \to \infty} (a_n - a) = 0$,则$\forall \ve > 0, \exists N \in \mathbb{N}^*, \forall n > N$都有$|a_n - a| < \ve$成立.因此$\lim_{n \to \infty} a_n = a$.
+
+    必要性: 由$\lim_{n \to \infty} a_n = a$,则$\forall \ve > 0, \exists N \in \mathbb{N}^*, \forall n > N$都有$|a_n - a| < \ve$成立.因此$\lim_{n \to \infty} (a_n - a) = 0$.
+\end{proof}
+
+\begin{exercise}[1.2.4]
+    证明: 若 $\lim_{n\to\infty} a_n = a$, 则 $\lim_{n\to\infty} |a_n| = |a|$; 反之不一定成立 (试举例说明). 但若 $\lim_{n\to\infty} |a_n| = 0$, 则有 $\lim_{n\to\infty} a_n = 0$.
+\end{exercise}
+
+\begin{proof}
+    由 $\lim_{n\to\infty} a_n = a \Rightarrow \forall \ve > 0, \exists N \in \mathbb{N}^*$, 当 $n > N$ 时, 有 $|a_n - a| < \ve$. 则
+    $$
+        ||a_n| - |a|| \les |a_n - a| < \ve.
+    $$
+    即 $\lim_{n\to\infty} |a_n| = |a|$.
+
+    反之不一定成立,如数列 $a_n = (-1)^n$, 则 $\lim_{n\to\infty} |a_n| = 1$, 但 $\{a_n\}$ 发散.
+
+    若 $\lim_{n\to\infty} |a_n| = 0$, 则 $\forall \ve > 0, \exists N \in \mathbb{N}^*$, 当 $n > N$ 时, 有 $||a_n| - 0| < \ve$. 则
+    $$
+        |a_n - 0| = |a_n| < \ve.
+    $$
+    即 $\lim_{n\to\infty} a_n = 0$.
+\end{proof}
+
+
+\begin{exercise}[1.2.5]
+    证明: 若 $\lim_{n\to\infty} a_n = 0$, 又 $|b_n| \les M$, ($n=1,2,\cdots$), 则 $\lim_{n\to\infty} a_n b_n = 0$.
+\end{exercise}
+
+\begin{proof}
+    由 $\lim_{n\to\infty} a_n = 0 \Rightarrow \forall \ve > 0, \exists N \in \mathbb{N}^*$, 当 $n > N$ 时, 有 $|a_n - 0| < \frac{\ve}{M}$. 则
+    $$
+        |a_n b_n - 0| = |a_n| |b_n| < \frac{\ve}{M} \cdot M = \ve.
+    $$
+    即 $\lim_{n\to\infty} a_n b_n = 0$.
+\end{proof}
+
+\begin{exercise}[1.2.6]
+    证明: 若数列 $\{a_n\}$ 满足 $\lim_{k\to\infty} a_{2k+1} = a$, 及 $\lim_{k\to\infty} a_{2k} = a$, 则 $\lim_{n\to\infty} a_n = a$.
+\end{exercise}
+
+\begin{proof}
+    按已知条件 \(\forall \varepsilon > 0, \exists N_1 > 0\),当 \(n > N_1\) 时 \(|x_{2n} - a| < \varepsilon\)。
+    又 \(\exists N_2 > 0\),当 \(n > N_2\) 时 \(|x_{2n+1} - a| < \varepsilon\)。于是令\( N = \max\{2N_1, 2N_2 + 1\}, \)
+    则 \(n > N\) 时恒有 \(|x_n - a| < \varepsilon\)。故 \(\lim_{n \to +\infty} x_n = a\)。
+
+\end{proof}
+
+\begin{exercise}[1.2.7]
+    证明下列数列不收敛:
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $a_n = (-1)^n \frac{n}{n+1}$;
+        \task $a_n = 5 \left(1 - \frac{2}{n}\right) + (-1)^n$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 取$a_{2n} = \frac{2n}{2n+1}, a_{2n+1} = -\frac{2n+1}{2n+2}$,则$\lim_{n \to \infty} a_{2n} = 1, \lim_{n \to \infty} a_{2n+1} = -1$,而如果$\{a_n\}$收敛,则$\lim_{n \to \infty} a_{2n} = \lim_{n \to \infty} a_{2n+1}$,矛盾.
+        \item 取$a_{2n} = 5 \left(1 - \frac{1}{n}\right)+1, a_{2n+1} = 5 \left(1 - \frac{1}{n}\right)-1$,则$\lim_{n \to \infty} a_{2n} = 6, \lim_{n \to \infty} a_{2n+1} = 4$,而如果$\{a_n\}$收敛,则$\lim_{n \to \infty} a_{2n} = \lim_{n \to \infty} a_{2n+1}$,矛盾.
+    \end{enumerate}
+\end{solution}
+
+
+\begin{exercise}[1.2.8]
+    求下列极限:
+    \begin{enumerate}[(1)]
+        \item $a_n = \frac{4n^2 + 5n + 2}{3n^2 + 2n + 1}$;
+        \item $a_n = \frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \cdots + \frac{1}{(n-1)n}$;
+        \item $a_n = \left(1 - \frac{1}{3}\right) \left(1 - \frac{1}{6}\right) \cdots \left(1 - \frac{1}{n(n+1)/2}\right), \ n=2, 3, \ldots$;
+        \item $a_n = \left(1 - \frac{1}{2^2}\right) \left(1 - \frac{1}{3^2}\right) \cdots \left(1 - \frac{1}{n^2}\right)$;
+        \item $a_n = (1+q)(1+q^2)(1+q^4) \cdots (1+q^{2^m}), \ (|q|<1)$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item $$\lim_{n \to \infty} a_n = \lim_{n \to \infty} \frac{4 + \frac{5}{n} + \frac{2}{n^2}}{3 + \frac{2}{n} + \frac{1}{n^2}} = \frac{\displaystyle \lim_{n \to \infty} 4 + \lim_{n \to \infty} \frac{5}{n} + \lim_{n \to \infty} \frac{2}{n^2}}{\displaystyle \lim_{n \to \infty} 3 + \lim_{n \to \infty} \frac{2}{n} + \lim_{n \to \infty} \frac{1}{n^2}} = \frac{4 + 0 + 0}{3 + 0 + 0} = \frac{4}{3}.$$
+        \item $$a_n = \left( 1 - \frac{1}{2} \right) + \left( \frac{1}{2} - \frac{1}{3} \right) + \cdots + \left( \frac{1}{n-1} - \frac{1}{n} \right) = 1 - \frac{1}{n},$$
+              $$\lim_{n \to \infty} a_n = \lim_{n \to \infty} 1 - \lim_{n \to \infty} \frac{1}{n} = 1 - 0 = 1.$$
+        \item $$a_n = \frac{2}{3} \cdot \frac{5}{6} \cdots \frac{(n+2)(n-1)}{n(n+1)} = \frac{2 \cdot 5 \cdots (n^2 + n - 2)}{3 \cdot 6 \cdots n(n+1)} = \frac{1}{2} \cdot \frac{n+2}{n+1} = \frac{n+2}{2(n+1)},$$
+              $$\lim_{n \to \infty} a_n = \lim_{n \to \infty} \frac{n+2}{2(n+1)} = \frac{1 + \frac{2}{n}}{2(1 + \frac{1}{n})} = \frac{1 + 0}{2(1 + 0)} = \frac{1}{2}.$$
+        \item $$a_n = \frac{1 \cdot 3}{2 \cdot 2} \cdot \frac{2 \cdot 4}{3 \cdot 3} \cdots \frac{(n-1)(n+1)}{n \cdot n} = \frac{1}{2} \cdot \frac{n+1}{n} = \frac{n+1}{2n},$$
+              $$\lim_{n \to \infty} a_n = \lim_{n \to \infty} \frac{n+1}{2n} = \frac{1 + \frac{1}{n}}{2} = \frac{1 + 0}{2} = \frac{1}{2}.$$
+        \item $$a_n = \frac{(1-q)(1+q)(1+q^2)(1+q^4) \cdots (1+q^{2^m})}{1-q} = \frac{1-q^{2^{m+1}}}{1-q},$$
+              $$\lim_{n \to \infty} a_n = \lim_{m \to \infty} \frac{1-q^{2^{m+1}}}{1-q} = \frac{\displaystyle 1 - \lim_{m \to \infty} q^{2^{m+1}}}{1-q} = \frac{1 - 0}{1-q} = \frac{1}{1-q}.$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.2.9]
+    若 $a_n \ne 0 (n=1, 2, \ldots)$ 且 $\lim_{n\to\infty} a_n = a$, 能否断定 $\lim_{n\to\infty} \frac{a_n}{a_{n+1}} = 1$?
+\end{exercise}
+
+\begin{solution}
+    不能. 例如 $a_n = \frac{1}{2^n}$, 则 $\lim_{n\to\infty} a_n = 0$, 但 $\lim_{n\to\infty} \frac{a_n}{a_{n+1}} = \lim_{n\to\infty} \frac{2^{n+1}}{2^n} = 2$.
+
+    一个可能的错误做法是$$\lim_{n\to\infty} \frac{a_n}{a_{n+1}} = \frac{\lim_{n\to\infty} a_n}{\lim_{n\to\infty} a_{n+1}} = \frac{a}{a} = 1,$$ 但这是不允许的, 因为 $\lim_{n\to\infty} a_n$ 可能为 $0$.
+\end{solution}
+
+\begin{exercise}[1.2.10]
+    若数列 $\{a_n\}, \{b_n\}$ 满足 $\lim_{n\to\infty} a_n \cdot b_n = 0$, 是否必有 $\lim_{n\to\infty} a_n = 0$ 或 $\lim_{n\to\infty} b_n = 0$?
+    若还假设 $\lim_{n\to\infty} a_n = a$, 回答同样的问题.
+\end{exercise}
+
+\begin{solution}
+    不一定. 例如 $a_n = \frac{1}{n}, b_n = n(-1)^n$, 则 $\lim_{n\to\infty} a_n \cdot b_n = \lim_{n\to\infty} (-1)^n$ 不存在, 但 $\lim_{n\to\infty} a_n = 0$.
+    当 $\lim_{n\to\infty} a_n = a$时成立. 假设$a \ne 0$ 时, 则$\lim_{n\to\infty} b_n = \lim_{n\to\infty} \frac{a_n b_n}{a_n} = \frac{0}{a} = 0$.
+\end{solution}
+
+\begin{exercise}[1.2.11]
+    若数列 $\{a_n\}$ 收敛, 数列 $\{b_n\}$ 发散, 则数列 $\{a_n \pm b_n\}, \{a_n \cdot b_n\}$ 的收敛性如何? 举例说明. 若数列 $\{a_n\}$ 与 $\{b_n\}$ 皆发散, 回答同样的问题.
+\end{exercise}
+
+\begin{solution}
+    设 $\{a_n\}$ 收敛于 $a$, $\{b_n\}$ 发散. 则 $\{a_n + b_n\}, \{a_n - b_n\}$ 都发散. 例如 $a_n = 1, b_n = n$, 则 $a_n + b_n = n + 1, a_n - b_n = 1 - n$ 都发散. 但 $\{a_n \cdot b_n\}$ 的收敛性不确定. 例如 $a_n = \frac{1}{n}, b_n = n$, 则 $a_n \cdot b_n = 1$ 收敛; 但 $a_n = 1, b_n = n$, 则 $a_n \cdot b_n = n$ 发散.
+
+    若 $\{a_n\}, \{b_n\}$ 都发散, 则 $\{a_n + b_n\}, \{a_n - b_n\}, \{a_n \cdot b_n\}$ 的收敛性都不确定. 例如 $a_n = n, b_n = n$, 则 $a_n + b_n = 2n, a_n - b_n = 0, a_n \cdot b_n = n^2$ 中只有 $a_n - b_n$ 收敛; 又如 $a_n = n, b_n = (-1)^n n$, 则 $a_n + b_n = n + (-1)^n n, a_n - b_n = n - (-1)^n n, a_n \cdot b_n = (-1)^n n^2$ 都发散.
+\end{solution}
+
+
+
+\begin{exercise}[1.2.12]
+    下面的推理是否正确?
+    \begin{enumerate}
+        \item 设数列 $\{a_n\}: a_1 = 1, a_{n+1} = 2a_n - 1 \ (n=1, 2, 3, \ldots)$, 求 $\lim_{n\to\infty} a_n$.
+            \par\noindent 解: 设 $\lim_{n\to\infty} a_n = a$, 在 $a_{n+1} = 2a_n - 1$ 两边取极限, 得 $a = 2a - 1$, 即 $a = 1$.
+
+        \item
+            \begin{align*}
+                &\lim_{n\to\infty} \left( \frac{1}{\sqrt{n^2+1}} + \frac{1}{\sqrt{n^2+2}} + \cdots + \frac{1}{\sqrt{n^2+n}} \right) \\
+                &= \lim_{n\to\infty} \frac{1}{\sqrt{n^2+1}} + \lim_{n\to\infty} \frac{1}{\sqrt{n^2+2}} + \cdots + \lim_{n\to\infty} \frac{1}{\sqrt{n^2+n}} \\
+                &= \underbrace{0 + 0 + \cdots + 0}_{\text{$n$个}} = 0.
+            \end{align*}
+
+        \item $\lim_{n\to\infty} \left(1 + \frac{1}{n}\right)^n = \left[\lim_{n\to\infty} \left(1 + \frac{1}{n}\right)\right]^n = 1^n = 1$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 错误. 不能在未知数列是否收敛时,就假设极限存在并对递推公式两边取极限. 实际上,该数列的通项公式为 $a_n = 1$，所以 $\lim_{n\to\infty} a_n = 1$.
+        \item 错误. 不能将一个数列的极限拆成无穷多个数列极限的和. 实际上
+              $$
+                  \frac{1}{\sqrt{n^2+k}} = \frac{1}{n\sqrt{1+\frac{k}{n^2}}} \sim \frac{1}{n}, (k=1,2,\ldots,n).
+              $$
+              因此
+              $$
+                  \lim_{n\to\infty} \left( \frac{1}{\sqrt{n^2+1}} + \frac{1}{\sqrt{n^2+2}} + \cdots + \frac{1}{\sqrt{n^2+n}} \right) \sim \lim_{n\to\infty} \left( \frac{1}{n} + \frac{1}{n} + \cdots + \frac{1}{n} \right) = 1.
+              $$
+        \item 错误. 不能将一个数列的极限拆成无穷多个数列极限的积. 实际上
+              $$
+                  \lim_{n\to\infty} \left(1 + \frac{1}{n}\right)^n = \e.
+              $$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.2.13]
+    设数列 $\{a_n\}$ 与 $\{b_n\}$ 分别收敛于 $a, b$. 若 $a > b$, 则从某一项开始, 有 $a_n > b_n$; 反之, 若从某项开始恒有 $a_n \ges b_n$, 则 $a \ges b$.
+\end{exercise}
+
+\begin{solution}
+这是保序性的直接推论.
+\end{solution}
+
+\begin{exercise}[1.2.14]
+    设数列 $\{a_n\}, \{b_n\}$ 分别收敛于 $a$ 及 $b$. 记 $c_n = \max(a_n, b_n)$, $d_n = \min(a_n, b_n) \ (n=1, 2, \ldots)$. 证明
+    $$
+        \lim_{n\to\infty} c_n = \max(a, b), \quad \lim_{n\to\infty} d_n = \min(a, b).
+    $$
+\end{exercise}
+
+\begin{solution}
+    由$\max(x,y) = \frac{x+y+|x-y|}{2}, \min(x,y) = \frac{x+y-|x-y|}{2}$,以及数列极限的四则运算和绝对值运算可得.
+\end{solution}
+
+\begin{exercise}[1.2.15]
+    求下列极限:
+    \begin{enumerate}[(1)]
+        \item $\lim_{n\to\infty} \left[\frac{1}{(n+1)^2} + \frac{1}{(n+2)^2} + \cdots + \frac{1}{(2n)^2}\right]$;
+        \item $\lim_{n\to\infty} (\sqrt[k]{(n+1)^k} - n^k)$, 其中 $0 < k < 1$;
+        \item $\lim_{n\to\infty} (\sqrt{2} \cdot \sqrt[4]{2} \cdot \sqrt[8]{2} \cdots \sqrt[2^n]{2})$;
+        \item $\lim_{n\to\infty} \left(\sqrt{n^2 - n + 2} - n\right)$;
+        \item $\lim_{n\to\infty} \left(\sqrt{\cos^2 1 + \cos^2 2 + \cdots + \cos^2 n}\right)$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item $$\lim_{n\to\infty} \sum_{k=1}^{n} \frac{1}{(n+k)^2} \les \lim_{n\to\infty} \sum_{k=1}^{n} \frac{1}{n^2} = \lim_{n\to\infty} \frac{n}{n^2} = 0.$$
+        \item $$\lim_{n\to\infty} ((n+1)^k - n^k) = \lim_{n\to\infty} n^k \left( \left( 1 + \frac{1}{n} \right)^k - 1 \right) \les \lim_{n\to\infty} n^k \left( \left( 1 + \frac{1}{n} \right)^1 - 1 \right)  = \lim_{n\to\infty} n^{1-k} = 0.$$
+        \item $$\lim_{n\to\infty} \prod_{k=1}^{n} \sqrt[2^k]{2} = \lim_{n\to\infty} 2^{\sum_{k=1}^{n} \frac{1}{2^k}} = 2^1 = 2.$$
+        \item 由$\frac{1}{n} \ln(n^2 - n + 2) = O\left( \frac{\ln n}{n} \right) = o(1)$,故
+              $$\lim_{n\to\infty} \sqrt[n]{n^2 - n + 2} = \lim_{n\to\infty} \e^{\lim_{n\to\infty} \frac{1}{n} \ln n^2 - n + 2} = \e^0 = 1.$$
+        \item $$1 = \lim_{n\to\infty} \sqrt[n]{\cos^1} \les \lim_{n\to\infty} \sqrt[n]{\cos^2 1 + \cos^2 2 + \cdots + \cos^2 n} \les \lim_{n\to\infty} \sqrt[n]{n} = 1.$$
+    \end{enumerate}
+\end{solution}
+
+
+
+\begin{exercise}[1.2.16]
+    设 $a_1, a_2, \ldots, a_m$ 为 $m$ 个正数, 证明:
+    $$
+    \lim_{n\to\infty} \sqrt[n]{a_1^n + a_2^n + \cdots + a_m^n} = \max(a_1, a_2, \ldots, a_m).
+    $$
+\end{exercise}
+
+\begin{solution}
+    设 $a_k = \max(a_1, a_2, \ldots, a_m)$，则
+    $$
+        a_k = \sqrt[n]{a_k^n} \les \sqrt[n]{a_1^n + a_2^n + \cdots + a_m^n} \les \sqrt[n]{m a_k^n} = m^{\frac{1}{n}} a_k.
+    $$
+    由夹逼定理可得
+    $$
+        \lim_{n\to\infty} \sqrt[n]{a_1^n + a_2^n + \cdots + a_m^n} = a_k = \max(a_1, a_2, \ldots, a_m).
+    $$
+\end{solution}
+
+    \begin{exercise}[1.2.17]
+    证明下列数列收敛:
+    \begin{enumerate}[(1)]
+        \item $a_n = \left(1 - \frac{1}{2}\right) \left(1 - \frac{1}{2^2}\right) \cdots \left(1 - \frac{1}{2^n}\right)$;
+        \item $a_n = \frac{1}{3+1} + \frac{1}{3^2+1} + \cdots + \frac{1}{3^n+1}$;
+        \item $a_n = \alpha_0 + \alpha_1 q + \cdots + \alpha_n q^n$, 其中 $|\alpha_k| \le M, (k=1, 2, \ldots)$, 而 $|q| < 1$;
+        \item $a_n = \frac{\cos 1}{1 \cdot 2} + \frac{\cos 2}{2 \cdot 3} + \frac{\cos 3}{3 \cdot 4} + \cdots + \frac{\cos n}{n(n+1)}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[(1)]
+        \item 由$1-\frac{1}{2^n} < 1$,可知$\{a_n\}$单调减,且$a_n > 0$,因此$\{a_n\}$收敛.
+        \item 由$a_n < \sum_{k=1}^n \frac{1}{3^k} < \frac 12$,可知$\{a_n\}$有上界,且$a_n > 0$,因此$\{a_n\}$收敛.
+        \item 利用Cauchy收敛准则,对$\forall \ve >0$,取$N = \left\lfloor \log_{|q|} \frac{\ve(1-|q|)}{2M} \right\rfloor + 1$,则当$m,n>N$时,$$|a_m-a_n| = |\alpha_{n+1}q^{n+1}+\cdots+\alpha_m q^m| \les M(|q|^{n+1}+|q|^{n+2}+\cdots) = M\frac{|q|^{n+1}}{1-|q|} < \ve.$$
+        \item 利用Cauchy收敛准则,对$\forall \ve >0$,取$N = \left\lfloor \frac{1}{\ve} \right\rfloor + 1$,则当$m,n>N$时,$$|a_m-a_n| = \left|\frac{\cos(n+1)}{(n+1)(n+2)}+\cdots+\frac{\cos m}{m(m+1)}\right| \les \sum_{k=n+1}^m \frac{1}{k(k+1)} = \frac{1}{n+1} - \frac{1}{m+1} < \frac{1}{n+1} < \ve.$$
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}[1.2.18]
+    证明下列数列收敛, 并求出其极限:
+    \begin{enumerate}[(1)]
+        \item $a_n = \sqrt[n]{n^2}$;
+        \item $a_n = \frac{n}{c^n}, \ (c>1)$;
+        \item $a_1 = \frac{c}{2}, \ a_{n+1} = \frac{c}{2} + \frac{a_n^2}{2} \ (0 \le c \le 1)$;
+        \item $a > 0, a_0 > 0, a_{n+1} = \frac{1}{2} \left(a_n + \frac{a}{a_n}\right)$ (提示: 先证明 $a_n^2 \ge a$);
+        \item $a_0 = 1, \ a_n = 1 + \frac{a_{n-1}}{a_{n-1} + 1}$;
+        \item $a_n = \sin \sin \cdots \sin 1$ ($n$ 个 $\sin$).
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 由$a_n > 0$,且$\frac{a_{n+1}}{a_n} = \frac{n+1}{n} \cdot \frac{1}{c} < 1$在充分大时成立,
+              \begin{remark}
+                  详细而言,当$n > \frac{1}{c-1}$时,有$\frac{a_{n+1}}{a_n} < 1$.但数列极限与有限项无关,我们只需要考虑充分大的$n$.
+              \end{remark}
+              可知$\{a_n\}$在充分大时单调减,因此$\{a_n\}$收敛.又由Stolz定理,有$$\lim_{n \to \infty} a_n = \lim_{n \to \infty} \frac{n}{c^n} = \lim_{n \to \infty} \frac{(n+1)-n}{c^{n+1}-c^n} = \lim_{n \to \infty} \frac{1}{c^n(c-1)} = 0.$$
+        \item $$a_{n+1} - a_n = \frac{1}{2}(a_{n+1}-a_n)(a_{n+1}+a_n)$$
+              由$a_2 - a_1 = \left( \frac{c}{2} \right)^2 > 0 $,可递归的得知$a_{n+1} - a_n > 0$,因此$\{a_n\}$单调增,且$a_1 < c$,归纳的可得$a_{n+1} < \frac{c}{2} + \frac{c^2}{2} < \frac{c}{2} + \frac{c}{2} = c$,因此$\{a_n\}$有上界,故$\{a_n\}$收敛.设$\lim_{n \to \infty} a_n = a$,则$a = \frac{c}{2} + \frac{a^2}{2} \Rightarrow a^2 - 2a + c = 0 \Rightarrow a = 1 \pm \sqrt{1-c}$,又由$a_n > 0$,可知$a = 1 - \sqrt{1-c}$.
+        \item 由均值不等式,$$a_{n+1} = \left( \frac{1}{2} \left( a_n + \frac{a}{a_n} \right) \right)^2 \ges a$$
+              于是
+              $$a_{n+1} - a_n = \frac{a - a_n^2}{2a_n} \les 0$$
+              因此$\{a_n\}$在$n \ges 1$时单调减,且有下界$\sqrt{a}$,因此$\{a_n\}$收敛.设$\lim_{n \to \infty} a_n = a$,则$a = \frac{1}{2} \left( a + \frac{a}{a} \right) = \sqrt{a}$.
+        \item $$a_n - a_{n-1} = \frac{1+ a_{n-1} - a_{n-1}^2}{a_{n-1} + 1} $$
+              $$1 + a_n - a_n^2 = 1 + 1 + \frac{a_{n-1}}{a_{n-1} + 1} - \left( 1 + \frac{a_{n-1}}{a_{n-1} + 1} \right)^2 = \frac{1 + a_{n-1} - a_{n-1}^2}{(a_{n-1} + 1)^2}$$
+              由$1+a_0 -a_0^2 = 1 > 0$归纳的可得$1 + a_n - a_n^2 > 0$,因此$a_n - a_{n-1} > 0$,即$\{a_n\}$单调增,且
+              $1 + a_n - a_n^2 > 0 \Rightarrow a_n < \frac{1 + \sqrt{5}}{2}$有上界,
+              因此$\{a_n\}$收敛.递推式两侧取极限,得$a = 1 + \frac{a}{a+1} \Rightarrow a^2 - a - 1 = 0 \Rightarrow a = \frac{1 + \sqrt{5}}{2}$.
+        \item $a_n = \sin a_{n-1} < a_{n-1}$,因此$\{a_n\}$单调减,且$a_n > 0$,因此$\{a_n\}$收敛.设$\lim_{n \to \infty} a_n = a$,则$a = \sin a \Rightarrow a = 0$.
+    \end{enumerate}
+\end{solution}
+
+
+\begin{exercise}[1.2.19]
+    设 $a_n \le a \le b_n \ (n=1, 2, \ldots)$, 且 $\lim_{n\to\infty} (a_n - b_n) = 0$. 求证: $\lim_{n\to\infty} a_n = a$, $\lim_{n\to\infty} b_n = a$.
+\end{exercise}
+
+
+\begin{solution}
+    由$\lim_{n\to\infty} (a_n - b_n) = 0$,对$\forall \ve > 0$,存在$N\in \mathbb{N}^*$,使得当$n>N$时,$|a_n - b_n| < \ve$.又由$a_n \le a \le b_n$,可知$|a_n - a| = a -a_n \les b_n - a_n < \ve$,同理$|b_n - a| < \ve$.因此$\lim_{n\to\infty} a_n = a$, $\lim_{n\to\infty} b_n = a$.
+\end{solution}
+
+\begin{example}\label{exp:sqrt_mean}
+    设$a_n > 0, n = 1, 2, \ldots$, 且$\lim_{n\to\infty} a_n = a$. 求证: $\lim_{n\to\infty} \sqrt[n]{a_1 a_2 \cdots a_n} = a$.
+\end{example}
+
+\begin{proof}
+    \begin{enumerate}[(1)]
+        \item $a=0$时,$$0 \les \sqrt[n]{a_1 a_2 \cdots a_n} \les \frac{a_1 + a_2 + \cdots + a_n}{n} \overset{\text{Stolz 定理}}{=} \frac{a_n}{1} \to 0.$$
+              由夹逼定理,得证.
+        \item $a>0$时,$$\frac{n}{\frac{1}{a_1} + \frac{1}{a_2} + \cdots + \frac{1}{a_n}} \les \sqrt[n]{a_1 a_2 \cdots a_n} \les \frac{a_1 + a_2 + \cdots + a_n}{n}.$$
+              由Stolz定理,有$$\lim_{n\to\infty} \frac{n}{\frac{1}{a_1} + \frac{1}{a_2} + \cdots + \frac{1}{a_n}} = \lim_{n\to\infty} \frac{1}{\frac{1}{a_n}} = a,$$且$$\lim_{n\to\infty} \frac{a_1 + a_2 + \cdots + a_n}{n} = \lim_{n\to\infty} a_n = a.$$
+              由夹逼定理,得证.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}[1.2.20]
+    证明: 若 $a_n > 0$, 且 $\lim_{n\to\infty} \frac{a_{n}}{a_{n+1}} = l > 1$, 则 $\lim_{n\to\infty} a_n = 0$.
+\end{exercise}
+
+\begin{solution}
+    由\autoref{exp:sqrt_mean},可知$\lim_{n\to\infty} \sqrt[n]{\frac{a_{n}}{a_{n-1}} \cdot \frac{a_{n-1}}{a_{n-2}} \cdots \frac{a_2}{a_1}} = \lim_{n\to\infty} \frac{a_n}{a_{n-1}} = \frac{1}{l} < 1$.因此$\exists r = \frac{1 + \frac{1}{l}}{2} \in (0,1)$,使得当$n$充分大时,$\sqrt[n]{\frac{a_{n}}{a_{n-1}} \cdot \frac{a_{n-1}}{a_{n-2}} \cdots \frac{a_2}{a_1}} < r$.由此可知,$$\frac{a_n}{a_{n-1}} \cdot \frac{a_{n-1}}{a_{n-2}} \cdots \frac{a_2}{a_1} < r^n,$$即$a_n < a_1 r^n.$因此$\lim_{n\to\infty} a_n = 0$.
+\end{solution}
+
+\begin{exercise}[1.2.21]
+    设数列 $\{a_n\}$, $\{b_n\}$ 是正数列, 满足 $\frac{a_{n+1}}{a_n} \le \frac{b_{n+1}}{b_n}, \ n=1, 2, \ldots$. 求证: 若 $\{b_n\}$ 收敛, 则 $\{a_n\}$ 收敛.
+\end{exercise}
+
+\begin{solution}
+    若$\lim_{n\to\infty} b_n = 0$,则由$a_n = a_1 \cdot \frac{a_2}{a_1} \cdot \frac{a_3}{a_2} \cdots \frac{a_n}{a_{n-1}} \les a_1 \cdot \frac{b_2}{b_1} \cdot \frac{b_3}{b_2} \cdots \frac{b_n}{b_{n-1}} = a_1 \cdot \frac{b_n}{b_1}$可知$\lim_{n\to\infty} a_n = 0$.
+    若$\lim_{n\to\infty} b_n = b > 0$,由原式有$\frac{a_{n+1}}{b_{n+1}} \le \frac{a_n}{b_n}$,因此$\left\{ \frac{a_n}{b_n} \right\}$单调减,且$\frac{a_n}{b_n} > 0$,因此$\left\{ \frac{a_n}{b_n} \right\}$收敛,设$\lim_{n\to\infty} \frac{a_n}{b_n} = c$,则$\lim_{n\to\infty} a_n = \lim_{n\to\infty} b_n \cdot \lim_{n\to\infty} \frac{a_n}{b_n} = bc$.
+\end{solution}
+
+\begin{exercise}[1.2.22]
+    利用极限 $\lim_{n\to\infty} \left(1 + \frac{1}{n}\right)^n = \e$, 求下列数列的极限:
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $a_n = \left(1 + \frac{1}{2n+1}\right)^{2n+1}$;
+        \task $a_n = \left(1 - \frac{1}{n-2}\right)^{n+1}$;
+        \task $a_n = \left(\frac{1+2n}{2+2n}\right)^{2n^3}$;
+        \task $a_n = \left(1 + \frac{1}{n^3}\right)^{n^3}$.
+    \end{tasks}
+\end{exercise}
+
+简要说明:由$\lim_{n\to\infty} \left(1 + \frac{1}{n}\right)^n = \e$,故$\left\{ \left(1 + \frac{1}{n}\right)^n \right\}$的任意子列$\left\{ \left(1 + \frac{1}{n_k}\right)^{n_k} \right\}$也收敛于$\e$.因此,我们可以通过适当的变形,将题目中的数列变形为$\left(1 + \frac{1}{n_k}\right)^{n_k}$的形式,从而求出极限.
+
+在此过程中
+\begin{proposition*}
+    设数列$\{a_n\}$收敛于$a$, $a_n > 0, a > 0$. $\{b_n\}$收敛于$b$.则$\lim_{n \to \infty} a_n^{b_n} = a^b$.
+\end{proposition*}
+也相同有用.
+
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item $\left(1 + \frac{1}{2n+1}\right)^{2n+1} = \left(1 + \frac{1}{m}\right)^m \big|_{m=2n+1} \to \e$;
+    \item $\left(1 - \frac{1}{n-2}\right)^{n+1} = \left(1 + \frac{1}{n-2}\right)^{{n-2} \cdot \frac{n+1}{n-2}} = \e^1 = \e$;
+    \item $\left(1 - \frac{1}{n+2} \right)^{-{(n+2)} \cdot \left( - \frac{n}{n+2} \right)} = \e^{-1}$;
+    \item $\left(1 + \frac{1}{n^3}\right)^{n^3 \cdot 2} = \e^2$.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.2.23]
+    设 $\lim_{n\to\infty} a_n = \infty$, 且 $|b_n| \ge b > 0 \ (n=1, 2, \ldots)$, 则 $\lim_{n\to\infty} a_n b_n = \infty$.
+\end{exercise}
+
+\begin{solution}
+    对$\forall M > 0$,由$\lim_{n\to\infty} a_n = \infty$,存在$N\in \mathbb{N}^*$,使得当$n>N$时,$a_n > \frac{M}{b}$.又由$|b_n| \ge b > 0$,可知$|a_n b_n| \ges a_n |b| > M$.因此$\lim_{n\to\infty} a_n b_n = \infty$.
+\end{solution}
+
+\begin{exercise}[1.2.24]
+    确定 $n \to \infty$ 时, $\sqrt[n]{n!}$ 与 $n \sin \frac{n \pi}{2} \ (n \ge 1)$ 是否有界, 是否趋于无穷大.
+\end{exercise}
+
+\begin{solution}
+    $\sqrt[n]{n!}$无界,且趋于无穷大.由均值不等式,$$\sqrt[n]{n!} \ges \frac{n}{\frac{1}{1} + \frac{1}{2} + \cdots + \frac{1}{n}} \overset{\text{Stolz 定理}}{=} \frac{1}{\frac{1}{n}} = n \to \infty.$$
+
+    无界,但是不趋于无穷大.当$n=4k+1$时,$n \sin \frac{n \pi}{2} = 4k+1$,趋于无穷大;当$n=4k+3$时,$n \sin \frac{n \pi}{2} = -(4k+3)$,趋于负无穷大;当$n$为偶数时,$n \sin \frac{n \pi}{2} = 0$.
+\end{solution}
+
+\begin{exercise}[1.2.25]
+    设数列 $\{a_n\}$ 由 $a_1 = 1, a_{n+1} = a_n + \frac{1}{a_n} \ (n \ge 1)$ 定义, 证明: $a_n \to +\infty \ (n \to \infty)$.
+\end{exercise}
+
+\begin{solution}
+    由$a_{n+1}^2 - a_n^2 = (a_{n+1} - a_n)(a_{n+1} + a_n) = \frac{1}{a_n}(a_n + a_n + \frac{1}{a_n}) = 2 + \frac{1}{a_n^2} > 2$,可知$a_n^2 > 2(n-1)$,因此$\lim_{n\to\infty} a_n = \infty$.
+\end{solution}
+
+\begin{exercise}[1.2.26]
+    给出 $\frac{0}{0}$ 型 Stolz 定理的证明.
+\end{exercise}

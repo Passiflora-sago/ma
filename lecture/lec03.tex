@@ -1,0 +1,416 @@
+\chapter{函数极限}
+
+\subsection*{三角函数,反三角函数与双曲函数}
+
+正割函数$\sec x = \frac{1}{\cos x}$,余割函数$\csc x = \frac{1}{\sin x}$,余切函数$\cot x = \frac{1}{\tan x}$.六个三角函数之间有如下关系:
+
+\begin{tasks}[label=(\arabic*)](2)
+    \task $\sin x = \tan x \cdot \cos x$
+    \task $\cos x = \sin x \cdot \cot x$
+    \task $\tan x = \sin x \cdot \sec x$
+    \task $1 + \tan^2 x = \sec^2 x$
+    \task $1 + \cot^2 x = \csc^2 x$
+    \task $\sec^2 x + \csc^2 x = \sec^2 x \cdot \csc^2 x$
+    \task $\sec 2x = \frac{1+\tan^2 x}{1-\tan^2 x}$
+    \task $\csc 2x = \frac{1+\tan^2 x}{2\tan x} $
+\end{tasks}
+
+$y=\sin x$在$R$上不单调,不存在反函数.我们取$y=\sin x$在$[-\dfrac{\pi}{2},\dfrac{\pi}{2}]$上的反函数,记为$y=\arcsin x$.因此$f(x) = \sin (\arcsin x) ,g(x) = \arcsin (\sin x)$, 都不一定等于$x$.
+
+反三角函数有如下相互关系:
+
+\begin{enumerate}[(1)]
+    \item $\arcsin x + \arccos x = \dfrac{\pi}{2}$
+    \item $\arcsin(-x) = -\arcsin x$
+    \item $\arccos(-x) = \pi - \arccos x$
+\end{enumerate}
+
+正割函数$\sec x = \frac{1}{\cos x}$,余割函数$\csc x = \frac{1}{\sin x}$,余切函数$\cot x = \frac{1}{\tan x}$.六个三角函数之间有如下关系:
+
+\begin{tasks}[label=(\arabic*)](2)
+    \task $\sin x = \tan x \cdot \cos x$
+    \task $\cos x = \sin x \cdot \cot x$
+    \task $\tan x = \sin x \cdot \sec x$
+    \task $1 + \tan^2 x = \sec^2 x$
+    \task $1 + \cot^2 x = \csc^2 x$
+    \task $\sec^2 x + \csc^2 x = \sec^2 x \cdot \csc^2 x$
+    \task $\sec 2x = \frac{1+\tan^2 x}{1-\tan^2 x}$
+    \task $\csc 2x = \frac{1+\tan^2 x}{2\tan x} $
+\end{tasks}
+
+双曲正弦函数$\sinh x = \dfrac{\e^x - \e^{-x}}{2}$,双曲余弦函数$\cosh x = \dfrac{\e^x + \e^{-x}}{2}$,双曲正切函数$\tanh x = \dfrac{\sinh x}{\cosh x} = \dfrac{\e^x - \e^{-x}}{\e^x + \e^{-x}}$.双曲函数有如下性质:
+
+\begin{tasks}[label=(\arabic*)](2)
+    \task $\sinh (-x) = -\sinh x$
+    \task $\cosh (-x) = \cosh x$
+    \task $\sinh (x+y) = \sinh x \cosh y + \cosh x \sinh y$
+    \task $\cosh (x+y) = \cosh x \cosh y + \sinh x \sinh y$
+    \task $\cosh^2 x - \sinh^2 x = 1$
+    \task $\sinh 2x = 2\sinh x \cosh x$
+    \task $\cosh 2x = 2\cosh^2 x - 1 = 1 + 2\sinh^2 x$
+    \task $\sinh' x = \cosh x $
+    \task $\cosh' x = \sinh x $
+\end{tasks}
+
+\section{函数极限的定义}
+
+之前我们以$\varepsilon$-$N$语言定义了数列极限,
+\begin{definition}[数列极限]\label{def:sequence_limit_4} \quad
+    \begin{enumerate}
+        \item $\lim_{n \to \infty} a_n = a \Leftrightarrow \forall \ve >0, \exists N\in N^*, \forall n>N, |a_n-a|<\ve$.
+        \item $\lim_{n \to \infty} a_n = +\infty \Leftrightarrow \forall M>0, \exists N\in N^*, \forall n>N, a_n>M$.
+        \item $\lim_{n \to \infty} a_n = -\infty \Leftrightarrow \forall M>0, \exists N\in N^*, \forall n>N, a_n<-M$.
+        \item $\lim_{n \to \infty} a_n = \infty \Leftrightarrow \forall M>0, \exists N\in N^*, \forall n>N, |a_n|>M$.
+    \end{enumerate}
+\end{definition}
+
+类似地,我们可以用$\varepsilon$-$\delta$语言定义函数极限.
+\begin{definition}
+    设$x_0$为常数,函数在$x_0$处的极限为$a$定义为:
+    $$\forall \ve >0, \exists \delta >0, \forall x, 0<|x-x_0|<\delta \Rightarrow |f(x)-a|<\ve.$$
+
+    若$x$从大于$x_0$的一侧趋近于$x_0$,则称为$x_0$的右极限,记为$$\lim_{x \to x_0^+} f(x) = a \Leftrightarrow \forall \ve >0, \exists \delta >0, \forall x, x_0<x<x_0+\delta \Rightarrow |f(x)-a|<\ve; $$
+
+    若$x$从小于$x_0$的一侧趋近于$x_0$,则称为$x_0$的左极限,记为$$\lim_{x \to x_0^-} f(x) = a \Leftrightarrow \forall \ve >0, \exists \delta >0, \forall x, x_0-\delta<x<x_0 \Rightarrow |f(x)-a|<\ve.$$
+\end{definition}
+
+考虑 $\lim_{x \to \alpha} f(x) = \beta $,$\beta$可以是常数$A$, $+\infty$, $-\infty$, $\infty$. $\alpha$可以是常数$x_0$, $x_0^+$, $x_0^-$, $+\infty$, $-\infty$. 一共有24种情况.我们全部列举如下:
+
+\begin{enumerate}[(1)]
+    \item $\lim_{x \to x_0} f(x) = A \Leftrightarrow \forall \ve >0, \exists \delta >0, \forall 0<|x-x_0|<\delta \Rightarrow |f(x)-A|<\ve$.
+    \item $\lim_{x \to x_0^+} f(x) = A \Leftrightarrow \forall \ve >0, \exists \delta >0, \forall x_0<x<x_0+\delta \Rightarrow |f(x)-A|<\ve$.
+    \item $\lim_{x \to x_0^-} f(x) = A \Leftrightarrow \forall \ve >0, \exists \delta >0, \forall x_0-\delta<x<x_0 \Rightarrow |f(x)-A|<\ve$.
+    \item $\lim_{x \to x_0} f(x)= + \infty \Leftrightarrow \forall M>0, \exists \delta >0, \forall 0<|x-x_0|<\delta \Rightarrow f(x)>M$.
+    \item $\lim_{x \to x_0^+} f(x)= + \infty \Leftrightarrow \forall M>0, \exists \delta >0, \forall x_0<x<x_0+\delta \Rightarrow f(x)>M$.
+    \item $\lim_{x \to x_0^-} f(x)= + \infty \Leftrightarrow \forall M>0, \exists \delta >0, \forall x_0-\delta<x<x_0 \Rightarrow f(x)>M$.
+    \item $\lim_{x \to x_0} f(x)= - \infty \Leftrightarrow \forall M>0, \exists \delta >0, \forall 0<|x-x_0|<\delta \Rightarrow f(x)<-M$.
+    \item $\lim_{x \to x_0^+} f(x)= - \infty \Leftrightarrow \forall M>0, \exists \delta >0, \forall x_0<x<x_0+\delta \Rightarrow f(x)<-M$.
+    \item $\lim_{x \to x_0^-} f(x)= - \infty \Leftrightarrow \forall M>0, \exists \delta >0, \forall x_0-\delta<x<x_0 \Rightarrow f(x)<-M$.
+    \item $\lim_{x \to x_0} f(x)= \infty \Leftrightarrow \forall M>0, \exists \delta >0, \forall 0<|x-x_0|<\delta \Rightarrow |f(x)|>M$.
+    \item $\lim_{x \to x_0^+} f(x)= \infty \Leftrightarrow \forall M>0, \exists \delta >0, \forall x_0<x<x_0+\delta \Rightarrow |f(x)|>M$.
+    \item $\lim_{x \to x_0^-} f(x)= \infty \Leftrightarrow \forall M>0, \exists \delta >0, \forall x_0-\delta<x<x_0 \Rightarrow |f(x)|>M$.
+    \item $\lim_{x \to +\infty} f(x) = A \Leftrightarrow \forall \ve >0, \exists X_0 >0, \forall x>X_0 \Rightarrow |f(x)-A|<\ve$.
+    \item $\lim_{x \to -\infty} f(x) = A \Leftrightarrow \forall \ve >0, \exists X_0 >0, \forall x<-X_0 \Rightarrow |f(x)-A|<\ve$.
+    \item $\lim_{x \to \infty} f(x) = A \Leftrightarrow \forall \ve >0, \exists X_0 >0, \forall |x|>X_0 \Rightarrow |f(x)-A|<\ve$.
+    \item $\lim_{x \to +\infty} f(x) = +\infty \Leftrightarrow \forall M>0, \exists X_0 >0, \forall x>X_0 \Rightarrow f(x)>M$.
+    \item $\lim_{x \to +\infty} f(x) = -\infty \Leftrightarrow \forall M>0, \exists X_0 >0, \forall x>X_0 \Rightarrow f(x)<-M$.
+    \item $\lim_{x \to \infty} f(x) = \infty \Leftrightarrow \forall M>0, \exists X_0 >0, \forall |x|>X_0 \Rightarrow |f(x)|>M$.
+    \item $\lim_{x \to -\infty} f(x) = +\infty \Leftrightarrow \forall M>0, \exists X_0 >0, \forall x<-X_0 \Rightarrow f(x)>M$.
+    \item $\lim_{x \to -\infty} f(x) = -\infty \Leftrightarrow \forall M>0, \exists X_0 >0, \forall x<-X_0 \Rightarrow f(x)<-M$.
+    \item $\lim_{x \to -\infty} f(x) = \infty \Leftrightarrow \forall M>0, \exists X_0 >0, \forall |x|>X_0 \Rightarrow |f(x)|>M$.
+    \item $\lim_{x \to \infty} f(x) = +\infty \Leftrightarrow \forall M>0, \exists X_0 >0, \forall |x|>X_0 \Rightarrow f(x)>M$.
+    \item $\lim_{x \to \infty} f(x) = -\infty \Leftrightarrow \forall M>0, \exists X_0 >0, \forall |x|>X_0 \Rightarrow f(x)<-M$.
+    \item $\lim_{x \to \infty} f(x) = \infty \Leftrightarrow \forall M>0, \exists X_0 >0, \forall |x|>X_0 \Rightarrow |f(x)|>M$.
+\end{enumerate}
+
+\begin{remark}
+    也有的时候将函数$f(x)$在$x_0$处的左极限记为 $f(x_0 - 0)$,右极限记为 $f(x_0 + 0)$.
+\end{remark}
+
+\begin{theorem}
+    $\lim _{x \to x_0} f(x) = a \Leftrightarrow \lim _{x \to x_0^+} f(x) = a = \lim _{x \to x_0^-} f(x)$.($x_0$为常数)
+\end{theorem}
+
+\begin{proof}
+    $\Rightarrow$:
+    $\forall \ve >0, \exists \delta >0, \forall x, 0<|x-x_0|<\delta \Rightarrow |f(x)-a|<\ve$. 即对 $ \forall 0 < x - x_0 <\delta \Leftrightarrow x_0 < x < x_0 + \delta$ 有 $|f(x)-a|<\ve$, 即 $\lim _{x \to x_0^+} f(x) = a$.同理可证 $\lim _{x \to x_0^-} f(x) = a$.
+
+    $\Leftarrow$:
+    $\forall \ve > 0 , \exists \delta_1 > 0, \forall x, x_0 < x < x_0 + \delta_1 \Rightarrow |f(x) - a| < \ve$.
+    对上述 $\ve$ , $\exists \delta_2 > 0, \forall x, x_0 - \delta_2 < x < x_0 \Rightarrow |f(x) - a| < \ve$. 取 $\delta = \min\{\delta_1, \delta_2\}$, 则 $\forall x, 0 < |x - x_0| < \delta \Rightarrow |f(x) - a| < \ve$. 即 $\lim _{x \to x_0} f(x) = a$.
+\end{proof}
+
+\begin{theorem}
+    $\lim _{x \to \infty} = a \Leftrightarrow \lim _{x \to +\infty} f(x) = a = \lim _{x \to -\infty} f(x)$.
+\end{theorem}
+
+\begin{proof}
+    令$x = \frac1t$, 则 $x \to \infty \Leftrightarrow t \to 0$. 即 $\lim _{x \to \infty} f(x) = a \Leftrightarrow \lim _{t \to 0} f\left( \frac1t \right) = a \Leftrightarrow \lim _{t \to 0^+} f\left( \frac1t \right) = a = \lim _{t \to 0^-} f\left( \frac1t \right) \Leftrightarrow \lim _{x \to +\infty} f(x) = a = \lim _{x \to -\infty} f(x)$.
+
+    上述最后一个等式由$\lim_{t \to 0^+} f\left( \frac1t \right) = \lim_{x \to +\infty} f(x)$, $\lim_{t \to 0^-} f\left( \frac1t \right) = \lim_{x \to -\infty} f(x)$给出.
+\end{proof}
+
+\begin{example}
+    $ \lim_{x \to +\infty} \left(1+\frac 1x \right)^x = \lim_{x \to -\infty} \left(1+\frac 1x \right)^x = \lim _{x \to \infty} \left(1+\frac 1x \right)^x = \e$.
+\end{example}
+
+\section{函数极限的四则运算法则}
+
+\begin{theorem}
+    设$x_0,a,b,c_1,c_2$为常数,令$\lim _{x \to x_0} f(x) = a, \lim _{x \to x_0} g(x) = b$,则:
+
+    \begin{enumerate}
+        \item $\lim _{x \to x_0} (c_1 f(x) + c_2 g(x)) = c_1 a + c_2 b$;
+        \item $\lim _{x \to x_0} f(x)g(x) = a \cdot b$;特别地,$\lim _{x \to x_0} f^2(x) = a^2$;
+        \item $\lim _{x \to x_0} \dfrac{f(x)}{g(x)} = \dfrac{a}{b} (b \neq 0)$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 目的时要证明对于任意的正数 $\epsilon$, 能够找到一个正数 $\delta$, 使得当 $0 < |x - x_0| < \delta$ 时，$|(c_1 f(x) + c_2 g(x)) - (c_1 a + c_2 b)| \les \epsilon$。
+
+              由极限的定义，存在 $\delta_1, \delta_2$，使得当 $0 < |x - x_0| < \delta_1$ 时，
+              $$|f(x) - a| < \frac{\epsilon}{2|c_1|},$$
+              当 $0 < |x - x_0| < \delta_2$ 时，
+              $$|g(x) - b| < \frac{\epsilon}{2|c_2|}.$$
+
+              取 $\delta = \min(\delta_1, \delta_2)$，则当 $0 < |x - x_0| < \delta$ 时，同时有
+              $$ |f(x) - a| < \frac{\epsilon}{2|c_1|}, \quad |g(x) - b| < \frac{\epsilon}{2|c_2|}, $$
+              因此有
+              $$ |c_1 f(x) + c_2 g(x) - (c_1 a + c_2 b)| = |c_1(f(x) - a) + c_2(g(x) - b)| \les |c_1| |f(x) - a| + |c_2| |g(x) - b| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon. $$
+
+        \item 证明类似于第一小题。对于任意的正数 $\epsilon$，存在 $\delta_1$ 和 $\delta_2$，使得当 $0 < |x - x_0| < \delta_1$ 时，
+              $$ |f(x) - a| < \frac{\epsilon}{2|b|}, $$
+              当 $0 < |x - x_0| < \delta_2$ 时，
+              $$ |g(x) - b| < \frac{\epsilon}{2|a|}. $$
+
+              取 $\delta = \min(\delta_1, \delta_2)$，则当 $0 < |x - x_0| < \delta$ 时，同时有
+              $$ |f(x) - a| < \frac{\epsilon}{2|b|}, \quad |g(x) - b| < \frac{\epsilon}{2|a|}, $$
+              因此有
+              $$ |f(x)g(x) - ab| = |f(x)g(x) - af(x) + af(x) - ab| \les |f(x)| |g(x) - b| + |g(x) - b| |f(x) - a|. $$
+              由于 $f(x)$ 和 $g(x)$ 在 $x_0$ 附近连续，故当 $x \to x_0$ 时，$|f(x)|$ 和 $|g(x)|$ 被有界地控制。因此我们有
+              $$ |f(x)g(x) - ab| < \epsilon. $$
+
+        \item 因为 $\frac{f(x)}{g(x)} = f(x) \cdot \frac{1}{g(x)}$，且 $\lim_{x \to x_0} g(x) = b \neq 0$，我们只需证明数列 $\left\{\frac{1}{g(x)}\right\}$ 收敛于 $\frac{1}{b}$。假设 $b > 0$，则
+              $$ \left| \frac{1}{g(x)} - \frac{1}{b} \right| = \left| \frac{|g(x) - b|}{|g(x) b|} \right|. $$
+              由于 $g(x)$ 收敛于 $b$，一方面对于正数 $b/2 > 0$，存在 $\delta_1$，使得当 $|x - x_0| < \delta_1$ 时，
+              $$ |g(x) - b| < \frac{b}{2}, $$
+              另一方面，对于任意给定的正数 $\epsilon$，存在 $\delta_2$，使得当 $|x - x_0| < \delta_2$ 时，
+              $$ |g(x) - b| < \frac{b^2 \epsilon}{2}. $$
+              所以，当 $|x - x_0| < \delta = \min(\delta_1, \delta_2)$ 时，
+              $$ \left| \frac{1}{g(x)} - \frac{1}{b} \right| \les |g(x) - b| \cdot \frac{2}{b^2} \cdot \frac{\epsilon}{2} = \epsilon. $$
+              即
+              $$ \lim_{x \to x_0} \frac{1}{g(x)} = \frac{1}{b}. $$
+    \end{enumerate}
+\end{proof}
+
+函数极限的性质与数列极限的性质类似,即函数极限有\textbf{唯一性}、\textbf{局部有界性}、\textbf{保号性}、\textbf{保序性}.
+其中有界性在函数极限中表现为\textbf{局部有界性},即函数在某点的极限存在,则该函数在该点的某个邻域内有界.这与数列极限的有界性表现上略有不同,这里给出证明:
+\begin{theorem}[函数极限的局部有界性]
+    设函数$y=f(x)$的定义域为$I$,点$x_0 \in I$,则$f(x)$在$x_0$的某邻域内有界,即$\exists \delta >0, \exists M >0, \forall x, 0<|x-x_0|<\delta \Rightarrow |f(x)|<M$.
+\end{theorem}
+\begin{proof}
+    局部有界性的证明:
+    设函数$y=f(x)$的定义域为$I$,点$x_0 \in I$,且$\lim _{x \to x_0} f(x) = a \Leftrightarrow \forall \ve >0, \exists \delta >0, \forall x, 0<|x-x_0|<\delta \Rightarrow |f(x)-a|<\ve \Leftrightarrow |f(x)|<|a|+\ve$.因此,函数$f(x)$在$x_0$的某邻域内有界,但$f(x)$在整个定义域$I$内未必有界.
+\end{proof}
+
+若函数$f(x)$在$x_0$处有定义,且$f(x_0) = \lim _{x \to x_0} f(x)$,则称$f(x)$在$x_0$处连续,若$f(x)$在区间$I$上每一点都连续,则称$f(x)$在$I$上连续.当$f(x)$在$x_0$处连续时,有$f(x_0) = f\left(\lim _{x \to x_0} x\right) = \lim _{x \to x_0} f(x)$,即连续函数的极限与函数值可以交换次序.
+
+幂($x^\alpha, \alpha$为常量),指数($a^x, a>0$),三角函数($\sin x, \cos x, \tan x$),对数函数($\log_a x, a>0, a \neq 1$),指数函数($e^x$),反三角函数($\arcsin x, \arccos x, \arctan x$),双曲函数($\sinh x, \cosh x, \tanh x$)等函数在其定义域内均连续.
+一切基本初等函数,在其定义域内均连续.
+
+\section{3个重要的函数极限及其证明}
+
+\begin{proposition}
+    $$\lim _{x \to 0} \dfrac{\sin x}{x} = 1$$
+\end{proposition}
+
+\begin{proof}
+    首先考虑右极限。设 $0 < x < \frac{\pi}{2}$, 由于 $\sin x > 0$, 由引理易知
+    $$
+        1 < \frac{x}{\sin x} < \frac{1}{\cos x}, \quad \text{即} \quad \frac{\sin x}{x} < \frac{\cos x}{x} < 1.
+    $$
+    因此
+    $$
+        0 < 1 - \frac{\sin x}{x} < 1 - \cos x = 2 \left( \sin \frac{x}{2} \right)^2 < 2 \sin \frac{x}{2} < x.
+    $$
+    所以，由两边夹的得到
+    $$
+        \lim_{x \to 0^+} \frac{\sin x}{x} = 1.
+    $$
+    当 $x \to 0$ 时，令 $y = -x$，则 $y \to 0^+$，所以
+    $$
+        \lim_{x \to 0^+} \frac{\sin x}{x} = \lim_{y \to 0^+} \frac{\sin(-y)}{-y} = \lim_{y \to 0^+} \frac{\sin y}{y} = 1.
+    $$
+\end{proof}
+
+\begin{proposition}
+    $$\lim _{x \to \infty} \left(1+\frac 1x \right)^x = \e$$
+\end{proposition}
+
+\begin{proof}
+    由于对于任意的 $x > 1$, 有 $\llfloor x \rrfloor \les x < \llfloor x \rrfloor + 1$, 以及
+    $$
+        \left( 1 + \frac{1}{\llfloor x \rrfloor} \right)^x < \left( 1 + \frac{1}{x} \right)^x < \left( 1 + \frac{1}{\llfloor x \rrfloor + 1} \right)^x,
+    $$
+    因此
+    $$
+        \lim_{x \to \infty} \left( 1 + \frac{1}{\llfloor x \rrfloor} \right)^x = \lim_{x \to \infty} \left( 1 + \frac{1}{\llfloor x \rrfloor + 1} \right)^x = \e.
+    $$
+    根据两边夹定理，有
+    $$
+        \lim_{x \to \infty} \left( 1 + \frac{1}{x} \right)^x = \e.
+    $$
+    当 $x \to \infty$ 时，令 $y = -x$, 则 $y \to -\infty$, 利用上面结果，就有
+    $$
+        \lim_{x \to \infty} \left( 1 + \frac{1}{x} \right)^x = \lim_{y \to -\infty} \left( 1 + \frac{1}{1 - y} \right)^{-y} = \lim_{y \to -\infty} \left( 1 + \frac{1}{y - 1} \right)^{y - 1} = \e.
+    $$
+    这就证明了
+    $$
+        \lim_{x \to \infty} \left( 1 + \frac{1}{x} \right)^x = \e.$$
+\end{proof}
+
+\begin{proposition}
+    $$\lim _{x \to 0} \dfrac{a_0 x ^n + a_1 x^{n-1} + \cdots + a_n}{b_0 x^m + b_1 x^{m-1} + \cdots + b_m} = \begin{cases}
+            \dfrac{a_0}{b_0}, & n=m; \\
+            0,                & n<m; \\
+            \infty,           & n>m.
+        \end{cases}$$
+\end{proposition}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 当$m >n$,$\lim_{x \to 0} \dfrac{a_0 x ^n + a_1 x^{n-1} + \cdots + a_n}{b_0 x^m + b_1 x^{m-1} + \cdots + b_m} = \lim_{x \to 0} \dfrac{a_0 x ^{n-m} + a_1 x^{n-m-1} + \cdots + a_n x^{n-m}}{b_0 + b_1 x^{m-n-1} + \cdots + b_m x^{m-n}} = \frac{a_0 \cdot 0 + a_1 \cdot 0 + \cdots + a_n \cdot 0}{b_0 + b_1 \cdot 0 + \cdots + b_m \cdot 0} = \frac{0}{b_0} = 0$.
+        \item 当$m =n$,$\lim_{x \to 0} \dfrac{a_0 x ^n + a_1 x^{n-1} + \cdots + a_n}{b_0 x^m + b_1 x^{m-1} + \cdots + b_m} = \lim_{x \to 0} \dfrac{a_0 + a_1 x + \cdots + a_n x^n}{b_0 + b_1 x + \cdots + b_m x^m} = \dfrac{a_0}{b_0}$.
+        \item 当$m <n$,$\lim_{x \to 0} \dfrac{b_0 x^m + b_1 x^{m-1} + \cdots + b_m}{a_0 x ^n + a_1 x^{n-1} + \cdots + a_n} = 0 \Rightarrow \lim_{x \to 0} \dfrac{a_0 x ^n + a_1 x^{n-1} + \cdots + a_n}{b_0 x^m + b_1 x^{m-1} + \cdots + b_m} = \infty$.
+    \end{enumerate}
+\end{proof}
+
+\section{函数无穷大的比较}
+
+\begin{proposition}[常用函数无穷大]
+    设$a,A ,m$为常数,且$a>1,\alpha >0,m>0$,证明:
+    $x^x >> a^x >> x^\alpha >> (\ln x)^m$,在$x \rightarrow +\infty, x>0, x \in R$时成立.
+\end{proposition}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 设$n \les x < n+1$,则
+              $\begin{cases}
+                      n^n \les n^x < (n+1)^n, \\
+                      a^n \les a^x < a^{n+1},
+                  \end{cases}$ $\Rightarrow$ $\frac{a^n}{(n+1)^{n+1}} < \frac{a^x}{x^x} < \frac{a^{n+1}}{n^n}$,当$x \to \infty$时,有$n \to \infty$,而$\lim_{n \to \infty} \frac{a^n}{(n+1)^{n+1}} = 0$,故$\lim_{n \to \infty} \frac{a^x}{x^x} = 0 \Rightarrow \lim_{x \to \infty} \frac{x^x}{a^x} = +\infty$,故$x^x >> a^x$.
+        \item 设$n \les x < n+1$,则$\frac{n^\alpha}{a^{n+1}} < \frac{x^\alpha}{a^x} < \frac{(n+1)^\alpha}{a^n}$,当$x \to \infty$时,有$n \to \infty$,而$\lim_{n \to \infty} \frac{n^\alpha}{a^{n+1}} = 0$,故$\lim_{n \to \infty} \frac{x^\alpha}{a^x} = 0 \Rightarrow \lim_{x \to \infty} \frac{x^x}{a^x} = +\infty$,故$x^\alpha >> a^x$.
+        \item 设$n \les x < n+1$,则$\frac{\ln n}{(n+1)^\alpha} < \frac{\ln x}{x^\alpha} < \frac{\ln(n+1)}{n^\alpha}$,当$x \to \infty$时,有$n \to \infty$,而$\lim_{n \to \infty} \frac{\ln n}{(n+1)^\alpha} = 0$,故$\lim_{n \to \infty} \frac{\ln x}{x^\alpha} = 0 \Rightarrow \lim_{x \to \infty} \frac{x^x}{a^x} = +\infty$,故$x^\alpha >> a^x$.
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    证明:
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $\lim_{x \to 0} \frac{1 - \cos x}{x^2} = \dfrac 12$;
+        \task $\lim_{x \to 0} \frac{\arcsin x}{x} = 1$;
+        \task $\lim_{x \to 0} \frac{\ln(1+x)}{x} = 1$;
+        \task $\lim_{x \to 0} \frac{\e^x - 1}{x} = 1$;
+        \task $\lim_{x \to 0} \frac{a^x - 1}{x} = \ln a, a>0, a \neq 1$.
+        \task $\lim_{x \to 0} \frac{(1+x)^\alpha - 1}{x} = \alpha, \alpha \neq 0$.
+        \task $\lim_{x \to 0^+} (\cos \sqrt{x})^{\frac 1x} = \frac 1{\sqrt{\e}}$.
+        \task $\lim_{x \to 0} \left(\frac{x^2 +3x- 5}{x^2+6} \right)^{4x}=\e^{12}. $
+    \end{tasks}
+
+    上述例$(1) \sim (6)$今后可作为公式直接使用,并可记为:当 $x \to 0 $时,
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $\frac{1-\cos x}{x^2} \sim \frac 12$;
+        \task $\arcsin x \sim x$;
+        \task $\ln(1+x) \sim x$;
+        \task $\e^x - 1 \sim x$;
+        \task $a^x - 1 \sim \ln a \cdot x$;
+        \task $(1+x)^\alpha - 1 \sim \alpha \cdot x$.
+    \end{tasks}
+
+\end{example}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $1- \cos x = 2 \sin^2 \frac x2 ,$故 $\lim_{x \to 0} \frac{1 - \cos x}{x^2} = \lim_{x \to 0} \frac{2 \sin^2 \frac x2}{x^2} = \lim_{x \to 0} \frac{2}{4} \left( \frac{\sin \frac x2}{\frac x2} \right)^2 = \frac 12$.
+        \item $\lim_{x \to 0} \frac{\arcsin x}{x} = \lim_{x \to 0} \frac{\arcsin x}{\sin \arcsin x} = \lim_{x \to 0} \frac{\arcsin x}{\arcsin x} = 1$.
+        \item $\lim_{x \to 0} \frac{\ln(1+x)}{x} = \lim_{x \to 0} \ln (1+x)^{1/x} = \ln \lim_{x \to 0} (1+x)^{1/x} = \ln \e = 1$.
+        \item 令$\e^x - 1 = u,$则$x \to 0 $时, $u \to 0$,且$x = \ln(1+u)$,故$\lim_{x \to 0} \frac{\e^x - 1}{x} = \lim_{u \to 0} \frac{u}{\ln(1+u)} = \lim_{u \to 0} \frac{1}{\frac{1}{u} \ln(1+u)} = 1$.
+        \item $\lim_{x \to 0} \frac{a^x - 1}{x} = \lim_{x \to 0} \frac{\e^{x \ln a} - 1}{x \ln a} \ln a$,令$u = x \ln a$,则$x \to 0$时,$u \to 0$,且$x = \frac{u}{\ln a}$,故$\lim_{x \to 0} \frac{a^x - 1}{x} = \ln a \cdot \lim_{u \to 0} \frac{\e^u - 1}{u} = \ln a$.
+        \item 令$u = \alpha \ln(1 + x)$,则$x \to 0$时,$u \to 0$,且$x = \frac{u}{\alpha}$,故$\lim_{x \to 0} \frac{(1+x)^\alpha - 1}{x} = \lim_{x \to 0 } \frac{\e^{\alpha \ln(1+x)} - 1}{\alpha \ln(1+x)} \frac{\alpha \ln(1+x)}{x} = \lim_{u \to 0} \frac{\e^u - 1}{u} \lim_{x \to 0} \frac{\alpha \ln(1+x)}{x} = 1 \cdot \alpha = \alpha$.
+        \item $\lim_{x \to 0^+} (\cos \sqrt{x})^{\frac 1x} = \lim_{x \to 0^+} \e^{\frac 1x \ln \cos \sqrt{x}} = \lim_{x \to 0^+} \exp\left( {\frac12 \frac{\ln \cos x}{x}} \right)= \exp \left({\frac12 \frac{\ln \cos x}{\cos x - 1} \frac{\cos x - 1}{x}} \right) = \exp\left( {\frac12 \cdot 1 \cdot (-1)} \right) = \frac 1{\sqrt{\e}}$.
+        \item $\frac{x^2 +3x- 5}{x^2+6} = 1 + \frac{3x-11}{x^2+6} \to 1 + 0 = 1$,故$\lim_{x \to 0} (\frac{x^2 +3x- 5}{x^2+6})^{4x} = \lim_{x \to 0} (1 + \frac{3x-11}{x^2+6})^{\frac{x^2+6}{3x-11} \cdot \frac{3x-11}{x^2+6} \cdot 4x} = \lim_{x \to 0} \e^{\frac{3x-11}{x^2+6} \cdot 4x} = \e^{12}$.
+    \end{enumerate}
+\end{proof}
+
+其中 $7,8$ 为底数与指数皆为变量,且底数的极限值为 $1$,指数的极限值为 $+\infty$,这种形式的极限求解时,可以尝试取对数,然后利用对数函数的连续性,将指数提取出来,再求极限.我们称这种形式的极限为 $1^{\infty}$型不定式.
+
+不定式是相对于$\alpha(x) ^{\beta(x)}$,$\alpha(x), \beta(x)$都有非0常数极限而言的,后者很好求极限.若$\lim_{x \to x_0} \alpha(x) = \alpha , \lim_{x \to x_0} \beta(x) = \beta$,则$\lim_{x \to x_0} \alpha(x) ^{\beta(x)} = \alpha ^{\beta}$.当$\alpha, \beta$中有$0, +\infty$时,则需要仿照$7,8$的方法进行求解.
+
+\section{函数$y=f(x)$的连续性}
+
+设$x_0$是常数,
+
+\begin{enumerate}[(1)]
+    \item $f(x)$在$x_0$处连续$\Leftrightarrow \lim_{x \to x_0} f(x) = f(x_0) = f\left(\lim_{x \to x_0} x \right)$.
+    \item $f(x)$在$x_0$处间断$\Leftrightarrow \lim_{x \to x_0} f(x) \neq f(x_0)$:称$x_0$为$f(x)$的间断点.
+
+          $f(x)$的间断点分类:
+          $\begin{cases}
+                  (\textup{I})\ f(x_0-0), f(x_0+0) \text{ 均存在的间断点为第一类间断点}; \\
+                  (\textup{II})\ f(x_0-0), f(x_0+0) \text{ 至少有一个不存在的间断点为第二类间断点}.
+              \end{cases}$
+\end{enumerate}
+
+\begin{example}
+    六类基本初等函数(幂,指数,三角,对数,指数,反三角,双曲)在其定义域内均连续.如$f(x) =\tan x = \dfrac{\sin x}{\cos x}$ 在$x \neq \dfrac{\pi}{2} + k\pi$时连续,且从$f(\dfrac{\pi}{2}-0) = + \infty, f(\dfrac{\pi}{2}+0) = -\infty$可知$f(x)$在$x = \dfrac{\pi}{2}$处第二类间断点.
+
+    又如 $$f(x) = \sgn x = \begin{cases}
+            1,  & x>0; \\
+            0,  & x=0; \\
+            -1, & x<0.
+        \end{cases}$$在$x=0$处, $f(0-0) = -1, f(0+0) = 1, f(0)=0$,故$f(x)$在$x=0$处第一类间断点.(跳跃间断点)
+\end{example}
+
+\begin{theorem}
+    连续函数的和,差,积,商仍是连续函数.
+\end{theorem}
+
+\begin{example}
+    设$f_1(x),f_2(x),\cdots, f_m(x)$在区间$I$上连续,且$c_1,c_2,\cdots,c_m$为常数,则线性组合$c_1f_1(x)+c_2f_2(x)+\cdots+c_mf_m(x)$在$I$上连续.这表明连续函数具有线性性.
+\end{example}
+
+\begin{theorem}
+    连续的函数$y=f(x)$若有反函数$x = g(y)$或写为$y=g(x)$,则反函数$y=g(x)$也是连续函数.理由:函数与其反函数关于直线$y=x$对称.
+
+\end{theorem}
+
+\begin{example}
+    $y=\sin x$在$[-\dfrac{\pi}{2},\dfrac{\pi}{2}]$上连续且单调增,故有反函数$x=\arcsin y$在$[-1,1]$上连续.
+
+    $y=\cos x$在$[0,\pi]$上连续且单调减,故有反函数$x=\arccos y$在$[-1,1]$上连续且单调减.
+
+    $y=\tan x$在$(-\dfrac{\pi}{2},\dfrac{\pi}{2})$上连续且单调增,故有反函数$x=\arctan y$在$(-\infty,+\infty)$上连续且单调增.
+
+    \begin{remark}
+        六个反三角函数都是有界变量
+    \end{remark}
+\end{example}
+
+\begin{example}
+    $e^x$在$(-\infty,+\infty)$上连续且单调增,故有反函数$x=\ln y$在$(0,+\infty)$上连续且单调增.
+\end{example}
+
+\begin{theorem}
+    连续函数的复合函数仍是连续函数.
+\end{theorem}
+
+\begin{proof}
+    对于任意给定的正数 $\varepsilon$，因为 $f$ 在 $u_0$ 连续，则存在一个正数 $\eta > 0$，使得当 $|u - u_0| < \eta$ 时，
+    $$
+        |f(u) - f(u_0)| < \varepsilon.
+    $$
+
+    对于上述 $\eta > 0$，又因为 $g$ 在 $x_0$ 连续，所以下面存在一个正数 $\delta > 0$，使得当 $|x - x_0| < \delta$ 时，
+    $$
+        |g(x) - g(x_0)| = |u - u_0| < \eta.
+    $$
+
+    于是，当 $|x - x_0| < \delta$ 时，从上面两个不等式得到
+    $$
+        |f(g(x)) - f(g(x_0))| = |f(u) - f(u_0)| < \varepsilon,
+    $$
+    即函数 $f(g(x))$ 在 $x_0$ 连续。
+\end{proof}
+
+该定理也可以表示为下面形式
+$$
+    \lim_{x \to x_0} f(g(x)) = f \left( \lim_{x \to x_0} g(x) \right).
+$$
+
+由六种基本初等函数经过有限次四则运算,有限次符合运算的函数统称为初等函数.
+
+\begin{theorem}
+    一切初等函数,包括一切基本初等函数,在其定义域内均连续.(注:初等函数的的定义域中若存在孤立点$x_0$,则$f(x)$在$x_0$处仍是连续的.)
+\end{theorem}

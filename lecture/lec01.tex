@@ -1,0 +1,504 @@
+\chapter{衔接课}
+
+\section{记号}
+
+\begin{notation*}[数集]\quad
+
+    $\mathbb{N} = \{0,1,2,3,\cdots\}$为自然数集, $\mathbb{N}^+ = \{1,2,3,\cdots\}$为正整数集.
+
+    $\mathbb{Z} = \{\cdots,-3,-2,-1,0,1,2,3,\cdots\}$为整数集.
+
+    $\mathbb{Q} = \left\{ \frac{p}{q} \mid p \in \mathbb{Z}, q \in \mathbb{N}^+ \right\}$为有理数集.
+
+    $\mathbb{R}$为实数集.
+\end{notation*}
+
+\begin{notation*}[大平行算数符号]\quad
+
+    $\sum$表示求和,如$\sum_{i=1}^n a_i = a_1 + a_2 + \cdots + a_n$.
+
+    $\prod$表示连乘,如$\prod_{i=1}^n a_i = a_1 \times a_2 \times \cdots \times a_n$.
+
+    $\bigcap$表示交集,如$\bigcap_{i=1}^n A_i = A_1 \cap A_2 \cap \cdots \cap A_n$.
+
+    $\bigcup$表示并集,如$\bigcup_{i=1}^n A_i = A_1 \cup A_2 \cup \cdots \cup A_n$.
+\end{notation*}
+
+对于上述运算,我们经常称$i$为\textbf{指标},称$i=1$与$i=n$分别为\textbf{下限}与\textbf{上限}.有时指标的取值范围以集合的形式给出,如$\sum_{i \in I} a_i$表示对所有$i \in I$的$a_i$求和,称$I$为\textbf{指标集}.
+
+有时指标的个数不止一个,如$\sum_{\substack{1 \les i \les m \\ 1 \les j \les n}} a_{ij}$表示对所有$1 \les i \les m$与$1 \les j \les n$的$a_{ij}$求和,即
+$$\sum_{\substack{1 \les i \les m \\ 1 \les j \les n}} a_{ij} = \sum_{i=1}^m \sum_{j=1}^n a_{ij}.$$
+
+正如$0!=1$一样,我们规定$\sum$与$\prod$的空和与空积为:
+$$\sum_{i \in \varnothing} a_i = 0, \quad \prod_{i \in \varnothing} a_i = 1.$$
+
+\section{映射,有穷集,无穷集与等势}
+
+\begin{definition}
+    [映射] 设$A$与$B$为两个集合,若对任意$x\in A$,都能唯一地指定一个$y\in B$与之对应,则称从$A$到$B$的这种对应关系为映射,记为$f:A\to B$,并称$x$为自变量,$y=f(x)$为因变量.
+
+    $A$称为映射$f$的定义域,$A$在$f$映射下的像$f(A)=\{ f(x) \mid x \in A \} \subset B$称为$f$的值域.
+\end{definition}
+
+我们在验证一个对应关系是否是映射时,或者说,验证一个映射是否良定(well-defined)时,需要验证两个条件:
+\begin{enumerate}[(1)]
+    \item 对任意$x\in A$,都能找到$y\in B$与之对应.
+    \item 对任意$x\in A$,只能找到唯一的$y\in B$与之对应.
+\end{enumerate}
+前者称为映射的存在性,后者称为映射的唯一性.
+
+我们将从数集到数集的映射称为函数,在这门课之中,我们几乎只考虑从实数集$\mathbb{R}$到实数集$\mathbb{R}$的函数.
+
+\begin{notation*}
+    对于映射\begin{align*}
+        f: A & \to B        \\
+        x    & \mapsto f(x)
+    \end{align*}
+
+    我们用$\to$表示映射的范围, $A \to B$表示该映射是从集合$A$到集合$B$的映射. $\mapsto$表示映射的具体规则, $x \mapsto f(x)$表示$x$在该映射下对应$f(x)$.
+\end{notation*}
+
+\begin{definition}
+    [单射] 设$A$与$B$为两个集合,若映射$f:A\to B$满足：对任意$x_1,x_2\in A$,当$x_1\neq x_2$时,有$f(x_1)\neq f(x_2)$,则称$f$为从$A$到$B$的单射.
+\end{definition}
+
+\begin{definition}
+    [满射] 设$A$与$B$为两个集合,若映射$f:A\to B$满足：对任意$y\in B$,存在$x\in A$,使得$f(x)=y$,则称$f$为从$A$到$B$的满射.
+\end{definition}
+
+\begin{definition}
+    [双射] 设$A$与$B$为两个集合,若映射$f:A\to B$既是单射又是满射,则称$f$为从$A$到$B$的双射.也称为$A$与$B$之间存在一一对应关系.
+\end{definition}
+
+\begin{example*}
+    $$\begin{aligned}
+            f: [0,1]    & \to [0,1)              &                                                               \\
+            x           & \mapsto x ,            & x \notin \left\{ \frac{1}{k} \mid k \in \mathbb{N}^+ \right\} \\
+            \frac{1}{k} & \mapsto \frac{1}{k+1}, & k \in \mathbb{N}^+                                            \\
+        \end{aligned}$$
+    不难验证, $f$为从$[0,1]$到$[0,1)$的双射.我们将在\hyperref[1.1.proof:infset-equiv]{后续证明}之中使用该思想.
+
+    这个双射使用了类似希尔伯特酒店的操作: 通过将某些元素映射到不同位置, 展示了即使是“满”的区间也可以为新的元素腾出“空间”.
+\end{example*}
+
+下面两个命题建议同学们自己先尝试证明,以加深对双射的理解.
+
+\begin{proposition}\label{1.1.prop:bij-inverse}
+    双射存在逆映射,且逆映射也是双射.
+\end{proposition}
+
+\begin{proof}
+    设$f:A\to B$为双射,则对任意$y\in B$,存在唯一$x\in A$,使得$f(x)=y$. 定义映射$g:B\to A$为: 对任意$y\in B$,有$g(y)=x$,其中$x$为唯一满足$f(x)=y$的元素. 则$g$为$f$的逆映射.\textbf{我们常将$f$的逆映射记为$f^{-1}$}.
+
+    下面我们证明$g$为双射.
+
+    \begin{enumerate}[(1)]
+        \item $g$为单射: 对任意$y_1,y_2\in B$,当$y_1\neq y_2$时,设$x_1=g(y_1),x_2=g(y_2)$,则$f(x_1)=y_1\neq y_2=f(x_2)$,由$f$为单射可知,$x_1\neq x_2$,即$g(y_1)\neq g(y_2)$,所以$g$为单射.
+        \item $g$为满射: 对任意$x\in A$,设$y=f(x)$,则$y\in B$,且$g(y)=g(f(x))=x$,所以对任意$x\in A$,都存在$y\in B$,使得$g(y)=x$,所以$g$为满射.
+    \end{enumerate}
+\end{proof}
+
+\begin{proposition}\label{1.1.prop:bij-composite}
+    双射的复合仍为双射.
+\end{proposition}
+
+\begin{proof}
+    设$f:A\to B$与$g:B\to C$均为双射,则对任意$z\in C$,存在唯一$y\in B$,使得$g(y)=z$,又对该$y$,存在唯一$x\in A$,使得$f(x)=y$. 定义映射$h:A\to C$为: 对任意$x\in A$,有$h(x)=g(f(x))$. 则$h$为从$A$到$C$的映射.\textbf{我们常将$f$与$g$的复合记为$g\circ f$,表示先用$f$作用$x$,再用$g$作用$f(x)$,从而得到$g(f(x))$}.
+
+    下面我们证明$h$为双射.
+
+    \begin{enumerate}[(1)]
+        \item $h$为单射: 对任意$x_1,x_2\in A$,当$x_1\neq x_2$时,有$f(x_1)\neq f(x_2)$,设$y_1=f(x_1),y_2=f(x_2)$,则$y_1\neq y_2$,又由$g$为单射可知,$g(y_1)\neq g(y_2)$,即$h(x_1)\neq h(x_2)$,所以$h$为单射.
+        \item $h$为满射: 对任意$z\in C$,存在唯一$y\in B$,使得$g(y)=z$,又对该$y$,存在唯一$x\in A$,使得$f(x)=y$. 则$h(x)=g(f(x))=g(y)=z$. 所以对任意$z\in C$,都存在$x\in A$,使得$h(x)=z$,所以$h$为满射.
+    \end{enumerate}
+
+\end{proof}
+
+\begin{definition}[有穷集]\label{1.1.def:finiteset}
+    设$A$为一个集合,称$A$为有穷集,若存在自然数$n$,使得$A$与$\{1,2,\cdots,n\} = \{ i \mid 1 \les i \les n , i \in \mathbb{N}\}$之间存在一一对应关系.
+
+    当$n=0$时,$\{1,2,\cdots,n\}=\varnothing$,此时有穷集称为空集.
+\end{definition}
+
+在此基础上,我们才可以对有限集合的个数进行计数描述,具体而言如下例
+\begin{example}
+    $A = \{ a,b,c,d,e \}$为有穷集,由于$A$与$\{1,2,3,4,5\}$之间存在一一对应关系,因此$A$中有5个元素.
+
+    其中的一一对应关系可以取为:
+    $$f: A \to \{1,2,3,4,5\}, \quad a \mapsto 1, b \mapsto 2, c \mapsto 3, d \mapsto 4, e \mapsto 5.$$
+    $f$是一个双射,也可以取为:
+    $$g: A \to \{1,2,3,4,5\}, \quad a \mapsto 3, b \mapsto 5, c \mapsto 1, d \mapsto 4, e \mapsto 2.$$
+    $g$也是一个双射.
+
+    其中我们可以不在乎$A$与$\{1,2,3,4,5\}$之间具体的对应关系,只在乎双射到$\{1,2,\cdots,n\}$的自然数$n$. 这就是为什么我们说$A$中有5个元素.
+
+    顺带一提,$A = \{ a,b,c,d,e \} $与$\{1,2,3,4,5\}$的双射共有$A_5^5=5!=120$种,这是$a,b,c,d,e$的全排列.
+\end{example}
+
+\begin{definition}
+    [等势] 设$A$与$B$为两个集合,若存在从$A$到$B$的双射,则称$A$与$B$等势.
+\end{definition}
+
+也就是说,$A$是有穷集等价于: 存在$n \in \mathbb{N}$,使得$A$与$\{1,2,\cdots,n\}$等势.
+
+\begin{notation*}
+    我们用 s.t. (such that) 来表示“使得”,用 i.e. (id est) 来表示“也就是说”.
+\end{notation*}
+
+对于无穷集合,我们给出两种定义方式:
+
+\begin{definition}[无穷集]\label{1.1.def:infset-1} 设$A$为一个集合,称$A$为无穷集,若$A$不为有穷集.
+\end{definition}
+
+\begin{definition}[无穷集]\label{1.1.def:infset-2} 设$A$为一个集合,称$A$为无穷集,若存在$A$的真子集$A'$,使得$A$与$A'$等势.
+\end{definition}
+
+下面我们先承认\autoref{1.1.def:infset-1} 是无穷集的定义,证明上述两种定义方式是等价的.
+
+\begin{proof}
+    \textbf{存在真子集与其等势一定是无穷集}
+
+    考虑$A$满足:$A$与某个真子集$A'$等势. 即$\exists f:A\to A'$为双射. 使用反证法,假设$A$为有穷集,根据\autoref{1.1.def:finiteset},则$\exists n \in \mathbb{N}$, s.t. $A$与$\{1,2,\cdots,n\}$等势,即存在双射$g:A \to \{1,2,\cdots,n\}$.
+
+    由\autoref{1.1.prop:bij-inverse} 与\autoref{1.1.prop:bij-composite},可知$g \circ f^{-1}:A' \to A \to \{ 1,2,\cdots,n\}$为双射.又由$A' \subset A$,可推出$A' = A$,这与$A'$为$A$的真子集矛盾.
+\end{proof}
+
+其中最后的部分,我们总结为以下命题
+\begin{proposition}
+    给定某个$n$,若存在$f:A \to \{1,2,\cdots,n\}$为双射,且对于$A$的某个子集$A'$,存在$\tilde f:A' \to \{1,2,\cdots,n\}$为双射,则$A'=A$.
+\end{proposition}
+
+该命题留作思考,这里给出助教的证明.
+
+\begin{proof}
+    我们归纳的给出证明,当$n=0$时, $\{1,2,\cdots,n\}=\varnothing$, 而空集只能双射到空集:若$\mu:\varnothing \to S, S \neq \varnothing$, 则$\exists s \in S$, 考虑$\mu^{-1}(s) \in \varnothing$可知矛盾.因此$A=\varnothing$, $A'=\varnothing$,所以$A'=A$.
+
+    当$n=k$成立时,即存在$f:A \to \{1,2,\cdots,k\}$为双射,且对于$A$的某个子集$A'$,存在$\tilde f:A' \to \{1,2,\cdots,k\}$为双射,则$A'=A$.
+
+    我们希望证明:若存在$g:B \to \{1,2,\cdots,k+1\}$为双射,且对于$B$的某个子集$B'$,存在$\tilde g:B' \to \{1,2,\cdots,k+1\}$为双射,则$B'=B$.
+
+    取$b = \tilde{g}^{-1}(k+1) \in B'$,则$\tilde g$将$B' \setminus \{b\}$映射到$\{1,2,\cdots,k\}$上. $g(b) \in \{ 1,2,\cdots,k+1\}$,不难证明存在双射$\tau:\{1,2,\cdots,k+1\} \setminus \{g(b)\} \to \{1,2,\cdots,k\}$.
+    因此,存在双射$\tau \circ g : B \setminus \{ b \} \to \{1,2,\cdots,k\}$,且$B' \setminus \{b\} \subset B \setminus \{ b \}$,由$n=k$时的归纳假设,可知$B' \setminus \{b\} = B \setminus \{ b \}$,从而$B'=B$.
+\end{proof}
+
+\begin{proof}\label{1.1.proof:infset-equiv}
+    \textbf{无穷集一定存在真子集与其等势}
+
+    即证明:已知$A$是无穷集,则不存在$n \in \mathbb{N}$,使得$A$与$\{1,2,\cdots,n\}$等势.
+
+    由$n=0$时的情况可知,$A$非空,取$a_1 \in A$, 设$A_1 = A \setminus \{a_1\}$, 则$A_1$为$A$的真子集,且不为有穷集.于是$A_1 \neq \varnothing$, 取$a_2 \in A_1 \cdots $ 依此类推, 可得$A$的一个真子集列$\{ a_i \}_{i=1}^{\infty}$, 两两不等.因此构造出双射:
+    \begin{align*}
+        f : & A \to A_1                                      \\
+            & x \mapsto x, x \notin \{ a_i \}_{i=1}^{\infty} \\
+            & a_i \mapsto a_{i+1}, i=1,2,\cdots
+    \end{align*}
+    由此可知, $A$与$A_1$等势.
+\end{proof}
+
+接下来,我们以\autoref{1.1.def:infset-2} 作为无穷集的定义,证明上述两种定义方式是等价的.这个证明过程留作思考,这里给出助教的证明.
+
+\begin{proof}
+    \textbf{$A$存在等势真子集$\Rightarrow A$不为有穷集}
+
+    当$A=\varnothing$时,$A$不存在真子集.
+
+    当$A\neq \varnothing$时,设$f:A\to A'$为双射,其中$A'$为$A$的真子集. 取$x_0 \in A \setminus A'$,构造序列:
+    $$x_1 = f(x_0), x_2 = f(x_1), \cdots, x_n = f(x_{n-1}), \cdots$$
+    则有:
+    \begin{enumerate}[(1)]
+        \item $x_i \in A' \subset A, i=1,2,\cdots$,
+        \item $x_i \neq x_j, \forall i \neq j, i,j=0,1,2,\cdots$.
+
+              否则,存在$n,m \in \mathbb{N}, n>m \ges 0$,使得$x_n = x_m$,则$f(x_{n-1}) = f(x_{m-1})$,由$f$为单射可知,$x_{n-1} = x_{m-1}$,依此类推,可知$x_{n-k} = x_{m-k}, k=1,2,\cdots,m$,从而$x_0 = x_{n-m} \in A'$,这与$x_0 \in A \setminus A'$矛盾.
+    \end{enumerate}
+
+    由此得到了$A$的一个两两不同的无限子集$\{ x_i \}_{i=0}^{\infty}$.
+
+    $\forall n \in \mathbb{N}^+$,$A$都不与$\{1,2,\cdots,n\}$等势:否则$\exists n \in \mathbb{N}^+$,$g:A \to \{1,2,\cdots,n\}$.考虑$\{g(x_i)\}_{i = 0}^{\infty}$两两不同,且都属于$\{1,2,\cdots,n\}$.这就证明了$A$不是有穷集.
+\end{proof}
+
+\begin{proof}
+    \textbf{$A$存在等势真子集$\Leftarrow A$不为有穷集}
+
+    这与上述\autoref{1.1.def:infset-1}定义下的\textbf{无穷集一定存在真子集与其等势}的证明过程完全一样.
+\end{proof}
+
+\section{笛卡尔积}
+
+\begin{definition}
+    [笛卡尔积] 设$A$与$B$为两个集合,则$A$与$B$的笛卡尔积为:$$A \times B = \{ (a,b) \mid a \in A, b \in B \},$$其中$(a,b)$为有序对.
+\end{definition}
+
+\begin{example}
+    设$A = \{1,2\}, B = \{x,y,z\}$,则$$A \times B = \{ (1,x), (1,y), (1,z), (2,x), (2,y), (2,z) \}.$$
+\end{example}
+
+如果$A$与$B$均为有穷集,且$A$中有$m$个元素,$B$中有$n$个元素,则$A \times B$中有$m \times n$个元素,即$$ \#(A \times B) = \# A \times \# B.$$
+
+给出一列集合$\{ A_i \}_{i=1}^{n}$,则$$\prod_{i=1}^n A_i = A_1 \times A_2 \times \cdots \times A_n = \{ (a_1,a_2,\cdots,a_n) \mid a_i \in A_i, i=1,2,\cdots,n \},$$其中$(a_1,a_2,\cdots,a_n)$为$n$元有序组.
+
+\begin{example}
+    $\R^n = \prod_{i=1}^n \R = \{ (x_1,x_2,\cdots,x_n) \mid x_i \in \R, i=1,2,\cdots,n \}$,$\R^n$称为$n$维欧氏空间.
+\end{example}
+
+\section{等价关系,Cauchy列与实数}
+
+\begin{definition}
+    [等价关系]
+
+    设$A$为一个集合,若在$A$上定义了一个关系$\sim$,且对任意$x,y,z \in A$,均满足:
+    \begin{enumerate}[(1)]
+        \item (自反性) $x \sim x$;
+        \item (对称性) $x \sim y \Rightarrow y \sim x$;
+        \item (传递性) $x \sim y, y \sim z \Rightarrow x \sim z$;
+    \end{enumerate}
+    则称$\sim$为$A$上的等价关系.
+\end{definition}
+
+\begin{definition}
+    集合$A$在等价关系$\sim$下的等价类为: 对任意$a \in A$,定义$[a] = \{ b \in A \mid b \sim a \}$, $a$称为$[a]$这个等价类的代表元.
+\end{definition}
+
+注意到$$[a] \cap [b] = \begin{cases}
+        [a] = [b],   & a \sim b     \\
+        \varnothing, & a \not\sim b
+    \end{cases}$$
+\begin{proof}
+    \begin{enumerate}[(1)]
+        \item 若$a \sim b$,则对任意$x \in [a]$,有$x \sim a$,由$a \sim b$与等价关系的传递性可知,$x \sim b$,所以$x \in [b]$,即$[a] \subset [b]$. 同理可知$[b] \subset [a]$,所以$[a] = [b]$.
+        \item 若$a \not\sim b$,则对任意$x \in [a]$,有$x \sim a$,由$a \not\sim b$与等价关系的对称性与传递性可知, $x \not\sim b$,所以$x \notin [b]$,即$[a] \cap [b] = \varnothing$.
+    \end{enumerate}
+\end{proof}
+
+因此集合$A$可以被拆为若干(可能是无穷个)互不相交的等价类的并,这称为$A$的一个分拆.具体而言,记$\quot{A}{\sim}$为$A$中所有等价类构成的集合,称为$A$在等价关系$\sim$下的商集,即
+$$\quot{A}{\sim} := \{ [a] \mid a \in A \}.$$
+
+则$A$可以写为不交并$$A = \bigcup_{[a] \in \quot{A}{\sim}} [a].$$
+
+\begin{example}
+    如果$\sim$是集合$A$上的等价关系,对于自然映射$$p:A \to \quot{A}{\sim} , \quad a \mapsto [a],$$
+    这个映射是满射,也称为商映射.
+\end{example}
+
+\begin{example}
+    $\Z$上有一种基础的等价关系:$$a \sim b \iff a - b = 2k, k \in \Z,$$即$a$与$b$同为奇数或同为偶数. 则存在两个等价类
+    $$[0] = \{ \cdots, -4, -2, 0, 2, 4, \cdots \},$$
+    $$[1] = \{ \cdots, -3, -1, 1, 3, 5, \cdots \},$$
+    且$[0] \cap [1] = \varnothing$,且$$\Z = [0] \cup [1].$$
+    我们将$\Z = [0] \cup [1]$称为$\Z$在该等价关系下的一个分拆.
+
+    商映射$$p:\Z \to \quot{\Z}{\sim}, \quad a \mapsto [a]$$具体为$$p(a) = \begin{cases}
+            [0], & a \text{为偶数} \\
+            [1], & a \text{为奇数}
+        \end{cases}.$$
+\end{example}
+
+% \begin{example}
+%     $\Z$上还有模$p$同余的等价关系:$$a \sim b \iff a - b = pk, k \in \Z,$$其中$p$为某个固定的正整数. 则存在$p$个等价类
+%     \begin{align*}
+%         [0]   & = \{ \cdots, -2p, -p, 0, p, 2p, \cdots \},         \\
+%         [1]   & = \{ \cdots, -2p+1, -p+1, 1, p+1, 2p+1, \cdots \}, \\
+%               & \cdots                                             \\
+%         [p-1] & = \{ \cdots, -p+1, -1, p-1, 2p-1, 3p-1, \cdots \},
+%     \end{align*}
+%     且$[i] \cap [j] = \varnothing, \forall i \neq j, i,j=0,1,\cdots,p-1$,且$$\Z = [0] \cup [1] \cup \cdots \cup [p-1].$$
+%     我们将$\Z = [0] \cup [1] \cup \cdots \cup [p-1]$称为$\Z$在该等价关系下的一个分拆.
+
+%     商映射$$p:\Z \to \quot{\Z}{\sim}, \quad a \mapsto [a]$$具体为$$p(a) = [r],$$其中$r$为$a$除以$p$的余数,即$a = qp + r, q \in \Z, r \in \{0,1,\cdots,p-1\}$.
+
+%     由此可以看出同一个集合$\Z$可以有不同的等价关系,从而有不同的分拆与商映射.
+% \end{example}
+
+\begin{example}
+    集族$\mathcal{A}$上的等价关系:$$A \sim B \iff \exists \text{双射} f:A \to B, \quad A,B \in \mathcal{A}.$$
+
+    \begin{proof}
+        \begin{enumerate}[(1)]
+            \item (自反性) 对任意$A \in \mathcal{A}$,恒有$A \sim A$,因为恒有恒等映射$id_A:A \to A$为双射.
+            \item (对称性) 对任意$A,B \in \mathcal {A}$,若$A \sim B$,则存在双射$f:A \to B$,由\autoref{1.1.prop:bij-inverse} 可知,$f$的逆映射$f^{-1}:B \to A$也为双射,所以$B \sim A$.
+            \item (传递性) 对任意$A,B,C \in \mathcal {A}$,若$A \sim B$且$B \sim C$,则存在双射$f:A \to B$与$g:B \to C$,由\autoref{1.1.prop:bij-composite} 可知,$g \circ f:A \to C$也为双射,所以$A \sim C$.
+        \end{enumerate}
+    \end{proof}
+\end{example}
+
+\begin{example}
+    $\Z \times \N^*$上的等价关系: $$(p,q) \sim (p',q') \iff pq' = p'q, \quad p,p' \in \Z, q,q' \in \N^*.$$
+
+    \begin{proof}
+        [良定的证明]
+        \begin{enumerate}[(1)]
+            \item (自反性) 对任意$(p,q) \in \Z \times \N^*$,恒有$(p,q) \sim (p,q)$,因为$pq = pq$.
+            \item (对称性) 对任意$(p,q),(p',q') \in \Z \times \N^*$,若$(p,q) \sim (p',q')$,则$ pq' = p'q$,从而$p'q = pq'$,所以$(p',q') \sim (p,q)$.
+            \item (传递性) 对任意$(p,q),(p',q'),(p'',q'') \in \Z \times \N^*$,若$(p,q) \sim (p',q')$且$(p',q') \sim (p'',q'')$,则$ pq' = p'q$与$p'q'' = p''q'$成立,从而$ pq'q'' = p'q q'' = p''q'q$,由于$q' \neq 0$,可知$ pq'' = p''q$,所以$(p,q) \sim (p'',q'')$.
+        \end{enumerate}
+    \end{proof}
+\end{example}
+
+我们将商集$$\quot{(\Z \times \N^*)}{\sim} = \{ [(p,q)] \mid (p,q) \in \Z \times \N^* \}$$记为$\Q$,并将$[(p,q)]$记为$\frac{p}{q}$,则$$\Q = \left\{ \frac{p}{q} \mid p \in \Z, q \in \N^* \right\},$$即有理数集.
+
+$\frac{1}{3} = [(1,3)] = [(2,6)] = [(3,9)] = \cdots$,即$\frac{1}{3}$可以表示为$(1,3),(2,6),(3,9),\cdots$等有序对的等价类.这提供了一个新的看待$\frac{1}{3} = \frac{2}{6} = \frac{3}{9} = \cdots$的视角.
+
+\begin{definition}
+    [Cauchy列] 设$\{ a_n \}$为实数列,若对任意$\varepsilon > 0$,都存在$N \in \mathbb{N}$,使得当$m,n > N$时,有$|a_n - a_m| < \varepsilon$,则称$\{ a_n \}$为Cauchy列.
+\end{definition}
+
+我们称两个Cauchy列$\{ a_n \}$与$\{ b_n \}$等价,若对任意$M \in \mathbb{N}^*$,都存在$N \in \mathbb{N}$,使得当$n > N$时,有$|a_n - b_n| < \frac{1}{M}$.记为$\{ a_n \} \sim \{ b_n \}$.
+
+\begin{proposition}
+    上述等价关系等价于: 对任意$\varepsilon > 0$,都存在$N \in \mathbb{N}$,使得当$n > N$时,有$|a_n - b_n| < \varepsilon$.
+\end{proposition}
+
+\begin{proof}
+    充分性: 对任意$\varepsilon > 0$,取$M = \left[ \frac{1}{\varepsilon} + 1\right]\in \mathbb{N}^*$,使得$\frac{1}{M} < \varepsilon$,则存在$N \in \mathbb{N}$,使得当$n > N$时,有$|a_n - b_n| < \frac{1}{M} < \varepsilon$.
+
+    必要性: 对任意$M \in \mathbb{N}^*$,取$\varepsilon = \frac{1}{M}$,则存在$N \in \mathbb{N}$,使得当$n > N$时,有$|a_n - b_n| < \varepsilon = \frac{1}{M}$.
+\end{proof}
+
+\begin{proposition}
+    上述等价关系具有传递性,即: 若Cauchy列$\{ a_n \} \sim \{ b_n \}$且$\{ b_n \} \sim \{ c_n \}$,则$\{ a_n \} \sim \{ c_n \}$.
+\end{proposition}
+
+\begin{proof}
+    对任意$M \in \mathbb{N}^*$,取$\varepsilon = \frac{1}{2M}$,则存在$N_1,N_2 \in \mathbb{N}$,使得当$n > N_1$时,有$|a_n - b_n| < \varepsilon$,且当$n > N_2$时,有$|b_n - c_n| < \varepsilon$. 取$N = \ges\{N_1,N_2\}$,则当$n > N$时,有
+    $$|a_n - c_n| \les |a_n - b_n| + |b_n - c_n| < \varepsilon + \varepsilon = \frac{1}{M}.$$
+    因此$\{ a_n \} \sim \{ c_n \}$.
+\end{proof}
+
+或者我们也可以更简化的写为
+\begin{proof}
+    对任意$M \in \mathbb{N}^*$,取$M \in \mathbb{N}^*$,则存在$N_1,N_2 \in \mathbb{N}$,使得当$n > N_1$时,有$|a_n - b_n| < \frac{1}{M}$,且当$n > N_2$时,有$|b_n - c_n| < \frac{1}{M}$. 取$N = \ges\{N_1,N_2\}$,则当$n > N$时,有
+    $$|a_n - c_n| \les |a_n - b_n| + |b_n - c_n| < \frac{1}{M} + \frac{1}{M} = \frac{2}{M}.$$
+\end{proof}
+
+第一种写法用到的是$\frac{1}{2M}$, 第二种方法用的是 $\frac{1}{M}$.注意到这两种写法本质上是等价的。第二种写法得到的是
+\[
+    \forall M'\in\mathbb{N}^*\ \exists N\ \forall n>N:\ |a_n-c_n|<\frac{2}{M'},
+\]
+令 $M'=2M$ 就正好得到
+\[
+    \forall M\in\mathbb{N}^*\ \exists N\ \forall n>N:\ |a_n-c_n|<\frac{1}{M}.
+\]
+
+因此两种写法只是参数选择方式不同，通过简单的替换 $M' = 2M$ 就可以互相转化，因而在逻辑上完全等价。
+
+这也启发了我们,以下命题的成立:
+\begin{proposition}
+    $\{a_n\}$为Cauchy列等价于:对任意$\varepsilon > 0$,都存在$N \in \mathbb{N}$,使得当$n > N$时,有$|a_n - b_n| < c\varepsilon$.其中$c$为任意正常数.
+\end{proposition}
+
+对于每一个与$n$无关的$c>0$,这个命题都是成立的.
+
+\begin{proof}
+    充分性: 对任意$\varepsilon > 0$,取$\varepsilon' = c\varepsilon > 0$,则存在$N \in \mathbb{N}$,使得当$m,n > N$时,有$|a_n - a_m| < \varepsilon' = c\varepsilon$.
+
+    必要性: 对任意$\varepsilon > 0$,取$\varepsilon' = \frac{\varepsilon}{c} > 0$,则存在$N \in \mathbb{N}$,使得当$m,n > N$时,有$|a_n - a_m| < \varepsilon' = \frac{\varepsilon}{c} < c\varepsilon$.
+\end{proof}
+
+上述对Cauchy列的等价,就是一个等价关系,我们仅验证了传递性,自反性与对称性是显然的.
+\begin{proof}
+    [Cachuy列之间等价关系的自反性与对称性验证]
+
+    自反性: 对任意$M \in \mathbb{N}^*$,取$N=1$,则当$n > N$时,有$|a_n - a_n| = 0 < \frac{1}{M}$,所以$\{ a_n \} \sim \{ a_n \}$.
+
+    对称性: 对任意$M \in \mathbb{N}^*$,取$N$使得当$n > N$时,有$|a_n - b_n| < \frac{1}{M}$,则当$n > N$时,有$|b_n - a_n| = |a_n - b_n| < \frac{1}{M}$,所以$\{ b_n \} \sim \{ a_n \}$.
+\end{proof}
+
+现在我们可以定义实数集了.记$A = \left\{ \{a_n\} \mid \{a_n\} \text{为Cauchy列} , a_n \in \Q \right\}$,$\sim$为上述Cauchy列之间的等价关系,则实数集$\R$定义为商集$$\R = \quot{A}{\sim} = \{ [\{a_n\}] \mid \{a_n\} \text{为Cauchy列} , a_n \in \Q \},$$其中$[\{a_n\}]$为Cauchy列$\{a_n\}$的等价类.
+
+总体来说,在这一节中,我们介绍了等价关系与商集的概念,并通过Cauchy列与等价关系的方式定义了实数集. 这种方式虽然比较绕,但它是严谨的,并且可以帮助我们理解实数的本质.
+
+
+\section{开集与闭集}
+
+我们为了描述欧式空间中的点集,引入了开集与闭集的概念.
+
+\begin{definition}
+    [开集] 设$A \subset \R$,若对任意$x \in A$,都存在$r > 0$,使得$(x-r,x+r) \subset A$,则称$A$为$\R$中的开集.
+\end{definition}
+
+\begin{example}
+    $\R$与$\varnothing$均为开集. 设$a,b \in \R, a < b$,则$(a,b)$为开集. 设$n \in \mathbb{N}^*$,则$\R^n$中的开球$$B(x,r) = \{ y \in \R^n \mid |y-x| < r \},$$其中$x \in \R^n,r > 0$,为$\R^n$中的开集.
+\end{example}
+
+\begin{definition}
+    [闭集] 设$A \subset \R$,若$\R \setminus A$为开集,则称$A$为$\R$中的闭集.
+\end{definition}
+
+于是我们可以给出聚点的两种定义:
+\begin{definition}\label{def:accumulation-point-1}
+    [聚点] 设$A \subset \R, x \in \R$,若存在点列$\{ x_n \} \subset A \setminus \{x\}$, 满足$x_n \neq x, \forall n \in \mathbb{N}$, 且$\lim_{n \to \infty} x_n = x$,则称$x$为$A$的聚点.
+\end{definition}
+
+\begin{definition}\label{def:accumulation-point-2}
+    [聚点] 设$A \subset \R, x \in \R$,若对任意$r > 0$,都有$(x-r,x+r) \cap A \setminus \{x\} \neq \varnothing$,则称$x$为$A$的聚点.
+\end{definition}
+
+\begin{proposition}
+    上述两种聚点的定义是等价的.
+\end{proposition}
+
+\begin{proof}
+    [\autoref{def:accumulation-point-1} $\Rightarrow$ \autoref{def:accumulation-point-2}]
+
+    设$x$为$A$的聚点,则存在点列$\{ x_n \} \subset A \setminus \{x\}$, 满足$x_n \neq x, \forall n \in \mathbb{N}$, 且$\lim_{n \to \infty} x_n = x$. 对任意$r > 0$,由$\lim_{n \to \infty} x_n = x$,可知存在$N \in \mathbb{N}$,使得当$n > N$时,有$|x_n - x| < r$,即$x_n \in (x-r,x+r)$.因此$(x-r,x+r) \cap A \setminus \{x\} \neq \varnothing$.
+\end{proof}
+
+\begin{proof}
+     [\autoref{def:accumulation-point-2} $\Rightarrow$ \autoref{def:accumulation-point-1}]
+
+    设$x$为$A$的聚点,则对任意$r > 0$,都有$(x-r,x+r) \cap A \setminus \{x\} \neq \varnothing$. 对每个$n \in \mathbb{N}^*$,取$r = \frac{1}{n}$,则存在$x_n \in (x-\frac{1}{n},x+\frac{1}{n}) \cap A \setminus \{x\}$,使得$x_n \neq x$. 由此可构造出点列$\{ x_n \} \subset A \setminus \{x\}$, 满足$x_n \neq x, \forall n \in \mathbb{N}$, 且$\lim_{n \to \infty} x_n = x$.
+\end{proof}
+
+记$A'$为$A$的所有聚点构成的集合,则称$A'$为$A$的导集. 由定义可知,$A'$为闭集.
+
+\begin{proposition}
+    $A$为闭集等价于$A' \subset A$.
+\end{proposition}
+
+\begin{proof}
+    充分性: 设$A' \subset A$,则$\R \setminus A \subset \R \setminus A'$. 对任意$x \in \R \setminus A$,则$x \notin A'$,即$x$不是$A$的聚点,则存在$r > 0$,使得$(x-r,x+r) \cap A \setminus \{x\} = \varnothing$,从而$(x-r,x+r) \subset \R \setminus A$. 因此$\R \setminus A$为开集,所以$A$为闭集.
+
+    必要性: 设$A$为闭集,则$\R \setminus A$为开集. 对任意$x \in A'$,若$x \notin A$,则$x \in \R \setminus A$. 由$\R \setminus A$为开集,则存在$r > 0$,使得$(x-r,x+r) \subset \R \setminus A$. 从而$(x-r,x+r) \cap A = \varnothing$,这与$x$为$A$的聚点矛盾. 因此$x \in A$,所以$A' \subset A$.
+\end{proof}
+
+
+\begin{proposition}
+    开集的任意并与有限交为开集,闭集的任意交与有限并为闭集.
+\end{proposition}
+
+\begin{proof}
+    设$\{ A_i \}_{i \in I}$为$\R$中的开集族,则对任意$x \in \bigcup_{i \in I} A_i$,存在$i_0 \in I$,使得$x \in A_{i_0}$. 由$A_{i_0}$为开集,则存在$r > 0$,使得$(x-r,x+r) \subset A_{i_0} \subset \bigcup_{i \in I} A_i$. 因此$\bigcup_{i \in I} A_i$为开集.
+
+\begin{remark}
+    \textbf{设$\{ A_i \}_{i \in I}$为$\R$中的开集族,则对任意$x \in \bigcup_{i \in I} A_i$,存在$i_0 \in I$,使得$x \in A_{i_0}$.} 实际利用了选择公理. 选择公理是集合论中的一个重要公理,它断言对于任意非空集合族,都存在一个选择函数,该函数从每个集合中选择一个元素. 在这里,我们利用选择公理从开集族$\{ A_i \}_{i \in I}$中选择一个包含$x$的开集$A_{i_0}$.    
+\end{remark}
+
+    设$A_1,A_2,\cdots,A_n$为$\R$中的开集,则对任意$x \in \bigcap_{i=1}^n A_i$,则$x \in A_i, i=1,2,\cdots,n$. 由$A_i$为开集,则存在$r_i > 0$,使得$(x-r_i,x+r_i) \subset A_i, i=1,2,\cdots,n$. 取$r = \min\{r_1,r_2,\cdots,r_n\}$,则$(x-r,x+r) \subset A_i, i=1,2,\cdots,n$,从而$(x-r,x+r) \subset \bigcap_{i=1}^n A_i$. 因此$\bigcap_{i=1}^n A_i$为开集.
+
+    设$\{ B_i \}_{i \in I}$为$\R$中的闭集族,则$\R \setminus B_i$为开集,则$$\R \setminus \bigcap_{i \in I} B_i = \bigcup_{i \in I} (\R \setminus B_i)$$为开集. 因此$\bigcap_{i \in I} B_i$为闭集.
+
+    设$B_1,B_2,\cdots,B_n$为$\R$中的闭集,则$\R \setminus B_i$为开集,则$$\R \setminus \bigcup_{i=1}^n B_i = \bigcap_{i=1}^n (\R \setminus B_i)$$为
+    开集. 因此$\bigcup_{i=1}^n B_i$为闭集.
+\end{proof}
+
+
+上面的证明过程中,我们用到了De Morgan定律,即$$A \setminus \bigcup_{i \in I} B_i = \bigcap_{i \in I} (A \setminus B_i),$$以及$$A \setminus \bigcap_{i \in I} B_i = \bigcup_{i \in I} (A \setminus B_i).$$
+
+我们给出一个简要的证明.
+\begin{proof}
+    对任意$x \in A \setminus \bigcup_{i \in I} B_i$,则$x \in A$且$x \notin \bigcup_{i \in I} B_i$,则$x \notin B_i, \forall i \in I$,从而$x \in A \setminus B_i, \forall i \in I$,即$x \in \bigcap_{i \in I} (A \setminus B_i)$. 因此$A \setminus \bigcup_{i \in I} B_i \subset \bigcap_{i \in I} (A \setminus B_i)$.
+
+    对任意$x \in \bigcap_{i \in I} (A \setminus B_i)$,则$x \in A$且$x \in A \setminus B_i, \forall i \in I$,则$x \notin B_i, \forall i \in I$,从而$x \notin \bigcup_{i \in I} B_i$,即$x \in A \setminus \bigcup_{i \in I} B_i$. 因此$\bigcap_{i \in I} (A \setminus B_i)  \subset A \setminus \bigcup_{i \in I} B_i$.
+
+    综上所述,$A \setminus \bigcup_{i \in I} B_i = \bigcap_{i in I} (A \setminus B_i)$.
+    同理可证$A \setminus \bigcap_{i in I} B_i = \bigcup_{i in I} (A \setminus B_i)$.
+\end{proof}
+
+\begin{example}
+    闭集的无穷并不一定为闭集. 例如,对每个$n \in \mathbb{N}^*$,令$$A_n = \left[ -1 + \frac{1}{n}, 1 - \frac{1}{n} \right],$$则$A_n$为闭集,但$$\bigcup_{n=1}^{\infty} A_n = (-1,1)$$为开集,所以不是闭集.
+
+    同理,开集的无穷交不一定为开集. 例如,对每个$n \in \mathbb{N}^*$,令$$B_n = \left( -1 - \frac{1}{n}, 1 + \frac{1}{n} \right),$$则$B_n$为开集,但$$\bigcap_{n=1}^{\infty} B_n = [-1,1]$$为闭集,所以不是开集.
+\end{example}
+
+理解了有关开集与闭集的基本性质,可以更好的理解实数集的等价命题:开覆盖定理与闭区间套定理.
+
