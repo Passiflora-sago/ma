@@ -1,0 +1,154 @@
+\begin{exercise}[1.C.1]
+    求下列数列的极限:
+    \begin{enumerate}
+        \item $a_n = \frac{1}{2} \cdot \frac{3}{4} \cdots \frac{2n-1}{2n}$ (提示: $\frac{1}{2} \cdot \frac{3}{4} \cdots \frac{2n-1}{2n} \les \frac{1}{\sqrt{2n+1}}$);
+        \item $a_n = \frac{10}{1} \cdot \frac{11}{3} \cdots \frac{n+9}{2n-1}$;
+        \item 设 $a_1 > 1, a_{n+1} = 2 - \frac{1}{a_n}, n=1,2,\dots$;
+        \item 设 $a_1 = 3, a_{n+1} = \frac{1}{1+a_n}, n=1,2,\dots$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 由$$(2n)^2 = 4n^2 \ges 4n^2 - 1 = (2n-1)(2n+1)$$可得$$\frac{2n-1}{2n} \les \frac{2n-1}{\sqrt{(2n-1)(2n+1)}} = \sqrt{\frac{2n-1}{2n+1}}.$$因此$$a_n = \frac{1}{2} \cdot \frac{3}{4} \cdots \frac{2n-1}{2n} \les \sqrt{\frac{1}{3} \cdot \frac{3}{5} \cdots \frac{2n-1}{2n+1}} = \sqrt{\frac{1}{2n+1}}.$$
+              而$\lim_{n\to\infty} \sqrt{\frac{1}{2n+1}} = 0$, 故由夹逼定理可知$\lim_{n\to\infty} a_n = 0$;
+        \item 由$\lim_{n \to \infty} \frac{n+9}{2n-1} = \frac{1}{2}$,知$$\lim_{n\to\infty} \sqrt[n]{\frac{10}{1} \cdot \frac{11}{3} \cdots \frac{n+9}{2n-1}} = \lim_{n\to\infty} \frac{n+9}{2n-1} = \frac{1}{2}.$$
+              因此$\lim_{n\to\infty} a_n = \lim_{n\to\infty} \left(\sqrt[n]{a_n}\right)^n = 0$;
+        \item 由$a_1 > 1$,以及若$a_n > 1$时, $a_{n+1} = 2 - \frac{1}{a_n} > 1$,归纳的可知$a_n > 1, \forall n \in \mathbb{N}^+$. 所以数列有下界. 再用归纳法: 当 $n=1$ 时:
+              $$ a_2 - a_1 = 2 - \left(\frac{1}{a_1} + a_1\right) \les 2-2=0, $$
+              推出 $a_2 \les a_1$. 假设对 $n$ 有 $a_n \les a_{n-1}$, 那么当 $n+1$ 时
+              $$ a_{n+1} - a_n = \frac{1}{a_{n-1}} - \frac{1}{a_n} = \frac{a_n - a_{n-1}}{a_n a_{n-1}} \les 0. $$
+              所以 $\{a_n\}$ 是单调减有下界数列, 因此收敛. 设 $\lim_{n \to \infty} a_n = a \ges 1$. 在
+              $$ a_{n+1} = 2 - \frac{1}{a_n} $$
+              两边取极限得
+              $$ a = 2 - \frac{1}{a} \implies a^2 - 2a + 1 = 0 $$
+              解得 $a=\pm 1$. 但 $a=-1$ 不合题意, 所以 $\lim_{n \to \infty} a_n = 1$.
+        \item $a_{n+2} = \frac{1}{1+a_{n+1}} = \frac{1}{1+\frac{1}{1+a_n}} = \frac{1+a_n}{2+a_n}$. 
+        假如对任何 $n$, 有 $a_{2n} \ges a_{2n-2}$; $a_{2n+1} \les a_{2n-1}$, 那么对 $n+1$, 有
+$$ a_{2n+2} - a_{2n} = \frac{1}{1+a_{2n+1}} - \frac{1}{1+a_{2n-1}} = \frac{a_{2n-1}-a_{2n+1}}{1+a_{2n+1}a_{2n-1}} \ges 0 $$
+$$ a_{2n+3} - a_{2n+1} = \frac{1}{1+a_{2n+2}} - \frac{1}{1+a_{2n}} = \frac{a_{2n}-a_{2n+2}}{1+a_{2n+2}a_{2n}} \les 0 $$
+推出数列 $\{a_n\}$ 的子列 $\{a_{2n}\}$ 单调增有上界, $\{a_{2n-1}\}$ 单调减有下界. 因此分别收敛. 对$$a_{2n+2} = \frac{1+a_{2n}}{2+a_{2n}},$$两边取极限得
+$$ a = \frac{1+a}{2+a} \implies a^2 + a - 1 = 0 $$
+解得 $a = \frac{-1+\sqrt{5}}{2}$. 同理, 对$$a_{2n+3} = \frac{1+a_{2n+1}}{2+a_{2n+1}},$$两边取极限得
+$$ b = \frac{1+b}{2+b} \implies b^2 + b - 1 = 0 $$
+解得 $b = \frac{-1+\sqrt{5}}{2}$.
+因此$\lim_{n \to \infty} a_{2n} = \lim_{n \to \infty} a_{2n-1}$, 故$\lim_{n \to \infty} a_n$存在, 且$\lim_{n \to \infty} a_n = \frac{-1+\sqrt{5}}{2}$.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.C.2]
+    设 $\{a_n\}$ 为单调递增的数列, 并且收敛于 $a$, 证明对一切 $n$ 有 $a_n < a$. (对单调递减且有极限的数列, 类似的结论成立.)
+\end{exercise}
+
+\begin{solution}
+    反证法. 假设存在某个 $n_0$, 使得 $a_n_0 > a$. 由数列单调递增的性质, 对一切 $n > n_0$ 有 $a_n \ges a_n_0 > a$,于是存在 $\varepsilon = \frac{a_n_0 - a}{2} > 0$, 使得$\forall N$, 存在$ n = \max\{n_0, N\} + 1 > N$, 使得
+    $$ |a_n - a| = a_n - a \ges a_{n_0} - a = 2\varepsilon > \varepsilon, $$
+    这与数列收敛的定义矛盾.
+\end{solution}
+
+\begin{exercise}[1.C.3]
+    证明下面的数列收敛:
+    \begin{enumerate}
+        \item $a_n = 1 + \frac{1}{2^2} + \dots + \frac{1}{n^2}$;
+        \item $a_n = \left(1+\frac{1}{2}\right)\left(1+\frac{1}{2^2}\right)\cdots\left(1+\frac{1}{2^n}\right)$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 由数列定义可知 $\{a_n\}$ 单调递增. 又因为
+              $$ a_n = 1 + \frac{1}{2^2} + \dots + \frac{1}{n^2} \les 1 + \frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \dots + \frac{1}{(n-1)n} = 2 - \frac{1}{n} < 2, $$
+              所以 $\{a_n\}$ 有上界. 因此 $\{a_n\}$ 收敛;
+              \item $$a_n = \e^{\sum_{k=1} \ln \left(1 + \frac{1}{2^k}\right)} \les \e^{\sum_{k=1} \frac{1}{2^k}} = \e^1.$$
+              所以 $\{a_n\}$ 有上界. 又由数列定义可知 $\{a_n\}$ 单调递增. 因此 $\{a_n\}$ 收敛.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.C.4]
+    试构造一个发散的数列 $\{a_n\}$, 满足条件: 对任意正数 $\varepsilon$, 存在正整数 $N$, 使当 $n > N$ 时, 有 $|a_{n+1}-a_n| < \varepsilon$.
+\end{exercise}
+
+\begin{solution}
+    取$a_n = \sqrt{n}$. 则对任意 $\varepsilon > 0$, 存在正整数 $N > \frac{1}{4\varepsilon^2}$, 当 $n > N$ 时, 有
+    $$ |a_{n+1}-a_n| = \sqrt{n+1} - \sqrt{n} = \frac{1}{\sqrt{n+1} + \sqrt{n}} < \frac{1}{2\sqrt{n}} < \varepsilon. $$
+    但数列 $\{a_n\}$ 显然发散.
+\end{solution}
+
+\begin{exercise}[1.C.5]
+    若数列 $\{a_n\}$ 满足: 存在常数 $M$, 使得对一切 $n$ 有
+    $$ A_n = |a_2-a_1| + |a_3-a_2| + \dots + |a_{n+1}-a_n| \les M. $$
+    证明:
+    \begin{enumerate}
+        \item 数列 $\{A_n\}$ 收敛;
+        \item 数列 $\{a_n\}$ 也收敛.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 由数列定义可知 $\{A_n\}$ 单调递增. 又因为对一切 $n$ 有 $A_n \les M$, 所以 $\{A_n\}$ 有上界. 因此 $\{A_n\}$ 收敛;
+        \item 用Cauchy收敛准则证明. 由(1)知 $\{A_n\}$ 收敛, 因此对任意 $\varepsilon > 0$, 存在正整数 $N$, $\forall n > N+1, p > 0$, 有
+              $$ |A_{n+p} - A_{n-1}| = |a_{n+1}-a_n| + |a_{n+2}-a_{n+1}| + \dots + |a_{n+p}-a_{n+p-1}| < \varepsilon. $$
+                由三角不等式可知
+                $$ |a_{n+p} - a_n| \les |a_{n+1}-a_n| + |a_{n+2}-a_{n+1}| + \dots + |a_{n+p}-a_{n+p-1}| < \varepsilon. $$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.C.6]
+    设 $\{a_n\}$ 是正严格递增数列. 求证: 若 $a_{n+1}-a_n$ 有界, 则对任意 $\alpha \in (0,1)$ 有 $\lim_{n \to \infty} (a_{n+1}^\alpha - a_n^\alpha) = 0$. 并说明此结论的逆不对, 即, 存在正严格递增数列 $\{a_n\}$ 使得对任意 $\alpha \in (0,1)$ 有 $\lim_{n \to \infty} (a_{n+1}^\alpha - a_n^\alpha) = 0$, 但是 $a_{n+1}-a_n$ 无界. (提示: 考虑 $a_n = n\ln n$.)
+\end{exercise}
+
+\begin{exercise}[1.C.7]
+    设数列 $\{a_n\}$ 满足 $\lim_{n \to \infty} (a_{n+1}-a_n) = a$. 证明: $\lim_{n \to \infty} \frac{a_n}{n} = a$.
+\end{exercise}
+
+\begin{exercise}[1.C.8]
+    证明: 若 $\lim_{n \to \infty} a_n = a$, 且 $a_n > 0$, 则 $\lim_{n \to \infty} \sqrt[n]{a_1a_2\cdots a_n} = a$.
+\end{exercise}
+
+\begin{exercise}[1.C.9]
+    证明: 若 $a_n > 0$, 且 $\lim_{n \to \infty} \frac{a_{n+1}}{a_n}$ 存在, 则 $\lim_{n \to \infty} \sqrt[n]{a_n}$ 也存在, 并且
+    $$ \lim_{n \to \infty} \sqrt[n]{a_n} = \lim_{n \to \infty} \frac{a_{n+1}}{a_n}. $$
+\end{exercise}
+
+\begin{exercise}[1.C.10]
+    求下列极限:
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $\lim_{n \to \infty} \frac{1+\sqrt{2}+\sqrt[3]{3}+\dots+\sqrt[n]{n}}{n}$;
+        \task $\lim_{n \to \infty} \frac{n}{\sqrt[n]{n!}}$.
+    \end{tasks}
+\end{exercise}
+
+\begin{exercise}[1.C.11]
+    已知 $\lim_{n \to \infty} a_n = a$, 求证 $\lim_{n \to \infty} \frac{a_1+2a_2+\dots+na_n}{n^2} = \frac{a}{2}$.
+\end{exercise}
+
+\begin{exercise}[1.C.12]
+    设 $\{a_n\}$ 且 $a_n \to a \in \mathbb{R}$, 又设 $\{b_n\}$ 是正数列, $c_n = \frac{a_1b_1+a_2b_2+\dots+a_nb_n}{b_1+b_2+\dots+b_n}$. 求证:
+    \begin{enumerate}
+        \item $\{c_n\}$ 收敛;
+        \item 若 $(b_1+b_2+\dots+b_n) \to +\infty$, 则 $\lim_{n \to \infty} c_n = a$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[1.C.13]
+    证明: $\lim_{x \to +\infty} \left(1+\frac{1}{x^p}\right)^x = \begin{cases} 1, & p > 1, \\ \mathrm{e}, & p = 1, \\ \infty, & p < 1. \end{cases}$
+\end{exercise}
+
+\begin{exercise}[1.C.14]
+    设 $f(x)$ 为周期函数, 且 $\lim_{x \to \infty} f(x) = 0$, 证明 $f(x)$ 恒为零.
+\end{exercise}
+
+\begin{exercise}[1.C.15]
+    证明
+    \begin{enumerate}
+        \item 函数 $f(x)$ 在 $x \to x_0^-$ 时有极限 $l$ 的充分必要条件是: 对于任意一个以 $x_0$ 为极限的单调递增数列 $\{a_n\} \, (a_n \ne x_0)$, 都有 $\lim_{n \to \infty} f(a_n) = l$;
+        \item 函数 $f(x)$ 在 $x \to x_0^+$ 时有极限 $l$ 的充分必要条件是: 对于任意一个以 $x_0$ 为极限的单调递减数列 $\{a_n\} \, (a_n \ne x_0)$, 都有 $\lim_{n \to \infty} f(a_n) = l$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[1.C.16]
+    设 $\xi$ 是一个无理数, $a,b$ 是实数, 且 $a<b$. 求证: 存在整数 $m,n$ 使得 $m+n\xi \in (a,b)$, 即, 集合
+    $$ S = \{m+n\xi \mid m, n \in \mathbb{Z}\} $$
+    在 $\mathbb{R}$ 稠密.
+\end{exercise}
