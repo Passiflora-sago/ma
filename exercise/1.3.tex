@@ -1,0 +1,352 @@
+\section*{习题 1.3}
+
+\begin{exercise}[1.3.1]\label{exe:1.3.1}
+    按定义证明:
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $\lim_{x \to -\infty} a^x = 0, (a > 1)$;
+        \task $\lim_{x \to \infty} \frac{x-1}{x+1} = 1$;
+        \task $\lim_{x \to -1} \frac{x^2-1}{x^2+x} = 2$;
+        \task $\lim_{x \to 0^+} x^{1/q} = 0$ ($q$ 为正整数).
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 对$\forall \ve > 0$,取$M = \log_a \ve$,则当$x < M$时,$|a^x - 0| = a^x < a^M = \ve$.
+        \item 对$\forall \ve > 0$,取$M = \frac{2}{\ve}+1$,则当$|x| > \max\{M,1\}$时,$\left| \frac{x-1}{x+1} - 1 \right| = \left| \frac{-2}{x+1} \right| \les \frac{2}{|x|-1} <  \ve$.
+        \item 对$\forall \ve > 0$,取$\delta = \min \left\{ \frac{1}{2}, \frac{\ve}{2} \right\}$,则当$0<|x+1| < \delta$时,$\left| \frac{x^2-1}{x^2+x} - 2 \right| = \left| \frac{-x^2 - 2x - 1}{x^2 + x} \right| = \left| \frac{x+1}{x} \right| < \frac{\delta}{1 / 2} \les  \ve$.
+        \item 对$\forall \ve > 0$,取$\delta = \ve^q$,则当$0 < x < \delta$时,$|x^{1/q} - 0| = x^{1/q} < \delta^{1/q} = \ve$.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.3.2]
+    求下列极限:
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $\lim_{x \to 1} \left(x^5 - 5x + 2 + \frac{1}{x}\right)$;
+        \task $\lim_{x \to 1} \frac{x^n - 1}{x - 1}$ ($n$ 为正整数);
+        \task $\lim_{x \to 1} \frac{x^2-1}{2x^2-x-1}$;
+        \task $\lim_{x \to -\infty} \frac{(3x+6)^{70}(8x-5)^{20}}{(5x-1)^{90}}$.
+    \end{tasks}
+\end{exercise}
+
+\begin{enumerate}[(1)]
+    \item 由四则运算的极限可知,$$\lim_{x \to 1} \left(x^5 - 5x + 2 + \frac{1}{x}\right) = 1 - 5 + 2 + 1 = -1.$$
+    \item $x^n - 1 = (x-1)(x^{n-1} + x^{n-2} + \cdots + x + 1)$,因此$$\lim_{x \to 1} \frac{x^n - 1}{x - 1} = \lim_{x \to 1} (x^{n-1} + x^{n-2} + \cdots + x + 1) = \sum_{k=0}^{n-1} 1 = n.$$
+          请注意,这里$n$是常数,因此可以交换这$n$个极限与求和的顺序.
+    \item $$\lim_{x \to 1} \frac{x^2-1}{2x^2-x-1} = \lim_{x \to 1} \frac{(x-1)(x+1)}{(x-1)(2x+1)} = \lim_{x \to 1} \frac{x+1}{2x+1} = \frac{2}{3}.$$
+    \item $$\lim_{x \to -\infty} \frac{ \left( 3 + \dfrac{6}{x} \right)^{70} (8 - \dfrac{5}{x})^{20} }{ \left( 5 - \dfrac{1}{x} \right)^{90} } = \frac{ \left( 3 + \displaystyle \lim_{x \to -\infty} \dfrac{6}{x} \right)^{70} \left( 8 - \displaystyle  \lim_{x \to -\infty} \dfrac{5}{x} \right)^{20} }{ \left( 5 - \displaystyle  \lim_{x \to -\infty} \dfrac{1}{x} \right)^{90} } = \frac{3^{70} \cdot 8^{20}}{5^{90}}$$
+          事实上,$\frac{3^{70} \cdot 8^{20}}{5^{90}} = \left( \frac{3^7 \cdot 2^6}{5^9} \right)^{10} =0.0000000000035726229189858259136514568727612$
+
+          $46392142557535369616400676018940233797678923776.$
+\end{enumerate}
+
+\begin{exercise}[1.3.3]\label{exe:1.3.3}
+    证明下列极限不存在:
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $\lim_{x \to +\infty} \sin x$;
+        \task $\lim_{x \to 0} \frac{|x|}{x}$.
+    \end{tasks}
+\end{exercise}
+
+\begin{enumerate}[(1)]
+    \item 用Cauchy收敛原理.对$\ve = \frac{1}{2}$,任取$M > 0$,总
+          总存在$k = \llceil M / \pi \rrceil$,使得$x_1 = \left(k+\frac{1}{2}\right)\pi> M, x_2 = (k + 1)\pi > M (k \in \mathbb{N}^*)$,使得$|\sin x_1 - \sin x_2| = 1 > \ve$.因此极限不存在.
+    \item 考虑两个单边极限,$$\lim_{x \to 0^+} \frac{|x|}{x} = \lim_{x \to 0^+} 1 = 1, \quad \lim_{x \to 0^-} \frac{|x|}{x} = \lim_{x \to 0^-} -1 = -1.$$
+          而极限存在的充要条件是两个单边极限存在且相等,因此极限不存在.
+\end{enumerate}
+
+\begin{exercise}[1.3.4]
+    设函数 $f(x)$ 在正无穷大处的极限为 $l$, 则对于任意趋于正无穷大的数列 $\{a_n\}$, 有 $\lim_{n \to \infty} f(a_n) = l$. 特别地 $\lim_{n \to \infty} f(n) = l$.
+\end{exercise}
+
+\begin{solution}
+    [无穷版本的Heine定理 \ 解]对$\forall \ve > 0$,由$\lim_{x \to \infty} f(x) = l$,存在$M > 0$,使得当$x > M$时,$|f(x) - l| < \ve$.又由$\lim_{n \to \infty} a_n = +\infty$,存在$N\in \mathbb{N}^*$,使得当$n > N$时,$a_n > M$.因此当$n > N$时,$|f(a_n) - l| < \ve$.由此可知$\lim_{n \to \infty} f(a_n) = l$.特别地,取$a_n = n$,则$\lim_{n \to \infty} f(n) = l$.
+\end{solution}
+
+\begin{exercise}[1.3.5]
+    讨论下列函数在 $x=0$ 处的极限.
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $f(x) = [x]$;
+        \task $f(x) = \operatorname{sgn} x$;
+        \task $f(x) = \begin{cases} 2^x, & x > 0; \\ 0, & x = 0; \\ 1+x^2, & x < 0. \end{cases}$
+        \task $f(x) = \begin{cases} \cos\frac{1}{x}, & x > 0; \\ x, & x \les 0. \end{cases}$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{remark}
+        教材中的符号$[x]$表示$x$的整数部分,即不大于$x$的最大整数.本题中,我们沿用此符号.其他地方,我们使用$\lfloor x \rfloor$表示对$x$向下取整,使用$\lceil x \rceil$表示对$x$向上取整.
+    \end{remark}
+    \begin{enumerate}[(1)]
+        \item $\lim_{x \to 0^+} [x] = 0, \quad \lim_{x \to 0^-} [x] = -1$.因此极限不存在.
+        \item $\lim_{x \to 0^+} \operatorname{sgn} x = 1, \quad \lim_{x \to 0^-} \operatorname{sgn} x = -1$.左右极限均存在,但不相等,因此极限不存在.
+        \item $\lim_{x \to 0^+} 2^x = 1, \quad \lim_{x \to 0^-} (1+x^2) = 1$.因此极限存在,且$\lim_{x \to 0} f(x) = 1$.
+        \item $\lim_{x \to 0^+} \cos\frac{1}{x}$不存在,因此右极限不存在.左极限$\lim_{x \to 0^-} x = 0$.函数在$x=0$处的极限不存在. \begin{remark}
+                  $\lim_{x \to 0^+} \cos \frac{1}{x}$的极限过程等同于考虑$\lim_{x \to + \infty} \cos x$,而该极限不存在(与\hyperref[exe:1.3.3]{习题1.3.3(1)}同理).
+              \end{remark}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.3.6]
+    求 $\lim_{n \to \infty} \cos\frac{x}{2} \cos\frac{x}{2^2} \cdots \cos\frac{x}{2^n}$.
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 当$\forall , \in \mathbb{N}^*,\sin \frac{x}{2^m} \ne 0$时,二倍角公式变形可得$\cos y = \frac{\sin 2y}{2 \sin y},y\neq 0$,反复利用可知$$\cos\frac{x}{2} \cos\frac{x}{2^2} \cdots \cos\frac{x}{2^n} = \frac{\sin x}{2 \sin \frac{x}{2}} \cdot \frac{\sin \frac{x}{2}}{2 \sin \frac{x}{2^2}} \cdots \frac{\sin \frac{x}{2^{n-1}}}{2 \sin \frac{x}{2^n}} = \frac{\sin x}{2^n \sin \frac{x}{2^n}}.$$
+              因此$$\lim_{n \to \infty} \cos\frac{x}{2} \cos\frac{x}{2^2} \cdots \cos\frac{x}{2^n} = \lim_{n \to \infty} \frac{\sin x}{2^n \sin \frac{x}{2^n}} = \frac{\sin x}{x} \cdot \lim_{n \to \infty} \frac{\frac{x}{2^n}}{\sin\frac{x}{2^n}} = \frac{\sin x}{x}.$$
+        \item 若存在$m_0 \ges 1$, $\sin \frac{x}{2^{m}} = 0$,有$\frac{x}{2^{m_0}}= k\pi,x = 2^{m_0}k \pi, k \in \mathbb{Z}$.
+        \item 
+        自然的推论是$\forall m\les m_0, \sin \frac{x}{2^m}=\sin (2^{m_0-m}k \pi)  =0$,即我们可以分成两种情况,存在最大的$m_0$,使得$\sin \frac{x}{2^{m_0}} = 0$,或者对任意$m$,$\sin \frac{x}{2^m} = 0$.
+              \begin{enumerate}
+                  \item $x = 0$,则$\cos\frac{x}{2} \cos\frac{x}{2^2} \cdots \cos\frac{x}{2^n} = 1$,因此$\lim_{n \to \infty} \cos\frac{x}{2} \cos\frac{x}{2^2} \cdots \cos\frac{x}{2^n} = 1$;
+                  \item 要么$x \ne 0 \Rightarrow x = k 2^{n_0} \pi, k \in \mathbb{Z} \backslash \{0\} \Rightarrow \exists N, \cos \frac{x}{2^N} = \cos \frac{k 2^{n_0} \pi}{2^N} = 0$,因此$\cos\frac{x}{2} \cos\frac{x}{2^2} \cdots \cos\frac{x}{2^n} = 0, \forall n \ges N$,从而$\lim_{n \to \infty} \cos\frac{x}{2} \cos\frac{x}{2^2} \cdots \cos\frac{x}{2^n} = 0$.
+
+                        此时$x = k 2^{n_0} \pi \Rightarrow \frac{\sin x}{x} = \frac{\sin (k 2^{n_0} \pi)}{k 2^{n_0} \pi} = 0$.
+              \end{enumerate}
+    \end{enumerate}
+    综上所述,$$\lim_{n \to \infty} \cos\frac{x}{2} \cos\frac{x}{2^2} \cdots \cos\frac{x}{2^n} = \begin{cases}
+            \frac{\sin x}{x}, & x \ne 0; \\
+            1,                & x = 0.
+        \end{cases}
+    $$
+
+\end{solution}
+
+\begin{exercise}[1.3.7]
+    求证: $\lim_{n \to \infty} \left(\sin\frac{\alpha}{n^2} + \sin\frac{2\alpha}{n^2} + \dots + \sin\frac{n\alpha}{n^2}\right) = \frac{\alpha}{2}$.
+\end{exercise}
+
+\begin{solution}
+    \begin{align*}
+        \sum_{k=1}^n \sin k \frac{\alpha}{n^2} = \frac{\cos \frac{\alpha}{2n^2} -\cos \left( (n+\frac{1}{2})\frac{\alpha}{n^2} \right) }{2 \sin \frac{\alpha}{2n^2}} = \frac{\cos \frac{\alpha}{2n^2} - \cos \left( \frac{\alpha}n + \frac{\alpha}{2n^2} \right)}{2 \sin \frac{\alpha}{2n^2}}
+    \end{align*}
+    考虑$\sin x \sim x$, $\cos x = 1 - \frac{x^2}{2} + o(x^3), (x \to 0)$,有
+    因此
+    $$\cos \frac{\alpha}{2n^2} = 1 - \frac{\alpha^2}{8n^4} + o\left( \frac{1}{n^6} \right),$$
+    $$\cos \left( \frac{\alpha}n + \frac{\alpha}{2n^2} \right) = 1 - \frac{\alpha^2}{2n^2} - \frac{\alpha^2}{8n^3} - \frac{\alpha^2}{8n^4} + o\left( \frac{1}{n^3} \right) $$
+    于是
+    $$\cos \frac{\alpha}{2n^2} - \cos \left( \frac{\alpha}n + \frac{\alpha}{2n^2} \right) = \frac{\alpha^2}{2n^2} + \frac{\alpha^2}{8n^3} + o\left( \frac{1}{n^3} \right),$$
+    因此原极限为
+    $$\lim_{n \to \infty} \frac{\cos \frac{\alpha}{2n^2} - \cos \left( \frac{\alpha}n + \frac{\alpha}{2n^2} \right)}{2 \sin \frac{\alpha}{2n^2}} = \lim_{n \to \infty} \frac{\frac{\alpha^2}{2n^2} + \frac{\alpha^2}{8n^3} + o\left( \frac{1}{n^3} \right)}{2 \cdot \frac{\alpha}{2n^2}} = \lim_{n \to \infty} \frac{\alpha}{2} + \frac{\alpha}{4n} + o\left( \frac{1}{n} \right) = \frac{\alpha}{2}.$$
+
+\end{solution}
+
+\begin{exercise}[1.3.8]
+    证明: 若 $\lim_{x \to \infty} f(x) = l$, 则 $\lim_{x \to 0} f\left(\frac{1}{x}\right)=l$, 反之亦正确. 叙述并证明, 当 $x \to +\infty$ 及 $x \to -\infty$ 时类似的结论. (应用本题结论, 可将极限过程为 $x \to \infty$ 的问题化为 $x \to 0$ 处理, 或者反过来. 例如, 我们有 $\lim_{x \to 0} (1+x)^{1/x} = \mathrm{e}$.)
+\end{exercise}
+
+\begin{solution}
+    我们先给出这条命题的完整表述:
+    \begin{proposition*}
+        \begin{enumerate}[(1)]
+            \item 若 $\lim_{x \to \infty} f(x) = l$, 则 $\lim_{x \to 0^+} f\left(\frac{1}{x}\right)=l$, 反之亦正确;
+            \item 若 $\lim_{x \to +\infty} f(x) = l$, 则 $\lim_{x \to 0^+} f\left(\frac{1}{x}\right)=l$, 反之亦正确;
+            \item 若 $\lim_{x \to -\infty} f(x) = l$, 则 $\lim_{x \to 0^-} f\left(\frac{1}{x}\right)=l$, 反之亦正确;
+        \end{enumerate}
+    \end{proposition*}
+    \noindent
+    \textbf{证明:}
+    \begin{enumerate}[(1)]
+        \item 由Heine定理,$\lim_{x \to \infty} f(x) = l \Rightarrow \forall \{x_n\},$若$\lim_{n \to \infty} x_n = \infty$则$\lim_{n \to \infty} f(x_n) = l$. $\Rightarrow$ $\forall \{ y_n \},$若$\lim_{n \to \infty} y_n = 0^+$,则$\lim_{n \to \infty} \frac{1}{y_n} = \infty$,则$\lim_{n \to \infty} f\left( \frac{1}{y_n} \right) = l$.由Heine定理可知$\lim_{x \to 0^+} f\left(\frac{1}{x}\right)=l$.
+
+              反之,若$\lim_{x \to 0^+} f\left(\frac{1}{x}\right)=l$,由Heine定理,$\forall \{y_n\},$若$\lim_{n \to \infty} y_n = 0^+$,则$\lim_{n \to \infty} f\left( \frac{1}{y_n} \right) = l$. $\Rightarrow$ $\forall \{x_n\},$若$\lim_{n \to \infty} x_n = \infty$,则$\lim_{n \to \infty} \frac{1}{x_n} = 0^+$,则$\lim_{n \to \infty} f(x_n) = l$.由Heine定理可知$\lim_{x \to \infty} f(x) = l$.
+        \item 由Heine定理,$\lim_{x \to +\infty} f(x) = l \Rightarrow \forall \{x_n\},$若$\lim_{n \to \infty} x_n = +\infty$则$\lim_{n \to \infty} f(x_n) = l$. $\Rightarrow$ $\forall \{ y_n \},$若$\lim_{n \to \infty} y_n = 0^+$,则$\lim_{n \to \infty} \frac{1}{y_n} = +\infty$,则$\lim_{n \to \infty} f\left( \frac{1}{y_n} \right) = l$.由Heine定理可知$\lim_{x \to 0^+} f\left(\frac{1}{x}\right)=l$.
+
+              反之,若$\lim_{x \to 0^+} f\left(\frac{1}{x}\right)=l$,由Heine定理,$\forall \{y_n\},$若$\lim_{n \to \infty} y_n = 0^+$,则$\lim_{n \to \infty} f\left( \frac{1}{y_n} \right) = l$. $\Rightarrow$ $\forall \{x_n\},$若$\lim_{n \to \infty} x_n = +\infty$,则$\lim_{n \to \infty} \frac{1}{x_n} = 0^+$,则$\lim_{n \to \infty} f(x_n) = l$.由Heine定理可知$\lim_{x \to +\infty} f(x) = l$.
+
+        \item 由Heine定理,$\lim_{x \to -\infty} f(x) = l \Rightarrow \forall \{x_n\},$若$\lim_{n \to \infty} x_n = -\infty$则$\lim_{n \to \infty} f(x_n) = l$. $\Rightarrow$ $\forall \{ y_n \},$若$\lim_{n \to \infty} y_n = 0^-$,则$\lim_{n \to \infty} \frac{1}{y_n} = -\infty$,则$\lim_{n \to \infty} f\left( \frac{1}{y_n} \right) = l$.由Heine定理可知$\lim_{x \to 0^-} f\left(\frac{1}{x}\right)=l$.
+
+              反之,若$\lim_{x \to 0^-} f\left(\frac{1}{x}\right)=l$,由Heine定理,$\forall \{y_n\},$若$\lim_{n \to \infty} y_n = 0^-$,则$\lim_{n \to \infty} f\left( \frac{1}{y_n} \right) = l$. $\Rightarrow$ $\forall \{x_n\},$若$\lim_{n \to \infty} x_n = -\infty$,则$\lim_{n \to \infty} \frac{1}{x_n} = 0^-$,则$\lim_{n \to \infty} f(x_n) = l$.由Heine定理可知$\lim_{x \to -\infty} f(x) = l$.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.3.9]
+    求下列极限:
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $\lim_{x \to 0} \frac{\tan 2x}{\sin 5x}$;
+        \task $\lim_{x \to 0} \frac{\cos x - \cos 3x}{x^2}$;
+        \task $\lim_{x \to +\infty} \left(\frac{x+1}{2x-1}\right)^x$;
+        \task $\lim_{x \to \infty} \left(\frac{x^2+1}{x^2-1}\right)^{x^2}$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item $$\lim_{x \to 0} \frac{\tan 2x}{\sin 5x} = \lim_{x \to 0} \frac{\tan 2x}{2x} \cdot \frac{5x}{\sin 5x} \cdot \frac{2}{5} = 1 \cdot 1 \cdot \frac{2}{5} = \frac{2}{5}.$$
+        \item 由和差化积,$$ \cos x - \cos 3x = 2 \sin 2x \sin x,$$因此$$\lim_{x \to 0} \frac{\cos x - \cos 3x}{x^2} = \lim_{x \to 0} \frac{2 \sin 2x \sin x}{x^2} = \lim_{x \to 0} \frac{\sin 2x}{2x} \cdot \frac{\sin x}{x} \cdot 4 = 1 \cdot 1 \cdot 4 = 4.$$
+        \item $$
+                  \lim_{x \to + \infty} \left(\frac{x+1}{2x-1}\right)^x = \lim_{x \to + \infty} \left( 1 + \frac{2 - x}{2x - 1} \right)^{\frac{2x -1}{2 -x} \cdot \frac{2 - x}{2x -1} x} = \mathrm{e}^{\lim_{x \to + \infty} \frac{-x + 2}{2x - 1} x} = \mathrm{e}^{\lim_{x \to + \infty} - \frac12 x} = 0
+              $$
+        \item $$
+                  \lim_{x \to \infty} \left(1 + \frac{2}{x^2 - 1}\right)^{\frac{x^2 - 1}{2} \cdot \frac{2}{x^2 - 1} x^2} = \mathrm{e}^{\lim_{x \to \infty} \frac{2}{x^2 - 1} x^2} = \mathrm{e}^2
+              $$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.3.10]
+    求下列极限.
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $\lim_{x \to +\infty} \frac{\arctan x}{x}$;
+        \task $\lim_{x \to 0} x^2 \sin\frac{1}{x}$;
+        \task $\lim_{x \to 2} \frac{x^3-2x^2}{x-2}$;
+        \task $\lim_{x \to \infty} (2x^2 - x + 1)$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item $\arctan x$在$x \to +\infty$时有界,而$x \to +\infty$时无界,因此$$\lim_{x \to +\infty} \frac{\arctan x}{x} = 0.$$具体而言,$$\lim_{x \to + \infty} \arctan x = \frac{\pi}{2} , \ \lim_{x \to -\infty} \arctan x = -\frac{\pi}{2}.$$
+        \item 由夹逼定理,$$-x^2 \les x^2 \sin \frac{1}{x} \les x^2,$$且$\lim_{x \to 0} -x^2 = \lim_{x \to 0} x^2 = 0$,因此$$\lim_{x \to 0} x^2 \sin\frac{1}{x} = 0.$$
+        \item $$\lim_{x \to 2} \frac{x^3-2x^2}{x-2} = \lim_{x \to 2} \frac{(x-2)x^2}{x-2} = \lim_{x \to 2}x^2  = 4.$$
+        \item 证明: $$\lim_{x \to \infty} (2x^2 - x + 1) = +\infty.$$
+              由$2x^2 - x + 1 = x^2 + (x - 1/2)^2 + 3/4 \ges x^2$,因此对$\forall M > 0$,取$N = \sqrt{M}$,则当$x > N$时,$2x^2 - x + 1 \ges x^2 > N^2 = M$.由此可知$$\lim_{x \to \infty} (2x^2 - x + 1) = +\infty.$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.3.11]
+    按定义证明.
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $\lim_{x \to +\infty} \log_a x = +\infty, (a > 1)$;
+        \task $\lim_{x \to 0^+} \log_a x = -\infty, (a > 1)$;
+        \task $\lim_{x \to (\pi/2)^-} \tan x = +\infty$;
+        \task $\lim_{x \to 0^+} \mathrm{e}^{1/x} = +\infty$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 对$\forall M > 0$,取$N = a^M$,则当$x > N$时,$\log_a x > \log_a N = M$.
+        \item 对$\forall M < 0$,取$\delta = a^M$,则当$0 < x < \delta$时,$\log_a x < \log_a \delta = M$.
+        \item 对$\forall M > 0$,取$\delta = \frac{\pi}{2} - \arctan M$,则当$\frac{\pi}{2} - \delta < x < \frac{\pi}{2}$时,$\tan x > \tan(\frac{\pi}{2} - \delta) = M$.
+        \item 对$\forall M > 0$,取$\delta = \frac{1}{\log M}$,则当$0 < x < \delta$时,$\mathrm{e}^{1/x} > \mathrm{e}^{1/\delta} = M$.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.3.12]\label{exe:1.3.12}
+    证明: 函数 $y=x\sin x$ 在 $(0, +\infty)$ 内无界, 但当 $x \to +\infty$ 时, 这个函数并不是无穷大量.
+\end{exercise}
+
+\begin{solution}
+    $\forall M > 0$,存在$x_0 = (2k-1) \pi, k \in \mathbb{N}^*, 2k - 1 > M$,因此$y(x_0) = x_0 \sin x_0 = x_0 > M$.由此可知$y = x \sin x$在$(0, +\infty)$内无界.
+
+    $\forall X > 0$,总存在$x_1 = 2k \pi, k \in \mathbb{N}^*, 2k \pi > X$,使得$y(x_1) = x_1 \sin x_1 = 0$.因此当$x \to +\infty$时,$y = x \sin x$并不是无穷大量.
+\end{solution}
+
+\begin{exercise}[1.3.13]
+    函数 $y = \frac{1}{x}\cos\frac{1}{x}$ 在区间 $(0,1)$ 内是否有界? 又当 $x \to 0^+$ 时, 这个函数是否为无穷大量?
+\end{exercise}
+
+\begin{solution}
+    考虑$0^+$处的$\frac{1}{x} \cos \frac{1}{x}$与考虑$+\infty$处的$x \cos x$是等价的.以与\hyperref[exe:1.3.12]{习题1.3.12}类似的方法可知,$y = x \cos x$在$(0, +\infty)$内无界,但当$x \to +\infty$时,$y = x \cos x$并不是无穷大量.因此,$y = \frac{1}{x} \cos \frac{1}{x}$在$(0, 1)$内无界,但当$x \to 0^+$时,$y = \frac{1}{x} \cos \frac{1}{x}$并不是无穷大量.
+\end{solution}
+
+\begin{exercise}[1.3.14]
+    本题所涉及的函数极限有着鲜明的几何意义.
+
+    记函数 $y=f(x)$ 所表示的曲线为 $C$. 若动点沿曲线无限远离原点时, 此动点与某一固定直线的距离趋于零, 则称该直线为曲线 $C$ 的一条渐近线.
+    \begin{enumerate}[label=(\roman*)]
+        \item \textit{垂直渐近线} \quad 易知(垂直于 $x$ 轴的)直线 $x=x_0$ 为曲线 $C$ 的渐近线的充分必要条件是
+              $$ \lim_{x \to x_0^-} f(x) = \infty \quad \text{或} \quad \lim_{x \to x_0^+} f(x) = \infty. $$
+
+        \item \textit{水平渐近线} \quad 易知(平行于 $x$ 轴的)直线 $y=b$ 为曲线 $C$ 的渐近线的充分必要条件是
+              $$ \lim_{x \to +\infty} f(x) = b \quad \text{或} \quad \lim_{x \to -\infty} f(x) = b. $$
+
+        \item \textit{斜渐近线} \quad 请读者证明, 方程为 $y=ax+b \, (a \ne 0)$ 的直线 $L$ 为曲线 $C$ 的渐近线的充分必要条件是
+              $$ a = \lim_{x \to +\infty} \frac{f(x)}{x}, \quad b = \lim_{x \to +\infty} (f(x)-ax); $$
+              或者
+              $$ a = \lim_{x \to -\infty} \frac{f(x)}{x}, \quad b = \lim_{x \to -\infty} (f(x)-ax). $$
+    \end{enumerate}
+    这里自然要假定所说的极限都存在. (提示: 以 $x \to +\infty$ 为例, 设曲线 $C$ 及直线 $L$ 上的横坐标为 $x$ 的点分别为 $M,N$. 则 $M$ 至 $L$ 的距离, 是 $|MN|$ 的一个常数倍. 因此, 直线 $L$ 为曲线 $C$ 的渐近线, 等价于 $\lim_{x \to +\infty} (f(x) - (ax+b)) = 0$, 由此易得所说结果.)
+
+    求下列曲线的渐近方程.
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $y=x\ln\left(\mathrm{e} + \frac{1}{x}\right)$;
+        \task $y=\frac{3x^2-2x+3}{x-1}$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item
+              \begin{enumerate}
+                  \item 垂直渐近线, $x=- \frac{1}{\e}$: $\lim_{x \to (-\frac{1}{\e})^-} = -\frac{1}{\e} \lim_{y \to 0^+} \ln y = +\infty$;
+                  \item 斜渐近线, $y=x + \frac{1}{\e}$: $\lim_{x \to \infty} \frac{y(x)}{x} = \lim_{x \to + \infty} \ln(\e + \frac{1}{x}) = 1$, $\lim_{x \to + \infty} (y(x) - x) = \lim_{x \to \infty} x(\ln(\e + \frac{1}{x}) - 1) = \lim_{x \to \infty} x\ln(1 + \frac{1}{\e x}) = \lim_{x \to \infty} \frac{\ln(1 + \frac{1}{\e x})}{\frac{1}{x}} = \lim_{x \to + \infty} \frac{1 / \e x}{1 / x} = \frac{1}{\e}$;
+              \end{enumerate}
+        \item
+              \begin{enumerate}
+                  \item 斜渐近线, $\lim_{x \to \infty} \frac{y(x)}{x} = \lim_{x \to + \infty} \frac{3 - \frac{2}{x} + \frac{3}{x^2}}{1 - \frac{1}{x}} = 3$, $\lim_{x \to + \infty} (y(x) - 3x) = \lim_{x \to \infty} \frac{x+3}{x-1} = 1$;
+              \end{enumerate}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.3.15]
+    证明: 在同一极限过程中等价的无穷小量有下列性质:
+    \begin{enumerate}
+        \item $\alpha(x) \sim \alpha(x)$ (自反性);
+        \item 若 $\alpha(x) \sim \beta(x)$, 则 $\beta(x) \sim \alpha(x)$ (对称性);
+        \item 若 $\alpha(x) \sim \beta(x)$, $\beta(x) \sim \gamma(x)$, 则 $\alpha(x) \sim \gamma(x)$ (传递性).
+    \end{enumerate}
+    (注意, (1) 中自然需假定 $\alpha(x)$ 不取零值; 而在 (2)、(3) 中, 条件蕴含着, 所说的无穷小量在极限过程中均不取零值.)
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 显然, $\lim \frac{\alpha(x)}{\alpha(x)} = 1$,因此$\alpha(x) \sim \alpha(x)$.
+        \item 由$\alpha(x) \sim \beta(x)$可知,$\lim \frac{\alpha(x)}{\beta(x)} = 1$,因此$\lim \frac{\beta(x)}{\alpha(x)} = 1$,即$\beta(x) \sim \alpha(x)$.
+        \item 由$\alpha(x) \sim \beta(x)$, $\beta(x) \sim \gamma(x)$可知,$\lim \frac{\alpha(x)}{\beta(x)} = 1$, $\lim \frac{\beta(x)}{\gamma(x)} = 1$,因此$\lim \frac{\alpha(x)}{\gamma(x)} = \lim \frac{\alpha(x)}{\beta(x)} \cdot \lim \frac{\beta(x)}{\gamma(x)} = 1$,即$\alpha(x) \sim \gamma(x)$.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.3.16]
+    当 $x \to 0$ 时, 比较下列无穷小的级:
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $\tan x - \sin x$ 与 $x^3$;
+        \task $x^3+x^2$ 与 $\sin^2 x$;
+        \task $1-\cos x$ 与 $x^2$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item $$\tan x - \sin x = \frac{\sin x}{\cos x} - \sin x = \sin x \left( \frac{1}{\cos x} - 1 \right) = \sin x \cdot \frac{1 - \cos x}{\cos x}.$$
+              由$\sin x \sim x, 1 - \cos x \sim \frac{x^2}{2}, \cos x \sim 1$,可知$$\tan x - \sin x \sim x \cdot \frac{x^2 / 2}{1} = \frac{x^3}{2}.$$
+              因此,$$\tan x - \sin x \sim \frac{1}{2} x^3.$$
+        \item $$\sin^2 x = (\sin x)^2 \sim x^2  (x \to 0).$$
+              因此,$$x^3 + x^2 \sim x^2 (x \to 0).$$
+        \item $$1 - \cos x = 2 \sin^2 \frac{x}{2} \sim 2 \cdot \left( \frac{x}{2} \right)^2 = \frac{x^2}{2} (x \to 0).$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.3.17]
+    当 $x \to +\infty$ 时, 试比较下列无穷大量的级:
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $n$ 次多项式 $P_n(x)$ 与 $m$ 次多项式 $P_m(x)$ ($m,n$ 均为正整数);
+        \task $x^\alpha$ 与 $x^\beta$ ($\alpha, \beta > 0$);
+        \task $a^x$ 与 $b^x$ ($a, b > 1$).
+    \end{tasks}
+\end{exercise}
+
+\begin{exercise}[1.3.18]
+    试用等价无穷小量代换的方法计算下列极限.
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $\lim_{x \to 0} \frac{\sin mx}{\sin nx}$ ($m, n$ 均为正整数);
+        \task $\lim_{x \to 0} \frac{\tan ax}{x}$;
+        \task $\lim_{x \to 0} \frac{\sqrt[3]{1+\sin x}-1}{\arctan x}$;
+        \task $\lim_{x \to 0} \frac{\sqrt{2}-\sqrt{1+\cos x}}{\sin^2 x}$;
+        \task $\lim_{x \to 0} \frac{\sqrt{1+x+x^2}-1}{\sin 2x}$;
+        \task $\lim_{x \to 0} \frac{\sqrt{1+x^2}-1}{1-\cos x}$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 由$\sin x \sim x$,可知$$\lim_{x \to 0} \frac{\sin mx}{\sin nx} = \lim_{x \to 0} \frac{mx}{nx} = \frac{m}{n}.$$
+        \item 由$\tan x \sim x$,可知$$\lim_{x \to 0} \frac{\tan ax}{x} = \lim_{x \to 0} \frac{ax}{x} = a.$$
+        \item 由$(1+x)^\alpha - 1 \sim \alpha x$, $\arctan x \sim x$,可知$$\lim_{x \to 0} \frac{\sqrt[3]{1+\sin x}-1}{\arctan x} = \lim_{x \to 0} \frac{\frac{1}{3} \sin x}{x} = \frac{1}{3}.$$
+        \item $$\frac{\sqrt{2}-\sqrt{1+\cos x}}{\sin^2 x} = \frac{(\sqrt{2}-\sqrt{1+\cos x})(\sqrt{2}+\sqrt{1+\cos x})}{\sin^2 x (\sqrt{2}+\sqrt{1+\cos x})} = \frac{1 - \cos x}{\sin^2 x (\sqrt{2}+\sqrt{1+\cos x})}.$$
+              由$1 - \cos x \sim \frac{x^2}{2}, \sin x \sim x$,可知$$\lim_{x \to 0} \frac{\sqrt{2}-\sqrt{1+\cos x}}{\sin^2 x} = \lim_{x \to 0} \frac{\frac{x^2}{2}}{x^2 (\sqrt{2} + \sqrt{1 + \cos x})} = \frac{1}{4\sqrt{2}}.$$
+        \item 由$(1+x)^\alpha - 1 \sim \alpha x$, $\sin x \sim x$,可知$$\lim_{x \to 0} \frac{\sqrt{1+x+x^2}-1}{\sin 2x} = \lim_{x \to 0} \frac{\frac{1}{2}(x + x^2)}{2x} = \frac{1}{4}.$$
+        \item 由$(1+x)^\alpha - 1 \sim \alpha x$, $1 - \cos x \sim \frac{x^2}{2}$,可知$$\lim_{x \to 0} \frac{\sqrt{1+x^2}-1}{1-\cos x} = \lim_{x \to 0} \frac{\frac{1}{2} x^2}{\frac{x^2}{2}} = 1.$$
+    \end{enumerate}
+\end{solution}
