@@ -1,0 +1,107 @@
+\section*{习题 1.1}
+
+\begin{exercise}[1.1.1]
+    设 $a$ 是有理数, $b$ 是无理数. 求证: $a+b$ 和 $a-b$ 都是无理数; 当 $a \ne 0$ 时, $ab$ 和 $\frac{b}{a}$ 也都是无理数.
+\end{exercise}
+
+\begin{solution}
+    设$a$是有理数,$b$是无理数.
+    \begin{enumerate}[(1)]
+        \item 若$a+b$是有理数,则$b = (a+b)-a$是有理数,矛盾.同理可证$a-b$是无理数.
+        \item 若$ab$是有理数,则$b = \frac{ab}{a}$是有理数,矛盾.同理可证$\frac{b}{a}$是无理数.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.1.2]
+    求证: 两个不同的有理数之间有无理数.
+\end{exercise}
+
+\begin{solution}
+    设$a,b$是两个不同的有理数,不妨设$a < b$.则存在正整数$k$, $N$使得
+    $$\left( \sqrt{2} \right)^{2k-1} a < N < \left( \sqrt{2} \right)^{2k-1} b.$$
+    具体而言,取$k > \llceil \log_2 (b-a) \rrceil$,则$k > \log_2 \frac{2 \sqrt{2}}{b-a} \Rightarrow 2^k(b-a) > 2 \sqrt{2} \Rightarrow \left( \sqrt{2} \right)^{2k-1} b - \left( \sqrt{2} \right)^{2k-1} a > 2$.因此,存在整数$N = \llfloor \left( \sqrt{2} \right)^{2k-1} b \rrfloor$,使得$\left( \sqrt{2} \right)^{2k-1} a < N < \left( \sqrt{2} \right)^{2k-1} b$.于是
+    $$a < \frac{N}{\left( \sqrt{2} \right)^{2k-1}} < b.$$
+    而$\frac{N}{\left( \sqrt{2} \right)^{2k-1}} = \frac{N \sqrt{2}}{2^k}$是无理数.
+\end{solution}
+
+\begin{exercise}[1.1.3]
+    求证: $\sqrt{2}, \sqrt{3}$ 以及 $\sqrt{2}+\sqrt{3}$ 都是无理数.
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 设$\sqrt{2}$是有理数,则$\sqrt{2} = \frac{p}{q}$,其中$p,q$互素.因此$2q^2 = p^2$,由素数分解的唯一性可知$p$是偶数,设$p=2k$,则$2q^2 = 4k^2 \Rightarrow q^2 = 2k^2$,同理可知$q$也是偶数,与$p,q$互素矛盾.因此$\sqrt{2}$是无理数.
+        \item 设$\sqrt{3}$是有理数,则$\sqrt{3} = \frac{p}{q}$,其中$p,q$互素.因此$3q^2 = p^2$,由素数分解的唯一性可知$p$是3的倍数,设$p=3k$,则$3q^2 = 9k^2 \Rightarrow q^2 = 3k^2$,同理可知$q$也是3的倍数,与$p,q$互素矛盾.因此$\sqrt{3}$是无理数.
+        \item 设$\sqrt{2} + \sqrt{3}$是有理数,则$\sqrt{2} + \sqrt{3} = \frac{p}{q}$,其中$p,q$互素.因此$2 + 3 + 2\sqrt{6} = \frac{p^2}{q^2} \Rightarrow \sqrt{6} = \frac{p^2 - 5q^2}{2q^2}$,与$\sqrt{6}$是无理数矛盾.因此$\sqrt{2} + \sqrt{3}$是无理数.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.1.4]
+    把下列循环小数表示为分数:
+    \begin{tasks}[label=(\arabic*)](3)
+        \task $0.24999\dots$
+        \task $0.\dot{3}7\dot{5}$
+        \task $4.\dot{5}1\dot{8}$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 设$x = 0.24999\dots$,则$10x = 2.4999\dots$,因此$9x = 2.25 \Rightarrow x = \frac{9}{40}$.
+        \item 设$x = 0.\dot{3}7\dot{5}$,则$1000x = 375.375375\dots$,因此$999x = 375 \Rightarrow x = \frac{375}{999}=\frac{125}{333}$.
+        \item 设$x = 4.\dot{5}1\dot{8}$,则$1000x = 4518.518518\dots$,因此$999x = 4514 \Rightarrow x = \frac{4514}{999}=\frac{122}{27}$.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.1.5]
+    设 $r,s,t$ 都是有理数. 求证:
+    \begin{enumerate}
+        \item 若 $r+s\sqrt{2}=0$, 则 $r=s=0$;
+        \item 若 $r+s\sqrt{2}+t\sqrt{3}=0$, 则 $r=s=t=0$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 假设$s \ne 0$,则$\sqrt{2} = -\frac{r}{s}$是有理数,与$\sqrt{2}$是无理数矛盾.因此$s=0$,从而$r=0$.
+        \item $r + s\sqrt{2} + t\sqrt{3} = 0 \Rightarrow r^2 = 2s^2 + 3t^2 + 2st\sqrt{6} \Rightarrow \left( r^2 - 2s^2 - 3t^2 \right) + \left( -2st \right) \sqrt{6} = 0$. :
+        
+        与(1)类似,若$st \ne 0$,则$\sqrt{6} = \frac{r^2 - 2s^2 - 3t^2}{2st}$是有理数,与$\sqrt{6}$是无理数矛盾.故$st = 0$,
+        \begin{enumerate}
+            \item 若$t = 0$,则$r + s\sqrt{2} = 0$,由(1)可知$r=s=0$;
+            \item 若$s = 0$,则$r + t\sqrt{3} = 0$,同理可知$r=t=0$.
+        \end{enumerate}
+
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[1.1.6]
+    设 $a_1, a_2, \dots, a_n$ 有相同的符号, 且都大于 $-1$. 证明:
+    $$ (1+a_1)(1+a_2)\cdots(1+a_n) \ges 1+a_1+a_2+\cdots+a_n. $$
+\end{exercise}
+
+\begin{solution}
+    利用数学归纳法:
+
+    当$n=1$时,等式为$$1+a_1 \ges 1+a_1,$$显然成立.
+
+    假设当$n=k$时,等式成立,即$$(1+a_1)(1+a_2)\cdots(1+a_k) \ges 1+a_1+a_2+\cdots+a_k.$$以此作为条件,当$n=k+1$时,由$a_{k+1} > -1$,可知$1+a_{k+1} > 0$,因此
+    \begin{align*}
+        (1+a_1)(1+a_2)\cdots(1+a_k)(1+a_{k+1}) & \ges (1+a_1+a_2+\cdots+a_k)(1+a_{k+1})                                       \\
+                                               & = 1 + a_1 + a_2 + \cdots + a_k + a_{k+1} + a_{k+1}(a_1 + a_2 + \cdots + a_k) \\
+                                               & \ges 1 + a_1 + a_2 + \cdots + a_k + a_{k+1}.
+    \end{align*}
+    其中$a_{k+1}(a_1 + a_2 + \cdots + a_k) = a_1 a_{k+1} + a_2 a_{k+1} + \cdots + a_k a_{k+1} \ges 0$,因为$a_i$与$a_{k+1}$符号相同.
+\end{solution}
+
+\begin{exercise}[1.1.7]
+    设 $a, b$ 是实数, 且 $|a|<1, |b|<1$. 证明:
+    $$ \left|\frac{a+b}{1+ab}\right| < 1. $$
+\end{exercise}
+
+\begin{solution}
+    由$|a|<1, |b|<1$,可知$ab \ne -1$.因此
+    $$\left|\frac{a+b}{1+ab}\right| < 1 \Leftrightarrow |a+b| < |1+ab| \Leftrightarrow (a+b)^2 < (1+ab)^2.$$
+    即$$a^2 + b^2 + 2ab < 1 + a^2 b^2 + 2ab \Leftrightarrow a^2 + b^2 < 1 + a^2 b^2 \Leftrightarrow (1 - a^2)(1 - b^2) > 0.$$
+    显然成立.
+\end{solution}
