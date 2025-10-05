@@ -1,5 +1,4 @@
-\section*{第1章综合习题}
-\addcontentsline{toc}{section}{第1章综合习题}
+\section{第1章综合习题}
 
 \begin{exercise}[1.C.1]
     求下列数列的极限:
@@ -292,7 +291,7 @@
     在 $\mathbb{R}$ 稠密.
 \end{exercise}
 \begin{solution}
-稠密的定义:设$S\subset \R$, 若对任意$a, b\in\R, a<b$, 都有$S\cap(a, b)\neq\varnothing$, 则称$S$在$\R$中稠密.
+    稠密的定义:设$S\subset \R$, 若对任意$a, b\in\R, a<b$, 都有$S\cap(a, b)\neq\varnothing$, 则称$S$在$\R$中稠密.
 
     想法是这样的,我们为了找到某个$m+n\xi$落在$(a, b)$中,于是用$\xi$构造一个充分小的实数$\ve = m_0 + n_0 \xi \in \left( 0, {b-a} \right)$, 因为这个$\ve$够小,因此在$\R$的分割$\R=\bigcup_{l\in\Z}[l\ve, (l+1)\ve]$中,每一段的长度$\varepsilon$严格小于$b-a$.
     这样就能证明$\{l \ve \mid l\in\Z\} \cap (a, b) \neq \varnothing$, 也就是
@@ -326,6 +325,5 @@
     因此取$l_0\ve\in(a, b)$, 因此$$m=l_0(n_q-n_p), n=l_0(q-p)$$
     即有$m+n\xi=l_0 (n_q-n_p)+l_0(q-p)\xi=l_0 \left( (q-p)\xi-(n_p-n_q) \right)=l_0\ve\in(a, b).$
 \end{solution}
-
 
 \newpage

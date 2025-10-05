@@ -854,12 +854,12 @@
 
 \ifdefstring{\ELEGANT@lang}{cn}{
   \ifdefstring{\ELEGANT@scheme}{chinese}{
-    \newcommand{\xchaptertitle}{Lec ~\arabic{chapter}~}
+    \newcommand{\xchaptertitle}{第 \arabic{chapter} 章}
   }{
-    \newcommand{\xchaptertitle}{Lec ~\thechapter~}
+    \newcommand{\xchaptertitle}{第 \thechapter 章}
   }
 }{
-  \newcommand{\xchaptertitle}{Lec ~\thechapter~}
+  \newcommand{\xchaptertitle}{第 \thechapter 章}
 }
 
 
@@ -881,8 +881,10 @@
 \titleformat{\chapter}[\style]{\bfseries}{
   \filcenter\LARGE\enspace\bfseries{\color{structurecolor} \IfAppendix{\appendixname\;\thechapter\;}{\xchaptertitle\;}}}{1pt}{
   \LARGE\bfseries\color{structurecolor}\filcenter}[]
-\titleformat{\section}[hang]{\bfseries}{
-  \Large\bfseries{\color{structurecolor}\thesection}\enspace}{1pt}{%
+% \titleformat{\section}[hang]{\bfseries}{
+%   \Large\bfseries{\color{structurecolor}\thesection}\enspace}{1pt}{%
+%   \color{structurecolor}\Large\bfseries\filright}
+\titleformat{\section}[hang]{\bfseries}{}{0pt}{%
   \color{structurecolor}\Large\bfseries\filright}
 \titleformat{\subsection}[hang]{\bfseries}{
   \large\bfseries\color{structurecolor}\thesubsection\enspace}{1pt}{%
@@ -1329,8 +1331,11 @@
 \renewcommand{\headrulewidth}{1pt}
 % \renewcommand{\headrule}{}
 \fancypagestyle{plain}{\renewcommand{\headrulewidth}{0pt}\fancyhf{}\renewcommand{\headrule}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection\, #1}{}}
+% \renewcommand{\sectionmark}[1]{\markright{\thesection\, #1}{}}
+% \renewcommand{\chaptermark}[1]{\markboth{\xchaptertitle\, #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
 \renewcommand{\chaptermark}[1]{\markboth{\xchaptertitle\, #1}{}}
+% 这样就不会在页眉显示章节编号 
 
 
 \renewcommand*{\maketitle}{%
@@ -1468,6 +1473,7 @@
 
 
 
+
 \renewcommand\tableofcontents{%
   \hypersetup{linktoc=all, linkcolor=black}
     \if@twocolumn
@@ -1522,8 +1528,9 @@
     }%
   }
 }{
-  \renewcommand{\cftchappresnum}{\chaptername\space}
-  \renewcommand{\cftchapaftersnum}{\space}
+  \renewcommand{\cftchappresnum}{第}
+  \renewcommand{\cftchapaftersnum}{章}
+
   \setlength{\cftchapnumwidth}{\widthof{\textbf{Appendix~9}}}
   \g@addto@macro\appendix{%
     \addtocontents{toc}{%
@@ -1533,6 +1540,15 @@
     }%
   }
 }
+
+% ===== 关键：仅在“读取目录阶段”吞掉 section 的 \numberline（目录里不显示编号）=====
+\renewcommand{\l@section}[2]{%
+  \begingroup
+    \let\numberline\@gobble % 局部屏蔽编号，只影响 ToC 的 section 行
+    \@dottedtocline{1}{\cftsecindent}{\cftsecnumwidth}{#1}{#2}%
+  \endgroup
+}
+\makeatother
 
 % restore the tt default family to lmodern tt family
 \renewcommand\ttdefault{lmtt}
