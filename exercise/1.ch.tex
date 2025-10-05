@@ -1,55 +1,55 @@
 \begin{exercise}[1.C.1]
     求下列数列的极限:
-    \begin{enumerate}
+    \begin{enumerate}[(1)]
         \item $a_n = \frac{1}{2} \cdot \frac{3}{4} \cdots \frac{2n-1}{2n}$ (提示: $\frac{1}{2} \cdot \frac{3}{4} \cdots \frac{2n-1}{2n} \les \frac{1}{\sqrt{2n+1}}$);
         \item $a_n = \frac{10}{1} \cdot \frac{11}{3} \cdots \frac{n+9}{2n-1}$;
-        \item 设 $a_1 > 1, a_{n+1} = 2 - \frac{1}{a_n}, n=1,2,\dots$;
-        \item 设 $a_1 = 3, a_{n+1} = \frac{1}{1+a_n}, n=1,2,\dots$.
+        \item 设 $a_1 > 1,  a_{n+1} = 2 - \frac{1}{a_n},  n=1, 2, \cdots$;
+        \item 设 $a_1 = 3,  a_{n+1} = \frac{1}{1+a_n},  n=1, 2, \cdots$.
     \end{enumerate}
 \end{exercise}
 
 \begin{solution}
-    \begin{enumerate}
+    \begin{enumerate}[(1)]
         \item 由$$(2n)^2 = 4n^2 \ges 4n^2 - 1 = (2n-1)(2n+1)$$可得$$\frac{2n-1}{2n} \les \frac{2n-1}{\sqrt{(2n-1)(2n+1)}} = \sqrt{\frac{2n-1}{2n+1}}.$$因此$$a_n = \frac{1}{2} \cdot \frac{3}{4} \cdots \frac{2n-1}{2n} \les \sqrt{\frac{1}{3} \cdot \frac{3}{5} \cdots \frac{2n-1}{2n+1}} = \sqrt{\frac{1}{2n+1}}.$$
-              而$\lim_{n\to\infty} \sqrt{\frac{1}{2n+1}} = 0$, 故由夹逼定理可知$\lim_{n\to\infty} a_n = 0$;
-        \item 由$\lim_{n \to \infty} \frac{n+9}{2n-1} = \frac{1}{2}$,知$$\lim_{n\to\infty} \sqrt[n]{\frac{10}{1} \cdot \frac{11}{3} \cdots \frac{n+9}{2n-1}} = \lim_{n\to\infty} \frac{n+9}{2n-1} = \frac{1}{2}.$$
+              而$\lim_{n\to\infty} \sqrt{\frac{1}{2n+1}} = 0$,  故由夹逼定理可知$\lim_{n\to\infty} a_n = 0$;
+        \item 由$\lim_{n \to \infty} \frac{n+9}{2n-1} = \frac{1}{2}$, 知$$\lim_{n\to\infty} \sqrt[n]{\frac{10}{1} \cdot \frac{11}{3} \cdots \frac{n+9}{2n-1}} = \lim_{n\to\infty} \frac{n+9}{2n-1} = \frac{1}{2}.$$
               因此$\lim_{n\to\infty} a_n = \lim_{n\to\infty} \left(\sqrt[n]{a_n}\right)^n = 0$;
-        \item 由$a_1 > 1$,以及若$a_n > 1$时, $a_{n+1} = 2 - \frac{1}{a_n} > 1$,归纳的可知$a_n > 1, \forall n \in \mathbb{N}^+$. 所以数列有下界. 再用归纳法: 当 $n=1$ 时:
-              $$ a_2 - a_1 = 2 - \left(\frac{1}{a_1} + a_1\right) \les 2-2=0, $$
-              推出 $a_2 \les a_1$. 假设对 $n$ 有 $a_n \les a_{n-1}$, 那么当 $n+1$ 时
+        \item 由$a_1 > 1$, 以及若$a_n > 1$时,  $a_{n+1} = 2 - \frac{1}{a_n} > 1$, 归纳的可知$a_n > 1,  \forall n \in \mathbb{N}^+$. 所以数列有下界. 再用归纳法: 当 $n=1$ 时:
+              $$ a_2 - a_1 = 2 - \left(\frac{1}{a_1} + a_1\right) \les 2-2=0,  $$
+              推出 $a_2 \les a_1$. 假设对 $n$ 有 $a_n \les a_{n-1}$,  那么当 $n+1$ 时
               $$ a_{n+1} - a_n = \frac{1}{a_{n-1}} - \frac{1}{a_n} = \frac{a_n - a_{n-1}}{a_n a_{n-1}} \les 0. $$
-              所以 $\{a_n\}$ 是单调减有下界数列, 因此收敛. 设 $\lim_{n \to \infty} a_n = a \ges 1$. 在
+              所以 $\{a_n\}$ 是单调减有下界数列,  因此收敛. 设 $\lim_{n \to \infty} a_n = a \ges 1$. 在
               $$ a_{n+1} = 2 - \frac{1}{a_n} $$
               两边取极限得
               $$ a = 2 - \frac{1}{a} \implies a^2 - 2a + 1 = 0 $$
-              解得 $a=\pm 1$. 但 $a=-1$ 不合题意, 所以 $\lim_{n \to \infty} a_n = 1$.
-        \item $a_{n+2} = \frac{1}{1+a_{n+1}} = \frac{1}{1+\frac{1}{1+a_n}} = \frac{1+a_n}{2+a_n}$. 
-        假如对任何 $n$, 有 $a_{2n} \ges a_{2n-2}$; $a_{2n+1} \les a_{2n-1}$, 那么对 $n+1$, 有
-$$ a_{2n+2} - a_{2n} = \frac{1}{1+a_{2n+1}} - \frac{1}{1+a_{2n-1}} = \frac{a_{2n-1}-a_{2n+1}}{1+a_{2n+1}a_{2n-1}} \ges 0 $$
-$$ a_{2n+3} - a_{2n+1} = \frac{1}{1+a_{2n+2}} - \frac{1}{1+a_{2n}} = \frac{a_{2n}-a_{2n+2}}{1+a_{2n+2}a_{2n}} \les 0 $$
-推出数列 $\{a_n\}$ 的子列 $\{a_{2n}\}$ 单调增有上界, $\{a_{2n-1}\}$ 单调减有下界. 因此分别收敛. 对$$a_{2n+2} = \frac{1+a_{2n}}{2+a_{2n}},$$两边取极限得
-$$ a = \frac{1+a}{2+a} \implies a^2 + a - 1 = 0 $$
-解得 $a = \frac{-1+\sqrt{5}}{2}$. 同理, 对$$a_{2n+3} = \frac{1+a_{2n+1}}{2+a_{2n+1}},$$两边取极限得
-$$ b = \frac{1+b}{2+b} \implies b^2 + b - 1 = 0 $$
-解得 $b = \frac{-1+\sqrt{5}}{2}$.
-因此$\lim_{n \to \infty} a_{2n} = \lim_{n \to \infty} a_{2n-1}$, 故$\lim_{n \to \infty} a_n$存在, 且$\lim_{n \to \infty} a_n = \frac{-1+\sqrt{5}}{2}$.
+              解得 $a=\pm 1$. 但 $a=-1$ 不合题意,  所以 $\lim_{n \to \infty} a_n = 1$.
+        \item $a_{n+2} = \frac{1}{1+a_{n+1}} = \frac{1}{1+\frac{1}{1+a_n}} = \frac{1+a_n}{2+a_n}$.
+              假如对任何 $n$,  有 $a_{2n} \ges a_{2n-2}$; $a_{2n+1} \les a_{2n-1}$,  那么对 $n+1$,  有
+              $$ a_{2n+2} - a_{2n} = \frac{1}{1+a_{2n+1}} - \frac{1}{1+a_{2n-1}} = \frac{a_{2n-1}-a_{2n+1}}{1+a_{2n+1}a_{2n-1}} \ges 0 $$
+              $$ a_{2n+3} - a_{2n+1} = \frac{1}{1+a_{2n+2}} - \frac{1}{1+a_{2n}} = \frac{a_{2n}-a_{2n+2}}{1+a_{2n+2}a_{2n}} \les 0 $$
+              推出数列 $\{a_n\}$ 的子列 $\{a_{2n}\}$ 单调增有上界,  $\{a_{2n-1}\}$ 单调减有下界. 因此分别收敛. 对$$a_{2n+2} = \frac{1+a_{2n}}{2+a_{2n}}, $$两边取极限得
+              $$ a = \frac{1+a}{2+a} \implies a^2 + a - 1 = 0 $$
+              解得 $a = \frac{-1+\sqrt{5}}{2}$. 同理,  对$$a_{2n+3} = \frac{1+a_{2n+1}}{2+a_{2n+1}}, $$两边取极限得
+              $$ b = \frac{1+b}{2+b} \implies b^2 + b - 1 = 0 $$
+              解得 $b = \frac{-1+\sqrt{5}}{2}$.
+              因此$\lim_{n \to \infty} a_{2n} = \lim_{n \to \infty} a_{2n-1}$,  故$\lim_{n \to \infty} a_n$存在,  且$\lim_{n \to \infty} a_n = \frac{-1+\sqrt{5}}{2}$.
     \end{enumerate}
 \end{solution}
 
 \begin{exercise}[1.C.2]
-    设 $\{a_n\}$ 为单调递增的数列, 并且收敛于 $a$, 证明对一切 $n$ 有 $a_n < a$. (对单调递减且有极限的数列, 类似的结论成立.)
+    设 $\{a_n\}$ 为单调递增的数列,  并且收敛于 $a$,  证明对一切 $n$ 有 $a_n < a$. (对单调递减且有极限的数列,  类似的结论成立.)
 \end{exercise}
 
 \begin{solution}
-    反证法. 假设存在某个 $n_0$, 使得 $a_{n_0} > a$. 由数列单调递增的性质, 对一切 $n > n_0$ 有 $a_n \ges a_{n_0} > a$,于是存在 $\varepsilon = \frac{a_{n_0} - a}{2} > 0$, 使得$\forall N$, 存在$ n = \max\{n_0, N\} + 1 > N$, 使得
-    $$ |a_n - a| = a_n - a \ges a_{n_0} - a = 2\varepsilon > \varepsilon, $$
+    反证法. 假设存在某个 $n_0$,  使得 $a_{n_0} > a$. 由数列单调递增的性质,  对一切 $n > n_0$ 有 $a_n \ges a_{n_0} > a$, 于是存在 $\varepsilon = \frac{a_{n_0} - a}{2} > 0$,  使得$\forall N$,  存在$ n = \max\{n_0,  N\} + 1 > N$,  使得
+    $$ |a_n - a| = a_n - a \ges a_{n_0} - a = 2\varepsilon > \varepsilon,  $$
     这与数列收敛的定义矛盾.
 \end{solution}
 
 \begin{exercise}[1.C.3]
     证明下面的数列收敛:
-    \begin{enumerate}
-        \item $a_n = 1 + \frac{1}{2^2} + \dots + \frac{1}{n^2}$;
+    \begin{enumerate}[(1)]
+        \item $a_n = 1 + \frac{1}{2^2} + \cdots + \frac{1}{n^2}$;
         \item $a_n = \left(1+\frac{1}{2}\right)\left(1+\frac{1}{2^2}\right)\cdots\left(1+\frac{1}{2^n}\right)$.
     \end{enumerate}
 \end{exercise}
@@ -57,29 +57,29 @@ $$ b = \frac{1+b}{2+b} \implies b^2 + b - 1 = 0 $$
 \begin{solution}
     \begin{enumerate}[(1)]
         \item 由数列定义可知 $\{a_n\}$ 单调递增. 又因为
-              $$ a_n = 1 + \frac{1}{2^2} + \dots + \frac{1}{n^2} \les 1 + \frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \dots + \frac{1}{(n-1)n} = 2 - \frac{1}{n} < 2, $$
+              $$ a_n = 1 + \frac{1}{2^2} + \cdots + \frac{1}{n^2} \les 1 + \frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \cdots + \frac{1}{(n-1)n} = 2 - \frac{1}{n} < 2,  $$
               所以 $\{a_n\}$ 有上界. 因此 $\{a_n\}$ 收敛;
-              \item 由数列定义可知 $\{a_n\}$ 单调递增. 又因为
+        \item 由数列定义可知 $\{a_n\}$ 单调递增. 又因为
               $$a_n = \e^{\sum_{k=1} \ln \left(1 + \frac{1}{2^k}\right)} \les \e^{\sum_{k=1} \frac{1}{2^k}} = \e^1.$$
               所以 $\{a_n\}$ 有上界. 又由数列定义可知 $\{a_n\}$ 单调递增. 因此 $\{a_n\}$ 收敛.
     \end{enumerate}
 \end{solution}
 
 \begin{exercise}[1.C.4]
-    试构造一个发散的数列 $\{a_n\}$, 满足条件: 对任意正数 $\varepsilon$, 存在正整数 $N$, 使当 $n > N$ 时, 有 $|a_{n+1}-a_n| < \varepsilon$.
+    试构造一个发散的数列 $\{a_n\}$,  满足条件: 对任意正数 $\varepsilon$,  存在正整数 $N$,  使当 $n > N$ 时,  有 $|a_{n+1}-a_n| < \varepsilon$.
 \end{exercise}
 
 \begin{solution}
-    取$a_n = \sqrt{n}$. 则对任意 $\varepsilon > 0$, 存在正整数 $N > \frac{1}{4\varepsilon^2}$, 当 $n > N$ 时, 有
+    取$a_n = \sqrt{n}$. 则对任意 $\varepsilon > 0$,  存在正整数 $N > \frac{1}{4\varepsilon^2}$,  当 $n > N$ 时,  有
     $$ |a_{n+1}-a_n| = \sqrt{n+1} - \sqrt{n} = \frac{1}{\sqrt{n+1} + \sqrt{n}} < \frac{1}{2\sqrt{n}} < \varepsilon. $$
     但数列 $\{a_n\}$ 显然发散.
 \end{solution}
 
 \begin{exercise}[1.C.5]
-    若数列 $\{a_n\}$ 满足: 存在常数 $M$, 使得对一切 $n$ 有
-    $$ A_n = |a_2-a_1| + |a_3-a_2| + \dots + |a_{n+1}-a_n| \les M. $$
+    若数列 $\{a_n\}$ 满足: 存在常数 $M$,  使得对一切 $n$ 有
+    $$ A_n = |a_2-a_1| + |a_3-a_2| + \cdots + |a_{n+1}-a_n| \les M. $$
     证明:
-    \begin{enumerate}
+    \begin{enumerate}[(1)]
         \item 数列 $\{A_n\}$ 收敛;
         \item 数列 $\{a_n\}$ 也收敛.
     \end{enumerate}
@@ -87,39 +87,35 @@ $$ b = \frac{1+b}{2+b} \implies b^2 + b - 1 = 0 $$
 
 \begin{solution}
     \begin{enumerate}[(1)]
-        \item 由数列定义可知 $\{A_n\}$ 单调递增. 又因为对一切 $n$ 有 $A_n \les M$, 所以 $\{A_n\}$ 有上界. 因此 $\{A_n\}$ 收敛;
-        \item 用Cauchy收敛准则证明. 由(1)知 $\{A_n\}$ 收敛, 因此对任意 $\varepsilon > 0$, 存在正整数 $N$, $\forall n > N+1, p > 0$, 有
-              $$ |A_{n+p} - A_{n-1}| = |a_{n+1}-a_n| + |a_{n+2}-a_{n+1}| + \dots + |a_{n+p}-a_{n+p-1}| < \varepsilon. $$
-                由三角不等式可知
-                $$ |a_{n+p} - a_n| \les |a_{n+1}-a_n| + |a_{n+2}-a_{n+1}| + \dots + |a_{n+p}-a_{n+p-1}| < \varepsilon. $$
+        \item 由数列定义可知 $\{A_n\}$ 单调递增. 又因为对一切 $n$ 有 $A_n \les M$,  所以 $\{A_n\}$ 有上界. 因此 $\{A_n\}$ 收敛;
+        \item 用Cauchy收敛准则证明. 由(1)知 $\{A_n\}$ 收敛,  因此对任意 $\varepsilon > 0$,  存在正整数 $N$,  $\forall n > N+1,  p > 0$,  有
+              $$ |A_{n+p} - A_{n-1}| = |a_{n+1}-a_n| + |a_{n+2}-a_{n+1}| + \cdots + |a_{n+p}-a_{n+p-1}| < \varepsilon. $$
+              由三角不等式可知
+              $$ |a_{n+p} - a_n| \les |a_{n+1}-a_n| + |a_{n+2}-a_{n+1}| + \cdots + |a_{n+p}-a_{n+p-1}| < \varepsilon. $$
     \end{enumerate}
 \end{solution}
 
 \begin{exercise}[1.C.6]
-    设 $\{a_n\}$ 是正严格递增数列. 求证: 若 $a_{n+1}-a_n$ 有界, 则对任意 $\alpha \in (0,1)$ 有 $\lim_{n \to \infty} (a_{n+1}^\alpha - a_n^\alpha) = 0$. 并说明此结论的逆不对, 即, 存在正严格递增数列 $\{a_n\}$ 使得对任意 $\alpha \in (0,1)$ 有 $\lim_{n \to \infty} (a_{n+1}^\alpha - a_n^\alpha) = 0$, 但是 $a_{n+1}-a_n$ 无界. (提示: 考虑 $a_n = n\ln n$.)
+    设 $\{a_n\}$ 是正严格递增数列. 求证: 若 $a_{n+1}-a_n$ 有界,  则对任意 $\alpha \in (0, 1)$ 有 $\lim_{n \to \infty} (a_{n+1}^\alpha - a_n^\alpha) = 0$. 并说明此结论的逆不对,  即,  存在正严格递增数列 $\{a_n\}$ 使得对任意 $\alpha \in (0, 1)$ 有 $\lim_{n \to \infty} (a_{n+1}^\alpha - a_n^\alpha) = 0$,  但是 $a_{n+1}-a_n$ 无界. (提示: 考虑 $a_n = n\ln n$.)
 \end{exercise}
 
 \begin{solution}
-    \begin{enumerate}
-        \item 若$\{a_n\}$有界,此时由于其严格单调,故有极限,记$\lim_{n\to\infty}a_n=l$,可知$\lim_{n \to \infty} (a_{n+1}^\alpha - a_n^\alpha) = l^\alpha-l^\alpha=0.$
-        \item 若$\{a_n\}$无界,即$\lim_{n\to\infty}a_n=+\infty$,设$\left|a_{n+1}-a_n\right| \les M$.
-        \begin{align*}
-            0\les a_{n+1}^\alpha - a_n^\alpha\\
-            &=a_n^\alpha\left(\left(\frac{a_{n+1}}{a_n}\right)^\alpha - 1\right)\\
-            &<a_n^\alpha\left(\frac{a_{n+1}}{a_n} - 1\right)\\
-            &=\frac{a_{n+1}-a_n}{a_n^{1-\alpha}}\\
-            &\les\frac{M}{a_n^{1-\alpha}}.
-        \end{align*}
-        同时,$$\lim_{n\to\infty}Ma_n^{\alpha-1}=0.$$
-        因此由夹逼定理可知$\lim_{n \to \infty} (a_{n+1}^\alpha - a_n^\alpha) = 0$.
-        \item 反之不对,取$a_n=n\ln n$,则\begin{align*}
-            a_{n+1}^\alpha-a_n^\alpha&=(n+1)^\alpha\ln^\alpha(n+1)-n^\alpha\ln^\alpha\\
-            &<\left((n+1)^\alpha-n^\alpha\right)\ln^\alpha n\\
-            &=n^\alpha\left(\left(1+\frac{1}{n}\right)^\alpha-1\right)\ln^\alpha n\\
-            &<n^\alpha\left(\left(1+\frac{1}{n}\right)-1\right)\ln^\alpha n\\
-            &=n^{\alpha-1}\ln^\alpha n=\frac{\ln^\alpha n}{n^{1-\alpha}}.
-        \end{align*}
-        由于$$\lim_{n\to\infty}\frac{\ln^\alpha n}{n^{1-\alpha}}=0,$$因此由夹逼定理可知$\lim_{n \to \infty} (a_{n+1}^\alpha - a_n^\alpha) = 0$.但$$a_{n+1}-a_n=(n+1)\ln(n+1)-n\ln n=\ln (n+1)+n\ln\left(\frac{n+1}{n}\right)>\ln(n+1),$$显然无界.
+    \begin{enumerate}[(1)]
+        \item 若$\{a_n\}$有界, 此时由于其严格单调, 故有极限, 记$\lim_{n\to\infty}a_n=l$, 可知$\lim_{n \to \infty} (a_{n+1}^\alpha - a_n^\alpha) = l^\alpha-l^\alpha=0.$
+        \item 若$\{a_n\}$无界, 即$\lim_{n\to\infty}a_n=+\infty$, 设$\left|a_{n+1}-a_n\right| \les M$.
+              \begin{align*}
+                  0\les a_{n+1}^\alpha - a_n^\alpha & =a_n^\alpha\left(\left(\frac{a_{n+1}}{a_n}\right)^\alpha - 1\right) <a_n^\alpha\left(\frac{a_{n+1}}{a_n} - 1\right)=\frac{a_{n+1}-a_n}{a_n^{1-\alpha}} \les\frac{M}{a_n^{1-\alpha}}.
+              \end{align*}
+              同时, $$\lim_{n\to\infty}Ma_n^{\alpha-1}=0.$$
+              因此由夹逼定理可知$\lim_{n \to \infty} (a_{n+1}^\alpha - a_n^\alpha) = 0$.
+        \item 反之不对, 取$a_n=n\ln n$, 则\begin{align*}
+                  a_{n+1}^\alpha-a_n^\alpha & =(n+1)^\alpha\ln^\alpha(n+1)-n^\alpha\ln^\alpha                       \\
+                                            & <\left((n+1)^\alpha-n^\alpha\right)\ln^\alpha n                       \\
+                                            & =n^\alpha\left(\left(1+\frac{1}{n}\right)^\alpha-1\right)\ln^\alpha n \\
+                                            & <n^\alpha\left(\left(1+\frac{1}{n}\right)-1\right)\ln^\alpha n        \\
+                                            & =n^{\alpha-1}\ln^\alpha n=\frac{\ln^\alpha n}{n^{1-\alpha}}.
+              \end{align*}
+              由于$$\lim_{n\to\infty}\frac{\ln^\alpha n}{n^{1-\alpha}}=0, $$因此由夹逼定理可知$\lim_{n \to \infty} (a_{n+1}^\alpha - a_n^\alpha) = 0$.但$$a_{n+1}-a_n=(n+1)\ln(n+1)-n\ln n=\ln (n+1)+n\ln\left(\frac{n+1}{n}\right)>\ln(n+1), $$显然无界.
     \end{enumerate}
 \end{solution}
 
@@ -130,174 +126,200 @@ $$ b = \frac{1+b}{2+b} \implies b^2 + b - 1 = 0 $$
 \begin{solution}
     由Stolz定理可知
     \begin{align*}
-        \lim_{n \to \infty} \frac{a_n}{n} &= \lim_{n \to \infty} \frac{a_{n+1}-a_n}{(n+1)-n} \\
-        &= \lim_{n \to \infty} (a_{n+1}-a_n) \\
-        &= a. 
-    \end{align*} 
+        \lim_{n \to \infty} \frac{a_n}{n} & = \lim_{n \to \infty} \frac{a_{n+1}-a_n}{(n+1)-n} = \lim_{n \to \infty} (a_{n+1}-a_n) = a.
+    \end{align*}
 \end{solution}
 
 \begin{exercise}[1.C.8]\label{exe:1.C.8}
-    证明: 若 $\lim_{n \to \infty} a_n = a$, 且 $a_n > 0$, 则 $\lim_{n \to \infty} \sqrt[n]{a_1a_2\cdots a_n} = a$.
+    证明: 若 $\lim_{n \to \infty} a_n = a$,  且 $a_n > 0$,  则 $\lim_{n \to \infty} \sqrt[n]{a_1a_2\cdots a_n} = a$.
 \end{exercise}
 \begin{solution}
     由Stolz定理可知
     \begin{align*}
-        \lim_{n \to \infty} \sqrt[n]{a_1a_2\cdots a_n} 
-        &= \lim_{n \to \infty}\e^{\frac{1}{n}\left(\ln a_1+\ln a_2+\cdots +\ln a_n\right)} \\
-        &= \e^{\lim\limits_{n \to \infty}\frac{\left(\ln a_1+\ln a_2+\cdots +\ln a_n\right)}{n}}\\
-        &=\e^{\lim\limits_{n \to \infty}\frac{\ln a_n}{1}}\\
-        &=\e^{\ln a}\\
-        &=a.
-    \end{align*} 
+        \lim_{n \to \infty} \sqrt[n]{a_1a_2\cdots a_n} = \lim_{n \to \infty}\e^{\frac{1}{n}\left(\ln a_1+\ln a_2+\cdots +\ln a_n\right)} = \e^{\lim\limits_{n \to \infty}\frac{\left(\ln a_1+\ln a_2+\cdots +\ln a_n\right)}{n}}\=\e^{\lim\limits_{n \to \infty}\frac{\ln a_n}{1}} =\e^{\ln a} =a.
+    \end{align*}
 \end{solution}
 
 \begin{exercise}[1.C.9]\label{exe:1.C.9}
-    证明: 若 $a_n > 0$, 且 $\lim_{n \to \infty} \frac{a_{n+1}}{a_n}$ 存在, 则 $\lim_{n \to \infty} \sqrt[n]{a_n}$ 也存在, 并且
+    证明: 若 $a_n > 0$,  且 $\lim_{n \to \infty} \frac{a_{n+1}}{a_n}$ 存在,  则 $\lim_{n \to \infty} \sqrt[n]{a_n}$ 也存在,  并且
     $$ \lim_{n \to \infty} \sqrt[n]{a_n} = \lim_{n \to \infty} \frac{a_{n+1}}{a_n}. $$
 \end{exercise}
 
 \begin{solution}
-    设$b_n=\frac{a_{n}}{a_{n-1}},(n>1);b_1=a_1$,则$a_n=b_1b_2\cdots b_n$.由\hyperref[exe:1.C.8]{综合习题1.C.8}可知结果.
+    设$b_n=\frac{a_{n}}{a_{n-1}}, (n>1);b_1=a_1$, 则$a_n=b_1b_2\cdots b_n$.由\hyperref[exe:1.C.8]{综合习题1.C.8}可知结果.
     直接Stolz也可以得到结果.
     \begin{align*}
-        \lim_{n \to \infty} \sqrt[n]{a_n} &=\lim_{n \to \infty} \e{\frac{\ln a_n}{n}}\\
-        &=\e^{\lim\limits_{n \to \infty}\frac{\ln a_n}{n}}\\
-        &=\e^{\lim\limits_{n \to \infty}\frac{\ln a_{n+1}-\ln a_{n}}{1}}\\
-        &=\e^{\lim\limits_{n \to \infty}\ln \frac{a_{n+1}}{a_{n}}}\\
-        &=\e^{\ln \lim\limits_{n \to \infty}\frac{a_{n+1}}{a_{n}}}\\
-        &=\lim_{n \to \infty}\frac{a_{n+1}}{a_{n}}.
+        \lim_{n \to \infty} \sqrt[n]{a_n} & =\lim_{n \to \infty} \e{\frac{\ln a_n}{n}}=\e^{\lim\limits_{n \to \infty}\frac{\ln a_n}{n}}                               \\
+                                          & =\e^{\lim\limits_{n \to \infty}\frac{\ln a_{n+1}-\ln a_{n}}{1}} =\e^{\lim\limits_{n \to \infty}\ln \frac{a_{n+1}}{a_{n}}} \\
+                                          & =\e^{\ln \lim\limits_{n \to \infty}\frac{a_{n+1}}{a_{n}}} =\lim_{n \to \infty}\frac{a_{n+1}}{a_{n}}.
     \end{align*}
 \end{solution}
 
 \begin{exercise}[1.C.10]
     求下列极限:
     \begin{tasks}[label=(\arabic*)](2)
-        \task $\lim_{n \to \infty} \frac{1+\sqrt{2}+\sqrt[3]{3}+\dots+\sqrt[n]{n}}{n}$;
+        \task $\lim_{n \to \infty} \frac{1+\sqrt{2}+\sqrt[3]{3}+\cdots+\sqrt[n]{n}}{n}$;
         \task $\lim_{n \to \infty} \frac{n}{\sqrt[n]{n!}}$.
     \end{tasks}
 \end{exercise}
 
 \begin{solution}
-    \begin{enumerate}
+    \begin{enumerate}[(1)]
         \item 由Stolz定理可知
               \begin{align*}
-                  \lim_{n \to \infty} \frac{1+\sqrt{2}+\sqrt[3]{3}+\dots+\sqrt[n]{n}}{n} &= \lim_{n \to \infty} \sqrt[n]{n} = 1;
+                  \lim_{n \to \infty} \frac{1+\sqrt{2}+\sqrt[3]{3}+\cdots+\sqrt[n]{n}}{n} & = \lim_{n \to \infty} \sqrt[n]{n} = 1;
               \end{align*}
-        \item 可以用\hyperref[exe:1.C.9]{综合习题1.C.9}来做,记$a_n=\frac{n^n}{n!}$由于
-        $$\lim_{n\to\infty}\frac{a_{n+1}}{a_n}=\lim_{n\to\infty}\frac{(n+1)^{n+1}\cdot n!}{n^n\cdot (n+1)!}=\lim_{n\to\infty}\frac{(n+1)^{n}}{n^n}=\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^{n}=\e,$$
-        因此$$\lim_{n \to \infty} \frac{n}{\sqrt[n]{n!}}=\lim_{n \to \infty}\sqrt[n]{\frac{n^n}{n!}}=\lim_{n \to \infty}\sqrt[n]{a_n}=\e.$$
+        \item 可以用\hyperref[exe:1.C.9]{综合习题1.C.9}来做, 记$a_n=\frac{n^n}{n!}$由于
+              $$\lim_{n\to\infty}\frac{a_{n+1}}{a_n}=\lim_{n\to\infty}\frac{(n+1)^{n+1}\cdot n!}{n^n\cdot (n+1)!}=\lim_{n\to\infty}\frac{(n+1)^{n}}{n^n}=\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^{n}=\e, $$
+              因此$$\lim_{n \to \infty} \frac{n}{\sqrt[n]{n!}}=\lim_{n \to \infty}\sqrt[n]{\frac{n^n}{n!}}=\lim_{n \to \infty}\sqrt[n]{a_n}=\e.$$
     \end{enumerate}
 \end{solution}
 
 \begin{exercise}[1.C.11]
-    已知 $\lim_{n \to \infty} a_n = a$, 求证 $\lim_{n \to \infty} \frac{a_1+2a_2+\dots+na_n}{n^2} = \frac{a}{2}$.
+    已知 $\lim_{n \to \infty} a_n = a$,  求证 $\lim_{n \to \infty} \frac{a_1+2a_2+\cdots+na_n}{n^2} = \frac{a}{2}$.
 \end{exercise}
 \begin{solution}
-    由 Stolz 定理, 有
+    由 Stolz 定理,  有
     \begin{align*}
-        \lim_{n \to \infty} \frac{a_1+2a_2+\dots+na_n}{n^2} &= \lim_{n \to \infty} \frac{na_n}{n^2 - (n-1)^2} \\
-        &= \lim_{n \to \infty} \frac{na_n}{2n-1}\\
-        & =\lim_{n \to \infty}\frac{n}{2n-1} \lim_{n \to \infty} a_n \\ 
-        &= \frac{a}{2}.
+        \lim_{n \to \infty} \frac{a_1+2a_2+\cdots+na_n}{n^2} = \lim_{n \to \infty} \frac{na_n}{n^2 - (n-1)^2} = \lim_{n \to \infty} \frac{na_n}{2n-1} =\lim_{n \to \infty}\frac{n}{2n-1} \lim_{n \to \infty} a_n = \frac{a}{2}.
     \end{align*}
 \end{solution}
 
 \begin{exercise}[1.C.12]
-    设 $\{a_n\}$ 且 $a_n \to a \in \mathbb{R}$, 又设 $\{b_n\}$ 是正数列, $c_n = \frac{a_1b_1+a_2b_2+\dots+a_nb_n}{b_1+b_2+\dots+b_n}$. 求证:
-    \begin{enumerate}
+    设 $\{a_n\}$ 且 $a_n \to a \in \mathbb{R}$,  又设 $\{b_n\}$ 是正数列,  $c_n = \frac{a_1b_1+a_2b_2+\cdots+a_nb_n}{b_1+b_2+\cdots+b_n}$. 求证:
+    \begin{enumerate}[(1)]
         \item $\{c_n\}$ 收敛;
-        \item 若 $(b_1+b_2+\dots+b_n) \to +\infty$, 则 $\lim_{n \to \infty} c_n = a$.
+        \item 若 $(b_1+b_2+\cdots+b_n) \to +\infty$,  则 $\lim_{n \to \infty} c_n = a$.
     \end{enumerate}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 记$B_n = b_1+b_2+\cdots+b_n$, 由$\lim_{n\to\infty} a_n = a$, 任取$\ve > 0$, 存在$K$, 当$k > K$时,$|a_k -a| < \ve$.
+
+              当$n > K$, 有
+              $$c_n - a = \frac{\sum_{k=1}^{n}(a_k - a)b_k}{B_n}= \frac{\sum_{k=1}^{K}(a_k - a)b_k}{B_n} + \frac{\sum_{k=K+1}^{n}(a_k - a)b_k}{B_n}.$$
+
+              其中$$\left| \frac{\sum_{k=K+1}^{n}(a_k - a)b_k}{B_n}\right| \les \frac{\sum_{k=K+1}^{n}|a_k - a|b_k}{B_n} < \ve \frac{\sum_{k=K+1}^{n}b_k}{B_n} < \ve.$$
+
+              因此$$\left|c_n - \left( a + \frac{\sum_{k=1}^{K}(a_k - a)b_k}{B_n}\right)\right| < \ve.$$
+
+              而对于$$q_n := \frac{\sum_{k=1}^{K}(a_k - a)b_k}{B_n},$$
+              $C := \sum_{k=1}^{K}(a_k - a)b_k$是仅与$K$有关,与$n$无关的常数,$B_n$单调增,因此$q_n$单调有界($C>0$时$q_n$单调减且$q_n > 0$, $C<0$时$q_n$单调增且$q_n < 0$), 故$q_n$收敛, 设$\lim_{n\to\infty}q_n = q$, 再取$N$,使得当$n,m > N$时,$|q_m - q_n| < \ve$, 则当$n,m > \max\{N,K\}$时,
+              $$|c_m - c_n| \les \left| c_n - \left(a + q_n\right)\right| + \left| c_m - \left(a + q_m\right)\right| + |q_m - q_n| < 3\ve.$$
+              因此由Cauchy收敛准则可知$c_n$收敛.
+        \item 下给出两种方法,
+              \begin{enumerate}
+                  \item 由(1)中的过程,$q_n = \frac{C}{B_n}$, 由于$B_n \to +\infty$, $C$为常数, 因此$q_n \to 0$, 因此存在$N$, 使得当$n > N$时,$|q_n| < \ve$, 则当$n > \max\{N,K\}$时,
+                        $$|c_n - a| \les \left| c_n - \left(a + q_n\right)\right| + |q_n| < \ve + |q_n| < 2\ve.$$
+                  \item 由Stolz定理可知
+                        \begin{align*}
+                            \lim_{n \to \infty} c_n = \lim_{n \to \infty} \frac{a_1b_1+a_2b_2+\cdots+a_nb_n}{b_1+b_2+\cdots+b_n} = \lim_{n \to \infty} \frac{a_nb_n}{b_n} = \lim_{n \to \infty} a_n = a.
+                        \end{align*}
+              \end{enumerate}
+    \end{enumerate}
+
+    上述解答中给出了符合题目原意的证明,即先证明$c_n$收敛,然后在$B_n$无界时,再证明$\lim_{n \to \infty} c_n = a$.但对于这道题而言,还可以分类$B_n$有界和无界来讨论, 即先做(2),然后对$B_n$有界时,用Cauchy收敛准则证明$\left\{ \sum_{k=1}^{n}a_n b_n \right\}$收敛,即两种分类下以截然不同的方式来证明$c_n$收敛.
+\end{solution}
+
+\begin{remark}
+    $a_n := \cdots$中$:=$表示定义. 如$a_n := \frac{1}{n}$表示我们新定义了一个数列$a_n$, 其通项公式为$a_n = \frac{1}{n}$.在上文中“$C := \sum_{k=1}^{K}(a_k - a)b_k$是仅与$K$有关,与$n$无关的常数.”表示: “记$C = \sum_{k=1}^{K}(a_k - a)b_k$, 则$C$是仅与$K$有关,与$n$无关的常数.”有的地方会写为$a_n \overset{\text{def}}{=} \cdots$.
+\end{remark}
+
 \begin{exercise}[1.C.13]
-    证明: $\lim_{x \to +\infty} \left(1+\frac{1}{x^p}\right)^x = \begin{cases} 1, & p > 1, \\ \mathrm{e}, & p = 1, \\ \infty, & p < 1. \end{cases}$
+    证明: $\lim_{x \to +\infty} \left(1+\frac{1}{x^p}\right)^x = \begin{cases} 1,  & p > 1,  \\ \mathrm{e},  & p = 1,  \\ \infty,  & p < 1. \end{cases}$
 \end{exercise}
 \begin{solution}
     实际上题目中的无穷只能是$+\infty$.
 
-    $p>0$时,$x^p\to+\infty$
+    $p>0$时, $x^p\to+\infty$
     \begin{align*}
-        \lim_{x \to +\infty} \left(1+\frac{1}{x^p}\right)^x &= \lim_{x \to +\infty} \left(1+\frac{1}{x^p}\right)^{x^p\cdot\frac{1}{x^{p-1}}} \\
-        &= \e^{\lim\limits_{x \to +\infty}\frac{1}{x^{p-1}}}.\\
-        &= \begin{cases} 1, & p > 1, \\ 
-        \e, & p = 1, \\ +\infty, & p < 1. \end{cases}
+        \lim_{x \to +\infty} \left(1+\frac{1}{x^p}\right)^x & = \lim_{x \to +\infty} \left(1+\frac{1}{x^p}\right)^{x^p\cdot\frac{1}{x^{p-1}}} = \e^{\lim\limits_{x \to +\infty}\frac{1}{x^{p-1}}} = \begin{cases} 1,  & p > 1, \\
+              \e, & p = 1, \\ +\infty,  & p < 1.\end{cases}
     \end{align*}
-    $p\le0$时,$x^p\to 0$,则考虑$x>1$时,
+    $p\les 0$时, $x^p\to 0$, 则考虑$x>1$时,
     $$\lim_{x \to +\infty} \left(1+\frac{1}{x^p}\right)^x\ges\lim_{x \to +\infty}  2^x=+\infty.$$
 \end{solution}
 \begin{exercise}[1.C.14]
-    设 $f(x)$ 为周期函数, 且 $\lim_{x \to \infty} f(x) = 0$, 证明 $f(x)$ 恒为零.
+    设 $f(x)$ 为周期函数,  且 $\lim_{x \to \infty} f(x) = 0$,  证明 $f(x)$ 恒为零.
 \end{exercise}
 \begin{solution}
-    设 $f(x)$ 的正周期为 $T>0$, $\forall \ve >0,\exists N \in \N^*,$ 当 $|x|\ges N$ 时$|f(x)|<\ve$.
-    
-    因此对于$n=\left\lceil \frac{N}{T}\right\rceil$,有$nT\ges N$,故对于任意 $x \in [nT, (n+1)T)$, 有$f(x)<\ve$.
-    
-    利用周期性可以得到$\forall x \in \mathbb{R}, |f(x)| < \ve$.
-    由于 $\ve$ 是任意的正数, 所以 $f(x)$ 恒为零.
+    设 $f(x)$ 的正周期为 $T>0$,  $\forall \ve >0, \exists N \in \N^*, $ 当 $|x|\ges N$ 时$|f(x)|<\ve$.
+
+    因此对于$n=\left\lceil \frac{N}{T}\right\rceil$, 有$nT\ges N$, 故对于任意 $x \in [nT,  (n+1)T)$,  有$f(x)<\ve$.
+
+    利用周期性可以得到$\forall x \in \mathbb{R},  |f(x)| < \ve$.
+    由于 $\ve$ 是任意的正数,  所以 $f(x)$ 恒为零.
 \end{solution}
 
 \begin{exercise}[1.C.15]
     证明
-    \begin{enumerate}
-        \item 函数 $f(x)$ 在 $x \to x_0^-$ 时有极限 $l$ 的充分必要条件是: 对于任意一个以 $x_0$ 为极限的单调递增数列 $\{a_n\} \, (a_n \ne x_0)$, 都有 $\lim_{n \to \infty} f(a_n) = l$;
-        \item 函数 $f(x)$ 在 $x \to x_0^+$ 时有极限 $l$ 的充分必要条件是: 对于任意一个以 $x_0$ 为极限的单调递减数列 $\{a_n\} \, (a_n \ne x_0)$, 都有 $\lim_{n \to \infty} f(a_n) = l$.
+    \begin{enumerate}[(1)]
+        \item 函数 $f(x)$ 在 $x \to x_0^-$ 时有极限 $l$ 的充分必要条件是: 对于任意一个以 $x_0$ 为极限的单调递增数列 $\{a_n\} \,  (a_n \ne x_0)$,  都有 $\lim_{n \to \infty} f(a_n) = l$;
+        \item 函数 $f(x)$ 在 $x \to x_0^+$ 时有极限 $l$ 的充分必要条件是: 对于任意一个以 $x_0$ 为极限的单调递减数列 $\{a_n\} \,  (a_n \ne x_0)$,  都有 $\lim_{n \to \infty} f(a_n) = l$.
     \end{enumerate}
 \end{exercise}
 
 \begin{solution}
-    \begin{enumerate}
+    \begin{enumerate}[(1)]
         \item \begin{enumerate}
-            \item 必要性:考虑任意数列 $\{a_n\}$, 使得 $\lim_{n\to\infty}a_n = x_0$且 $\{a_n\}$ 单调递增,.
-            
-            由于$\lim_{x \to x_0^-}f(x)=l$,因此,$\forall \ve > 0, \exists \delta > 0$, 当 $x_0 - \delta < x < x_0$ 时, 有 $|f(x) - l| < \ve$.
-            
-            同时对于$\delta$,$\exists N \in \N^*$,使得当 $n > N$ 时, 有 $|a_n - x_0| < \delta$,即 $x_0 - \delta < a_n < x_0$.
+                  \item 必要性:考虑任意数列 $\{a_n\}$,  使得 $\lim_{n\to\infty}a_n = x_0$且 $\{a_n\}$ 单调递增, .
 
-            因此我们有$m>N$时$|f(a_n)-l|<\ve$.即得到数列$\{f(a_n)\}$收敛到$l$.
-            \item 充分性: 反证,若$x\to x_0^-$时$f(x)$的极限为$l$不成立,即$\exists \ve > 0, \forall \delta > 0, \exists x_0 - \delta < x < x_0$, 使得$|f(x) - l| \ges \ve$.
-            
-            因此我们依次构造 $\delta_1=1,\delta_n = \min\{\frac{1}{n},x_0-a_{n-1}\},(n>2)$,则$\exists a_n,x_0-\delta_n<a_n<x_0$ ,使得$|f(a_n) - l| \ges \ve$.
-            即有$a_n>a_{n-1}$,且$|x_0-a_n|<\frac{1}{n}$.这意味着$\{a_n\}$单调递增,且$\lim_{n \to \infty} a_n = x_0$.
+                        由于$\lim_{x \to x_0^-}f(x)=l$, 因此, $\forall \ve > 0,  \exists \delta > 0$,  当 $x_0 - \delta < x < x_0$ 时,  有 $|f(x) - l| < \ve$.
 
-            由于$|f(a_n) - l| \ges \ve$,所以$\{f(a_n)\}$不收敛到$l$,矛盾,故充分性成立.
-        \end{enumerate}
-        \item 证明同理.
+                        同时对于$\delta$, $\exists N \in \N^*$, 使得当 $n > N$ 时,  有 $|a_n - x_0| < \delta$, 即 $x_0 - \delta < a_n < x_0$.
+
+                        因此我们有$m>N$时$|f(a_n)-l|<\ve$.即得到数列$\{f(a_n)\}$收敛到$l$.
+                  \item 充分性: 反证, 若$x\to x_0^-$时$f(x)$的极限为$l$不成立, 即$\exists \ve > 0,  \forall \delta > 0,  \exists x_0 - \delta < x < x_0$,  使得$|f(x) - l| \ges \ve$.
+
+                        因此我们依次构造 $\delta_1=1, \delta_n = \min\{\frac{1}{n}, x_0-a_{n-1}\}, (n>2)$, 则$\exists a_n, x_0-\delta_n<a_n<x_0$ , 使得$|f(a_n) - l| \ges \ve$.
+                        即有$a_n>a_{n-1}$, 且$|x_0-a_n|<\frac{1}{n}$.这意味着$\{a_n\}$单调递增, 且$\lim_{n \to \infty} a_n = x_0$.
+
+                        由于$|f(a_n) - l| \ges \ve$, 所以$\{f(a_n)\}$不收敛到$l$, 矛盾, 故充分性成立.
+              \end{enumerate}
+        \item 证明同理.具体而言:
+
+              设$g(x) = f(-x)$, 则$f(x)$在$x\to x_0^-$时有极限$l$ $\Leftrightarrow$ $g(x)$在$x\to -x_0^+$时有极限$l$.由(1)可知, 这等价于对于任意一个以$-x_0$为极限的单调递增数列$\{b_n\} \,  (b_n \ne -x_0)$,  都有 $\lim_{n \to \infty} g(b_n) = l$.设$a_n=-b_n$, 则$\{a_n\}$是以$x_0$为极限的单调递减数列, 且$\lim_{n \to \infty} f(a_n) = l$.因此(2)得证.
     \end{enumerate}
 \end{solution}
 
 \begin{exercise}[1.C.16]
-    设 $\xi$ 是一个无理数, $a,b$ 是实数, 且 $a<b$. 求证: 存在整数 $m,n$ 使得 $m+n\xi \in (a,b)$, 即, 集合
-    $$ S = \{m+n\xi \mid m, n \in \mathbb{Z}\} $$
+    设 $\xi$ 是一个无理数,  $a, b$ 是实数,  且 $a<b$. 求证: 存在整数 $m, n$ 使得 $m+n\xi \in (a, b)$,  即,  集合
+    $$ S = \{m+n\xi \mid m,  n \in \mathbb{Z}\} $$
     在 $\mathbb{R}$ 稠密.
 \end{exercise}
 \begin{solution}
-    想法是这样的,我们需要构造一个正的小实数$\ve>0,\ve\in S$,当$\ve<frac{b-a}{2}$,我们考虑$\R$的一种分解方式$\R=\bigcup_{l\in\Z}[l\ve,(l+1)\ve]$,我们可以找到一个被$(a,b)$包含的端点$l_0\ve$,$l_0\ve$就是我们需要的$m+n\xi$.
+稠密的定义:设$S\subset \R$, 若对任意$a, b\in\R, a<b$, 都有$S\cap(a, b)\neq\varnothing$, 则称$S$在$\R$中稠密.
 
-    \begin{enumerate}
-        \item 构造$\ve$.
-        
-        实际上,对于$b-a>0$,总存在$k\in\N^*$,使得$\frac{1}{k}<b-a$.因此我们考虑构造一个满足$\ve<\frac{1}{k},\ve\in S$即可.
+    想法是这样的,我们为了找到某个$m+n\xi$落在$(a, b)$中,于是用$\xi$构造一个充分小的实数$\ve = m_0 + n_0 \xi \in \left( 0, {b-a} \right)$, 因为这个$\ve$够小,因此在$\R$的分割$\R=\bigcup_{l\in\Z}[l\ve, (l+1)\ve]$中,每一段的长度$\varepsilon$严格小于$b-a$.
+    这样就能证明$\{l \ve \mid l\in\Z\} \cap (a, b) \neq \varnothing$, 也就是
+    存在某个$l_0\in\Z$, 使得$l_0\ve\in(a, b)$.
+    随后我们取$m=l_0m_0, n=l_0n_0$即有$m+n\xi=l_0\ve\in(a, b)$.
 
-        对于$l=1,2,\cdots,k+1$,我们考虑
-        \begin{align*}
-            n_l&=\left\lfloor l\xi \right\rfloor \\
-            x_l&=l\xi-n_l.
-        \end{align*}
-        $x_l$是$l\xi$的小数部分,容易知道$x_l\in[0,1)$,并且$x_l$之间总是两两不同的,否则$i\xi-n_i=j\xi-n_j,i\neq j$,这意味着$\xi=\frac{n_i-n_j}{i-j}$,这与$\xi$为无理数矛盾.
+    \paragraph*{构造$\ve$}
 
-        因此对于$$[0,1)=\bigcup_{j=1}^{k}[ \frac{j-1}{k},\frac{j}{k}),$$
-        这$k$个区间包括了$k+1$个不同实数$x_l$.因此总有一个区间内部存在同时两个实数,记为$x_p,x_q,p\neq q$,不妨认为$x_q>x_p$.
-        
-        由于$x_p,x_q$落在同一个区间内,而区间长度为$\frac{1}{k}$,因此$0<x_q-x_p\les\frac{1}{k}$
-        很显然,$x_p=p\xi-n_p,x_q=q\xi-n_q,x_q-x_p=(q-p)\xi-(n_p-x_q)\in S$,且$0<x_q-x_p\les\frac{1}{k}$,因此我们取$$\ve=x_q-x_p.$$
+    实际上, 对于$b-a>0$, 总存在$k\in\N^*$, 使得$\frac{1}{k}<{b-a}$.因此我们考虑构造一个满足$\ve<\frac{1}{k}, \ve\in S$即可.
 
-        \item 构造$m,n$.
-        
-        正如我们最初所说,我们考虑$\R$的一种分解方式$\R=\bigcup_{l\in\Z}[l\ve,(l+1)\ve]$,由于$\ve<b-a$,若不存在$l_0$使得$l_0\ve\in(a,b)$,考虑$l_1=\max\{l|l\ve\les a\},l_2=\min\{l|l\ve\ges b\}$,必然有$(l_2-l_1)\ve\ges b-a$,但此时同时有$l_2-l_1=1$,但$l_2\ve-l_1\ve=\ve<b-a$,矛盾.
+    对于$l=1, 2, \cdots, k+1$, 我们考虑
+    \begin{align*}
+        n_l & =\left\lfloor l\xi \right\rfloor \\
+        x_l & =l\xi-n_l \in S.
+    \end{align*}
+    $x_l$是$l\xi$的小数部分, 容易知道$x_l\in[0, 1)$, 并且$x_l$之间总是两两不同的, 否则$i\xi-n_i=j\xi-n_j, i\neq j$, 这意味着$\xi=\frac{n_i-n_j}{i-j}$, 这与$\xi$为无理数矛盾.
 
-        因此我们得到了$l_0\ve\in(a,b)$,因此$$m=l_0(n_q-n_p),n=l_0(q-p)$$
-        $$m+n\xi=l_0\ve\in(a,b)$$.
-    \end{enumerate}
+    因此对于$$[0, 1)=\bigcup_{j=1}^{k} \left[ \frac{j-1}{k}, \frac{j}{k} \right), $$
+    这$k$个区间包括了$k+1$个不同实数$x_l$.因此总有一个区间内部存在同时两个实数, 记为$x_p, x_q \in S, p\neq q$, 不妨认为$x_q>x_p$.
+
+    由$x_l$的构造 $x_p=p\xi-n_p, x_q=q\xi-n_q,$
+    有$$ x_q-x_p=(q-p)\xi-(n_p-x_q)\in S,$$
+    且由于$x_p, x_q$落在同一个区间内, 而区间长度为$\frac{1}{k}$,因此$0<x_q-x_p\les\frac{1}{k}< {b-a},$
+    所以$x_q-x_p$满足我们对$\ve$的要求.我们取$$\ve=x_q-x_p.$$
+
+    \paragraph*{构造$m, n$}
+
+    我们先证明$\exists l_0\in\Z, \st l_0\ve\in(a, b)$:我们取$l_0 = \llceil \frac{b}{\ve} \rrceil - 1$,则$$l_0 \ve = \left(\llceil \frac{b}{\ve} \rrceil - 1\right)\ve < \left(\frac{b}{\ve} + 1 - 1\right)\ve = b.$$
+    同时,由于$\ve < ={b-a}$, 因此$$l_0 \ve = \left(\llceil \frac{b}{\ve} \rrceil - 1\right)\ve \ges \left(\frac{b}{\ve} - 1\right)\ve = b - \ve > b - (b-a) = a.$$
+
+    因此取$l_0\ve\in(a, b)$, 因此$$m=l_0(n_q-n_p), n=l_0(q-p)$$
+    即有$m+n\xi=l_0 (n_q-n_p)+l_0(q-p)\xi=l_0 \left( (q-p)\xi-(n_p-n_q) \right)=l_0\ve\in(a, b).$
 \end{solution}

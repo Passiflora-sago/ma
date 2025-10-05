@@ -84,12 +84,12 @@ $\forall M > 0, \forall \ve >0, \exists N\in \mathbb{N}^*, \forall n>N $都有 $
     证明: 若数列 $\{a_n\}$ 满足 $\lim_{k\to\infty} a_{2k+1} = a$, 及 $\lim_{k\to\infty} a_{2k} = a$, 则 $\lim_{n\to\infty} a_n = a$.
 \end{exercise}
 
-\begin{proof}
+\begin{solution}
     按已知条件 \(\forall \varepsilon > 0, \exists N_1 > 0\),当 \(n > N_1\) 时 \(|x_{2n} - a| < \varepsilon\).
     又 \(\exists N_2 > 0\),当 \(n > N_2\) 时 \(|x_{2n+1} - a| < \varepsilon\).于是令\( N = \max\{2N_1, 2N_2 + 1\}, \)
     则 \(n > N\) 时恒有 \(|x_n - a| < \varepsilon\).故 \(\lim_{n \to \infty} x_n = a\).
 
-\end{proof}
+\end{solution}
 
 \begin{exercise}[1.2.7]
     证明下列数列不收敛:
@@ -125,7 +125,7 @@ $\forall M > 0, \forall \ve >0, \exists N\in \mathbb{N}^*, \forall n>N $都有 $
         \item \begin{align*}
                   a_n = & \frac{2}{3} \cdot \frac{5}{6} \cdots \frac{(n^2 + n - 2)/2}{n(n+1)/2} = \frac{2}{3} \cdot \frac{5}{6} \cdots \frac{(n-1)(n+2)}{n(n+1)} = \frac{1\cdot 4}{2\cdot 3} \cdot \frac{2\cdot 5}{3\cdot 4} \cdots \frac{(n-1)(n+2)}{n(n+1)}
                   \\&= \frac{\left(1\cdot 2   \cdots (n-1) \right)\cdot\left(4\cdot 5 \cdots (n+2 )\right)}{\left(2\cdot 3  \cdots  (n) \right)\cdot\left(3\cdot 4 \cdots (n+1 )\right)}= \frac{1\cdot(n+2)}{n\cdot3} = \frac{n+2}{3n}
-              \end{align*},
+              ,\end{align*}
               $$\lim_{n \to \infty} a_n = \lim_{n \to \infty} \frac{n+2}{3n}= \lim_{n \to \infty}\frac{1}{3}+\frac{2}{3}\frac{1}{n} = \frac{1}{3}+\frac{2}{3}\cdot 0 = \frac{1}{3}.$$
         \item $$a_n = \frac{1 \cdot 3}{2 \cdot 2} \cdot \frac{2 \cdot 4}{3 \cdot 3} \cdots \frac{(n-1)(n+1)}{n \cdot n} = \frac{1}{2} \cdot \frac{n+1}{n} = \frac{n+1}{2n},$$
               $$\lim_{n \to \infty} a_n = \lim_{n \to \infty} \frac{n+1}{2n} = \frac{1 + \frac{1}{n}}{2} = \frac{1 + 0}{2} = \frac{1}{2}.$$
@@ -297,7 +297,7 @@ $\forall M > 0, \forall \ve >0, \exists N\in \mathbb{N}^*, \forall n>N $都有 $
 \end{exercise}
 
 \begin{solution}
-    设 $a_k = \max(a_1, a_2, \ldots, a_m)$,则
+    设 $a_k = \max \{a_1, a_2, \ldots, a_m \}$,则
     $$
         a_k = \sqrt[n]{a_k^n} \les \sqrt[n]{a_1^n + a_2^n + \cdots + a_m^n} \les \sqrt[n]{m a_k^n} = m^{\frac{1}{n}} a_k.
     $$
@@ -407,11 +407,11 @@ $\forall M > 0, \forall \ve >0, \exists N\in \mathbb{N}^*, \forall n>N $都有 $
 
 简要说明:由$\lim_{n\to\infty} \left(1 + \frac{1}{n}\right)^n = \e$,故$\left\{ \left(1 + \frac{1}{n}\right)^n \right\}$的任意子列$\left\{ \left(1 + \frac{1}{n_k}\right)^{n_k} \right\}$也收敛于$\e$.因此,我们可以通过适当的变形,将题目中的数列变形为$\left(1 + \frac{1}{n_k}\right)^{n_k}$的形式,从而求出极限.对于类似于$\left(1 - \frac{1}{n}\right)^{-n}$的形式,可以考虑先通分再变形去掉指数的负号即可处理.
 
-在此过程中
+在此过程中下列命题也相同有用:
 \begin{proposition*}
     设数列$\{a_n\}$收敛于$a$, $a_n > 0, a > 0$. $\{b_n\}$收敛于$b$.则$\lim_{n \to \infty} a_n^{b_n} = a^b$.
 \end{proposition*}
-也相同有用.
+请注意,这条结论对于$1^ \infty$型是不能直接使用的,即若$a_n \to 1, b_n \to \infty$,则不能直接说$a_n^{b_n} \to 1^\infty = 1$.但是对于$a_n \to a > 1, b_n \to \infty$,则可以直接说$a_n^{b_n} \to a^{+ \infty} = + \infty$;对于$a_n \to a < 1, b_n \to + \infty$,则可以直接说$a_n^{b_n} \to a^{+ \infty} = 0$.
 
 \begin{solution}
     \begin{enumerate}[(1)]
@@ -437,9 +437,13 @@ $\forall M > 0, \forall \ve >0, \exists N\in \mathbb{N}^*, \forall n>N $都有 $
 \begin{solution}
     $\sqrt[n]{n!}$无界,且趋于无穷大.由均值不等式,$$\sqrt[n]{n!} \ges \frac{n}{\frac{1}{1} + \frac{1}{2} + \cdots + \frac{1}{n}}$$
     已知$\lim_{n \to \infty}  \frac{1}{\frac{1}{n}}  = +\infty$,由Stolz定理,
-    $$\lim_{n \to \infty} \frac{n}{\frac{1}{1} + \frac{1}{2} + \cdots + \frac{1}{n}} =
+    $$\lim_{n \to \infty} \frac{n}{\frac{1}{1} + \frac{1}{2} + \cdots + \frac{1}{n}} 
         = \lim_{n \to \infty} \frac{1}{\frac1{n}} = +\infty.$$
     因此,$\lim_{n \to \infty} \sqrt[n]{n!} = +\infty$.
+
+    \begin{remark}
+        Stolz定理规范的思路要先说明$\lim_{n \to \infty} \frac{a_{n+1} - a_n}{b_{n+1} - b_n}$存在,然后才能说明$\lim_{n \to \infty} \frac{a_n}{b_n}$存在.为了方便,我们也会省去前面的部分,直接写$\lim_{n \to \infty} \frac{a_n}{b_n} = \lim_{n \to \infty} \frac{a_{n+1} - a_n}{b_{n+1} - b_n}$.
+    \end{remark}
 
     $n \sin \frac{n \pi}{2}$无界,但是不趋于无穷大.当$n=4k+1$时,$n \sin \frac{n \pi}{2} = 4k+1$,趋于无穷大;当$n=4k+3$时,$n \sin \frac{n \pi}{2} = -(4k+3)$,趋于负无穷大;当$n$为偶数时,$n \sin \frac{n \pi}{2} = 0$.
 \end{solution}
