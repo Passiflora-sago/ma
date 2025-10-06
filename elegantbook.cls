@@ -438,10 +438,11 @@
   \newcommand{\lemmaname}{引理}
   \newcommand{\propositionname}{命题}
   \newcommand{\corollaryname}{推论}
-  \newcommand{\examplename}{例} %
-  \newcommand{\instancename}{示例} %
-  \newcommand{\problemname}{问题} % 问题
-  \newcommand{\exercisename}{习题} % 练习=习题
+  \newcommand{\examplename}{例}
+  \newcommand{\instancename}{示例}
+  \newcommand{\problemname}{问题}
+  \newcommand{\exercisename}{习题}
+  \newcommand{\homeworkname}{作业}
   \newcommand{\remarkname}{注}
   \newcommand{\assumptionname}{假设}
   \newcommand{\conclusionname}{结论}
@@ -451,10 +452,8 @@
   \newcommand\bioinfo[2]{\gdef\@bioinfo{{\citshape #1}：#2}}
   \newcommand{\updatename}{更新：}
   \newcommand{\historyname}{版本更新历史}
-  % \newcommand{\beforechap}{第}
-  % \newcommand{\afterchap}{章}
-
-  \newcommand{\beforechap}{Lec}
+  \newcommand{\beforechap}{第}
+  \newcommand{\afterchap}{章}
 }{\relax}
 
 
@@ -854,12 +853,12 @@
 
 \ifdefstring{\ELEGANT@lang}{cn}{
   \ifdefstring{\ELEGANT@scheme}{chinese}{
-    \newcommand{\xchaptertitle}{第 \arabic{chapter} 章}
+    \newcommand{\xchaptertitle}{\beforechap \arabic{chapter} \afterchap}
   }{
-    \newcommand{\xchaptertitle}{第 \thechapter 章}
+    \newcommand{\xchaptertitle}{\beforechap \thechapter \afterchap}
   }
 }{
-  \newcommand{\xchaptertitle}{第 \thechapter 章}
+  \newcommand{\xchaptertitle}{\beforechap \thechapter \afterchap}
 }
 
 
@@ -1224,7 +1223,7 @@
 \newenvironment*{homework}[1][]{
   \par\noindent\makebox[-3pt][r]{
     \scriptsize\color{red!90}\HandPencilLeft\quad}
-    \textbf{\color{main}{作业} #1 }\rmfamily}{
+    \textbf{\color{main}{\homeworkname} #1 }\rmfamily}{
     \par\ignorespacesafterend}
 
 %% Problem with counter
@@ -1241,8 +1240,8 @@
     \scriptsize\color{red!90}\textdbend\quad}
     \textbf{\color{second}\notename} \citshape}{\par}
 
-\newenvironment{proof}[1][\proofname]{ % 默认的名称是 \proofname
-  \par\noindent\textbf{\color{second}#1\;} % 如果提供了可选参数，就显示这个参数
+\newenvironment{proof}[1][\proofname]{
+  \par\noindent\textbf{\color{second}#1\;}
   \color{black!90}\cfs}{
   % \hfill$\Box$\quad
   \par
@@ -1250,7 +1249,7 @@
 
 % \newenvironment{solution}{\par\noindent\textbf{\color{main}\solutionname} \citshape}{\par}
 \newenvironment{solution}[1][\solutionname]{ % 方括号定义了可选参数#1, 缺省值为\solutionname
-  \par\noindent\textbf{\color{main}#1\;}\citshape % 将 \solutionname 替换为 #1
+  \par\noindent\textbf{\color{main}#1\;}\citshape
 }{\par}
 
 \newenvironment{remark}{\noindent\textbf{\color{second}\remarkname}}{\par}
@@ -1316,8 +1315,6 @@
 %页眉页脚
 \RequirePackage{fancyhdr}
 \fancyhf{}
-
-
 \fancyfoot[c]{\color{structurecolor}\small\thepage}
 \if@twoside
   \fancyhead[EL]{\color{structurecolor}\cnormal\leftmark}
@@ -1335,8 +1332,6 @@
 % \renewcommand{\chaptermark}[1]{\markboth{\xchaptertitle\, #1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
 \renewcommand{\chaptermark}[1]{\markboth{\xchaptertitle\, #1}{}}
-% 这样就不会在页眉显示章节编号 
-
 
 \renewcommand*{\maketitle}{%
 \hypersetup{pageanchor=false}
@@ -1541,7 +1536,7 @@
   }
 }
 
-% ===== 关键：仅在“读取目录阶段”吞掉 section 的 \numberline（目录里不显示编号）=====
+% 仅在“读取目录阶段”吞掉 section 的 \numberline（目录里不显示编号）=====
 \renewcommand{\l@section}[2]{%
   \begingroup
     \let\numberline\@gobble % 局部屏蔽编号，只影响 ToC 的 section 行
@@ -1550,5 +1545,13 @@
 }
 \makeatother
 
+\setcounter{secnumdepth}{1}
+
 % restore the tt default family to lmodern tt family
 \renewcommand\ttdefault{lmtt}
+
+\RequirePackage{tasks}
+\settasks{
+    label=(\roman*),
+    label-width = 3ex
+}

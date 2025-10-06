@@ -1,31 +1,15 @@
 %# -*- coding: utf-8 -*-
 
-% preamble_command_mathematics_v1_0.tex
+% preamble_command_mathematics_v2_0.tex
 
 % ---------- macro definition ----------
 % ----- equation setting -----
-% \everymath{\displaystyle}
+\everymath{\displaystyle}
 
 % ----- command -----
 \newcommand{\les}{\leqslant}
 \newcommand{\ges}{\geqslant}
 \newcommand{\degree}{^{\circ}}
-\newcommand{\circA}{\overset{\circ}{\mathrm{A}}}
-\newcommand{\dageq}{\stackrel{\dag}{ = }}
-\newcommand{\ddageq}{\stackrel{\ddag}{ = }}
-\newcommand{\dbdageq}{\stackrel{\dbdag}{ = }}
-\newcommand{\stareq}{\stackrel{*}{ = }}
-\newcommand{\dagiff}{\stackrel{\dag}{\iff}}
-\newcommand{\ddagiff}{\stackrel{\ddag}{\iff}}
-\newcommand{\dagimp}{\stackrel{\dag}{\implies}}
-\newcommand{\ddagimp}{\stackrel{\ddag}{\implies}}
-\newcommand{\tensor}[1]{\overleftrightarrow{#1}}
-% \renewcommand\tensor[1]{\overset{\scriptscriptstyle\leftrightarrow}{#1}}
-\renewcommand{\tensor}[1]{\overset{\scriptstyle\leftrightarrow}{#1}}
-\newcommand{\by}{\leftarrow}
-\newcommand{\quot}[2]{#1\mathbin{/}\!\!#2}
-
-\newcommand{\join}{\Join}
 
 % \renewcommand\pi{\piup}
 \newcommand{\PI}{\uppi}
@@ -36,20 +20,14 @@
 \newcommand{\nimplies}{\centernot\implies}
 \newcommand{\nimpliedby}{\centernot\impliedby}
 
-\renewcommand{\Re}{\mathrm{Re}\,}
-\renewcommand{\Im}{\mathrm{Im}\,}
-\newcommand{\const}{\mathrm{Const.}}
-\newcommand{\sym}{\mathrm{sym}}
-\newcommand{\cyc}{\mathrm{cyc}}
-\newcommand{\ii}{\,\mathrm{i}}
-\newcommand{\jj}{\,\mathrm{j}}
-
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\dif}{d\!}
 \DeclareMathOperator{\diff}{d}
 \DeclareMathOperator{\trans}{T}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\grad}{\mathbf{grad}}
+\DeclareMathOperator{\rot}{\mathbf{rot}}
+\DeclareMathOperator{\divg}{\mathbf{div}}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\sinc}{sinc}
@@ -64,14 +42,25 @@
 \DeclareMathOperator{\iid}{i.i.d.}
 \DeclareMathOperator{\Exp}{Exp}
 \DeclareMathOperator{\Poi}{Poi}
+\DeclareMathOperator{\const}{Const.}
+\DeclareMathOperator{\sym}{sym}
+\DeclareMathOperator{\cyc}{cyc}
 
-\renewcommand{\parallel}{/\!\!/}
+\renewcommand{\Re}{\mathrm{Re\,}}
+\renewcommand{\Im}{\mathrm{Im\,}}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\laplace}{\Delta}
+\newcommand{\Ln}{\mathop{\mathrm{Ln}}\nolimits}
+\newcommand{\Arg}{\mathop{\mathrm{Arg}}\nolimits}
+\newcommand{\supp}{\mathop{\mathrm{supp}}\nolimits}
+\newcommand{\Aut}{\mathop{\mathrm{Aut}}\nolimits}
 
-\newcommand{\bR}{\bm{\mathcal{R}}}
-
-\newcommand{\Alpha}{\mathrm{A}}
-\newcommand{\Beta}{\mathrm{B}}
-\newcommand{\Epsilon}{\mathrm{E}}
+\let\oldexists\exists
+\renewcommand{\exists}{\oldexists\,}
+\newcommand{\llfloor}{\left\lfloor}
+\newcommand{\rrfloor}{\right\rfloor}
+\newcommand{\llceil}{\left\lceil}
+\newcommand{\rrceil}{\right\rceil}
 
 \newcommand{\rA}{\mathrm{A}}
 \newcommand{\rB}{\mathrm{B}}
@@ -171,7 +160,7 @@
 \renewcommand{\o}{\bm{o}}
 \newcommand{\p}{\bm{p}}
 \newcommand{\q}{\bm{q}}
-\renewcommand\r{\bm{r}}
+\renewcommand{\r}{\bm{r}}
 \newcommand{\br}{\bm{r}}
 \newcommand{\s}{\bm{s}}
 \renewcommand{\t}{\bm{t}}
@@ -234,40 +223,8 @@
 \newcommand{\bXi}{\bm{\Xi}}
 \newcommand{\bPsi}{\bm{\Psi}}
 \newcommand{\bZeta}{\bm{\Zeta}}
-\newcommand{\ve}{\varepsilon}
-\newcommand{\laplace}{\Delta}
-\newcommand{\Ln}{\mathop{\mathrm{Ln}}\nolimits}
-\newcommand{\Arg}{\mathop{\mathrm{Arg}}\nolimits}
-\newcommand{\supp}{\mathop{\mathrm{supp}}\nolimits}
-\newcommand{\Aut}{\mathop{\mathrm{Aut}}\nolimits}
-\ExplSyntaxOn
 
-% 定义 \parfrac 宏，支持星号、阶数、括号组和逗号变量
-\NewDocumentCommand{\parfrac}{ s O{1} m m } { \group_begin: \IfBooleanT {#1} { \cs_set:Npn
-    \__parfrac_fractype: { \flatfrac } } \frac { \__parfrac_process_numerator:nn
-    {#2}{#3} } { \__parfrac_process_denominator:nn {#2}{#4} } \group_end: }   % 分母处理（传入阶数）% 分子处理% 星号用 \flatfrac
-
-% 处理分子（带阶数）
-\cs_new_protected:Nn \__parfrac_process_numerator:nn
-{
-  \int_compare:nNnTF {#1} = {1}
-    { \partial #2 } { \partial^{#1} #2 } }
-
-% 处理分母（自动识别括号组/逗号变量，并应用阶数）
-\cs_new_protected:Nn \__parfrac_process_denominator:nn
-{
-\tl_set:Nn \l_tmpa_tl {#2}
-% 判断是否为括号组（如 (x,y)）
-\tl_if_in:NnTF \l_tmpa_tl {(}
-{
-\partial \l_tmpa_tl \int_compare:nNnT {#1} > {1} { ^{#1} } } { \seq_set_split:Nnn
-\l_tmpa_seq { , } {#2} \int_compare:nNnTF {#1} = {1} { \seq_map_inline:Nn
-\l_tmpa_seq {   % 添加阶数% 保留整体括号
-  \partial ##1 } } { \seq_map_inline:Nn \l_tmpa_seq {  % 单阶数
-  \partial ##1 ^{#1} } } } } % 多变量各自加阶数
-
-\ExplSyntaxOff
-
+% 偏导数,源于physics package,但physics包会冲突
 \DeclareDocumentCommand\pdv{ s o m g g d() }
 {
   \IfBooleanTF{#1}
@@ -277,53 +234,24 @@
   {
     \IfNoValueTF{#6}
     {\fractype{\partial \IfNoValueTF{#2}{}{^{#2}}}{\partial #3\IfNoValueTF{#2}{}{^{#2}}}} {\fractype{\partial \IfNoValueTF{#2}{}{^{#2}}}{\partial #3\IfNoValueTF{#2}{}{^{#2}}} \argopen(#6\argclose)} } { \IfNoValueTF{#5}
-    {\fractype{\partial \IfNoValueTF{#2}{}{^{#2}} #3}{\partial #4\IfNoValueTF{#2}{}{^{#2}}}} {\fractype{\partial^2 #3}{\partial #4 \partial #5}} } }
+    {\fractype{\partial \IfNoValueTF{#2}{}{^{#2}} #3}{\partial #4\IfNoValueTF{#2}{}{^{#2}}}} {\fractype{\partial^2 #3}{\partial #4 \partial #5}} } 
+}
 
+% 对\oiint等命令的支持
 \usepackage{esint}
 
-% 重定义\eqref{}
-\renewcommand{\eqref}[1]{\textup{式(\ref{#1}})}  % 输出类似 "Eq. (1)" 的格式
-\newcommand{\thmref}[1]{\textup{定理~\ref{#1}}~}  % 输出类似 "Eq. (1)" 的格式
+% 重定义\thmref{}
 \renewcommand{\theoremautorefname}{定理}
 \renewcommand{\figureautorefname}{图}
 
+% 欧几里得几何作图
 \usepackage{tkz-euclide}
-\usepackage{tasks}
 
-% 圆弧命令\wideparen
-\DeclareSymbolFont{ugmL}{OMX}{mdugm}{m}{n}
-\DeclareMathAccent{\wideparen}{\mathord}{ugmL}{"F3}
-
-\let\oldexists\exists
-\renewcommand{\exists}{\oldexists\,}
-\newcommand{\llfloor}{\left\lfloor}
-\newcommand{\rrfloor}{\right\rfloor}
-\newcommand{\llceil}{\left\lceil}
-\newcommand{\rrceil}{\right\rceil}
-
-\usepackage{enumitem}
-\newenvironment{enum}{\begin{enumerate}[label=\textbf{\arabic*.},ref=\arabic*,left=0cm]}
-    {
-  \end{enumerate}}
-
-\newenvironment{eenum}{\begin{enumerate}[label=(\arabic*),left=0.85cm]}
-    {
-  \end{enumerate}}
-\newenvironment{enuma}{\begin{enumerate}[label=(\arabic*),leftmargin=0.71cm]}
-    {
-  \end{enumerate}}
-\newcommand\quan[1]{
-  \tikz[baseline=(a.base)]\node(a)[inner sep=0.5pt,draw,circle]{$#1$};
+% 无引用脚注
+\newcommand\blfootnote[1]{%
+    \begingroup
+    \renewcommand\thefootnote{}%
+    \footnote{#1}%
+    \addtocounter{footnote}{-1}%
+    \endgroup
 }
-\newcommand\closure[1]{%
-  {}\mkern1mu\overline{\mkern-1mu#1}
-}
-\renewcommand\bar{\closure}
-
-\newenvironment{xiti}{\par%
-  \centerline{\textbf{习\quad 题\quad \thesection}}
-  \begin{enum}
-    }{\end{enum}}
-
-
-\usepackage{tasks}
