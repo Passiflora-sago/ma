@@ -1,0 +1,107 @@
+\section{习题 2.2}
+
+\begin{exercise}[2.2.1]
+    证明函数 $x \cdot 2^x - 1$ 在 $[0,1]$ 内有零点.
+\end{exercise}
+
+\begin{solution}
+    设 $f(x) = x \cdot 2^x - 1$, 则 $f(0) = -1 < 0, f(1) = 1 > 0$. 又因 $f(x)$ 在 $[0,1]$ 上连续, 故由介值定理知, 存在 $x_0 \in (0,1)$, 使得 $f(x_0) = 0$.
+\end{solution}
+
+\begin{exercise}[2.2.2]
+    证明函数 $x - a\sin x - b$ (其中 $a,b$ 为正数) 在 $(0, +\infty)$ 上有零点, 且零点不超过 $a+b$.
+\end{exercise}
+
+\begin{solution}
+    设 $f(x) = x - a\sin x - b$, 则 $f(0) = -b < 0, f(a+b) = a + b - a\sin(a+b) - b = a(1-\sin(a+b)) \ges 0$. 又因 $f(x)$ 在 $[0, a+b]$ 上连续, 故由介值定理知, 存在 $x_0 \in (0, a+b)$, 使得 $f(x_0) = 0$. 又因对任意 $x > a+b$ 有 $f(x) = x - a\sin x - b > a + b - a \sin x - b \ges 0$, 故 $f(x)$ 在 $(0, +\infty)$ 上的零点不超过 $a+b$.
+\end{solution}
+
+\begin{exercise}[2.2.3]
+    证明函数 $x - \sin(x+1)$ 有实零点.
+\end{exercise}
+
+\begin{solution}
+    设 $f(x) = x - \sin(x+1)$, 由$ -1 \les \sin(x+1) \les 1$知, 
+    则 $f(-2) \les -2 + 1 = -1 < 0, f(2) \ges 2 - 1 = 1 > 0$. 又因 $f(x)$ 在 $[-2,2]$ 上连续, 故由介值定理知, 存在 $x_0 \in (-2,2)$, 使得 $f(x_0) = 0$.
+\end{solution}
+
+\begin{exercise}[2.2.4]
+    设函数 $f(x)$ 在 $[a,b]$ 上连续, 且值域就是 $[a,b]$. 证明 $f(x)$ 在 $[a,b]$ 上必有不动点, 即有 $x_0 \in [a,b]$, 使得 $f(x_0)=x_0$.
+\end{exercise}
+
+\begin{solution}
+    函数$f(x)$的值域为$[a,b]$, 故存在 $x_1, x_2 \in [a,b]$, 使得 $f(x_1) = a, f(x_2) = b$. 设 $g(x) = f(x) - x$, 则 $g(x)$ 在 $[a,b]$ 上连续, 且 $g(x_1) = a - x_1 \les 0, g(x_2) = b - x_2 \ges 0$. 故由介值定理知, 存在 $x_0 \in [a,b]$, 使得 $g(x_0) = 0$, 即 $f(x_0) = x_0$.
+\end{solution}
+
+\begin{exercise}[2.2.5]
+    设函数 $f(x), g(x)$ 在区间 $[a,b]$ 上连续, 且 $f(a) > g(a), f(b) < g(b)$. 试证: 存在 $x_0 \in (a,b)$, 使得 $f(x_0)=g(x_0)$.
+\end{exercise}
+
+\begin{solution}
+    设 $h(x) = f(x) - g(x)$, 则 $h(x)$ 在 $[a,b]$ 上连续, 且 $h(a) = f(a) - g(a) > 0, h(b) = f(b) - g(b) < 0$. 故由介值定理知, 存在 $x_0 \in (a,b)$, 使得 $h(x_0) = 0$, 即 $f(x_0) = g(x_0)$.
+\end{solution}
+
+\begin{exercise}[2.2.6]
+    设函数 $f(x)$ 在 $[0, 2a]$ 上连续, 且 $f(0)=f(2a)$. 证明: 在区间 $[0,a]$ 上存在某个 $x_0$, 使得 $f(x_0) = f(x_0+a)$.
+\end{exercise}
+
+\begin{solution}
+    设 $g(x) = f(x) - f(x+a)$, 则 $g(x)$ 在 $[0,a]$ 上连续, 且 $g(0) = f(0) - f(a), g(a) = f(a) - f(2a) = f(a) - f(0) = -g(0)$. 因此$g(0) g(a) = -(g(0))^2 \les 0$. 由介值定理知, 存在 $x_0 \in [0,a]$, 使得 $g(x_0) = 0$, 即 $f(x_0) = f(x_0+a)$.
+\end{solution}
+
+\begin{exercise}[2.2.17]
+    若 $f(x)$ 在 $[a, +\infty)$ 上连续, 且 $\lim_{x \to +\infty} f(x)$ 存在, 则 $f(x)$ 在 $[a, +\infty)$ 上或者有最大值, 或者有最小值.
+\end{exercise}
+
+\begin{solution}
+    设 $\lim_{x \to +\infty} f(x) = A$, 则对任意 $\varepsilon > 0$, 存在 $M > a$, 使得当 $x > M$ 时, 有 $|f(x) - A| < \varepsilon$. 因此 $f(x)$ 在区间 $[M, +\infty)$ 上有界. 又因 $f(x)$ 在 $[a,M]$ 上连续, 故由 Weierstrass 定理知, $f(x)$ 在 $[a,M]$ 上有最大值与最小值. 记 $f(x)$ 在 $[a,M]$ 上的最大值为 $f(x_1)$, 最小值为 $f(x_2)$. 则 $f(x)$ 在 $[a,+\infty)$ 上的最大值为 $\max\{f(x_1), A+\varepsilon\}$, 最小值为 $\min\{f(x_2), A-\varepsilon\}$. 因此 $f(x)$ 在 $[a,+\infty)$ 上或者有最大值, 或者有最小值.
+\end{solution}
+
+\begin{exercise}[2.2.18]
+    设函数 $f(x)$ 定义在区间 $[a,b]$ 上, 满足条件: $a \les f(x) \les b$ (对任意 $x \in [a,b]$), 且对 $[a,b]$ 中任意的 $x,y$ 有 $|f(x)-f(y)| \les k|x-y|$. 这里 $k$ 是常数, $0<k<1$. 证明:
+    \begin{enumerate}
+        \item 存在唯一的 $x_0 \in [a,b]$, 使得 $f(x_0)=x_0$.
+        \item 任取 $x_1 \in [a,b]$, 并定义数列 $\{x_n\}: x_{n+1} = f(x_n), n=1,2,\dots$, 则 $\lim_{n \to \infty} x_n = x_0$.
+        \item 给出一个在实轴上的连续函数, 使得对任意 $x \ne y$ 有 $|f(x)-f(y)| < |x-y|$, 但方程 $f(x)-x=0$ 无解.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[2.2.9]
+    证明函数 $f(x) = \frac{1+x^2}{1+x^2+x^4}$ 在 $(-\infty, +\infty)$ 上有界.
+\end{exercise}
+
+\begin{exercise}[2.2.10]
+    是否有满足下面条件的连续函数? 说明理由.
+    \begin{enumerate}
+        \item 定义域为 $[0,1]$, 值域为 $(0, +\infty)$;
+        \item 定义域为 $[0,1]$, 值域为 $(0,1)$;
+        \item 定义域为 $[0,1]$, 值域为 $[0,1]\cup[2,4]$;
+        \item 定义域为 $(0,1)$, 值域为 $(2, +\infty)$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[2.2.11]
+    举例说明, 对任意正数 $\varepsilon < \frac{b-a}{2}$, 函数 $f(x)$ 在闭区间 $[a+\varepsilon, b-\varepsilon]$ 上有界, 不能保证 $f(x)$ 在开区间 $(a,b)$ 上有界. (比较习题 2.1 第 2 题.)
+\end{exercise}
+
+\begin{exercise}[2.2.12]
+    设 $y=f(x)$ 在开区间 $I=(a,b)$ 上连续并严格单调. 证明 $y=f(x)$ 的值域 $f(I)$ 也是一个开区间.
+\end{exercise}
+
+\begin{exercise}[2.2.13]
+    设函数 $f(x)$ 在有限区间 $(a,b)$ 上一致连续. 求证 $f(x)$ 在 $a$ 点的右极限和在 $b$ 点的左极限都存在.
+\end{exercise}
+
+\begin{exercise}[2.2.14]
+    设函数 $f(x)$ 在 $(0, +\infty)$ 上一致连续, $\{a_n\}$ 是正收敛数列. 求证 $\{f(a_n)\}$ 也收敛. 又问假没 $f(x)$ 连续时, 结论是否还成立, 为什么?
+\end{exercise}
+
+\begin{exercise}[2.2.15]
+    设函数 $f(x)$ 在 $(-\infty, +\infty)$ 上连续, $\{a_n\}$ 是收敛数列. 求证 $\{f(a_n)\}$ 也收敛.
+\end{exercise}
+
+\begin{exercise}[2.2.16]
+    给出一个在 $(-\infty, +\infty)$ 上连续且有界但不一致连续的函数.
+\end{exercise}
+
+\newpage
