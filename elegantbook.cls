@@ -1256,7 +1256,11 @@
 \newenvironment{assumption}{\par\noindent\textbf{\color{third}\assumptionname} \citshape}{\par}
 \newenvironment{conclusion}{\par\noindent\textbf{\color{third}\conclusionname} \citshape}{\par}
 \newenvironment{property}{\par\noindent\textbf{\color{third}\propertyname} \citshape}{\par}
-\newenvironment{custom}[1]{\par\noindent\textbf{\color{third} #1} \citshape}{\par}
+\NewDocumentEnvironment{custom}{m o}
+  {
+    \par\noindent\textbf{\color{third} #1}%
+    \IfValueT{#2}{\textbf{ (#2)}} \citshape
+  }{\par}
 
 \RequirePackage{multicol}
 \tcbset{
