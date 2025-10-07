@@ -1,6 +1,14 @@
 \documentclass[lang=cn,12pt,scheme=chinese,mode=simple,black]{elegantbook}
 \usepackage{amsmath}
 \usepackage{booktabs}
+\newtcolorbox{resultbox}[1][]{
+    colback=gray!5!white,        % 背景更浅的灰
+    colframe=gray!70!black,      % 深灰边框
+    sharp corners,
+    title=结果,
+    fonttitle=\bfseries,
+    #1
+}
 
 % ====== 自定义数学运算符 ======
 
@@ -8,8 +16,9 @@
 
 \input{preamble.tex}
 \begin{document}
-\section*{规范化符号}
-比较重要的是规范表达自然底数$\e$,虚数单位$\i$,微分算子$\dif$,大于等于$\ges$,小于等于$\les$时
+\section{规范化符号}
+比较重要的是规范表达自然底数$\e$,虚数单位$\i$,微分算子$\dif$,大于等于$\ges$,小于等于$\les$时.
+
 前三种尽量规范表达成正体的形式,后面两个这种表达成这种等于号部分是斜的,如下表所示;
 
 另外区别小写字母有些带有\verb|var|字样,另外我们还有对\verb|\varepsilon|的一个简写成\verb|\ve|.
@@ -45,14 +54,14 @@
 \verb|\pdv[3]{f}{x}| & $\pdv[3]{f}{x}$ & 对角矩阵单一变量高阶偏导 \\
 \verb|\pdv{f}{x}{y}| & $\pdv{f}{x}{y}$ & 二阶混合偏导 \\
 \verb|\pdv{x}| & $\pdv{x}$ & 偏导算子 \\
-\verb|\pdv{f^4}{x\partial y^2\partial z}| & $\pdv{f^4}{x\partial y^2\partial z}$ & 表示复杂偏导的一种技巧 \\
+\verb|\pdv{^4f}{x\partial y^2\partial z}| & $\pdv{^4f}{x\partial y^2\partial z}$ & 表示复杂偏导的一种技巧 \\
 
 \hline
 \end{tabular}
 \end{center}
 
 \newpage
-\section*{其他符号}
+\section{其他符号}
 大多是正体的某些常见函数,用以规范表达.仅做查询,大概按常用的领域分了一下类.
 
 \begin{center}
@@ -100,6 +109,7 @@
 \begin{tabular}{|c|c|c|c|}
 \hline
 \textbf{命令} & \textbf{结果} & \textbf{名称} & \textbf{示例/备注}\\
+\hline
 \verb|\softmax| & $\softmax$ & softmax 函数 & $\softmax(x_k)=\frac{e^{x_k}}{\sum_i e^{x_i}}$,机器学习常用\\
 \verb|\ad| & $\ad$ & 对合算子 (Lie 代数) & \\
 \verb|\sym| & $\sym$ & 对称部分 & \\
@@ -111,10 +121,10 @@
 
 
 \newpage
-\section*{字母表}
+\section{字母表}
 字母表分成三个系列,第一个系列是\verb|\*|这种模式的字母,大部分是黑体,少数是为了方便的表示替换成其他字体了,请注意需要黑体的时候额外修改.
 
-大写字母里的表示常见数域$\N,\Z,\Q,\R,\C$,以及不特指的数域$\K$;小写字母的$\e$,$\i$是例外.
+大写字母里的表示常见数域$\N,\Z,\Q,\R,\C$,以及不特指的数域$\K$例外;小写字母的$\e$,$\i$是例外.
 %==========================
 % 黑体字母
 %==========================
@@ -174,7 +184,7 @@ $\rn$ & $\ro$ & $\rp$ & $\rq$ & $\rr$ & $\rs$ & $\rt$ & $\ru$ & $\rv$ & $\rw$ & 
 
 \vspace{1cm}
 \newpage
-第三个系列是\verb|\b*|的粗体希腊字母表示向量等.
+第三个系列是\verb|\b*|的粗体希腊字母,表示向量等,注意该表不是按顺序排列的.
 
 这里有一个比较特别的是\verb|\bmeta|多了个\verb|m|,是$\eta$的粗体$\bmeta$,主要是为了避免\verb|\beta| 即$\beta$重复.
 %==========================
@@ -206,6 +216,245 @@ $\bPhi$ & $\bGamma$ & $\bDelta$ &$\bTheta$ & $\bLambda$ & $\bXi$ & $\bPi$ & $\bS
 \hline\hline
 \end{tabular}
 \end{center}
+
+\newpage
+\section{elegantbook的一些魔改}
+仅列举展示一些可能常用且方便展示的.
+
+\subsection{enumerate环境}
+关于\verb|\begin{enumerate} x \end{enumerate}|,修改了嵌套表示的默认选择.
+
+\begin{lstlisting}
+\begin{enumerate}
+    \item 第一层;
+    \item 第一层\begin{enumerate}
+        \item 第二层;
+        \item 第二层\begin{enumerate}
+            \item 第三层;
+            \item 第三层\begin{enumerate}
+                \item 第四层;
+                \item 第四层.
+            \end{enumerate}
+        \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
+\end{lstlisting}
+
+\begin{resultbox}
+\begin{enumerate}
+    \item 第一层;
+    \item 第一层\begin{enumerate}
+        \item 第二层;
+        \item 第二层\begin{enumerate}
+            \item 第三层;
+            \item 第三层\begin{enumerate}
+                \item 第四层;
+                \item 第四层.
+            \end{enumerate}
+        \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
+\end{resultbox}
+
+\subsection{tasks环境}
+新增加的\verb|\begin{task} x \end{task}|,用于习题.
+
+基本语法是
+\begin{lstlisting}
+\begin{tasks}[<可选参数:标号样式>](<列数>)
+    \task 内容1
+    \task 内容2
+    ...
+\end{tasks}
+\end{lstlisting}
+
+我们展示两个具体的例子:
+
+\begin{enumerate}
+    \item 两列习题,默认标号样式(阿拉伯数字).
+\begin{lstlisting}
+\begin{exercise}[1.3.11]
+    按定义证明.
+    \begin{tasks}(2)
+        \task $\lim_{x \to +\infty} \log_a x = +\infty, (a > 1)$;
+        \task $\lim_{x \to 0^+} \log_a x = -\infty, (a > 1)$;
+        \task $\lim_{x \to \frac{\pi}{2}{}^- }\tan x = +\infty$;
+        \task $\lim_{x \to 0^+} \mathrm{e}^{1/x} = +\infty$.
+    \end{tasks}
+\end{exercise}
+\end{lstlisting}
+
+\begin{resultbox}
+\begin{exercise}[1.3.11]
+    按定义证明.
+    \begin{tasks}(2)
+        \task $\lim_{x \to +\infty} \log_a x = +\infty, (a > 1)$;
+        \task $\lim_{x \to 0^+} \log_a x = -\infty, (a > 1)$;
+        \task $\lim_{x \to \frac{\pi}{2}{}^- }\tan x = +\infty$;
+        \task $\lim_{x \to 0^+} \mathrm{e}^{1/x} = +\infty$.
+    \end{tasks}
+\end{exercise}
+\end{resultbox}
+
+    \item 一列习题,罗马数字标号.
+\begin{lstlisting}
+\begin{exercise}[1.3.11]
+    按定义证明.
+    \begin{tasks}[\label=(\Roman*)](1)
+        \task $\lim_{x \to +\infty} \log_a x = +\infty, (a > 1)$;
+        \task $\lim_{x \to 0^+} \log_a x = -\infty, (a > 1)$;
+        \task $\lim_{x \to \frac{\pi}{2}{}^- }\tan x = +\infty$;
+        \task $\lim_{x \to 0^+} \mathrm{e}^{1/x} = +\infty$.
+    \end{tasks}
+\end{exercise}
+\end{lstlisting}
+
+\begin{resultbox}
+\begin{exercise}[1.3.11]
+    按定义证明.
+    \begin{tasks}[label=(\Roman*)](1)
+        \task $\lim_{x \to +\infty} \log_a x = +\infty, (a > 1)$;
+        \task $\lim_{x \to 0^+} \log_a x = -\infty, (a > 1)$;
+        \task $\lim_{x \to \frac{\pi}{2}{}^- }\tan x = +\infty$;
+        \task $\lim_{x \to 0^+} \mathrm{e}^{1/x} = +\infty$.
+    \end{tasks}
+\end{exercise}
+\end{resultbox}
+\end{enumerate}
+
+
+\subsection{有名称环境}
+有魔改和添加,
+
+名称都是可选项,不加的话大多只是不会显示名称,前面的内容是不变的;例外的会展示有无名称的不同样式.
+
+大部分都有计数器,而且都是独立的计数器,一般计数器都和名称一致;无计数器或名称不一致的另做标注.
+
+下文中分别使用不同环境,并且在正文部分做一个简单的介绍,字体样式也顺便展示了.
+
+基本语法是
+\setcounter{chapter}{1}
+\begin{lstlisting}
+\begin{example}[<可选参数:名称>]
+    正文.
+\end{example}
+\end{lstlisting}
+
+
+\textbf{定理,定义相关环境}
+目前用的都是simple版本的.
+
+\begin{theorem}[theorem环境]
+    比较常用.
+\end{theorem}
+\begin{definition}[definition环境]
+    比较常用.
+\end{definition}
+
+\begin{lemma}[lemma环境]
+    比较常用.
+\end{lemma}
+
+\begin{corollary}[corollary环境]
+    比较常用.
+\end{corollary}
+\begin{proposition}[proposition环境]
+    相对自由,主要用在分不太清的具体算什么的时候,比较常用.
+\end{proposition}
+
+
+\begin{notation}[notation环境]
+    出现较少.
+\end{notation}
+\begin{axiom}[axiom环境]
+    出现较少.
+\end{axiom}
+
+\begin{postulate}[postulate环境]
+    几乎不用.
+\end{postulate}
+
+
+\textbf{例题相关环境}
+
+
+\begin{example}[example环境]
+    新增计数器为exam.正文的例题,例子都使用该环境,算是比较常用的.
+\end{example}
+
+\begin{example*}[example*环境]
+    无编号.一般都需要编号所以不怎么常用.
+\end{example*}
+
+\begin{exercise}[exercise环境]
+    无编号.更多用来编写或讲义中插入课后习题,实际上这个是编号被隐去了,也有一个计数器为exer.
+\end{exercise}
+
+\begin{problem}[problem环境]
+    计数器为prob.几乎不用.
+\end{problem}
+
+\begin{homework}[homework名称]
+    自带一个小符号,无编号.
+\end{homework}
+
+
+
+\textbf{解答环境}
+\begin{proof}
+    proof环境无名称时的样式,只做正文的证明.
+\end{proof}
+\begin{solution}
+    solution环境无名称时的样式,正文的解和课后习题的所有解答都用该环境.
+\end{solution}
+
+
+\begin{proof}[proof环境]
+    proof环境有名称时的样式,通常不加名称.
+\end{proof}
+\begin{solution}[solution环境]
+    solution环境有名称时的样式,通常不加名称.
+\end{solution}\
+\
+
+
+
+
+\subsection{无名称环境}
+\begin{lstlisting}
+\begin{remark}
+    正文.
+\end{remark}
+\end{lstlisting}
+\begin{remark}
+    remark 环境,用于给出说明或补充信息.
+\end{remark}
+\begin{note}[没有标题]
+    note 环境,自带一个小符号.其实大部分都可以用remark替代,所以不怎么用.
+\end{note}
+
+\begin{assumption}
+    assumption环境,用的很少.
+\end{assumption}
+
+\begin{property}
+    property环境,用的很少.
+\end{property}
+
+\begin{conclusion}
+    conclusion环境,用的很少.
+\end{conclusion}
+
+\subsection{其他}
+custom的特点在于,他没有环境自带的名称(即theorem自带:定理1.1)而可以随便加名称,.
+\begin{lstlisting}
+\begin{custom}{<必选参数:名称>}
+    正文.
+\end{custom}
+\end{lstlisting}
+\begin{custom}{你可以随便写.}
+    这是custom环境.
+\end{custom}
 
 
 \end{document}

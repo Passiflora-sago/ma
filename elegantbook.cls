@@ -1552,6 +1552,6 @@
 
 \RequirePackage{tasks}
 \settasks{
-    label=(\roman*),
+    label=(\arabic*),
     label-width = 3ex
 }
