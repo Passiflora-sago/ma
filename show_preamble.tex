@@ -1,0 +1,211 @@
+\documentclass[lang=cn,12pt,scheme=chinese,mode=simple,black]{elegantbook}
+\usepackage{amsmath}
+\usepackage{booktabs}
+
+% ====== 自定义数学运算符 ======
+
+% ----- command -----
+
+\input{preamble.tex}
+\begin{document}
+\section*{规范化符号}
+比较重要的是规范表达自然底数$\e$,虚数单位$\i$,微分算子$\dif$,大于等于$\ges$,小于等于$\les$时
+前三种尽量规范表达成正体的形式,后面两个这种表达成这种等于号部分是斜的,如下表所示;
+
+另外区别小写字母有些带有\verb|var|字样,另外我们还有对\verb|\varepsilon|的一个简写成\verb|\ve|.
+以及我们加入了esint包用以支持闭合曲面曲线的积分符号.
+
+\begin{center}
+\setlength{\tabcolsep}{10pt}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{命令} & \textbf{结果} & \textbf{名称}\\
+\hline
+\verb|\e| & $\e$ & 自然底数 \\
+\verb|\i| & $\i$ & 虚数单位 \\
+\verb|\dif| & $\dif$ & 微分符号 \\
+\verb|\les| & $\les$ & 小于等于 \\
+\verb|\ges| & $\ges$ & 大于等于 \\
+\verb|\ve| & $\ve$ & $\varepsilon$ 小量 \\
+\verb|\oint| & $\oint$ & 闭合曲线积分 \\
+\verb|\oiint| & $\oiint$ & 闭合曲面积分 \\
+\hline
+\end{tabular}
+\end{center}
+
+对于偏导数,提供命令\verb|\pdv|来简化表示,常用表达放在了下面.
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{10pt}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{命令} & \textbf{结果} & \textbf{说明} \\
+\hline
+\verb|\pdv{f}{x}| & $\pdv{f}{x}$ & 一阶偏导 \\
+\verb|\pdv[3]{f}{x}| & $\pdv[3]{f}{x}$ & 对角矩阵单一变量高阶偏导 \\
+\verb|\pdv{f}{x}{y}| & $\pdv{f}{x}{y}$ & 二阶混合偏导 \\
+\verb|\pdv{x}| & $\pdv{x}$ & 偏导算子 \\
+\verb|\pdv{f^4}{x\partial y^2\partial z}| & $\pdv{f^4}{x\partial y^2\partial z}$ & 表示复杂偏导的一种技巧 \\
+
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+\section*{其他符号}
+大多是正体的某些常见函数,用以规范表达.仅做查询,大概按常用的领域分了一下类.
+
+\begin{center}
+\setlength{\tabcolsep}{10pt}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{命令} & \textbf{结果} & \textbf{名称} & \textbf{示例/备注}\\
+\hline
+\verb|\exists| & $\exists$ & 存在 & \\
+\verb|\diff| & $\diff$ & 微分符号 (同上) & 实际上同上文\\
+\verb|\sgn| & $\sgn$ & 符号函数 & \\
+\verb|\llfloor x \rrfloor| & $\llfloor x \rrfloor$ & 向下取整 & 已经\verb|\right\left |调整大小\\
+\verb|\llceil x \rrceil| & $\llceil x \rrceil$ & 向上取整 & 同上\\
+\verb|\arccot| & $\arccot$ & 反余切 & \\
+\verb|\sinc| & $\sinc$ & sinc 函数 & $\sinc x = \frac{\sin x}{x}$\\
+\verb|\supp| & $\supp$ & 支撑集 & \\
+\verb|\argmin| & $\argmin$ & 取最小值的自变量 & $\argmin_{i \le n} a_i$\\
+\verb|\argmax| & $\argmax$ & 取最大值的自变量 & \\
+\verb|\grad| & $\grad$ & 梯度 & \\
+\verb|\rot| & $\rot$ & 旋度 & \\
+\verb|\divg| & $\divg$ & 散度 & \verb|\div|是除号$\div$\\
+\verb|\laplace| & $\laplace$ & 拉普拉斯算子 & \\
+\verb|\trans| & $\trans$ & 转置 & $A^{\trans}$\\
+\verb|\tr| & $\tr$ & 迹 & \\
+\verb|\rank| & $\rank$ & 秩 & \\
+\verb|\diag| & $\diag$ & 对角矩阵 & $\diag\{a_1,\dots,a_n\}$\\
+\verb|\Ln| & $\Ln$ & 多值自然对数 & \\
+\verb|\Arg| & $\Arg$ & 多值辐角 & \\
+\verb|\Aut| & $\Aut$ & 自同构 & \\
+\verb|\Re| & $\Re$ & 实部 & \\
+\verb|\Im| & $\Im$ & 虚部 & \\
+\verb|\ex| & $\ex$ & 期望 & \\
+\verb|\var| & $\var$ & 方差 & \\
+\verb|\Exp| & $\Exp$ & 指数分布 & \\
+\verb|\Poi| & $\Poi$ & 泊松分布 & \\
+\verb|\st| & $\st$ & such that (使得) & \\
+\verb|\iid| & $\iid$ & 独立同分布 & \\
+\verb|\const| & $\const$ & 常数 & \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\setlength{\tabcolsep}{10pt}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{命令} & \textbf{结果} & \textbf{名称} & \textbf{示例/备注}\\
+\verb|\softmax| & $\softmax$ & softmax 函数 & $\softmax(x_k)=\frac{e^{x_k}}{\sum_i e^{x_i}}$,机器学习常用\\
+\verb|\ad| & $\ad$ & 对合算子 (Lie 代数) & \\
+\verb|\sym| & $\sym$ & 对称部分 & \\
+\verb|\cyc| & $\cyc$ & 循环和 & \\
+\verb|\degree| & $\degree$ & 角度制的度 & \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\newpage
+\section*{字母表}
+字母表分成三个系列,第一个系列是\verb|\*|这种模式的字母,大部分是黑体,少数是为了方便的表示替换成其他字体了,请注意需要黑体的时候额外修改.
+
+大写字母里的表示常见数域$\N,\Z,\Q,\R,\C$,以及不特指的数域$\K$;小写字母的$\e$,$\i$是例外.
+%==========================
+% 黑体字母
+%==========================
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline\hline
+\verb|\A| & \verb|\B| & \verb|\C| & \verb|\D| & \verb|\E| & \verb|\F| & \verb|\G| & \verb|\H| & \verb|\I| & \verb|\J| & \verb|\K| & \verb|\L| & \verb|\M|\\
+\hline
+$\A$ & $\B$ & $\C$ & $\D$ & $\E$ & $\F$ & $\G$ & $\H$ & $\I$ & $\J$ & $\K$ & $\L$ & $\M$\\
+\hline\hline
+\verb|\N| & \verb|\O| & \verb|\P| & \verb|\Q| & \verb|\R| & \verb|\S| & \verb|\T| & \verb|\U| & \verb|\V| & \verb|\W| & \verb|\X| & \verb|\Y| & \verb|\Z|\\
+\hline
+$\N$ & $\O$ & $\P$ & $\Q$ & $\R$ & $\S$ & $\T$ & $\U$ & $\V$ & $\W$ & $\X$ & $\Y$ & $\Z$\\
+\hline\hline
+\verb|\a| & \verb|\b| & \verb|\c| & \verb|\d| & \verb|\e| & \verb|\f| & \verb|\g| & \verb|\h| & \verb|\i| & \verb|\j| & \verb|\k| & \verb|\l| & \verb|\m|\\
+\hline
+$\a$ & $\b$ & $\c$ & $\d$ & $\e$ & $\f$ & $\g$ & $\h$ & $\i$ & $\j$ & $\k$ & $\l$ & $\m$\\
+\hline\hline
+\verb|\n| & \verb|\o| & \verb|\p| & \verb|\q| & \verb|\r| & \verb|\s| & \verb|\t| & \verb|\u| & \verb|\v| & \verb|\w| & \verb|\x| & \verb|\y| & \verb|\z|\\
+\hline
+$\n$ & $\o$ & $\p$ & $\q$ & $\r$ & $\s$ & $\t$ & $\u$ & $\v$ & $\w$ & $\x$ & $\y$ & $\z$\\
+\hline\hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+%==========================
+% 直立体（\rA 等）
+%==========================
+第二个系列是\verb|\r*|这种模式的字母,表示的均是正体.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline\hline
+\verb|\rA| & \verb|\rB| & \verb|\rC| & \verb|\rD| & \verb|\rE| & \verb|\rF| & \verb|\rG| & \verb|\rH| & \verb|\rI| & \verb|\rJ| & \verb|\rK| & \verb|\rL| & \verb|\rM|\\
+\hline
+$\rA$ & $\rB$ & $\rC$ & $\rD$ & $\rE$ & $\rF$ & $\rG$ & $\rH$ & $\rI$ & $\rJ$ & $\rK$ & $\rL$ & $\rM$\\
+\hline\hline
+\verb|\rN| & \verb|\rO| & \verb|\rP| & \verb|\rQ| & \verb|\rR| & \verb|\rS| & \verb|\rT| & \verb|\rU| & \verb|\rV| & \verb|\rW| & \verb|\rX| & \verb|\rY| & \verb|\rZ|\\
+\hline
+$\rN$ & $\rO$ & $\rP$ & $\rQ$ & $\rR$ & $\rS$ & $\rT$ & $\rU$ & $\rV$ & $\rW$ & $\rX$ & $\rY$ & $\rZ$\\
+\hline\hline
+\verb|\ra| & \verb|\rb| & \verb|\rc| & \verb|\rd| & \verb|\re| & \verb|\rf| & \verb|\rg| & \verb|\rh| & \verb|\ri| & \verb|\rj| & \verb|\rk| & \verb|\rl| & \verb|\rm|\\
+\hline
+$\ra$ & $\rb$ & $\rc$ & $\rd$ & $\re$ & $\rf$ & $\rg$ & $\rh$ & $\ri$ & $\rj$ & $\rk$ & $\rl$ & $\rm$\\
+\hline\hline
+\verb|\rn| & \verb|\ro| & \verb|\rp| & \verb|\rq| & \verb|\rr| & \verb|\rs| & \verb|\rt| & \verb|\ru| & \verb|\rv| & \verb|\rw| & \verb|\rx| & \verb|\ry| & \verb|\rz|\\
+\hline
+$\rn$ & $\ro$ & $\rp$ & $\rq$ & $\rr$ & $\rs$ & $\rt$ & $\ru$ & $\rv$ & $\rw$ & $\rx$ & $\ry$ & $\rz$\\
+\hline\hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+\newpage
+第三个系列是\verb|\b*|的粗体希腊字母表示向量等.
+
+这里有一个比较特别的是\verb|\bmeta|多了个\verb|m|,是$\eta$的粗体$\bmeta$,主要是为了避免\verb|\beta| 即$\beta$重复.
+%==========================
+% 粗体希腊字母
+%==========================
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline\hline
+\verb|\balpha| & \verb|\bbeta| & \verb|\bgamma| & \verb|\bdelta| & \verb|\bvarepsilon| & \verb|\bzeta| & \verb|\bmeta| & \verb|\btheta| \\
+\hline
+$\balpha$ & $\bbeta$ & $\bgamma$ & $\bdelta$ & $\bvarepsilon$ & $\bzeta$ & $\bmeta$ & $\btheta$ \\
+\hline\hline
+\verb|\biota| & \verb|\bkappa| & \verb|\blambda| & \verb|\bmu| & \verb|\bnu| & \verb|\bxi| & \verb|\bpi| & \verb|\brho|\\
+\hline
+$\biota$ & $\bkappa$ & $\blambda$ & $\bmu$ & $\bnu$ & $\bxi$ & $\bpi$ & $\brho$ \\
+\hline\hline
+\verb|\bsigma| & \verb|\btau| & \verb|\bupsilon| & \verb|\bphi| & \verb|\bchi| & \verb|\bpsi| & \verb|\bomega| &\\ 
+\hline
+$\bsigma$ & $\btau$ & $\bupsilon$ & $\bphi$ & $\bchi$ & $\bpsi$ & $\bomega$ &  \\
+\hline\hline
+\verb|\bPhi| & \verb|\bGamma| & \verb|\bDelta|&\verb|\bTheta| & \verb|\bLambda| & \verb|\bXi| & \verb|\bPi| & \verb|\bSigma| \\
+\hline
+$\bPhi$ & $\bGamma$ & $\bDelta$ &$\bTheta$ & $\bLambda$ & $\bXi$ & $\bPi$ & $\bSigma$  \\
+\hline\hline
+ \verb|\bUpsilon|&\verb|\bOmega| & \verb|\bPsi| & & & & &\\
+\hline
+ $\bUpsilon$&$\bOmega$ & $\bPsi$ & & & & &\\
+\hline\hline
+\end{tabular}
+\end{center}
+
+
+\end{document}
