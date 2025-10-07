@@ -21,7 +21,7 @@
 \end{exercise}
 
 \begin{solution}
-    设 $f(x) = x - \sin(x+1)$, 由$ -1 \les \sin(x+1) \les 1$知, 
+    设 $f(x) = x - \sin(x+1)$, 由$ -1 \les \sin(x+1) \les 1$知,
     则 $f(-2) \les -2 + 1 = -1 < 0, f(2) \ges 2 - 1 = 1 > 0$. 又因 $f(x)$ 在 $[-2,2]$ 上连续, 故由介值定理知, 存在 $x_0 \in (-2,2)$, 使得 $f(x_0) = 0$.
 \end{solution}
 
@@ -49,26 +49,35 @@
     设 $g(x) = f(x) - f(x+a)$, 则 $g(x)$ 在 $[0,a]$ 上连续, 且 $g(0) = f(0) - f(a), g(a) = f(a) - f(2a) = f(a) - f(0) = -g(0)$. 因此$g(0) g(a) = -(g(0))^2 \les 0$. 由介值定理知, 存在 $x_0 \in [0,a]$, 使得 $g(x_0) = 0$, 即 $f(x_0) = f(x_0+a)$.
 \end{solution}
 
-\begin{exercise}[2.2.17]
-    若 $f(x)$ 在 $[a, +\infty)$ 上连续, 且 $\lim_{x \to +\infty} f(x)$ 存在, 则 $f(x)$ 在 $[a, +\infty)$ 上或者有最大值, 或者有最小值.
+\begin{exercise}[2.2.7]
+    试证: 若函数 $f(x)$ 在 $[a,b]$ 上连续, $x_1, x_2, \dots, x_n$ 为此区间中的任意点, 则在 $[a,b]$ 中有一点 $\xi$, 使得
+    $$ f(\xi) = \frac{1}{n}(f(x_1)+f(x_2)+\dots+f(x_n)). $$
+    更一般地, 若 $q_1 > 0, q_2 > 0, \dots, q_n > 0$, 且 $q_1+q_2+\dots+q_n=1$, 则在 $[a,b]$ 中有一点 $\xi$, 使得
+    $$ f(\xi) = q_1f(x_1)+q_2f(x_2)+\dots+q_nf(x_n). $$
 \end{exercise}
 
 \begin{solution}
-    设 $\lim_{x \to +\infty} f(x) = A$, 则对任意 $\varepsilon > 0$, 存在 $M > a$, 使得当 $x > M$ 时, 有 $|f(x) - A| < \varepsilon$. 因此 $f(x)$ 在区间 $[M, +\infty)$ 上有界. 又因 $f(x)$ 在 $[a,M]$ 上连续, 故由 Weierstrass 定理知, $f(x)$ 在 $[a,M]$ 上有最大值与最小值. 记 $f(x)$ 在 $[a,M]$ 上的最大值为 $f(x_1)$, 最小值为 $f(x_2)$. 则 $f(x)$ 在 $[a,+\infty)$ 上的最大值为 $\max\{f(x_1), A+\varepsilon\}$, 最小值为 $\min\{f(x_2), A-\varepsilon\}$. 因此 $f(x)$ 在 $[a,+\infty)$ 上或者有最大值, 或者有最小值.
+    \begin{enumerate}
+        \item 设 $A = \frac{1}{n}(f(x_1)+f(x_2)+\dots+f(x_n))$. 若 $f(x_i) = A$ 对某个 $i$ 成立, 则取 $\xi = x_i$. 否则, 设 $f(x_k) = \min\{f(x_1), f(x_2), \dots, f(x_n)\}, f(x_m) = \max\{f(x_1), f(x_2), \dots, f(x_n)\}$. 则 $f(x_k) < A < f(x_m)$. 由介值定理知, 存在 $\xi \in (x_k, x_m)$, 使得 $f(\xi) = A$.
+        \item 设 $A = q_1f(x_1)+q_2f(x_2)+\dots+q_nf(x_n)$. 若 $f(x_i) = A$ 对某个 $i$ 成立, 则取 $\xi = x_i$. 否则, 设 $f(x_k) = \min\{f(x_1), f(x_2), \dots, f(x_n)\}, f(x_m) = \max\{f(x_1), f(x_2), \dots, f(x_n)\}$. 则 $f(x_k) < A < f(x_m)$. 由介值定理知, 存在 $\xi \in (x_k, x_m)$, 使得 $f(\xi) = A$.
+    \end{enumerate}
 \end{solution}
 
-\begin{exercise}[2.2.18]
-    设函数 $f(x)$ 定义在区间 $[a,b]$ 上, 满足条件: $a \les f(x) \les b$ (对任意 $x \in [a,b]$), 且对 $[a,b]$ 中任意的 $x,y$ 有 $|f(x)-f(y)| \les k|x-y|$. 这里 $k$ 是常数, $0<k<1$. 证明:
-    \begin{enumerate}
-        \item 存在唯一的 $x_0 \in [a,b]$, 使得 $f(x_0)=x_0$.
-        \item 任取 $x_1 \in [a,b]$, 并定义数列 $\{x_n\}: x_{n+1} = f(x_n), n=1,2,\dots$, 则 $\lim_{n \to \infty} x_n = x_0$.
-        \item 给出一个在实轴上的连续函数, 使得对任意 $x \ne y$ 有 $|f(x)-f(y)| < |x-y|$, 但方程 $f(x)-x=0$ 无解.
-    \end{enumerate}
+\begin{exercise}[2.2.8]\label{exe:2.2.8}
+    设函数 $f(x)$ 在区间 $[a, +\infty)$ 上连续, 且 $\lim_{x \to +\infty} f(x)$ 存在. 证明 $f(x)$ 在 $[a, +\infty)$ 上有界.
 \end{exercise}
 
+\begin{solution}
+    设 $\lim_{x \to +\infty} f(x) = A$, 则存在 $M > 0$, 使得当 $x > M$ 时, 有 $|f(x) - A| < 1$, 即 $|f(x)| < |A| + 1$. 又因函数 $f(x)$ 在区间 $[a,M]$ 上连续, 故在该闭区间上有界, 即存在 $K > 0$, 使得对任意 $x \in [a,M]$ 有 $|f(x)| \les K$. 取 $N = \max\{K, |A| + 1\}$, 则对任意 $x \in [a, +\infty)$ 有 $|f(x)| \les N$. 因此, 函数 $f(x)$ 在 $[a, +\infty)$ 上有界.
+\end{solution}
+
 \begin{exercise}[2.2.9]
-    证明函数 $f(x) = \frac{1+x^2}{1+x^2+x^4}$ 在 $(-\infty, +\infty)$ 上有界.
+    证明函数 $f(x) = \frac{1+x^2}{1-x^2+x^4}$ 在 $(-\infty, +\infty)$ 上有界.
 \end{exercise}
+
+\begin{solution}
+    由\hyperref[{exe:1.3.17}]{习题1.3.17} 知,$\lim_{x \to +\infty} \frac{1+x^2}{1-x^2+x^4} = 0$, 利用\hyperref[exe:2.2.8]{习题2.2.8} 知, 函数 $f(x)$ 在 $[0, +\infty)$ 上有界. 又因 $f(x)$ 是偶函数, 故 $f(x)$ 在 $(-\infty, 0]$ 上也有界. 因此, 函数 $f(x)$ 在 $(-\infty, +\infty)$ 上有界.
+\end{solution}
 
 \begin{exercise}[2.2.10]
     是否有满足下面条件的连续函数? 说明理由.
@@ -80,28 +89,73 @@
     \end{enumerate}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item 不存在. 这与最值定理矛盾.
+        \item 不存在. 这与最值定理矛盾.
+        \item 不存在. 这与介值定理矛盾.
+        \item 存在. 例如, $f(x) = \frac{1}{x} + 2$.
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[2.2.11]
     举例说明, 对任意正数 $\varepsilon < \frac{b-a}{2}$, 函数 $f(x)$ 在闭区间 $[a+\varepsilon, b-\varepsilon]$ 上有界, 不能保证 $f(x)$ 在开区间 $(a,b)$ 上有界. (比较习题 2.1 第 2 题.)
 \end{exercise}
+
+\begin{solution}
+    例如, 设 $f(x) = \frac{1}{x-a} + \frac{1}{b-x}$, 则对任意正数 $\varepsilon < \frac{b-a}{2}$, 函数 $f(x)$ 在闭区间 $[a+\varepsilon, b-\varepsilon]$ 上有界, 但在开区间 $(a,b)$ 上无界.
+\end{solution}
 
 \begin{exercise}[2.2.12]
     设 $y=f(x)$ 在开区间 $I=(a,b)$ 上连续并严格单调. 证明 $y=f(x)$ 的值域 $f(I)$ 也是一个开区间.
 \end{exercise}
 
+\begin{solution}
+    \begin{remark}
+        不能假设$\lim_{x \to a^+} f(x)$和$\lim_{x \to b^-} f(x)$存在.$f(I)$可能有无穷端点,例如$f(x)=\tan x$在$(-\frac{\pi}{2}, \frac{\pi}{2})$上连续且严格单调,但值域是$(-\infty,+\infty)$.
+    \end{remark}
+
+    先证明$f(I)$存在两个不同的点:取$x_1, x_2 \in I$, 且 $x_1 < x_2$, 由严格单调性知, $f(x_1) < f(x_2)$, 故$f(I)$中至少有两个不同的点.\begin{remark}
+        如果去除单调的严格性,则$f(I)$不一定是开区间,例如$f(x)=1$在$(0,1)$上连续且单调,但值域不是开区间.
+    \end{remark}
+
+    $\forall y_1, y_2 \in f(I)$, 且 $y_1 < y_2$. 则存在 $x_1, x_2 \in I$, 使得 $f(x_1) = y_1, f(x_2) = y_2$. 因为 $f(x)$ 在 $I$ 上严格单调, 故 $x_1 < x_2$. 对任意 $y \in (y_1, y_2)$, 由介值定理知, 存在 $x \in (x_1, x_2) \subset I$, 使得 $f(x) = y$. 因此, $f(I)$ 是区间.
+
+    下面证明$f(I)$是开区间. $\forall y \in f(I)$, 则存在 $x_0 \in I$, 使得 $f(x_0) = y$. 由$(a,b)$是开区间知, 存在 $\delta > 0$, 使得 $(x_0 - \delta, x_0 + \delta) \subset (a,b)$. 设 $\eta = \min\{f(x_0) - f(x_0 - \delta), f(x_0 + \delta) - f(x_0)\} > 0$, 则对任意 $y' \in (y - \eta, y + \eta)\subset (f(x_0 - \delta), f(x_0 + \delta))$, 由介值定理知, 存在 $x' \in (x_0 - \delta, x_0 + \delta) \subset I$, 使得 $f(x') = y'$. 因此, $f(I)$ 是开区间.
+\end{solution}
+
 \begin{exercise}[2.2.13]
     设函数 $f(x)$ 在有限区间 $(a,b)$ 上一致连续. 求证 $f(x)$ 在 $a$ 点的右极限和在 $b$ 点的左极限都存在.
 \end{exercise}
 
+\begin{solution}
+    $f(x)$ 在 $(a,b)$ 上一致连续, 则对任意 $\varepsilon > 0$, 存在 $\delta > 0$, 使得当 $x_1, x_2 \in (a,b)$ 且 $|x_1 - x_2| < \delta$ 时, 有 $|f(x_1) - f(x_2)| < \varepsilon$. 现取 $x_1, x_2 \in (a, a+\delta)$, 则 $|x_1 - x_2| < \delta$, 故 $|f(x_1) - f(x_2)| < \varepsilon$. 因此, 函数 $f(x)$ 在 $(a, a+\delta)$ 上满足柯西收敛准则, 故 $\lim_{x \to a^+} f(x)$ 存在. 同理可证 $\lim_{x \to b^-} f(x)$ 也存在.
+\end{solution}
+
 \begin{exercise}[2.2.14]
-    设函数 $f(x)$ 在 $(0, +\infty)$ 上一致连续, $\{a_n\}$ 是正收敛数列. 求证 $\{f(a_n)\}$ 也收敛. 又问假没 $f(x)$ 连续时, 结论是否还成立, 为什么?
+    设函数 $f(x)$ 在 $(0, +\infty)$ 上一致连续, $\{a_n\}$ 是正收敛数列. 求证 $\{f(a_n)\}$ 也收敛. 又问仅假设 $f(x)$ 连续时, 结论是否还成立, 为什么?
 \end{exercise}
+
+\begin{solution}
+    由$f(x)$在$(0,+\infty)$上一致连续, 则对任意$\varepsilon>0$, 存在$\delta>0$, 使得当$x_1,x_2\in(0,+\infty)$且$|x_1-x_2|<\delta$时, 有$|f(x_1)-f(x_2)|<\varepsilon$. 又因$\{a_n\}$是正收敛数列, 故存在$N\in\mathbf{N}^+$, 使得当$n,m>N$时, 有$|a_n-a_m|<\delta$. 因此, 对任意$n,m>N$有$|f(a_n)-f(a_m)|<\varepsilon$. 由柯西收敛准则知, 数列$\{f(a_n)\}$收敛.
+
+    仅假设$f(x)$连续时, 结论不成立. 例如, 设$f(x)=\sin\frac{1}{x}$在$(0,+\infty)$上连续, 且数列$a_n=\frac{1}{(n+\frac{1}{2})\pi}$收敛于$0$, 但数列$f(a_n)=\sin\left( \left(n+\frac12\right) \pi\right)= (-1)^n$不收敛.
+\end{solution}
 
 \begin{exercise}[2.2.15]
     设函数 $f(x)$ 在 $(-\infty, +\infty)$ 上连续, $\{a_n\}$ 是收敛数列. 求证 $\{f(a_n)\}$ 也收敛.
 \end{exercise}
 
+\begin{solution}
+    设 $\lim_{n \to \infty} a_n = a$, 则 $a \in (-\infty, +\infty)$. 由$f(x)$在$(-\infty,+\infty)$上连续知,$f(x)$在$a$点连续, 即$\lim_{x \to a} f(x) = f(a)$. 因此, 对任意 $\varepsilon > 0$, 存在 $\delta > 0$, 使得当 $|x - a| < \delta$ 时, 有 $|f(x) - f(a)| < \varepsilon$. 又因数列$\{a_n\}$收敛于$a$, 故存在$N\in\mathbf{N}^+$, 使得当$n>N$时, 有$|a_n-a|<\delta$. 因此, 对任意$n>N$有$|f(a_n)-f(a)|<\varepsilon$. 由数列的收敛定义知, 数列$\{f(a_n)\}$收敛于$f(a)$.
+\end{solution}
+
 \begin{exercise}[2.2.16]
     给出一个在 $(-\infty, +\infty)$ 上连续且有界但不一致连续的函数.
 \end{exercise}
+
+\begin{solution}
+    例如, $f(x) = \sin x^2$ 在 $(-\infty, +\infty)$ 上连续且有界, 但不一致连续. 反证法: 若$f(x)$在$(-\infty,+\infty)$上一致连续, 则对任意$\varepsilon=1$, 存在$\delta>0$, 使得当$x_1,x_2\in(-\infty,+\infty)$且$|x_1-x_2|<\delta$时, 有$|f(x_1)-f(x_2)|<1$. 现取$x_1=\sqrt{2n\pi}, x_2=\sqrt{2n\pi+\frac{\pi}{2}}$, 则当$n>\left(\frac{2}{\delta}\right)^2$时, 有$|x_1-x_2|<\delta$, 但$|f(x_1)-f(x_2)|=\left|\sin(2n\pi)-\sin\left(2n\pi+\frac{\pi}{2}\right)\right|=1$, 矛盾.
+\end{solution}
 
 \newpage
