@@ -293,9 +293,153 @@
 \begin{solution}
     稠密的定义:设$S\subset \R$, 若对任意$a, b\in\R, a<b$, 都有$S\cap(a, b)\neq\varnothing$, 则称$S$在$\R$中稠密.
 
-    想法是这样的,我们为了找到某个$m+n\xi$落在$(a, b)$中,于是用$\xi$构造一个充分小的实数$\ve = m_0 + n_0 \xi \in \left( 0, {b-a} \right)$, 因为这个$\ve$够小,因此在$\R$的分割$\R=\bigcup_{l\in\Z}[l\ve, (l+1)\ve]$中,每一段的长度$\varepsilon$严格小于$b-a$.
-    这样就能证明$\{l \ve \mid l\in\Z\} \cap (a, b) \neq \varnothing$, 也就是
-    存在某个$l_0\in\Z$, 使得$l_0\ve\in(a, b)$.
+    想法是这样的,我们为了找到某个$m+n\xi$落在$(a, b)$中,于是用$\xi$构造一个充分小的实数$\ve = m_0 + n_0 \xi \in \left( 0, {b-a} \right)$.因为这个$\ve$够小,所以能证明
+    存在某个$l_0\in\Z$, 使得$l_0\ve\in(a, b)$,直观理解如\autoref{fig:1.C.16} 所示.
+\begin{figure}[htbp]
+\centering
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth, thick, scale=1.2]
+
+% 数轴
+\draw[-] (-2.5,0) -- (2.5,0);
+
+% 刻度点坐标
+\coordinate (P1) at (-2,0);
+\coordinate (P2) at (-1,0);
+\coordinate (P3) at (0,0);
+\coordinate (P4) at (1,0);
+\coordinate (P5) at (2,0);
+\coordinate (A) at (-0.35,0);
+\coordinate (B) at (0.85,0);
+
+% AB → 正常刻度线（上方）
+\foreach \x in {A,B}{
+\draw (\x) -- ++(0,0.1);
+}
+
+% P1…P5 → 箭头+方框标注在下方
+\foreach \x in {P1,P2,P3,P4,P5}{
+% 小箭头竖线
+\draw (\x) -- ++(0,-0.2);
+}
+
+% P 组的方框标注
+\node[draw, fill=white, inner sep=2pt, below=12pt of P2] (box1) {$(l_0-1)\varepsilon$};
+\node[draw, fill=white, inner sep=2pt, below=12pt of P3] (box2) {$l_0\varepsilon$};
+\node[draw, fill=white, inner sep=2pt, below=12pt of P4] (box3) {$\left\lceil\dfrac{b}{\varepsilon}\right\rceil\varepsilon$};
+
+% 箭头连接方框→刻度
+\draw[-{Triangle[scale=1.1]}] (box1.north) -- (P2);
+\draw[-{Triangle[scale=1.1]}] (box2.north) -- (P3);
+\draw[-{Triangle[scale=1.1]}] (box3.north) -- (P4);
+
+% AB 上方文字
+\node[above] at (A) {$a$};
+\node[above] at (B) {$b$};
+
+% 间距 ε
+\draw[|-|] (P1) ++(0,+0.5) -- ++(1,0)
+    node[midway,fill=white,inner sep=1pt] {$\varepsilon$};
+
+\end{tikzpicture}
+
+\begin{tikzpicture}[>=Stealth, thick, scale=1.2]
+
+% 数轴
+\draw[-] (-2.5,0) -- (2.5,0);
+
+% 刻度点坐标
+\coordinate (P1) at (-2,0);
+\coordinate (P2) at (-1,0);
+\coordinate (P3) at (0,0);
+\coordinate (P4) at (1,0);
+\coordinate (P5) at (2,0);
+\coordinate (A) at (-1.55,0);
+\coordinate (B) at (0.75,0);
+
+% AB → 正常刻度线（上方）
+\foreach \x in {A,B}{
+\draw (\x) -- ++(0,0.1);
+}
+
+% P1…P5 → 箭头+方框标注在下方
+\foreach \x in {P1,P2,P3,P4,P5}{
+% 小箭头竖线
+\draw (\x) -- ++(0,-0.2);
+}
+
+% P 组的方框标注
+\node[draw, fill=white, inner sep=2pt, below=12pt of P2] (box1) {$(l_0-1)\varepsilon$};
+\node[draw, fill=white, inner sep=2pt, below=12pt of P3] (box2) {$l_0\varepsilon$};
+\node[draw, fill=white, inner sep=2pt, below=12pt of P4] (box3) {$\left\lceil\dfrac{b}{\varepsilon}\right\rceil\varepsilon$};
+
+% 箭头连接方框→刻度
+\draw[-{Triangle[scale=1.1]}] (box1.north) -- (P2);
+\draw[-{Triangle[scale=1.1]}] (box2.north) -- (P3);
+\draw[-{Triangle[scale=1.1]}] (box3.north) -- (P4);
+
+% AB 上方文字
+\node[above] at (A) {$a$};
+\node[above] at (B) {$b$};
+
+% 间距 ε
+\draw[|-|] (P1) ++(0,+0.5) -- ++(1,0)
+    node[midway,fill=white,inner sep=1pt] {$\varepsilon$};
+
+\end{tikzpicture}
+
+\begin{tikzpicture}[>=Stealth, thick, scale=1.2]
+
+% 数轴
+\draw[-] (-2.5,0) -- (2.5,0);
+
+% 刻度点坐标
+\coordinate (P1) at (-2,0);
+\coordinate (P2) at (-1,0);
+\coordinate (P3) at (0,0);
+\coordinate (P4) at (1,0);
+\coordinate (P5) at (2,0);
+\coordinate (A) at (-0.45,0);
+\coordinate (B) at (1,0);
+
+% AB → 正常刻度线（上方）
+\foreach \x in {A,B}{
+\draw (\x) -- ++(0,0.1);
+}
+
+% P1…P5 → 箭头+方框标注在下方
+\foreach \x in {P1,P2,P3,P4,P5}{
+% 小箭头竖线
+\draw (\x) -- ++(0,-0.2);
+}
+
+% P 组的方框标注
+\node[draw, fill=white, inner sep=2pt, below=12pt of P2] (box1) {$(l_0-1)\varepsilon$};
+\node[draw, fill=white, inner sep=2pt, below=12pt of P3] (box2) {$l_0\varepsilon$};
+\node[draw, fill=white, inner sep=2pt, below=12pt of P4] (box3) {$\left\lceil\dfrac{b}{\varepsilon}\right\rceil\varepsilon$};
+
+% 箭头连接方框→刻度
+\draw[-{Triangle[scale=1.1]}] (box1.north) -- (P2);
+\draw[-{Triangle[scale=1.1]}] (box2.north) -- (P3);
+\draw[-{Triangle[scale=1.1]}] (box3.north) -- (P4);
+
+% AB 上方文字
+\node[above] at (A) {$a$};
+\node[above] at (B) {$b$};
+
+% 间距 ε
+\draw[|-|] (P1) ++(0,+0.5) -- ++(1,0)
+    node[midway,fill=white,inner sep=1pt] {$\varepsilon$};
+
+\end{tikzpicture}
+\end{center}
+
+    \caption{$a, b$之间的区间长度大于$\varepsilon$, 因此存在某个$l_0\in\Z$, 使得$l_0\varepsilon\in(a, b)$.}这里的思路和\hyperref[exe:1.1.2]{习题1.1.2}中证明两个无理数之间存在有理数的思路是类似的.
+    \label{fig:1.C.16}
+\end{figure}
+
+
     随后我们取$m=l_0m_0, n=l_0n_0$即有$m+n\xi=l_0\ve\in(a, b)$.
 
     \paragraph*{构造$\ve$}
@@ -321,157 +465,14 @@
 
     我们先证明$\exists l_0\in\Z, \st l_0\ve\in(a, b)$:我们取$l_0 = \llceil \frac{b}{\ve} \rrceil - 1$,则$$l_0 \ve = \left(\llceil \frac{b}{\ve} \rrceil - 1\right)\ve < \left(\frac{b}{\ve} + 1 - 1\right)\ve = b.$$
     同时,由于$\ve < {b-a}$, 因此$$l_0 \ve = \left(\llceil \frac{b}{\ve} \rrceil - 1\right)\ve \ges \left(\frac{b}{\ve} - 1\right)\ve = b - \ve > b - (b-a) = a.$$
-
-    因此取$l_0\ve\in(a, b)$, 因此$$m=l_0(n_q-n_p), n=l_0(q-p)$$
+    因此$l_0\ve\in(a, b)$.
+    
+    于是令$$m=l_0(n_q-n_p), n=l_0(q-p)$$
     即有$m+n\xi=l_0 (n_q-n_p)+l_0(q-p)\xi=l_0 \left( (q-p)\xi-(n_p-n_q) \right)=l_0\ve\in(a, b).$
 \end{solution}
 
 
-\begin{figure}[htbp]
-    \centering
 
 
-\begin{center}
-\begin{tikzpicture}[>=Stealth, thick, scale=1.2]
-
-  % 数轴
-  \draw[-] (-2.5,0) -- (2.5,0);
-
-  % 刻度点坐标
-  \coordinate (P1) at (-2,0);
-  \coordinate (P2) at (-1,0);
-  \coordinate (P3) at (0,0);
-  \coordinate (P4) at (1,0);
-  \coordinate (P5) at (2,0);
-  \coordinate (A) at (-0.35,0);
-  \coordinate (B) at (0.85,0);
-
-  % AB → 正常刻度线（上方）
-  \foreach \x in {A,B}{
-    \draw (\x) -- ++(0,0.1);
-  }
-
-  % P1…P5 → 箭头+方框标注在下方
-  \foreach \x in {P1,P2,P3,P4,P5}{
-    % 小箭头竖线
-    \draw (\x) -- ++(0,-0.2);
-  }
-
-  % P 组的方框标注
-  \node[draw, fill=white, inner sep=2pt, below=12pt of P2] (box1) {$(l_0-1)\varepsilon$};
-  \node[draw, fill=white, inner sep=2pt, below=12pt of P3] (box2) {$l_0\varepsilon$};
-  \node[draw, fill=white, inner sep=2pt, below=12pt of P4] (box3) {$\left\lceil\dfrac{b}{\varepsilon}\right\rceil\varepsilon$};
-
-  % 箭头连接方框→刻度
-  \draw[-{Triangle[scale=1.1]}] (box1.north) -- (P2);
-  \draw[-{Triangle[scale=1.1]}] (box2.north) -- (P3);
-  \draw[-{Triangle[scale=1.1]}] (box3.north) -- (P4);
-
-  % AB 上方文字
-  \node[above] at (A) {$a$};
-  \node[above] at (B) {$b$};
-
-  % 间距 ε
-  \draw[|-|] (P1) ++(0,+0.5) -- ++(1,0)
-      node[midway,fill=white,inner sep=1pt] {$\varepsilon$};
-
-\end{tikzpicture}
-
-\begin{tikzpicture}[>=Stealth, thick, scale=1.2]
-
-  % 数轴
-  \draw[-] (-2.5,0) -- (2.5,0);
-
-  % 刻度点坐标
-  \coordinate (P1) at (-2,0);
-  \coordinate (P2) at (-1,0);
-  \coordinate (P3) at (0,0);
-  \coordinate (P4) at (1,0);
-  \coordinate (P5) at (2,0);
-  \coordinate (A) at (-1.55,0);
-  \coordinate (B) at (0.75,0);
-
-  % AB → 正常刻度线（上方）
-  \foreach \x in {A,B}{
-    \draw (\x) -- ++(0,0.1);
-  }
-
-  % P1…P5 → 箭头+方框标注在下方
-  \foreach \x in {P1,P2,P3,P4,P5}{
-    % 小箭头竖线
-    \draw (\x) -- ++(0,-0.2);
-  }
-
-  % P 组的方框标注
-  \node[draw, fill=white, inner sep=2pt, below=12pt of P2] (box1) {$(l_0-1)\varepsilon$};
-  \node[draw, fill=white, inner sep=2pt, below=12pt of P3] (box2) {$l_0\varepsilon$};
-  \node[draw, fill=white, inner sep=2pt, below=12pt of P4] (box3) {$\left\lceil\dfrac{b}{\varepsilon}\right\rceil\varepsilon$};
-
-  % 箭头连接方框→刻度
-  \draw[-{Triangle[scale=1.1]}] (box1.north) -- (P2);
-  \draw[-{Triangle[scale=1.1]}] (box2.north) -- (P3);
-  \draw[-{Triangle[scale=1.1]}] (box3.north) -- (P4);
-
-  % AB 上方文字
-  \node[above] at (A) {$a$};
-  \node[above] at (B) {$b$};
-
-  % 间距 ε
-  \draw[|-|] (P1) ++(0,+0.5) -- ++(1,0)
-      node[midway,fill=white,inner sep=1pt] {$\varepsilon$};
-
-\end{tikzpicture}
-
-\begin{tikzpicture}[>=Stealth, thick, scale=1.2]
-
-  % 数轴
-  \draw[-] (-2.5,0) -- (2.5,0);
-
-  % 刻度点坐标
-  \coordinate (P1) at (-2,0);
-  \coordinate (P2) at (-1,0);
-  \coordinate (P3) at (0,0);
-  \coordinate (P4) at (1,0);
-  \coordinate (P5) at (2,0);
-  \coordinate (A) at (-0.45,0);
-  \coordinate (B) at (1,0);
-
-  % AB → 正常刻度线（上方）
-  \foreach \x in {A,B}{
-    \draw (\x) -- ++(0,0.1);
-  }
-
-  % P1…P5 → 箭头+方框标注在下方
-  \foreach \x in {P1,P2,P3,P4,P5}{
-    % 小箭头竖线
-    \draw (\x) -- ++(0,-0.2);
-  }
-
-  % P 组的方框标注
-  \node[draw, fill=white, inner sep=2pt, below=12pt of P2] (box1) {$(l_0-1)\varepsilon$};
-  \node[draw, fill=white, inner sep=2pt, below=12pt of P3] (box2) {$l_0\varepsilon$};
-  \node[draw, fill=white, inner sep=2pt, below=12pt of P4] (box3) {$\left\lceil\dfrac{b}{\varepsilon}\right\rceil\varepsilon$};
-
-  % 箭头连接方框→刻度
-  \draw[-{Triangle[scale=1.1]}] (box1.north) -- (P2);
-  \draw[-{Triangle[scale=1.1]}] (box2.north) -- (P3);
-  \draw[-{Triangle[scale=1.1]}] (box3.north) -- (P4);
-
-  % AB 上方文字
-  \node[above] at (A) {$a$};
-  \node[above] at (B) {$b$};
-
-  % 间距 ε
-  \draw[|-|] (P1) ++(0,+0.5) -- ++(1,0)
-      node[midway,fill=white,inner sep=1pt] {$\varepsilon$};
-
-\end{tikzpicture}
-\end{center}
-
-    \caption{$a, b$之间的区间长度大于$\varepsilon$, 因此存在某个$l_0\in\Z$, 使得$l_0\varepsilon\in(a, b)$.}
-    \label{fig:1.C.16}
-
-    
-\end{figure}
 
 \newpage
