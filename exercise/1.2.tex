@@ -42,17 +42,17 @@ $\forall M > 0, \forall \ve >0, \exists N\in \mathbb{N}^*, \forall n>N $都有 $
     证明: 当且仅当 $\lim_{n\to\infty} (a_n - a) = 0$ 时, 有 $\lim_{n\to\infty} a_n = a$. (数列极限的许多证明问题, 都可用同样的方法处理.)
 \end{exercise}
 
-\begin{proof}
+\begin{solution}
     充分性: 由$\lim_{n \to \infty} (a_n - a) = 0$,则$\forall \ve > 0, \exists N \in \mathbb{N}^*, \forall n > N$都有$|a_n - a| < \ve$成立.因此$\lim_{n \to \infty} a_n = a$.
 
     必要性: 由$\lim_{n \to \infty} a_n = a$,则$\forall \ve > 0, \exists N \in \mathbb{N}^*, \forall n > N$都有$|a_n - a| < \ve$成立.因此$\lim_{n \to \infty} (a_n - a) = 0$.
-\end{proof}
+\end{solution}
 
 \begin{exercise}[1.2.4]
     证明: 若 $\lim_{n\to\infty} a_n = a$, 则 $\lim_{n\to\infty} |a_n| = |a|$; 反之不一定成立 (试举例说明). 但若 $\lim_{n\to\infty} |a_n| = 0$, 则有 $\lim_{n\to\infty} a_n = 0$.
 \end{exercise}
 
-\begin{proof}
+\begin{solution}
     由 $\lim_{n\to\infty} a_n = a \Rightarrow \forall \ve > 0, \exists N \in \mathbb{N}^*$, 当 $n > N$ 时, 有 $|a_n - a| < \ve$. 则
     $$
         ||a_n| - |a|| \les |a_n - a| < \ve.
@@ -66,19 +66,19 @@ $\forall M > 0, \forall \ve >0, \exists N\in \mathbb{N}^*, \forall n>N $都有 $
         |a_n - 0| = |a_n| < \ve.
     $$
     即 $\lim_{n\to\infty} a_n = 0$.
-\end{proof}
+\end{solution}
 
 \begin{exercise}[1.2.5]
     证明: 若 $\lim_{n\to\infty} a_n = 0$, 又 $|b_n| \les M$, ($n=1,2,\cdots$), 则 $\lim_{n\to\infty} a_n b_n = 0$.
 \end{exercise}
 
-\begin{proof}
+\begin{solution}
     由 $\lim_{n\to\infty} a_n = 0 \Rightarrow \forall \ve > 0, \exists N \in \mathbb{N}^*$, 当 $n > N$ 时, 有 $|a_n - 0| < \frac{\ve}{M}$. 则
     $$
         |a_n b_n - 0| = |a_n| |b_n| < \frac{\ve}{M} \cdot M = \ve.
     $$
     即 $\lim_{n\to\infty} a_n b_n = 0$.
-\end{proof}
+\end{solution}
 
 \begin{exercise}[1.2.6]
     证明: 若数列 $\{a_n\}$ 满足 $\lim_{k\to\infty} a_{2k+1} = a$, 及 $\lim_{k\to\infty} a_{2k} = a$, 则 $\lim_{n\to\infty} a_n = a$.

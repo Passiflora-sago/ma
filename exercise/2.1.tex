@@ -96,40 +96,36 @@
 
 \begin{solution}
     \begin{enumerate}
-        \item $\lim\limits_{x \to 2^-} f(x) = -\infty$,$\lim\limits_{x \to 2^+} f(x) = +\infty$.\\
+        \item $$\lim\limits_{x \to 2^-} f(x) = -\infty,\quad \lim\limits_{x \to 2^+} f(x) = +\infty.$$
         左右极限不存在,因此 $x=2$ 是第二类间断点.
 
         \item 
-        $\lim\limits_{x \to 0^+} f(x) = \lim\limits_{x \to 0^+} \frac{\sin x}{x} = 1$,$\lim\limits_{x \to 0^-} f(x) = \lim\limits_{x \to 0^-} \left(-\frac{\sin x}{x}\right) = -1$.\\
+       $$\lim\limits_{x \to 0^+} f(x) = \lim\limits_{x \to 0^+} \frac{\sin x}{x} = 1, \quad \lim\limits_{x \to 0^-} f(x) = \lim\limits_{x \to 0^-} \left(-\frac{\sin x}{x}\right) = -1.$$
         左右极限存在但不相等,因此 $x=0$ 是第一类间断点中的跳跃间断点.
 
         \item 可知$f(x)=\begin{cases}
             1,&x=k\pi,k\in\Z;\\
             0,&\text{其他}.
         \end{cases}$
-        在 $x = k\pi$ 处,$\lim\limits_{x \to k\pi} f(x) = 0 \ne f(k\pi) = 1$.\\
+        在 $x = k\pi$ 处,$\lim\limits_{x \to k\pi} f(x) = 0 \ne f(k\pi) = 1$.
         左右极限存在且相等,$x = k\pi$ ($k \in \mathbb{Z}$) 是第一类间断点中的可去间断点.
 
         \item 
-        $\lim\limits_{x \to 0^+} f(x) = \lim\limits_{x \to 0^+} \frac{1}{1+\mathrm{e}^{1/x}} = 0$,
-        $\lim\limits_{x \to 0^-} f(x) = \lim\limits_{x \to 0^-} \frac{1}{1+\mathrm{e}^{1/x}} = 1$.\\
+        $$\lim\limits_{x \to 0^+} f(x) = \lim\limits_{x \to 0^+} \frac{1}{1+\mathrm{e}^{1/x}} = 0,\quad \lim\limits_{x \to 0^-} f(x) = \lim\limits_{x \to 0^-} \frac{1}{1+\mathrm{e}^{1/x}} = 1.$$
         左右极限存在但不相等,因此 $x=0$ 是第一类间断点中的跳跃间断点.
 
         \item 
-        \begin{itemize}
-            \item 在 $x=-7$ 处：\\
-            $\lim\limits_{x \to -7^-} f(x) = \lim\limits_{x \to -7^-} \frac{1}{x+7} = -\infty$,
-            $\lim\limits_{x \to -7^+} f(x) = -7$.\\
+        \begin{enumerate}
+            \item 在 $x=-7$ 处
+            $$\lim\limits_{x \to -7^-} f(x) = \lim\limits_{x \to -7^-} \frac{1}{x+7} = -\infty,\quad \lim\limits_{x \to -7^+} f(x) = -7,$$
             左极限不存在,因此 $x=-7$ 是第二类间断点.
-            \item 在 $x=1$ 处：\\
-            $\lim\limits_{x \to 1^-} f(x) = 1$,
-            $\lim\limits_{x \to 1^+} f(x) = \lim\limits_{x \to 1^+} (x-1)\sin\frac{1}{x-1} = 0$,\\
-            $f(1) = 1$.\\
+            \item 在 $x=1$ 处:
+            $$\lim\limits_{x \to 1^-} f(x) = 1, \quad \lim\limits_{x \to 1^+} f(x) = \lim\limits_{x \to 1^+} (x-1)\sin\frac{1}{x-1} = 0,\quad f(1) = 1,$$
             左右极限存在但不相等,因此 $x=1$ 是第一类间断点中的跳跃间断点.
-        \end{itemize}
+        \end{enumerate}
 
-        \item 当 $x \ne 2$ 时,$f(x) = \frac{(x-2)(x+2)}{x-2} = x+2$.\\
-        $\lim\limits_{x \to 2} f(x) = \lim\limits_{x \to 2} (x+2) = 4$,但 $f(2) = 4$,函数值与极限值相等.\\
+        \item 当 $x \ne 2$ 时,$f(x) = \frac{(x-2)(x+2)}{x-2} = x+2$.
+        $\lim\limits_{x \to 2} f(x) = \lim\limits_{x \to 2} (x+2) = 4$,但 $f(2) = 4$,函数值与极限值相等.
         因此函数在 $x=2$ 处连续,无间断点.
     \end{enumerate}
 \end{solution}
@@ -181,8 +177,8 @@
 \end{exercise}
 
 \begin{solution}
-    因为 $f(x)$ 在点 $x_0$ 连续, 故 $\lim_{x \to x_0} f(x) = f(x_0)$, 即 $\forall \varepsilon > 0$, $\exists \delta > 0$, 当 $|x-x_0| < \delta$ 时, 有 $|f(x)-f(x_0)| < \varepsilon$. \\
-    取 $\varepsilon = 1$, 则当 $|x-x_0| < \delta$ 时, 有 $|f(x)-f(x_0)| < 1$, 即 $-1 < f(x)-f(x_0) < 1$, 故 $f(x_0)-1 < f(x) < f(x_0)+1$. \\
+    因为 $f(x)$ 在点 $x_0$ 连续, 故 $\lim_{x \to x_0} f(x) = f(x_0)$, 即 $\forall \varepsilon > 0$, $\exists \delta > 0$, 当 $|x-x_0| < \delta$ 时, 有 $|f(x)-f(x_0)| < \varepsilon$. 
+    取 $\varepsilon = 1$, 则当 $|x-x_0| < \delta$ 时, 有 $|f(x)-f(x_0)| < 1$, 即 $-1 < f(x)-f(x_0) < 1$, 故 $f(x_0)-1 < f(x) < f(x_0)+1$. 
     因此, 当 $x \in (x_0-\delta, x_0+\delta)$ 时, 有 $|f(x)| \les \max\{|f(x_0)-1|, |f(x_0)+1|\}$, 即 $f(x)$ 在区间 $(x_0-\delta, x_0+\delta)$ 上有界.
 \end{solution}
 
@@ -191,13 +187,14 @@
 \end{exercise}
 
 \begin{solution}
-    因为 $f(x)$ 在点 $x_0$ 连续, 故 $\lim_{x \to x_0} f(x) = f(x_0)$, 即 $\forall \varepsilon > 0$, $\exists \delta > 0$, 当 $|x-x_0| < \delta$ 时, 有 $|f(x)-f(x_0)| < \varepsilon$. \\
-    取 $\varepsilon = \frac{|f(x_0)|}{2}$, 则当 $|x-x_0| < \delta$ 时, 有 $|f(x)-f(x_0)| < \frac{|f(x_0)|}{2}$,即 $-\frac{|f(x_0)|}{2} < f(x)-f(x_0) < \frac{|f(x_0)|}{2}$, 故 $f(x_0)-\frac{|f(x_0)|}{2} < f(x) < f(x_0)+\frac{|f(x_0)|}{2}$. \\
+    因为 $f(x)$ 在点 $x_0$ 连续, 故 $\lim_{x \to x_0} f(x) = f(x_0)$, 即 $\forall \varepsilon > 0$, $\exists \delta > 0$, 当 $|x-x_0| < \delta$ 时, 有 $|f(x)-f(x_0)| < \varepsilon$. 
+    取 $\varepsilon = \frac{|f(x_0)|}{2}$, 则当 $|x-x_0| < \delta$ 时, 有 $$|f(x)-f(x_0)| < \frac{|f(x_0)|}{2},$$即 $$-\frac{|f(x_0)|}{2} < f(x)-f(x_0) < \frac{|f(x_0)|}{2},$$ 故 $f(x_0)-\frac{|f(x_0)|}{2} < f(x) < f(x_0)+\frac{|f(x_0)|}{2}$. 
+    
     因为 $f(x_0) \ne 0$, 故当 $x \in (x_0-\delta, x_0+\delta)$ 时, 有
-    \begin{itemize}
+    \begin{enumerate}
         \item $f(x_0) > 0$时$$ f(x) > f(x_0) - \frac{f(x_0)}{2} = \frac{f(x_0)}{2} > 0. $$
         \item $f(x_0) < 0$时$$ f(x) < f(x_0) - \frac{f(x_0)}{2} = \frac{f(x_0)}{2} < 0. $$
-    \end{itemize}
+    \end{enumerate}
     
     因此, 当 $x \in (x_0-\delta, x_0+\delta)$ 时, 有 $f(x)$ 与 $f(x_0)$ 同号. 进一步地, 取 $\gamma = \frac{|f(x_0)|}{2}$, 则当 $x \in (x_0-\delta, x_0+\delta)$ 时, 有 $|f(x)| \ges \gamma$.
 \end{solution}
@@ -209,20 +206,21 @@
 \end{exercise}
 
 \begin{solution}
-    由于$\lim_{u \to a} f(u) = f(a)$, 故$\forall \varepsilon > 0$, $\exists \delta_1 > 0$, 当 $|u-a| < \delta_1$ 时, 有 $|f(u)-f(a)| < \varepsilon$. \\
-    又因为 $\lim_{x \to x_0} g(x) = a$, 故对于$ \delta_1 > 0$, $\exists \delta_2 > 0$, 当 $|x-x_0| < \delta_2$ 时, 有 $|g(x)-a| < \delta_1$.\\
-    因此, 当 $|x-x_0| < \delta_2$ 时, 有 $|g(x)-a| < \delta_1$, 即 $|f(g(x))-f(a)| < \varepsilon$.\\
-    综上所述, $\lim_{x \to x_0} f(g(x)) = f(a)$.
+    由于$\lim_{u \to a} f(u) = f(a)$, 故$\forall \varepsilon > 0$, $\exists \delta_1 > 0$, 当 $|u-a| < \delta_1$ 时, 有 $|f(u)-f(a)| < \varepsilon$. 
+
+    又因为 $\lim_{x \to x_0} g(x) = a$, 故对于$ \delta_1 > 0$, $\exists \delta_2 > 0$, 当 $|x-x_0| < \delta_2$ 时, 有 $|g(x)-a| < \delta_1$.
+
+    因此, 当 $|x-x_0| < \delta_2$ 时, 有 $|g(x)-a| < \delta_1$, 即 $|f(g(x))-f(a)| < \varepsilon$.综上所述, $\lim_{x \to x_0} f(g(x)) = f(a)$.
 \end{solution}
 
 \begin{exercise}[2.1.13]
     证明: 若函数 $u(x), v(x)$ 在 $x_0$ 处连续, 且 $u(x_0) > 0$, 则函数 $u(x)^{v(x)}$ 也在点 $x_0$ 处连续.
 \end{exercise}
 
-\begin{proof}
+\begin{solution}
     利用$\e^x$在$\R$上连续,$\ln x$在$(0,+\infty)$上连续,以及复合函数的极限可交换性,有
     $$\lim_{x \to x_0} u(x)^{v(x)} = \lim_{x \to x_0} \e^{v(x) \ln u(x)} = \e^{\lim\limits_{x \to x_0} v(x) \ln u(x)} = \e^{v(x_0) \ln u(x_0)} = u(x_0)^{v(x_0)}.$$
-\end{proof}
+\end{solution}
 
 \begin{exercise}[2.1.14]
     设 $f(x)$ 在 $\mathbb{R}$ 上连续, 且对于任意 $x$ 有 $f(2x)=f(x)$. 求证 $f(x)$ 是常数.
@@ -262,22 +260,22 @@
         \item $f(x) = \begin{cases}
             \frac{\sin x}{x},&x\neq 0\\
             1,&x=0
-        \end{cases},$ 则 $f(0)=\lim_{x \to 0} f(x) = 1$,即$f(x)$在$x=0$连续.\\ 
-        设 $g(x) = \arcsin x$, 则 $\lim_{x \to 0} g(x) = 0$. \\
+        \end{cases},$ 则 $f(0)=\lim_{x \to 0} f(x) = 1$,即$f(x)$在$x=0$连续.
+        设 $g(x) = \arcsin x$, 则 $\lim_{x \to 0} g(x) = 0$. 
         因此$$\lim_{x \to 0} \frac{x}{\arcsin x } = \lim_{x \to 0} \frac{\sin  \arcsin x}{\arcsin x }= \lim_{x \to 0} f(g(x)) = f \left( \lim_{x \to 0} g(x) \right) = f(0) = 1,$$ 
         即 $\arcsin x \sim x$;
         \item $f(x) = \begin{cases}
             \frac{\tan x}{x},&x\neq 0\\
             1,&x=0
-        \end{cases},$则 $f(0)=\lim_{x \to 0} f(x) = 1$,即$f(x)$在$x=0$连续.\\ 
-        设 $g(x) = \arctan x$, 则 $\lim_{x \to 0} g(x) = 0$.\\
+        \end{cases},$则 $f(0)=\lim_{x \to 0} f(x) = 1$,即$f(x)$在$x=0$连续.
+        设 $g(x) = \arctan x$, 则 $\lim_{x \to 0} g(x) = 0$.
          因此$$\lim_{x \to 0} \frac{x}{\arctan x} = \lim_{x \to 0} \frac{\tan \arctan x}{\arctan x}=\lim_{x \to 0} f(g(x)) = f \left( \lim_{x \to 0} g(x) \right) = f(0) = 1,$$
          即 $\arctan x \sim x$;
         \item $f(x) = \begin{cases}
             \frac{\ln(1+x)}{x},&x\neq 0\\
             1,&x=0
-        \end{cases}$, 则 $f(0)=\lim_{x \to 0} f(x) = 1$,即$f(x)$在$x=0$连续.\\ 
-         设 $g(x) = \e^x - 1$, 则 $\lim_{x \to 0} g(x) = 0$.\\
+        \end{cases}$, 则 $f(0)=\lim_{x \to 0} f(x) = 1$,即$f(x)$在$x=0$连续.
+         设 $g(x) = \e^x - 1$, 则 $\lim_{x \to 0} g(x) = 0$.
         因此$$\lim_{x \to 0} \frac{x}{\e^x-1}=\lim_{x \to 0} \frac{\ln(1+\e^{x}-1)}{\e^x-1} = \lim_{x \to 0} f(g(x)) = f \left( \lim_{x \to 0} g(x) \right) = f(0) = 1, $$即 $(\mathrm{e}^x - 1) \sim x$.
     \end{enumerate}
 \end{solution}
@@ -319,34 +317,34 @@
     \end{enumerate}
 \end{solution}
 
-% \begin{exercise}[2.1.18]
-%     函数 $\sinh x = \frac{\mathrm{e}^x - \mathrm{e}^{-x}}{2}$ 与 $\cosh x = \frac{\mathrm{e}^x + \mathrm{e}^{-x}}{2}$ 分别称为双曲正弦与双曲余弦 (统称为双曲函数), 它们均在定义域 $(-\infty, +\infty)$ 上连续. 证明以下各题. (可与三角函数的性质作比较.)
-%     \begin{tasks}[label=(\arabic*)](2)
-%         \task $\sinh(-x) = -\sinh x, \quad \cosh(-x) = \cosh x$;
-%         \task $\cosh^2 x - \sinh^2 x = 1$;
-%         \task $\sinh 2x = 2\sinh x \cosh x$;
-%         \task $\cosh 2x = \sinh^2 x + \cosh^2 x$;
-%         \task $\sinh(x \pm y) = \sinh x \cosh y \pm \cosh x \sinh y$;
-%         \task $\cosh(x \pm y) = \cosh x \cosh y \pm \sinh x \sinh y$.
-%     \end{tasks}
-% \end{exercise}
+\begin{exercise}[2.1.18 (旧版教材中的题目)]
+    函数 $\sinh x = \frac{\mathrm{e}^x - \mathrm{e}^{-x}}{2}$ 与 $\cosh x = \frac{\mathrm{e}^x + \mathrm{e}^{-x}}{2}$ 分别称为双曲正弦与双曲余弦 (统称为双曲函数), 它们均在定义域 $(-\infty, +\infty)$ 上连续. 证明以下各题. (可与三角函数的性质作比较.)
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $\sinh(-x) = -\sinh x, \quad \cosh(-x) = \cosh x$;
+        \task $\cosh^2 x - \sinh^2 x = 1$;
+        \task $\sinh 2x = 2\sinh x \cosh x$;
+        \task $\cosh 2x = \sinh^2 x + \cosh^2 x$;
+        \task $\sinh(x \pm y) = \sinh x \cosh y \pm \cosh x \sinh y$;
+        \task $\cosh(x \pm y) = \cosh x \cosh y \pm \sinh x \sinh y$.
+    \end{tasks}
+\end{exercise}
 
-% \begin{solution}
-%     \begin{enumerate}
-%         \item $\sinh(-x) = \frac{\mathrm{e}^{-x} - \mathrm{e}^x}{2} = -\sinh x$, $\cosh(-x) = \frac{\mathrm{e}^{-x} + \mathrm{e}^x}{2} = \cosh x$;
-%         \item $\cosh^2 x - \sinh^2 x = \left( \frac{\mathrm{e}^x + \mathrm{e}^{-x}}{2} \right)^2 - \left( \frac{\mathrm{e}^x - \mathrm{e}^{-x}}{2} \right)^2 = \frac{\mathrm{e}^{2x} + 2 + \mathrm{e}^{-2x}}{4} - \frac{\mathrm{e}^{2x} - 2 + \mathrm{e}^{-2x}}{4} = 1$;
-%         \item $\sinh 2x = \frac{\mathrm{e}^{2x} - \mathrm{e}^{-2x}}{2} = \frac{(\mathrm{e}^x)^2 - (\mathrm{e}^{-x})^2}{2} = \frac{(\mathrm{e}^x - \mathrm{e}^{-x})(\mathrm{e}^x + \mathrm{e}^{-x})}{2} = 2\sinh x \cosh x$;
-%         \item $\cosh 2x = \frac{\mathrm{e}^{2x} + \mathrm{e}^{-2x}}{2} = \frac{(\mathrm{e}^x)^2 + (\mathrm{e}^{-x})^2}{2} = \frac{(\mathrm{e}^x - \mathrm{e}^{-x})^2 + (\mathrm{e}^x + \mathrm{e}^{-x})^2}{4} = \sinh^2 x + \cosh^2 x$;
-%         \item $\sinh(x \pm y) = \frac{\mathrm{e}^{x \pm y} - \mathrm{e}^{-(x \pm y)}}{2} =
-%                   \frac{\mathrm{e}^x \mathrm{e}^{\pm y} - \mathrm{e}^{-x} \mathrm{e}^{\mp y}}{2} = \frac{\mathrm{e}^x \mathrm{e}^{\pm y} - \mathrm{e}^{-x} \mathrm{e}^{\pm y} + \mathrm{e}^{-x} \mathrm{e}^{\pm y} - \mathrm{e}^{-x} \mathrm{e}^{\mp y}}{2} =
-%                   \left( \frac{\mathrm{e}^x - \mathrm{e}^{-x}}{2} \right) \left( \frac{\mathrm{e}^{\pm y} + \mathrm{e}^{\mp y}}{2} \right) + \left( \frac{\mathrm{e}^x + \mathrm{e}^{-x}}{2} \right) \left( \frac{\mathrm{e}^{\pm y} - \mathrm{e}^{\mp y}}{2} \right) =
-%                   \sinh x \cosh y \pm \cosh x \sinh y$;
-%         \item $\cosh(x \pm y) =
-%                   \frac{\mathrm{e}^{x \pm y} + \mathrm{e}^{-(x \pm y)}}{2} =\frac{\mathrm{e}^x \mathrm{e}^{\pm y} + \mathrm{e}^{-x} \mathrm{e}^{\mp y}}{2}
-%                   =\frac{\mathrm{e}^x \mathrm{e}^{\pm y} + \mathrm{e}^{-x} \mathrm{e}^{\pm y} - \mathrm{e}^{-x} \mathrm{e}^{\pm y} + \mathrm{e}^{-x} \mathrm{e}^{\mp y}}{2}
-%                   = \left( \frac{\mathrm{e}^x + \mathrm{e}^{-x}}{2} \right) \left( \frac{\mathrm{e}^{\pm y} + \mathrm{e}^{\mp y}}{2} \right) + \left( \frac{\mathrm{e}^x - \mathrm{e}^{-x}}{2} \right) \left( \frac{\mathrm{e}^{\pm y} - \mathrm{e}^{\mp y}}{2} \right)
-%                   = \cosh x \cosh y \pm \sinh x \sinh y$.
-%     \end{enumerate}
-% \end{solution}
+\begin{solution}
+    \begin{enumerate}
+        \item $\sinh(-x) = \frac{\mathrm{e}^{-x} - \mathrm{e}^x}{2} = -\sinh x$, $\cosh(-x) = \frac{\mathrm{e}^{-x} + \mathrm{e}^x}{2} = \cosh x$;
+        \item $\cosh^2 x - \sinh^2 x = \left( \frac{\mathrm{e}^x + \mathrm{e}^{-x}}{2} \right)^2 - \left( \frac{\mathrm{e}^x - \mathrm{e}^{-x}}{2} \right)^2 = \frac{\mathrm{e}^{2x} + 2 + \mathrm{e}^{-2x}}{4} - \frac{\mathrm{e}^{2x} - 2 + \mathrm{e}^{-2x}}{4} = 1$;
+        \item $\sinh 2x = \frac{\mathrm{e}^{2x} - \mathrm{e}^{-2x}}{2} = \frac{(\mathrm{e}^x)^2 - (\mathrm{e}^{-x})^2}{2} = \frac{(\mathrm{e}^x - \mathrm{e}^{-x})(\mathrm{e}^x + \mathrm{e}^{-x})}{2} = 2\sinh x \cosh x$;
+        \item $\cosh 2x = \frac{\mathrm{e}^{2x} + \mathrm{e}^{-2x}}{2} = \frac{(\mathrm{e}^x)^2 + (\mathrm{e}^{-x})^2}{2} = \frac{(\mathrm{e}^x - \mathrm{e}^{-x})^2 + (\mathrm{e}^x + \mathrm{e}^{-x})^2}{4} = \sinh^2 x + \cosh^2 x$;
+        \item $\sinh(x \pm y) = \frac{\mathrm{e}^{x \pm y} - \mathrm{e}^{-(x \pm y)}}{2} =
+                  \frac{\mathrm{e}^x \mathrm{e}^{\pm y} - \mathrm{e}^{-x} \mathrm{e}^{\mp y}}{2} = \frac{\mathrm{e}^x \mathrm{e}^{\pm y} - \mathrm{e}^{-x} \mathrm{e}^{\pm y} + \mathrm{e}^{-x} \mathrm{e}^{\pm y} - \mathrm{e}^{-x} \mathrm{e}^{\mp y}}{2} =
+                  \left( \frac{\mathrm{e}^x - \mathrm{e}^{-x}}{2} \right) \left( \frac{\mathrm{e}^{\pm y} + \mathrm{e}^{\mp y}}{2} \right) + \left( \frac{\mathrm{e}^x + \mathrm{e}^{-x}}{2} \right) \left( \frac{\mathrm{e}^{\pm y} - \mathrm{e}^{\mp y}}{2} \right) =
+                  \sinh x \cosh y \pm \cosh x \sinh y$;
+        \item $\cosh(x \pm y) =
+                  \frac{\mathrm{e}^{x \pm y} + \mathrm{e}^{-(x \pm y)}}{2} =\frac{\mathrm{e}^x \mathrm{e}^{\pm y} + \mathrm{e}^{-x} \mathrm{e}^{\mp y}}{2}
+                  =\frac{\mathrm{e}^x \mathrm{e}^{\pm y} + \mathrm{e}^{-x} \mathrm{e}^{\pm y} - \mathrm{e}^{-x} \mathrm{e}^{\pm y} + \mathrm{e}^{-x} \mathrm{e}^{\mp y}}{2}
+                  = \left( \frac{\mathrm{e}^x + \mathrm{e}^{-x}}{2} \right) \left( \frac{\mathrm{e}^{\pm y} + \mathrm{e}^{\mp y}}{2} \right) + \left( \frac{\mathrm{e}^x - \mathrm{e}^{-x}}{2} \right) \left( \frac{\mathrm{e}^{\pm y} - \mathrm{e}^{\mp y}}{2} \right)
+                  = \cosh x \cosh y \pm \sinh x \sinh y$.
+    \end{enumerate}
+\end{solution}
 
 \newpage

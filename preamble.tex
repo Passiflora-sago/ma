@@ -237,6 +237,30 @@
     {\fractype{\partial \IfNoValueTF{#2}{}{^{#2}} #3}{\partial #4\IfNoValueTF{#2}{}{^{#2}}}} {\fractype{\partial^2 #3}{\partial #4 \partial #5}} } 
 }
 
+\DeclareDocumentCommand\dv{ s o m g g d() }
+{
+  \IfBooleanTF{#1}
+  {\let\fractype\flatfrac}
+  {\let\fractype\frac}
+  \IfNoValueTF{#4}
+  {
+    \IfNoValueTF{#6}
+    {\fractype{\dif \IfNoValueTF{#2}{}{^{#2}}}{\dif #3\IfNoValueTF{#2}{}{^{#2}}}} {\fractype{\dif \IfNoValueTF{#2}{}{^{#2}}}{\dif #3\IfNoValueTF{#2}{}{^{#2}}} \argopen(#6\argclose)} } { \IfNoValueTF{#5}
+    {\fractype{\dif \IfNoValueTF{#2}{}{^{#2}} #3}{\dif #4\IfNoValueTF{#2}{}{^{#2}}}} {\fractype{\dif^2 #3}{\dif #4 \dif #5}} } 
+}
+
+\DeclareDocumentCommand\flatfrac{ m m }{\left.#1\middle\slash#2\right.}
+\DeclareDocumentCommand\homework{}{ % You can try it
+	\ensuremath{
+	\div{\vb{E}}=\frac{\rho}{\epsilon_0} \qc
+	\div{\vb{B}}=0 \qc
+	\curl{\vb{E}}=-\pdv{\vb{B}}{t}\qc
+	\curl{\vb{B}}=\mu_0\vb{J}+\frac{1}{c^2}\pdv{\vb{E}}{t}\qc
+	H\ket{\Psi}=i\hbar\pdv{}{t}\ket{\Psi},
+	\qq{all else follows.}
+	}
+}
+
 % 对\oiint等命令的支持
 \usepackage{esint}
 
@@ -255,3 +279,6 @@
     \addtocounter{footnote}{-1}%
     \endgroup
 }
+
+% \usepackage{mathtools} % 支持\begin{cases*}
+\usepackage{nicefrac}

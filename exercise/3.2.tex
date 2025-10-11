@@ -4,6 +4,16 @@
     设 $y=x^2+x$, 计算在 $x=1$ 处, 当 $\Delta x = 10, 1, 0.1, 0.01$ 时, 相应的函数的改变量 $\Delta y$ 和函数的微分 $\mathrm{d}y$, 并观察差 $\Delta y - \mathrm{d}y$ 随 $\Delta x$ 减小的变化情况.
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item 当 $\Delta x = 10$ 时, $$\Delta y = f(11) - f(1) = 130, \dif y = f'(1) \dif x = 3 \times 10 = 30, \Delta y - \dif y = 100.$$
+        \item 当 $\Delta x = 1$ 时, $$\Delta y = f(2) - f(1) = 4, \dif y = f'(1) \dif x = 3 \times 1 = 3, \Delta y - \dif y = 1.$$
+        \item 当 $\Delta x = 0.1$ 时, $$\Delta y = f(1.1) - f(1) = 0.31, \dif y = f'(1) \dif x = 3 \times 0.1 = 0.3, \Delta y - \dif y = 0.01.$$
+        \item 当 $\Delta x = 0.01$ 时, $$\Delta y = f(1.01) - f(1) = 0.0301, \dif y = f'(1) \dif x = 3 \times 0.01 = 0.03, \Delta y - \dif y = 0.0001.$$
+    \end{enumerate}
+    从中不难看出, 随着 $\Delta x$ 的减小, $\Delta y - \mathrm{d}y$ 也在减小, 且大体上 $\Delta y - \mathrm{d}y $ 趋于$0$.
+\end{solution}
+
 \begin{exercise}[3.2.2]
     求下列函数的微分:
     \begin{tasks}[label=(\arabic*)](2)
@@ -18,6 +28,21 @@
     \end{tasks}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item $$\dif y = \frac{1}{\frac{\pi}{2}-\frac{x}{4}} \cdot \diff\left( -\frac{x}{4} \right) = \frac{1}{x - 2\pi} \dif x.$$
+        \item $$\dif y = \diff(\sin x) - \diff(x\cos x) = \cos x \dif x - (\cos x - x\sin x) \dif x = x\sin x \dif x.$$
+        \item $x > 0$时, $$\dif y = -\frac{1}{\sqrt{1-\frac{1}{x^2}}} \cdot \diff\left( \frac{1}{x} \right) = \frac{1}{x\sqrt{x^2-1}} \dif x.$$
+              $x < 0$时, $$\dif y = -\frac{1}{\sqrt{1-\frac{1}{x^2}}} \cdot \diff\left( -\frac{1}{x} \right) = \frac{1}{x\sqrt{x^2-1}} \dif x.$$
+              因此$$\dif y = \frac{1}{x\sqrt{x^2-1}} \dif x, x \neq 0, |x| > 1.$$
+        \item $$\dif y = \diff\left( \ln|x-1| - \ln|x+1| \right) = \frac{1}{x-1} \dif x - \frac{1}{x+1} \dif x = \frac{2}{x^2-1} \dif x, \quad x \neq \pm 1.$$
+        \item $$\dif y = 5 \cdot \frac{1}{3} (\arctan x^2)^{-\frac{2}{3}} \cdot \diff(\arctan x^2) = \frac{10x}{3(1+x^4)(\arctan x^2)^{\frac{2}{3}}} \dif x.$$
+        \item $$\dif y = 2\tan(1+2x^2) \cdot \sec^2(1+2x^2) \cdot \diff(1+2x^2) = 8x \tan(1+2x^2) \sec^2(1+2x^2) \dif x.$$
+        \item $$\dif y = \mathrm{e}^{-x} \cos(3-x) \cdot \diff(-x) + \mathrm{e}^{-x} \cdot \diff(\cos(3-x)) = \mathrm{e}^{-x} (-\cos(3-x) + \sin(3-x)) \dif x.$$
+        \item $$\dif y = \frac{(\sqrt{x^2+1}) \cdot \diff(x) - x \cdot \diff(\sqrt{x^2+1})}{(\sqrt{x^2+1})^2} = \frac{-x^2+x+1}{(x^2+1)^{\frac32}} \dif x.$$
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.2.3]
     对下列函数, 求 $\frac{\mathrm{d}y}{\mathrm{d}x}$ 及 $\frac{\mathrm{d}^2y}{\mathrm{d}x^2}$.
     \begin{tasks}[label=(\arabic*)](2)
@@ -28,6 +53,43 @@
     \end{tasks}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item 对$x = \ln(1+t^2),y = t-\arctan t$两边求微分,得
+        $$\dif x = \frac{2t}{1+t^2} \dif t, \quad \dif y = \left(1-\frac{1}{1+t^2}\right) \dif t,$$所以
+          $$
+              \frac{\dif y}{\dif x} = \flatfrac{\dfrac{\dif y}{\dif t}}{\dfrac{\dif x}{\dif t}} = \frac{\frac{t^2}{1+t^2}}{\frac{2t}{1+t^2}} = \frac{t}{2},
+          $$
+          $$\frac{\dif\,\!^2 y}{\dif x^2} = \frac{\dif}{\dif x} \left( \frac{\dif y}{\dif x} \right) =
+              \flatfrac{\frac{\dif}{\dif t} \left( \frac{\dif y}{\dif x} \right)}{\frac{\dif x}{\dif t} }= \frac{\frac{1}{2}}{\frac{2t}{1+t^2}} = \frac{1+t^2}{4t}.$$
+        \item 对$x = t-\sin t,y = 1-\cos t$两边求微分,得
+        $$\dif x = (1-\cos t) \dif t, \quad \dif y = \sin t \dif t,$$所以
+          $$
+              \frac{\dif y}{\dif x} = \flatfrac{\dfrac{\dif y}{\dif t}}{\dfrac{\dif x}{\dif t}} = \frac{\sin t}{1-\cos t}.
+          $$
+          $\frac{\dif\,\!^2 y}{\dif x^2} = \frac{\dif}{\dif x} \left( \frac{\dif y}{\dif x} \right) =
+              \flatfrac{\frac{\dif}{\dif t} \left( \frac{\dif y}{\dif x} \right)}{\frac{\dif x}{\dif t} }= \frac{\frac{\cos t(1-\cos t) - \sin t \cdot \sin t}{(1-\cos t)^2}}{1-\cos t} = \frac{\cos t - 1}{(1-\cos t)^3} = -\frac{1}{(1-\cos t)^2}$.
+        \item 对$x = \varphi\cos\varphi,y = \varphi\sin\varphi$两边求微分,得
+        $$\dif x = (\cos\varphi - \varphi\sin\varphi) \dif \varphi, \quad \dif y = (\sin\varphi + \varphi\cos\varphi) \dif \varphi,$$所以
+          $$
+              \frac{\dif y}{\dif x} = \flatfrac{\dfrac{\dif y}{\dif \varphi}}{\dfrac{\dif x}{\dif \varphi}} = \frac{\sin\varphi + \varphi\cos\varphi}{\cos\varphi - \varphi\sin\varphi}.
+          $$
+              \begin{align*}
+                \frac{\dif\,\!^2 y}{\dif x^2} &=\frac{\dif}{\dif x} \left( \frac{\dif y}{\dif x} \right)=\flatfrac{\frac{\dif}{\dif \varphi} \left( \frac{\dif y}{\dif x} \right)}{\frac{\dif x}{\dif \varphi} }\\
+                &=\dfrac{\dfrac{(\cos\varphi + \cos\varphi - \varphi\sin\varphi)(\cos\varphi - \varphi\sin\varphi) - (\sin\varphi + \varphi\cos\varphi)(-\sin\varphi - \sin\varphi - \varphi\cos\varphi)}{(\cos\varphi - \varphi\sin\varphi)^2}}{\cos\varphi - \varphi\sin\varphi}\\
+                &=\frac{\varphi}{(\cos\varphi - \varphi\sin\varphi)^3}
+              \end{align*}
+        \item 对$x = \cos^3\varphi,y = \sin^3\varphi$两边求微分,得
+        $$\dif x = -3 \cos^2 \varphi \sin \varphi \dif \varphi, \quad \dif y = 3 \sin^2 \varphi \cos \varphi \dif \varphi,$$所以
+          $$
+              \frac{\dif y}{\dif x} = \flatfrac{\dfrac{\dif y}{\dif \varphi}}{\dfrac{\dif x}{\dif \varphi}} = \frac{3 \sin^2 \varphi \cos \varphi}{-3 \cos^2 \varphi \sin \varphi} = -\tan\varphi.
+          $$
+          $$\frac{\dif\,\!^2 y}{\dif x^2} = \frac{\dif}{\dif x} \left( \frac{\dif y}{\dif x} \right) =
+              \flatfrac{\frac{\dif}{\dif \varphi} \left( \frac{\dif y}{\dif x} \right)}{\frac{\dif x}{\dif \varphi} }= \frac{-\sec^2 \varphi}{-3 \cos^2 \varphi \sin \varphi} = \frac{1}{3 \cos^4 \varphi \sin \varphi}.$$
+    \end{enumerate}
+\end{solution}
+
+
 \begin{exercise}[3.2.4]
     求下列曲线在已知点处的切线方程.
     \begin{tasks}[label=(\arabic*)](2)
@@ -35,5 +97,18 @@
         \task $\begin{cases} x=\frac{3t}{1+t^2}, \\ y=\frac{3t^2}{1+t^2} \end{cases}$ 在 $t=2$ 处.
     \end{tasks}
 \end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 在 $t=\frac{\pi}{4}$ 处, $$x=\cos\frac{\pi}{4}=\frac{\sqrt{2}}{2}, \quad y=\sin\frac{\pi}{4}=\frac{\sqrt{2}}{2}.$$
+          $$\frac{\dif y}{\dif x} = \flatfrac{\dfrac{\dif y}{\dif t}}{\dfrac{\dif x}{\dif t}} = \frac{\cos t}{-\sin t} = -\cot t,$$所以
+          $$\left. \frac{\dif y}{\dif x} \right|_{t=\frac{\pi}{4}} = -1.$$
+          切线方程为 $$y - \frac{\sqrt{2}}{2} = -1 \left( x - \frac{\sqrt{2}}{2} \right),$$即$$x + y - \sqrt{2} = 0.$$
+        \item 在 $t=2$ 处, $$x=\frac{3 \times 2}{1+2^2} = \frac{6}{5}, \quad y=\frac{3 \times 2^2}{1+2^2} = \frac{12}{5}.$$
+          $$\frac{\dif y}{\dif x} = \flatfrac{\dfrac{\dif y}{\dif t}}{\dfrac{\dif x}{\dif t}} = \frac{\frac{6t}{(1+t^2)^2}}{\frac{3(1-t^2)}{(1+t^2)^2}} = \frac{2t}{1-t^2},$$所以
+          $$\left. \frac{\dif y}{\dif x} \right|_{t=2} = -\frac{4}{3}.$$
+          切线方程为 $$y - \frac{12}{5} = -\frac{4}{3} \left( x - \frac{6}{5} \right),$$即$$4x + 3y - 12 = 0.$$
+    \end{enumerate}
+\end{solution}
 
 \newpage

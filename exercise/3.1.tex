@@ -14,6 +14,24 @@
     \end{tasks}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item $$ f_+'(0) = \lim_{h \to 0^+} \frac{|\sin h| - |\sin 0|}{h} = \lim_{h \to 0^+} \frac{\sin h}{h} = 1, $$
+              $$ f_-'(0) = \lim_{h \to 0^-} \frac{|\sin h| - |\sin 0|}{h} = \lim_{h \to 0^-} \frac{-\sin h}{h} = -1. $$
+              $f_+'(0) \ne f_-'(0)$, 故 $f(x)$ 在 $x=0$ 处不可导.
+        \item $$ f_+'(0) = \lim_{h \to 0^+} \frac{f(h)-f(0)}{h} = \lim_{h \to 0^+} \frac{(h+1)-1}{h} = 1, $$
+              $$ f_-'(0) = \lim_{h \to 0^-} \frac{f(h)-f(0)}{h} = \lim_{h \to 0^-} \frac{1-1}{h} = 0. $$
+              $f_+'(0) \ne f_-'(0)$, 故 $f(x)$ 在 $x=0$ 处不可导.
+        \item $$ f'(0) = \lim_{h \to 0} \frac{f(h)-f(0)}{h} = \lim_{h \to 0} \frac{h^2\sin\frac{1}{h}-0}{h} = \lim_{h \to 0} h\sin\frac{1}{h} = 0. $$
+              故 $f(x)$ 在 $x=0$ 处可导, 且 $f'(0)=0$.
+        \item $$ \lim_{x\to 0^-} f(x) = 1 \neq f(0),$$因此$f(x)$在$x=0$处不可导.
+        \item $$ f_+'(0) = \lim_{h \to 0^+} \frac{f(h)-f(0)}{h} = \lim_{h \to 0^+} \frac{h\mathrm{e}^h - 0}{h} = \lim_{h \to 0^+} \mathrm{e}^h = 1, $$
+              $$ f_-'(0) = \lim_{h \to 0^-} \frac{f(h)-f(0)}{h} = \lim_{h \to 0^-} \frac{-h\mathrm{e}^h - 0}{h} = \lim_{h \to 0^-} -\mathrm{e}^h = -1. $$
+              $f_+'(0) \ne f_-'(0)$, 故 $f(x)$ 在 $x=0$ 处不可导.
+        \item $$ f'(0) = \lim_{h \to 0}\frac{|h^3| - 0}{h} = \lim_{h \to 0} |h|h = 0,$$故$f(x)$在$x=0$处可导.
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.1.2]
     求 $a,b$ 的值, 使下列函数处处可导:
     \begin{tasks}[label=(\arabic*)](2)
@@ -22,18 +40,63 @@
     \end{tasks}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item $f(x)$在$(-\infty,1)$和$(1,+\infty)$上可导, 故只需讨论$x=1$处的可导性.
+
+              由连续性得:
+              $$  f(1) = \lim_{x \to 1^+} f(x) \Rightarrow 1 = a+b. $$
+              由可导性得:
+              $$ f_-'(1) = f_+'(1) \Rightarrow 2 = a. $$
+              解得$a=2,b=-1$.
+        \item $f(x)$在$(-\infty,0)$和$(0,+\infty)$上可导, 故只需讨论$x=0$处的可导性.
+
+              由连续性得:
+              $$ f(0) = \lim_{x \to 0^-} f(x) \Rightarrow b = 0. $$
+              由可导性得:
+              $$ f_-'(0) = f_+'(0) \Rightarrow 1 = a. $$
+              解得$a=1,b=0$.
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.1.3]
     设函数 $g(x)$ 在 $x=a$ 处连续, 记 $f(x) = (x-a)g(x)$. 证明 $f'(a)=g(a)$.
 \end{exercise}
+
+\begin{solution}
+    $$f'(a) = \lim_{h \to 0} \frac{f(a+h)-f(a)}{h} = \lim_{h \to 0} \frac{(a+h-a)g(a+h)-0}{h} = \lim_{h \to 0} g(a+h) = g(a).$$
+\end{solution}
 
 \begin{exercise}[3.1.4]
     若函数 $f(x)$ 在 $x_0$ 处可导, 证明
     $$ \lim_{h \to 0} \frac{f(x_0+\alpha h) - f(x_0-\beta h)}{h} = (\alpha+\beta)f'(x_0) \quad (\alpha, \beta \text{为常数}). $$
 \end{exercise}
 
+\begin{solution}
+    \begin{align*}
+          & \lim_{h \to 0} \frac{f(x_0+\alpha h) - f(x_0-\beta h)}{h}                                                                                  \\
+        = & \lim_{h \to 0} \left[ \frac{f(x_0+\alpha h) - f(x_0)}{h} + \frac{f(x_0) - f(x_0-\beta h)}{h} \right]                                       \\
+        = & \lim_{h \to 0} \left[ \alpha \cdot \frac{f(x_0+\alpha h) - f(x_0)}{\alpha h} + \beta \cdot \frac{f(x_0) - f(x_0-\beta h)}{\beta h} \right] \\
+        = & \alpha f'(x_0) + \beta f'(x_0) = (\alpha+\beta)f'(x_0).
+    \end{align*}
+\end{solution}
+
 \begin{exercise}[3.1.5]
     设函数 $f(x)$ 在 $x=a$ 处可导, 且 $f(a) \ne 0$, 证明函数 $|f(x)|$ 在 $x=a$ 也可导. 若 $f(a)=0$, 结论是否仍成立?
 \end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item $f(a) \neq 0$时,不妨设$f(a) > 0$,则$\exists \delta > 0$,当$|x-a| < \delta$时,$f(x) > 0$,因此
+              $$|f(x)| = f(x),$$
+              因此$|f(x)|$在$x=a$处可导,且$|f|'(a) = f'(a)$.
+
+              \begin{remark}
+                  具体而言,可以说$f(x)$在$x=a$处可导,可得$\lim_{h \to 0} \frac{f(a+h)-f(a)}{h}$存在,故$$\lim_{\substack{h \to 0\\h|< \delta}} \frac{|f(a+h)|-|f(a)|}{h} = \lim_{\substack{h \to 0\\h|< \delta}} \frac{f(a+h)-f(a)}{h}$$存在.
+              \end{remark}
+        \item 不成立,如$f(x) = x$在$x=0$处可导,但是$|x|$在$x=0$处不可导.
+    \end{enumerate}
+\end{solution}
 
 \begin{exercise}[3.1.6]
     求下列函数的导数.
@@ -48,6 +111,58 @@
         \task $y = x^3 \cdot \tan x \cdot \ln x$.
     \end{tasks}
 \end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \begin{align*}
+                  y' & = \frac{x' (3x^2+5x-2) - x (3x^2+5x-2)'}{(3x^2+5x-2)^2}                     \\
+                     & =\frac{(3x^2+5x-2)-(6x^2+5x)}{(3x^2+5x-2)^2}=- \frac{3x^2+2}{(3x^2+5x-2)^2}
+              \end{align*}
+        \item \begin{align*}
+                  y' & = \left(\frac{\sin^2 x}{\cos x} + \frac{\cos x}{\sin x} \right)'                                                \\
+                     & =\frac{(2\sin x \cos x)\cos x - \sin^2 x (-\sin x)}{\cos^2 x} + \frac{-\sin x \sin x - \cos x \cos x}{\sin^2 x} \\
+                     & =\frac{\sin x(1+\cos^2)}{\cos^2 x}- \frac{1}{\sin^2 x}
+              \end{align*}
+        \item \begin{align*}
+                  y' & = (x^2)' \log_3 x + x^2 (\log_3 x)'         \\
+                     & = 2x \log_3 x + x^2 \cdot \frac{1}{x \ln 3} \\
+                     & = 2x \log_3 x + \frac{x}{\ln 3}
+              \end{align*}
+        \item \begin{align*}
+                  y' & = \frac{(x)' (1-\cos x) - x (1-\cos x)'}{(1-\cos x)^2} \\
+                     & = \frac{1 \cdot (1-\cos x) - x (\sin x)}{(1-\cos x)^2} \\
+                     & = \frac{1-\cos x - x \sin x}{(1-\cos x)^2}
+              \end{align*}
+        \item \begin{align*}
+                  y' & = \frac{(1+\ln x)'(x^2+1) - (1+\ln x)(x^2+1)'}{(x^2+1)^2} \\
+                     & = \frac{\frac{1}{x}(x^2+1) - (1+\ln x)(2x)}{(x^2+1)^2}    \\
+                     & = \frac{x+\frac{1}{x} - 2x - 2x \ln x}{(x^2+1)^2}         \\
+                     & = \frac{1-x^2-2x^2\ln x}{x(x^2+1)^2}
+              \end{align*}
+        \item \begin{align*}
+                  y' & = \frac{[(1+x^2)\ln x]'(\sin x + \cos x) - (1+x^2)\ln x (\sin x + \cos x)'}{(\sin x + \cos x)^2}                  \\
+                     & = \frac{[(1+x^2)'\ln x + (1+x^2)(\ln x)'](\sin x + \cos x) - (1+x^2)\ln x (\cos x - \sin x)}{(\sin x + \cos x)^2} \\
+                     & = \frac{[2x \ln x + (1+x^2)\frac{1}{x}](\sin x + \cos x) - (1+x^2)\ln x (\cos x - \sin x)}{(\sin x + \cos x)^2}   \\
+                     & = \frac{(2x \ln x + x + \frac{1}{x})(\sin x + \cos x) - (1+x^2)\ln x (\cos x - \sin x)}{(\sin x + \cos x)^2}
+              \end{align*}
+              \begin{align*}
+                  y' = \frac{1+x^2}{x(\sin x + \cos x)} - \frac{(1-x^2)\ln x (\cos x - \sin x)}{(\sin x + \cos x)^2} + \frac{2x \ln x}{\sin x + \cos x}
+              \end{align*}
+        \item \begin{align*}
+                  y' & = (-3x^6)' + (x^5)' - (3x^4)' + (4x^3)' - (x^2)' + (3x)' - (1)' \\
+                     & = -18x^5 + 5x^4 - 12x^3 + 12x^2 - 2x + 3
+              \end{align*}
+              \begin{align*}
+                  y' & = 2x (3x-1)(1-x^3) + (x^2+1)3(1-x^3) + (x^2+1)(3x-1)(-3x^2)
+              \end{align*}
+        \item \begin{align*}
+                  y' & = (x^3)' (\tan x \cdot \ln x) + x^3 (\tan x)' \ln x + x^3 \tan x (\ln x)'                  \\
+                     & = (3x^2) (\tan x \ln x) + (x^3) (\sec^2 x) (\ln x) + (x^3 \tan x) \left(\frac{1}{x}\right) \\
+                     & = 3x^2 \tan x \ln x + x^3 \sec^2 x \ln x + x^2 \tan x                                      \\
+                     & =x^2(3\tan x \ln x+ x \sec^2 x \ln x + \tan x)
+              \end{align*}
+    \end{enumerate}
+\end{solution}
 
 \begin{exercise}[3.1.7]
     求下列函数的导数:
@@ -67,19 +182,86 @@
         \task $y = x^{x^x}+x^{x}+x^{2^x}$;
         \task $y = (\ln x)^x$;
         \task $y = (\tan x)^{\cot x}$;
-        \task $y = 10^x, \quad (\sin x)^{\cos x}$;
+        \task $y = 10^x \cdot (\sin x)^{\cos x}$;
         \task $y = \frac{(x+5)^2(x-4)^{1/3}}{(x+2)^3(x+4)^{1/2}}$;
         \task $y = \frac{1-\sqrt{x}}{1+\sqrt{x}}\sqrt{\frac{1+x}{1+x^2}}$.
     \end{tasks}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item $$y'=\sqrt{1-x^2}-\frac{x^2}{\sqrt{1-x^2}} = \frac{1-2x^2}{\sqrt{1-x^2}},$$
+        \item $$y' = \frac{1}{\sqrt{1+ \ln^2 x}} \left( \ln^2 x\right)' = \frac{1}{\sqrt{1+ \ln^2 x}}2 \ln x \left( \ln x\right)' = \frac{2 \ln x}{x\sqrt{1+ \ln^2 x}}.$$
+        \item $$y' = \frac{1}{\sqrt{1-\left(\frac{2x-1}{\sqrt{3}}\right)^2}} \left( \frac{2x-1}{\sqrt{3}}\right)'=\frac{2}{\sqrt{-4x^2+4x+2}} = \sqrt{\frac{1}{-2x^2+2x+1}}.$$
+        \item $$y' = 3(\sin x + \cos x)^2 (\cos x - \sin x) = 3(1+ \cos 2x)( \cos x - \sin x).$$
+        \item $$y' = 3 \left( \sin x^3 \right)^2 \left( \sin x^3 \right)' = 3 \left( \sin x^3 \right)^2 \left( \cos x^3 \right) 3x^2.$$
+        \item $
+              $
+              \begin{align*}
+                  y' & = \frac{1}{2  \sqrt{x+\sqrt{x+\sqrt{x}}}} \left(  x+\sqrt{x+\sqrt{x}}\right)'                                                \\
+                     & = \frac{1}{2  \sqrt{x+\sqrt{x+\sqrt{x}}}} \left(1 + \frac{1}{2\sqrt{x+ \sqrt x}} \left( x + \sqrt{x} \right)' \right)        \\
+                     & =  \frac{1}{2  \sqrt{x+\sqrt{x+\sqrt{x}}}} \left(1 + \frac{1}{2\sqrt{x+ \sqrt x}} \left(1+ \frac{1}{2\sqrt x}\right) \right)
+              \end{align*}
+        \item \begin{align*}
+                  y' & = \cos [\sin(\sin x)] \left( \sin(\sin x) \right)'         \\
+                     & = \cos [\sin(\sin x)] \cos (\sin x) \left( \sin x \right)' \\
+                     & = \cos [\sin(\sin x)] \cos (\sin x) \cos x
+              \end{align*}
+        \item 令$u = \arctan x^3$,则$v = \cos^5 u$,则$y = \sin v$,则
+              \begin{align*}
+                  y' & = \cos v \cdot v' = \cos v \cdot (-5 \sin^4 u \cdot \cos u) u'                                          \\
+                     & = -5 \cos \cos^5 (\arctan x^3) \sin^4 (\arctan x^3) \cdot \cos (\arctan x^3) \cdot \dfrac{3x^2}{1+x^6}.
+              \end{align*}
+        \item $$y' = \frac{12x^5 - 24 x^3 +12x}{(x^2+1)^3}.$$
+        \item $$y' = \frac{x \sin x + \cos x (x^2+1)}{\sqrt{x^2+1}}.$$
+        \item $$y' = \e^{\sqrt{x^2+1}} \frac{x}{\sqrt{x^2+1}}.$$
+        \item 令$u = \ln^3 x$,则$v = \ln^2 u$,则$y = \ln v$,则
+              \begin{align*}
+                  y' & = \dfrac{1}{v} \cdot v' = \dfrac{1}{v} \cdot 2 \ln u \cdot \dfrac{1}{u} u'                                                       \\
+                     & = \dfrac{2 \ln (\ln^3 x)}{\ln^2 (\ln^3 x)} \cdot \dfrac{1}{\ln^3 x} \cdot \dfrac{3 \ln^2 x}{x} = \frac{6}{x \ln x \ln(\ln^3 x)}.
+              \end{align*}
+        \item \begin{align*}
+                  y' & =\left( \e^{x^x \ln x} + \e^{x \ln x} + \e^{2^x \ln x} \right)'                                                                                                \\
+                     & = (\e^{x \ln x} \ln x)' \e^{x^x \ln x} + (x \ln x)' \e^{x \ln x} + (2^x \ln x)' \e^{2^x \ln x}                                                                 \\
+                     & = \left((1 + \ln x)\e^{x \ln x} + \frac{1}{x}x^x \right) \e^{x^x \ln x} + (1+\ln x)\e^{x \ln x} + \left(2^x \frac{1}{x} + 2^x \ln 2 \ln x\right)\e^{2^x \ln x} \\
+                     & =  x^{x^x} \left( x^{x-1} + \ln x (\ln x +1) x^x \right) + x^x \left( \ln x + 1 \right) + x^{2^x} \left( 2^x \dfrac{1}{x} + \ln x \cdot 2^x \ln 2 \right)
+              \end{align*}
+        \item $$y' = \frac{(\ln x)^{x+1} \ln (\ln x) + \ln (\ln x)}{\ln x}.$$
+        \item $$y' = (\tan x)^{\cot x} \csc^2 (1 - \ln (\tan x))$$
+
+        \item 设$y = \e^{2 \ln (x+5) + \frac{1}{3} \ln (x-4) - 5 \ln (x+2) - \frac{1}{2} \ln (x+4)} := \e^u$,则
+              \begin{align*}
+                  y' & = \e^u \cdot u'  = y \cdot u'                                                                                                                                    \\
+                     & = \dfrac{(x+5)^2(x-4)^{1/3}}{(x+2)^5(x+4)^{1/2}} \left( 2 \dfrac{1}{x+5} + \dfrac{1}{3} \dfrac{1}{x-4} - 5 \dfrac{1}{x+2} - \dfrac{1}{2} \dfrac{1}{x+4} \right).
+              \end{align*}
+        \item $$y' =  10^x \ln 10\cdot ( \sin x)^{\cos x} - 10^x \ln(\sin x) (\sin x)^{\cos x+1} + 10^x \cos^2 x (\sin x)^{\cos x - 1}.$$
+        \item 设$y = \e^{\ln (1-\sqrt{x}) - \ln (1+\sqrt{x}) + \frac{1}{2} \ln (1+x) - \frac{1}{2} \ln (1+x^2)} := \e^u$,则
+              \begin{align*}
+                  y' & = \e^u \cdot u' = y \cdot u'                                                                                                                                                                         \\
+                     & = \frac{1-\sqrt{x}}{1+\sqrt{x}} \sqrt{\frac{1+x}{1+x^2}} \left( \frac{-\frac{1}{2\sqrt{x}}}{1-\sqrt{x}} - \frac{\frac{1}{2\sqrt{x}}}{1+\sqrt{x}} + \frac{\frac{1}{2}}{1+x} - \frac{x}{1+x^2} \right) \\
+                     & = \frac{1-\sqrt{x}}{1+\sqrt{x}} \sqrt{\frac{1+x}{1+x^2}} \left( \frac{-\frac{1}{\sqrt x}}{1-x} + \frac{\frac12}{1+x} - \frac{x}{1+x^2} \right)                                                       \\
+                     & = \frac{1-\sqrt{x}}{1+\sqrt{x}} \sqrt{\frac{1+x}{1+x^2}} \left( \frac{1}{\sqrt{x}(x-1)} + \frac{1}{2(1+x)} - \frac{x}{1+x^2} \right)
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.1.8]
     设 $f(x)=x^3$. 求 $f'(x^2)$ 与 $[f(x^2)]'$.
 \end{exercise}
 
+\begin{solution}
+    $$f'(x) = 3x^2 \Rightarrow f'(x^2) = 3 (x^2)^2 = 3x^4,$$
+    $$[f(x^2)]' = [(x^3)^2]' = (x^6)' = 6x^5.$$
+\end{solution}
+
 \begin{exercise}[3.1.9]
     设 $f(x)=\ln(x+\sqrt{1+x^2}), g(x)=\mathrm{e}^{\sqrt{x^2+1}}$. 求 $f'[g(x)], [f(g(x))]'$.
 \end{exercise}
+
+\begin{solution}
+    $$f'(x) = \frac{1}{\sqrt{1+x^2}} \Rightarrow f'[g(x)] = \frac{1}{\sqrt{1+(\mathrm{e}^{\sqrt{x^2+1}})^2}} = \frac{1}{\sqrt{1+\mathrm{e}^{2\sqrt{x^2+1}}}},$$
+    $$[f(g(x))]' = f'(g(x)) \cdot g'(x) = \frac{1}{\sqrt{1+(\mathrm{e}^{\sqrt{x^2+1}})^2}} \cdot \mathrm{e}^{\sqrt{x^2+1}} \cdot \frac{x}{\sqrt{x^2+1}} = \frac{x \mathrm{e}^{\sqrt{x^2+1}}}{\sqrt{(x^2+1)(1+\mathrm{e}^{2\sqrt{x^2+1}})}}.$$
+\end{solution}
 
 \begin{exercise}[3.1.10]
     设 $f(x)$ 处处可导. 求 $\frac{\mathrm{d}y}{\mathrm{d}x}$:
@@ -93,13 +275,83 @@
     \end{tasks}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item 令$u=x^3$,则
+              $$ \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{\mathrm{d}y}{\mathrm{d}u} \frac{\mathrm{d}u}{\mathrm{d}x} = f'(u) \cdot (3x^2) = 3x^2f'(x^3). $$
+
+        \item 令$u=\sin^2 x, v = \cos^2 x$,则$y=f(u)+f(v)$.由链式法则:
+              \begin{align*}
+                  \frac{\mathrm{d}y}{\mathrm{d}x} & = \frac{\mathrm{d}}{\mathrm{d}x}f(u) + \frac{\mathrm{d}}{\mathrm{d}x}f(v)                                                         \\
+                                                  & = \frac{\mathrm{d}f}{\mathrm{d}u}\frac{\mathrm{d}u}{\mathrm{d}x} + \frac{\mathrm{d}f}{\mathrm{d}v}\frac{\mathrm{d}v}{\mathrm{d}x} \\
+                                                  & = f'(u) \cdot (2\sin x \cos x) + f'(v) \cdot (2\cos x (-\sin x))                                                                  \\
+                                                  & = f'(\sin^2 x) \sin(2x) - f'(\cos^2 x) \sin(2x)                                                                                   \\
+                                                  & = [f'(\sin^2 x) - f'(\cos^2 x)] \sin(2x).
+              \end{align*}
+
+        \item 令$u = \e^x+x^{\e}$,则$y=f(u)$.根据链式法则,
+              $$ \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{\mathrm{d}y}{\mathrm{d}u} \frac{\mathrm{d}u}{\mathrm{d}x} = f'(u) \cdot (\e^x + \e x^{\e-1}) = (\e^x + \e x^{\e-1}) f'(\e^x+x^{\e}). $$
+
+        \item 这是一个多次复合的函数.反复应用链式法则:
+              \begin{align*}
+                  \frac{\mathrm{d}y}{\mathrm{d}x} & = \frac{\mathrm{d}}{\mathrm{d}x} \sin[f(\sin f(x))]                                                 \\
+                                                  & = \cos[f(\sin f(x))] \cdot \frac{\mathrm{d}}{\mathrm{d}x} f(\sin f(x))                              \\
+                                                  & = \cos[f(\sin f(x))] \cdot f'(\sin f(x)) \cdot \frac{\mathrm{d}}{\mathrm{d}x} (\sin f(x))           \\
+                                                  & = \cos[f(\sin f(x))] \cdot f'(\sin f(x)) \cdot \cos(f(x)) \cdot \frac{\mathrm{d}}{\mathrm{d}x} f(x) \\
+                                                  & = f'(x) \cos(f(x)) f'(\sin f(x)) \cos[f(\sin f(x))].
+              \end{align*}
+
+        \item 同样,多次应用链式法则:
+              \begin{align*}
+                  \frac{\mathrm{d}y}{\mathrm{d}x} & = \frac{\mathrm{d}}{\mathrm{d}x} f[f(f(x+\cos x))]                                                            \\
+                                                  & = f'[f(f(x+\cos x))] \cdot \frac{\mathrm{d}}{\mathrm{d}x} f(f(x+\cos x))                                      \\
+                                                  & = f'[f(f(x+\cos x))] \cdot f'(f(x+\cos x)) \cdot \frac{\mathrm{d}}{\mathrm{d}x} f(x+\cos x)                   \\
+                                                  & = f'[f(f(x+\cos x))] \cdot f'(f(x+\cos x)) \cdot f'(x+\cos x) \cdot \frac{\mathrm{d}}{\mathrm{d}x} (x+\cos x) \\
+                                                  & = (1-\sin x) f'(x+\cos x) f'(f(x+\cos x)) f'[f(f(x+\cos x))].
+              \end{align*}
+
+        \item 令 $u = f(\e^x)$ 且 $v = \e^{f(x)}$,则$y=uv$.根据乘法法则 $\frac{\mathrm{d}y}{\mathrm{d}x} = \frac{\mathrm{d}u}{\mathrm{d}x}v + u\frac{\mathrm{d}v}{\mathrm{d}x}$.
+              分别计算:
+              $$ \frac{\mathrm{d}u}{\mathrm{d}x} = \frac{\mathrm{d}}{\mathrm{d}x} f(\e^x) = f'(\e^x) \cdot (\e^x)' = \e^x f'(\e^x). $$
+              $$ \frac{\mathrm{d}v}{\mathrm{d}x} = \frac{\mathrm{d}}{\mathrm{d}x} \e^{f(x)} = \e^{f(x)} \cdot f'(x). $$
+              将它们代入乘法法则：
+              \begin{align*}
+                  \frac{\mathrm{d}y}{\mathrm{d}x} & = (\e^x f'(\e^x)) \cdot \e^{f(x)} + f(\e^x) \cdot (\e^{f(x)} f'(x)) \\
+                                                  & = \e^{f(x)} [\e^x f'(\e^x) + f(\e^x) f'(x)].
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.1.11]
     求下列函数的导数:
     \begin{tasks}[label=(\arabic*)](2)
-        \task $y = \begin{cases} x\mathrm{e}^{1/x}, & x \ne 0, \\ 0, & x=0; \end{cases}$
+        \task $y = \begin{cases} \frac{x\mathrm{e}^{1/x} }{1+ \mathrm{e}^{1/x}}, & x \ne 0, \\ 0, & x=0; \end{cases}$
         \task $y = |1-2x|\sin x$.
     \end{tasks}
 \end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 对于$x \neq 0$, $$y' = \dfrac{\e^{1/x} \left(1- 1/x +\e^{1/x} \right)}{\left(1+\e^{1/x}\right)^2 } $$
+              对于$x=0$, $$y_+' = \lim_{h \to 0^+} \frac{\frac{h\mathrm{e}^{1/h} }{1+ \mathrm{e}^{1/h}} - 0}{h} = \lim_{h \to 0^+} \frac{1}{\mathrm{e}^{-1/h}+1} = 1 , \quad
+                  y_-' = \lim_{h \to 0^-} \frac{\frac{h\mathrm{e}^{1/h} }{1+ \mathrm{e}^{1/h}} - 0}{h} = \lim_{h \to 0^-} \frac{\mathrm{e}^{1/h}}{\mathrm{e}^{1/h}+1} = 0$$
+              因此$$y' = \begin{cases}
+                      \dfrac{\e^{1/x} \left(1- 1/x +\e^{1/x} \right)}{\left(1+\e^{1/x}\right)^2 } & x \neq 0 \\
+                      \text{不存在}                                                               & x = 0
+                  \end{cases}$$
+        \item \begin{enumerate}
+                  \item $(1-2x)>0$时,$x<\frac12$, $y'= \left( (1-2x) \sin x\right)' = -2 \sin x +(1-2x) \cos x$.
+                  \item $(1-2x)<0$时,$x>\frac12$, $y'= \left( (2x-1) \sin x\right)' = 2 \sin x +(2x-1) \cos x$.
+                  \item $(1-2x)=0$时,$y_+'= 2 \sin \frac12 \neq y_-' = -2 \sin \frac12$.
+              \end{enumerate}
+              综上所述,$$y' = \begin{cases}
+                      2 \sin x +(2x-1) \cos x  & x > \frac12 \\
+                      -2 \sin x +(1-2x) \cos x & x < \frac12 \\
+                      \text{不存在}            & x = \frac12
+                  \end{cases}$$
+
+    \end{enumerate}
+\end{solution}
 
 \begin{exercise}[3.1.12]
     设 $n$ 为正整数, 考虑函数 $f(x) = \begin{cases} x^n \sin\frac{1}{x}, & x \ne 0, \\ 0, & x=0. \end{cases}$ 证明:
@@ -110,9 +362,33 @@
     \end{enumerate}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item 当 $n=1$ 时, $$f_+'(0) = \lim_{h \to 0^+} \frac{h \sin \frac{1}{h} - 0}{h} = \lim_{h \to 0^+} \sin \frac{1}{h},$$
+              $$f_-'(0) = \lim_{h \to 0^-} \frac{h \sin \frac{1}{h} - 0}{h} = \lim_{h \to 0^-} \sin \frac{1}{h},$$
+              显然, $f_+'(0)$ 与 $f_-'(0)$ 不存在, 因此 $f(x)$ 在点 $x=0$ 处不可导.
+        \item 当 $n=2$ 时, $$f_+'(0) = \lim_{h \to 0^+} \frac{h^2 \sin \frac{1}{h} - 0}{h} = \lim_{h \to 0^+} h \sin \frac{1}{h} = 0,$$
+              $$f_-'(0) = \lim_{h \to 0^-} \frac{h^2 \sin \frac{1}{h} - 0}{h} = \lim_{h \to 0^-} h \sin \frac{1}{h} = 0,$$
+              因此 $f(x)$ 在点 $x=0$ 处可导, 且 $f'(0) = 0$. 对于 $x \ne 0$, $$f'(x) = (x^2 \sin \frac{1}{x})' = 2x \sin \frac{1}{x} + x^2 \left( -\frac{1}{x^2} \cos \frac{1}{x} \right) = 2x \sin \frac{1}{x} - \cos \frac{1}{x}.$$
+              因此, $$\lim_{x \to 0} f'(x) = \lim_{x \to 0} (2x \sin \frac{1}{x} - \cos \frac{1}{x})$$ 不存在, 故 $f'(x)$ 在 $x=0$ 处不连续.
+        \item 当 $n \ges 3$ 时, $$f_+'(0) = \lim_{h \to 0^+} \frac{h^n \sin \frac{1}{h} - 0}{h} = \lim_{h \to 0^+} h^{n-1} \sin \frac{1}{h} = 0,$$
+              $$f_-'(0) = \lim_{h \to 0^-} \frac{h^n \sin \frac{1}{h} - 0}{h} = \lim_{h \to 0^-} h^{n-1} \sin \frac{1}{h} = 0,$$
+              因此 $f(x)$ 在点 $x=0$ 处可导, 且 $f'(0) = 0$. 对于 $x \ne 0$, $$f'(x) = (x^n \sin \frac{1}{x})' = n x^{n-1} \sin \frac{1}{x} + x^n \left( -\frac{1}{x^2} \cos \frac{1}{x} \right) = n x^{n-1} \sin \frac{1}{x} - x^{n-2} \cos \frac{1}{x}.$$
+              因此, $$\lim_{x \to 0} f'(x) = \lim_{x \to 0} (n x^{n-1} \sin \frac{1}{x} - x^{n-2} \cos \frac{1}{x}) = 0,$$ 故 $f'(x)$ 在 $x=0$ 处连续. 
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.1.13]
     证明: 函数 $f(x) = \begin{cases} x^2\sin\frac{1}{x^2}, & x \ne 0, \\ 0, & x=0 \end{cases}$ 在区间 $[-1,1]$ 上处处可导, 但导函数在这个区间上无界.
 \end{exercise}
+
+\begin{solution}
+    对于 $x \ne 0$, $$f'(x) = (x^2 \sin \frac{1}{x^2})' = 2x \sin \frac{1}{x^2} + x^2 \left( -\frac{2}{x^3} \cos \frac{1}{x^2} \right) = 2x \sin \frac{1}{x^2} - \frac{2}{x} \cos \frac{1}{x^2}.$$
+    对于 $x=0$, $$f_+'(0) = \lim_{h \to 0^+} \frac{h^2 \sin \frac{1}{h^2} - 0}{h} = \lim_{h \to 0^+} h \sin \frac{1}{h^2} = 0,$$
+    $$f_-'(0) = \lim_{h \to 0^-} \frac{h^2 \sin \frac{1}{h^2} - 0}{h} = \lim_{h \to 0^-} h \sin \frac{1}{h^2} = 0,$$
+    因此 $f(x)$ 在点 $x=0$ 处可导, 且 $f'(0) = 0$. 综上所述, $f(x)$ 在区间 $[-1,1]$ 上处处可导. 而对于 $x=\frac{1}{\sqrt{n\pi}} (n=1,2,3,\cdots)$, $$f'\left( \frac{1}{\sqrt{n\pi}} \right) = 2\cdot\frac{1}{\sqrt{n\pi}} \sin(n\pi) - 2\sqrt{n\pi} \cos(n\pi) = (-1)^{n+1} 2\sqrt{n\pi},$$
+    显然, 当 $n$ 趋近于无穷大时, $\left|f' \left(\frac{1}{\sqrt{n\pi}} \right)\right|$ 趋近于无穷大, 故导函数在区间 $[-1,1]$ 上无界.
+\end{solution}
 
 \begin{exercise}[3.1.14]
     求下列函数的反函数的微商.
@@ -124,13 +400,51 @@
     \end{tasks}
 \end{exercise}
 
+按照反函数求导定理,我们应该写成这样:
+$$(f^{-1})' (y) \overset{y=x \e^x}{=} \frac{1}{f'(x)}$$
+但是考虑到初学者对反函数求导的理解有点困难,容易把自己绕晕.我们给出几种推荐且合理的过程,这几种过程几乎是等价的:
+
+\begin{solution}
+    \begin{enumerate}
+        \item 将$x$看成$y$的函数并在方程两边对$y$求导
+              $$1 = x'\e^x + x x' \e^x \Rightarrow x' = \frac{\e^{-x}}{1+x}.$$
+              \begin{remark}
+                  对于由方程 $\varphi(x,y) = 0$ 给出的反函数或隐函数, 只要认准了一个变量是另一个变量的函数, 在方程两边直接对自变量求导即可. 有关详细内容将在第二册中介绍.
+              \end{remark}
+        \item $$\dv{y}{x} = \frac{1}{1+ \left(\frac{1}{x}\right)^2} \left( - \frac{1}{x^2} \right) = - \frac{1}{1+x^2} \Rightarrow \dv{x}{y} =
+                  \frac{1}{\dv{y}{x}} = -(1+x^2)$$
+              \begin{remark}
+                  这种写法与反函数求导定理的意义是最贴近的,但是避免了使用重复的符号,因此看起来清晰一点.
+              \end{remark}
+        \item $$\dif y = 2 \diff(x^3) - \diff\left(\e^{-2x} \right) = 6x^2 \dif x + 2\e^{-2x} \dif x \Rightarrow \dv{x}{y} = \frac{1}{6x^2 + 2\e^{-2x}}.$$
+              \begin{remark}
+                  这在利用3.2节中微分的知识:若$y(x)$可微且能表示为$\dif x = A \dif y$,那么$A=x'(y)$.
+              \end{remark}
+        \item \begin{align*}
+                  \dfrac{\dif y}{\dif x} & = \dfrac{1}{\e^x + \sqrt{1+\e^{2x}}} \left( e^x + \dfrac{1}{2} \dfrac{1}{\sqrt{1+\e^{2x}}} \cdot 2\e^{2x} \right)     \\
+                                         & = \dfrac{\e^{2x} + \e^x \sqrt{1+e^{2x}}}{(\e^x + \sqrt{1+\e^{2x}})\sqrt{1+\e^{2x}}} = \dfrac{\e^x}{\sqrt{1+\e^{2x}}}.
+              \end{align*}
+              则$$\dfrac{\dif x}{\dif y} = \dfrac{1}{\frac{\dif y}{\dif x}} = \dfrac{\sqrt{1+\e^{2x}}}{\e^x}.$$
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.1.15]
     证明: 可导的偶函数的导数为奇函数; 而可导的奇函数的导数为偶函数.
 \end{exercise}
 
+\begin{solution}
+    设$f(x)$为偶函数,则$f(-x) = f(x)$,则$$f'(-x) = \lim_{h \to 0} \dfrac{f(-x+h) - f(-x)}{h} = \lim_{h \to 0} \dfrac{f(x-h) - f(x)}{h} = f'(x),$$则$f'(x)$为奇函数.
+
+    设$f(x)$为奇函数,则$f(-x) = -f(x)$,则$$f'(-x) = \lim_{h \to 0} \dfrac{f(-x+h) - f(-x)}{h} = \lim_{h \to 0} \dfrac{f(x-h) + f(x)}{h} = f'(x),$$则$f'(x)$为偶函数.
+\end{solution}
+
 \begin{exercise}[3.1.16]
     证明: 可导的周期函数的导数仍是周期函数.
 \end{exercise}
+
+\begin{solution}
+    设$f(x)$为周期为$T$的函数,则$f(x+T) = f(x)$,则$f'(x+T) = \lim_{h \to 0} \dfrac{f(x+T+h) - f(x+T)}{h} = \lim_{h \to 0} \dfrac{f(x+h) - f(x)}{h} = f'(x)$,则$f'(x)$为周期为$T$的函数.
+\end{solution}
 
 \begin{exercise}[3.1.17]
     求下列各式之和:
@@ -140,6 +454,18 @@
         \item $R_n = \cos x + 2\cos 2x + \dots + n\cos nx$.
     \end{enumerate}
 \end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 令$A(x) = x + x^2 + \cdots + x^n = \dfrac{x(1-x^n)}{1-x}$,则$P_n = A'(x) = \dfrac{1 + nx^{n+1} -(n+1) x^n}{(1-x)^2}$.
+        \item $Q_n = \left( x A'(x) \right)' = \dfrac{1 + x - (n+1)^2 x^n +(2n^2 +2n -1) x^{n+1} - n^2 x^{n+2}}{(1-x)^3}$.
+        \item 令$B(x) = \sin x + \sin 2x + \cdots + \sin nx = \dfrac{\cos \frac{x}{2} - \cos \left( n + \frac{1}{2} \right) x}{2 \sin \frac{x}{2}}$,
+
+              则$B'(x) = \dfrac{\left( -\frac12 \sin \frac{x}2 + \left( n + \frac12 \right) \sin \left( n + \frac12 \right) x \right) 2 \sin \frac{x}{2} - \cos \frac{x}{2} \left( \cos \frac{x}{2} - \cos \left( n + \frac12 \right) x \right)}{\left(2 \sin \frac{x}{2} \right)^2}$.
+
+              则$R_n = B'(1) = \dfrac{\left( -\frac12 \sin \frac{1}2 + \left( n + \frac12 \right) \sin \left( n + \frac12 \right) \right) 2 \sin \frac{1}{2} - \cos \frac{1}{2} \left( \cos \frac{1}{2} - \cos \left( n + \frac12 \right) \right)}{\left(2 \sin \frac{1}{2} \right)^2}$.
+    \end{enumerate}
+\end{solution}
 
 \begin{exercise}[3.1.18]
     求下列函数的二阶导数:
@@ -151,6 +477,19 @@
     \end{tasks}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item $$y' = -2x \e^{-x^2}, \quad y'' = (4x^2 - 2) \e^{-x^2}.$$
+        \item $$y' = 2x 2^{2x} (1 + 2 \ln 2), \quad y'' = 4x 2^{2x} (\ln 2)^2 + 4(1 + \ln 2) 2^{2x}.$$
+        \item $$y' = 1 + 2x \arctan x, \quad y'' = 2 \arctan x + \frac{2x}{1+x^2}.$$
+        \item 当$y > 0$时,$y' = 2x$; 当$y < 0$时,$y' = -2x$;当$y = 0$时,
+              $$y_+' = \lim_{h \to 0^+} \frac{h^2 - 0}{h} = 0 = y_-' = \lim_{h \to 0^-} \frac{-h^2 - 0}{h} = 0 $$故$y'(0)=0$存在.
+
+              当$y > 0$时,$y'' = 2$; 当$y < 0$时,$y'' = -2$;当$y = 0$时,
+              $$y_+'' = \lim_{h \to 0^+} \frac{2h - 0}{h} = 2 \neq y_-'' = \lim_{h \to 0^-} \frac{-2h - 0}{h} = -2 $$故$y''(0)$不存在.
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.1.19]
     设函数 $f(x)$ 处处有三阶导数, 求 $y'', y'''$.
     \begin{tasks}[label=(\arabic*)](2)
@@ -159,9 +498,30 @@
     \end{tasks}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item $$y' = f'(x^2) \cdot 2x, \quad y'' = f''(x^2) \cdot (2x)^2 + f'(x^2) \cdot 2, \quad y''' = f'''(x^2) \cdot (2x)^3 + 3 f''(x^2) \cdot (2x) \cdot 2.$$
+        \item $$y' = f'(\e^x + x) \cdot (\e^x + 1), \quad y'' = f''(\e^x + x) \cdot (\e^x + 1)^2 + f'(\e^x + x) \cdot \e^x,$$
+              $$y''' = f'''(\e^x + x) \cdot (\e^x + 1)^3 + 3 f''(\e^x + x) \cdot (\e^x + 1) \cdot \e^x + f'(\e^x + x) \cdot \e^x.$$
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.1.20]
     设 $f(x)=x^n|x|$ ($n$ 为正整数), 证明 $f^{(n)}(0)$ 存在, 但 $f^{(n+1)}(0)$ 不存在.
 \end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 当$x>0$时,$f(x) = x^{n+1}$,则$f^{(n)}(x) = (n+1)! x$;当$x<0$时,$f(x) = -x^{n+1}$,则$f^{(n)}(x) = (-1) (n+1)! x$;当$x=0$时,
+              $$f_+^{(n)}(0) = \lim_{h \to 0^+} \frac{f^{(n-1)}(h) - f^{(n-1)}(0)}{h} = \lim_{h \to 0^+} \frac{n! h^n - 0}{h} = 0 $$
+              $$f_-^{(n)}(0) = \lim_{h \to 0^-} \frac{f^{(n-1)}(h) - f^{(n-1)}(0)}{h} = \lim_{h \to 0^-} \frac{(-1) n! h^n - 0}{h} = 0 $$
+              $f_+^{(n)}(0) = f_-^{(n)}(0)$,故$f^{(n)}(0) = 0$存在.
+        \item 当$x>0$时,$f^{(n)}(x) = (n+1)! x$,则$f^{(n+1)}(x) = (n+1)!$;当$x<0$时,$f^{(n)}(x) = (-1) (n+1)! x$,则$f^{(n+1)}(x) = (-1) (n+1)!$;当$x=0$时,
+              $$f_+^{(n+1)}(0) = \lim_{h \to 0^+} \frac{f^{(n)}(h) - f^{(n)}(0)}{h} = \lim_{h \to 0^+} \frac{(n+1)! h - 0}{h} = (n+1)! $$
+              $$f_-^{(n+1)}(0) = \lim_{h \to 0^-} \frac{f^{(n)}(h) - f^{(n)}(0)}{h} = \lim_{h \to 0^-} \frac{(-1) (n+1)! h - 0}{h} = (-1) (n+1)! $$
+              $f_+^{(n+1)}(0) \neq f_-^{(n+1)}(0)$,故$f^{(n+1)}(0)$不存在.
+    \end{enumerate}
+\end{solution}
 
 \begin{exercise}[3.1.21]
     证明: 如果 $x_0$ 是多项式 $P_n(x)$ 的 $r$ 重根, 即 $P_n(x)$ 可以分解成
@@ -169,6 +529,16 @@
     其中 $Q_{n-r}(x)$ 是一个 $n-r$ 次多项式, 且 $Q_{n-r}(x_0) \ne 0$. 则 $P_n(x)$ 满足条件
     $$ P_n(x_0)=0, \quad P_n'(x_0)=0, \quad \dots, \quad P_n^{(r-1)}(x_0)=0, \quad P_n^{(r)}(x_0) \ne 0. $$
 \end{exercise}
+
+\begin{solution}
+    由题意,$P_n(x) = (x-x_0)^r Q_{n-r}(x)$,则
+    $$P_n^{(k)}(x) = \sum_{i=0}^k \binom{k}{i} \left[ (x-x_0)^r \right]^{(i)} \cdot Q_{n-r}^{(k-i)}(x).$$
+    \begin{enumerate}[(a)]
+        \item 当$k < r$时,$\left[ (x-x_0)^r \right]^{(i)} = 0$,则$P_n^{(k)}(x_0) = 0$.
+        \item 当$k = r$时,$\left[ (x-x_0)^r \right]^{(r)} = r!$,则$P_n^{(r)}(x_0) = r! Q_{n-r}(x_0) \neq 0$.
+    \end{enumerate}
+
+\end{solution}
 
 \begin{exercise}[3.1.22]
     求下列函数的高阶导数:
@@ -180,20 +550,89 @@
     \end{tasks}
 \end{exercise}
 
+我们将会直接使用如下结论:
+\begin{enumerate}
+    \item $(\sin x)^{(n)} = \sin(x + \dfrac{n\pi}2)$, $(\cos x)^{(n)} = \cos(x + \dfrac{n\pi}2)$;
+    \item $(\e^x)^{(n)} = \e^x$ , $(a^x)^{(n)} = (\ln a)^n a^x$;
+    \item $\left( \dfrac1{x+a}\right)^{(n)} = \dfrac{(-1)^n n!}{(x+a)^{n+1}}$;
+    \item $\left( \ln(x+a)\right)^{(n)} = \dfrac{(-1)^{n-1}(n-1)!}{(x+a)^n}$;
+    \item $(x^m)^{(n)} = \begin{cases}
+                  0                          & n < m; \\
+                  n!                         & n = m; \\
+                  n(n-1)\cdots(n-m+1)x^{n-m} & n > m.
+              \end{cases}$;
+\end{enumerate}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 由莱布尼兹公式,$$(x^2 \e^x)^{(n)} = \sum_{k=0}^n \binom{n}{k} (x^2)^{(k)} (\e^x)^{(n-k)} = \sum_{k=0}^{\min\{2,n\}} \binom{n}{k} (x^2)^{(k)} \e^x.$$
+              \begin{enumerate}
+                  \item 当$n=1$时,$(x^2 \e^x)^{(1)} = (x^2)^{(0)} \e^x + (x^2)^{(1)} \e^x = (x^2 + 2x) \e^x$;
+                  \item 当$n \ges 2$时,$(x^2 \e^x)^{(n)} = (x^2)^{(0)} \e^x + n (x^2)^{(1)} \e^x + \binom{n}{2} (x^2)^{(2)} \e^x = (x^2 + 2nx + n(n-1)) \e^x$.
+              \end{enumerate}
+        \item 由莱布尼兹公式,$$[(x^2+1) \sin x]^{(n)} = \sum_{k=0}^n \binom{n}{k} (x^2+1)^{(k)} (\sin x)^{(n-k)} .$$
+              \begin{enumerate}
+                  \item 当$n=1$时,$[(x^2+1) \sin x]^{(1)} = (x^2+1)^{(0)} \sin(x + \dfrac{\pi}2) + (x^2+1)^{(1)} \sin x = (x^2+1) \cos x + 2x \sin x$;
+                  \item 当$n \ges 2$时,
+                        \begin{align*}
+                            [(x^2+1) \sin x]^{(n)} &= (x^2+1)^{(0)} \sin(x + \dfrac{n\pi}2) + n (x^2+1)^{(1)} \sin(x + \dfrac{(n-1)\pi}2) \\
+                            & \quad + \binom{n}{2} (x^2+1)^{(2)} \sin(x + \dfrac{(n-2)\pi}2) \\
+                                                  & = (x^2+1) \sin(x + \dfrac{n\pi}2) + 2nx \sin(x + \dfrac{(n-1)\pi}2) \\
+                                                  &\quad + n(n-1) \sin(x + \dfrac{(n-2)\pi}2).
+                        \end{align*}
+              \end{enumerate}
+              \item 由莱布尼兹公式,
+              \begin{align*}
+                \left( \frac{1}{x^2 - 3x + 2} \right)^{(n)} &= \left( \frac{1}{(x-1)(x-2)} \right)^{(n)} = \sum_{k=0}^n \binom{n}{k} \left( \frac{1}{x-1} \right)^{(k)} \left( \frac{1}{x-2} \right)^{(n-k)} \\
+                &= \sum_{k=0}^n \binom{n}{k} \frac{(-1)^k k!}{(x-1)^{k+1}} \cdot \frac{(-1)^{n-k} (n-k)!}{(x-2)^{n-k+1}} \\
+                &= \frac{(-1)^n n!}{(x-1)(x-2)} \sum_{k=0}^n \frac{1}{(x-1)^k (x-2)^{n-k}} \\
+              \end{align*}
+              \item $$(\sin x \cdot \cos x)^{(n)} =\left( \frac12 \sin 2x \right)^{(n)} = 2^{n-1} \sin \left( 2x + \dfrac{n\pi}2 \right).$$
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.1.23]
     求曲线 $y=\cos x$ 在 $x=\frac{\pi}{4}$ 处的切线方程.
 \end{exercise}
+
+\begin{solution}
+    $y' = -\sin x$,则$y'(\frac{\pi}{4}) = -\frac{\sqrt{2}}{2}$,且$y(\frac{\pi}{4}) = \frac{\sqrt{2}}{2}$,则切线方程为$$y - \frac{\sqrt{2}}{2} = -\frac{\sqrt{2}}{2} \left( x - \frac{\pi}{4} \right)$$
+    或$$y = -\frac{\sqrt{2}}{2} x + \frac{\sqrt{2}\pi}{8} + \frac{\sqrt{2}}{2}.$$
+\end{solution}
 
 \begin{exercise}[3.1.24]
     证明: 双曲线 $xy=1$ 上任一点处的切线, 与两坐标轴构成的三角形的面积为定值.
 \end{exercise}
 
+\begin{solution}
+    对$xy=1$两侧对$x$求导,$y' = -\frac{y}{x}$,设切点为$(x_0,y_0)$,则切线方程为$$y - y_0 = -\frac{y_0}{x_0} (x - x_0)$$
+    即$$y = -\frac{y_0}{x_0} x + 2y_0.$$
+    切线与$x$轴交点为$(2x_0,0)$,与$y$轴交点为$(0,2y_0)$,则三角形面积为$$S = \frac12 \cdot 2x_0 \cdot 2y_0 = 2x_0 y_0 = 2.$$
+\end{solution}
+
 \begin{exercise}[3.1.25]
     有一底半径为 $r$ cm, 高为 $h$ cm 的正圆锥形容器, 现以 $a \text{ cm}^3/\text{s}$ 的速度自顶部向其内注水, 求水面上升的速度.
 \end{exercise}
 
+\begin{solution}
+    设水面高度为$x$ cm,则水面半径为$\frac{r}{h} x$ cm,则水体积为$$V = \frac13 \pi \left( \frac{r}{h} x \right)^2 x = \frac{\pi r^2}{3h^2} x^3.$$
+    则$$\frac{\mathrm{d}V}{\mathrm{d}t} = \frac{\pi r^2}{h^2} x^2 \frac{\mathrm{d}x}{\mathrm{d}t}.$$
+    由题意,$\frac{\mathrm{d}V}{\mathrm{d}t} = a$,则$$\frac{\mathrm{d}x}{\mathrm{d}t} = \frac{a h^2}{\pi r^2 x^2}.$$
+\end{solution}
+
 \begin{exercise}[3.1.26]
     水自高为 18 cm, 底半径为 6 cm 的圆锥形漏斗流入直径为 10 cm 的圆柱形筒中. 已知水在漏斗中深度为 12 cm 时水平面下降的速率为 1 cm/min. 试求圆柱形筒中水面上升的速度.
 \end{exercise}
+
+\begin{solution}
+    设漏斗中水深为$x$ cm,则漏斗中水体积为$$V_1 = \frac13 \pi \left( \frac{6}{18} x \right)^2 x = \frac{\pi}{27} x^3.$$
+    则$$\frac{\mathrm{d}V_1}{\mathrm{d}t} = \frac{\pi}{9} x^2 \frac{\mathrm{d}x}{\mathrm{d}t}.$$
+    由题意,$\frac{\mathrm{d}x}{\mathrm{d}t} = -1$ cm/min,当$x=12$ cm时,$$\frac{\mathrm{d}V_1}{\mathrm{d}t} = -16\pi \text{ cm}^3/\text{min}.$$
+    设圆柱形筒中水深为$y$ cm,则圆柱形筒中水体积为$$V_2 = \pi 5^2 y = 25 \pi y.$$
+    则$$\frac{\mathrm{d}V_2}{\mathrm{d}t} = 25 \pi \frac{\mathrm{d}y}{\mathrm{d}t}.$$
+    由题意,$-\frac{\mathrm{d}V_1}{\mathrm{d}t} = \frac{\mathrm{d}V_2}{\mathrm{d}t}$,
+    则$$-\left( -16 \pi \right) = 25 \pi \frac{\mathrm{d}y}{\mathrm{d}t},$$
+    即$$\frac{\mathrm{d}y}{\mathrm{d}t} = \frac{16}{25} \text{ cm}/\text{min}.$$
+\end{solution}
 
 \newpage
