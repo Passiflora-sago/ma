@@ -84,8 +84,8 @@
         \item 设$g(x) = \arctan x + \arctan\frac{1-x}{1+x}$,则
               $$
                   g'(x) = \frac{1}{1+x^2} + \frac{1}{1+\left(\frac{1-x}{1+x}\right)^2} \cdot \frac{-2}{(1+x)^2} = 0. \quad (x \ne -1)
-                $$
-                又$g(0) = \frac{\pi}{4},g(-2) = -\frac{3\pi}{4}$,故$g(x) = \begin{cases} \frac{\pi}{4}, & x > -1, \\ -\frac{3\pi}{4}, & x < -1. \end{cases}$
+              $$
+              又$g(0) = \frac{\pi}{4},g(-2) = -\frac{3\pi}{4}$,故$g(x) = \begin{cases} \frac{\pi}{4}, & x > -1, \\ -\frac{3\pi}{4}, & x < -1. \end{cases}$
     \end{enumerate}
 \end{solution}
 
@@ -108,7 +108,7 @@
 
 \begin{solution}
     设$g(x) = f(x) - x$,则$g(0) = f(0) > 0, g(1) = f(1) - 1 < 0$.由介值定理,在$(0,1)$内至少有一点$\xi$,使得$g(\xi) = 0$,即$f(\xi) = \xi$.
-    
+
     反证法证明唯一性:假设在$(0,1)$内有两点$\xi_1,\xi_2$,使得$f(\xi_1) = \xi_1,f(\xi_2) = \xi_2$,则$g(\xi_1) = g(\xi_2) = 0$.由Rolle定理,在$(\xi_1,\xi_2)$内至少有一点$\eta$,使得$g'(\eta) = 0$,即$f'(\eta) - 1 = 0$,与$f'(x) \ne 1$矛盾.因此在$(0,1)$内有且仅有一个$x$,使$f(x) = x$.
 \end{solution}
 
@@ -120,16 +120,16 @@
     对于$x_1,x_2 \in [0,1]$,不妨设$x_1 < x_2$,则由Lagrange中值定理,$\exists \xi_1,\xi_2,\xi_3 \st 0 < \xi_1 < x_1 < \xi_2 < x_2 < \xi_3 < 1$,使得
     $$
         f'(\xi_1) = \frac{f(x_1)-f(0)}{x_1-0}, \quad f'(\xi_2) = \frac{f(x_2)-f(x_1)}{x_2-x_1}, \quad f'(\xi_3) = \frac{f(1)-f(x_2)}{1-x_2}.
-        $$
-        因此$$|f(x_1)-f(0)| = |f'(\xi_1)|x_1 < x_1,$$
-        $$|f(x_2)-f(x_1)| = |f'(\xi_2)|(x_2-x_1) < x_2 - x_1,$$
-        $$|f(1)-f(x_2)| = |f'(\xi_3)|(1-x_2) < 1 - x_2.$$
-        于是\begin{align*}
-            2|f(x_1)-f(x_2)| & = |f(x_2)-f(x_1)| + |f(1)-f(x_2) + f(x_1)-f(0)| \\
-                             & \les |f(x_2)-f(x_1)| + |f(1)-f(x_2)| + |f(x_1)-f(0)| \\
-                                & < (x_2 - x_1) + (1 - x_2) + x_1 = 1.
-        \end{align*}
-        故$|f(x_1)-f(x_2)| < \frac{1}{2}$.
+    $$
+    因此$$|f(x_1)-f(0)| = |f'(\xi_1)|x_1 < x_1,$$
+    $$|f(x_2)-f(x_1)| = |f'(\xi_2)|(x_2-x_1) < x_2 - x_1,$$
+    $$|f(1)-f(x_2)| = |f'(\xi_3)|(1-x_2) < 1 - x_2.$$
+    于是\begin{align*}
+        2|f(x_1)-f(x_2)| & = |f(x_2)-f(x_1)| + |f(1)-f(x_2) + f(x_1)-f(0)|      \\
+                         & \les |f(x_2)-f(x_1)| + |f(1)-f(x_2)| + |f(x_1)-f(0)| \\
+                         & < (x_2 - x_1) + (1 - x_2) + x_1 = 1.
+    \end{align*}
+    故$|f(x_1)-f(x_2)| < \frac{1}{2}$.
 \end{solution}
 
 \begin{exercise}[3.3.8]
@@ -172,15 +172,15 @@
               $$
               又$\lim_{x \to +\infty} f'(x) = 0$,故$\lim_{x \to +\infty} [f(x+1)-f(x)] = 0$.
         \item $\lim_{x \to +\infty} f'(x) = 0 \Rightarrow \forall \ve, \exists X > 0 , \st \forall x > X, |f'(x)| < \ve.$
-                设$x > X$,则由Lagrange中值定理,$\exists \eta \in (X,x)$,使得
+              设$x > X$,则由Lagrange中值定理,$\exists \eta \in (X,x)$,使得
               $$
                   f'(\eta) = \frac{f(x)-f(X)}{x-X} \Rightarrow f(x) = f'(\eta)(x-X) + f(X).
-                $$
-                因此
-                $$
-                    \left|\frac{f(x)}{x}\right| = \left|f'(\eta)\left(1-\frac{X}{x}\right) + \frac{f(X)}{x}\right| \les |f'(\eta)|\left|1-\frac{X}{x}\right| + \left|\frac{f(X)}{x}\right| < \ve + \left| \frac{f(X)}{x}\right|.
-                $$
-                也就是说,当$x > \max\left\{X, \frac{|f(X)|}{\ve}\right\}$时,$\left|\frac{f(x)}{x}\right| < 2\ve$.因此$\lim_{x \to +\infty} \frac{f(x)}{x} = 0$.
+              $$
+              因此
+              $$
+                  \left|\frac{f(x)}{x}\right| = \left|f'(\eta)\left(1-\frac{X}{x}\right) + \frac{f(X)}{x}\right| \les |f'(\eta)|\left|1-\frac{X}{x}\right| + \left|\frac{f(X)}{x}\right| < \ve + \left| \frac{f(X)}{x}\right|.
+              $$
+              也就是说,当$x > \max\left\{X, \frac{|f(X)|}{\ve}\right\}$时,$\left|\frac{f(x)}{x}\right| < 2\ve$.因此$\lim_{x \to +\infty} \frac{f(x)}{x} = 0$.
     \end{enumerate}
 \end{solution}
 
@@ -190,13 +190,13 @@
 
 \begin{solution}
     $f(x)$ 在 $(a, b)$ 内可导, 故在 $(a, b)$ 连续.
-不妨设 $\forall x \in (a, b), f'(x) \les M$, 则
-$$ \forall x \in (a, b), \left|\frac{f(x) - f(a)}{b-a}\right| = |f'(\xi)| \les M \Rightarrow |f(x)| \les |f(a)| + M|b-a| $$
-即$ f(x)$ 在 $(a, b)$ 内有界.
+    不妨设 $\forall x \in (a, b), f'(x) \les M$, 则
+    $$ \forall x \in (a, b), \left|\frac{f(x) - f(a)}{b-a}\right| = |f'(\xi)| \les M \Rightarrow |f(x)| \les |f(a)| + M|b-a| $$
+    即$ f(x)$ 在 $(a, b)$ 内有界.
 
-将 $(a, b)$ 改为无穷区间, 结论不成立. 考虑 $f(x) = x, f'(x) = 1$ 在 $(0, +\infty)$ 上有界, 但 $f(x) = x$ 在 $(0, +\infty)$ 上无界.
+    将 $(a, b)$ 改为无穷区间, 结论不成立. 考虑 $f(x) = x, f'(x) = 1$ 在 $(0, +\infty)$ 上有界, 但 $f(x) = x$ 在 $(0, +\infty)$ 上无界.
 
-逆命题不成立. 考虑 $f(x) = \sqrt{x}, f(x) = \sqrt{x}$ 在 $(0, 1)$ 上有界, 但 $f'(x) = \frac{1}{2\sqrt{x}}$ 在 $(0, 1)$ 上无界.
+    逆命题不成立. 考虑 $f(x) = \sqrt{x}, f(x) = \sqrt{x}$ 在 $(0, 1)$ 上有界, 但 $f'(x) = \frac{1}{2\sqrt{x}}$ 在 $(0, 1)$ 上无界.
 \end{solution}
 
 \begin{exercise}[3.3.12]
@@ -205,8 +205,8 @@ $$ \forall x \in (a, b), \left|\frac{f(x) - f(a)}{b-a}\right| = |f'(\xi)| \les M
 
 \begin{solution}
     $\forall x \ne y, 0 \les \left|\frac{f(x)-f(y)}{x-y}\right| \les M|x-y|$. 令 $y \to x$,
-$$ \lim_{y\to x} 0 = \lim_{y\to x} M|x-y| = 0 \Rightarrow |f'(x)| = \lim_{y\to x} \left|\frac{f(x) - f(y)}{x-y}\right| = 0 \Rightarrow f'(x) = 0. $$
-故 $f(x)$ 恒为常数.
+    $$ \lim_{y\to x} 0 = \lim_{y\to x} M|x-y| = 0 \Rightarrow |f'(x)| = \lim_{y\to x} \left|\frac{f(x) - f(y)}{x-y}\right| = 0 \Rightarrow f'(x) = 0. $$
+    故 $f(x)$ 恒为常数.
 \end{solution}
 
 \begin{exercise}[3.3.13]
@@ -232,8 +232,6 @@ $$ \lim_{y\to x} 0 = \lim_{y\to x} M|x-y| = 0 \Rightarrow |f'(x)| = \lim_{y\to x
 \end{solution}
 
 但是若$f_+'(x_0)=l$已知,不一定有$\lim_{x \to x_0^+} f'(x) = l$.考虑$f(x) = \begin{cases} x^2\sin\frac{1}{x}, & x \ne 0, \\ 0, & x = 0. \end{cases}$.$f_+'(0) = 0$,但$\lim_{x \to 0^+} f'(x) = \lim_{x \to 0^+} 2x\sin\frac{1}{x} - \cos\frac{1}{x}$不存在.
-
-
 
 \begin{exercise}[3.3.14]
     应用上一题的结论证明:
@@ -262,13 +260,43 @@ $$ \lim_{y\to x} 0 = \lim_{y\to x} M|x-y| = 0 \Rightarrow |f'(x)| = \lim_{y\to x
     设 $f(x)$ 在一个区间 $I$ 上连续, 且(至多)除了有限个点外, $f(x)$ 在 $I$ 内部的导数为正(负), 则 $f(x)$ 在 $I$ 上严格单调递增(减). (注意, 在例外的点处, $f(x)$ 可能不可导.)
 \end{exercise}
 
-\begin{exercise}[3.3.17]
+\begin{solution}
+    设$x_1,x_2 \in I$,不妨设$x_1 < x_2$.若$f(x)$在$(x_1,x_2)$内处处可导,则由Lagrange中值定理,$\exists \xi \in (x_1,x_2)$,使得
+    $$
+        f'(\xi) = \frac{f(x_2)-f(x_1)}{x_2-x_1}.
+    $$
+    又$f'(\xi) > 0 (f'(\xi) < 0)$,故$f(x_2) > f(x_1) (f(x_2) < f(x_1))$.
+
+    若$f(x)$在$(x_1,x_2)$内有有限个点不可导,设这些点为$y_1,y_2,\cdots,y_n$,则将$(x_1,x_2)$分成$n+1$个子区间$(x_1,y_1),(y_1,y_2),\cdots,(y_n,x_2)$,在每个子区间内$f(x)$处处可导,由上面的结论可知,在每个子区间内$f(x)$严格单调递增(递减).因此$f(x)$在$(x_1,x_2)$内严格单调递增(递减).综上所述,$f(x)$在$I$上严格单调递增(递减).
+\end{solution}
+
+\begin{exercise}[3.3.17]\label{ex:3.3.17}
     设函数 $f(x)$ 和 $g(x)$ 均在区间 $I$ 上连续, 且(至多)除了有限个点外, $f(x)$ 和 $g(x)$ 在 $I$ 内部满足 $f'(x) > g'(x)$; 设存在 $a \in I$, 使得 $f(a)=g(a)$ ($a$ 不是区间端点), 则当 $x \in I$ 且 $x>a$ 时, 有 $f(x)>g(x)$; 当 $x \in I$ 且 $x<a$ 时, 有 $f(x)<g(x)$.
 \end{exercise}
+
+\begin{solution}
+    记$h(x) = f(x) - g(x)$,则$h(x)$在$I$上连续,且(至多)除了有限个点外,$h(x)$在$I$内部满足$h'(x) = f'(x) - g'(x) > 0$.又$h(a) = f(a) - g(a) = 0$.由上一题的结论可知,当$x \in I$且$x > a$时,$h(x) > 0 \Rightarrow f(x) > g(x)$;当$x \in I$且$x < a$时,$h(x) < 0 \Rightarrow f(x) < g(x)$.
+\end{solution}
 
 \begin{exercise}[3.3.18]
     若 $f(x)$ 在 $[0, +\infty)$ 可导, $f(0)=0$, $f'(x)$ 严格递增, 证明 $\frac{f(x)}{x}$ 在 $(0, +\infty)$ 严格递增.
 \end{exercise}
+
+\begin{solution}
+    设$x_1,x_2 \in (0,+\infty)$,不妨设$x_1 < x_2$,则由Lagrange中值定理,$\exists \xi \in (x_1,x_2)$,使得
+    $$
+        f'(\xi) = \frac{f(x_2)-f(x_1)}{x_2 - x_1}.
+    $$
+    又由Lagrange中值定理,$\exists \eta \in (0,x_1)$,使得
+    $$
+        f'(\eta) = \frac{f(x_1)-f(0)}{x_1 - 0} = \frac{f(x_1)}{x_1}.
+    $$
+    因为$f'(x)$严格递增,故$f'(\xi) > f'(\eta)$,即
+    $$
+        \frac{f(x_2)-f(x_1)}{x_2 - x_1} > \frac{f(x_1)}{x_1} \Rightarrow \frac{f(x_2)}{x_2} > \frac{f(x_1)}{x_1}.
+    $$
+    因此$\frac{f(x)}{x}$在$(0,+\infty)$严格递增.
+\end{solution}
 
 \begin{exercise}[3.3.19]
     设 $x_0$ 是函数 $f(x)$ 的一个可疑极值点, 且 $f(x)$ 在 $x_0$ 处二阶可微, $f''(x_0) \ne 0$. 证明: 若 $f''(x_0)<0$, 则 $x_0$ 是 $f(x)$ 的一个极大值点; 若 $f''(x_0)>0$, 则 $x_0$ 是 $f(x)$ 的一个极小值点. (提示: 现在必有 $f'(x_0)=0$.)
@@ -276,9 +304,28 @@ $$ \lim_{y\to x} 0 = \lim_{y\to x} M|x-y| = 0 \Rightarrow |f'(x)| = \lim_{y\to x
     举例说明: 若 $f''(x_0)=0$, 则 $x_0$ 可以是 $f(x)$ 的极大值点或极小值点, 也可以不是极值点.
 \end{exercise}
 
+\begin{solution}
+    若$f''(x_0) < 0$,则存在$\delta > 0$,使得$\forall x \in (x_0 - \delta, x_0 + \delta), f''(x) < 0$.由Lagrange中值定理,$\exists \xi_1 \in (x, x_0), \xi_2 \in (x_0, x)$,使得
+    $$
+        f'(\xi_1) = \frac{f(x_0)-f(x)}{x_0 - x}, \quad f'(\xi_2) = \frac{f(x)-f(x_0)}{x - x_0}.
+    $$
+    又$f''(x) < 0$,故$f'(\xi_1) > f'(x_0) = 0 > f'(\xi_2)$,由\hyperref[ex:3.3.17]{习题3.3.17} 可知,即当$x \in (x_0 - \delta, x_0)$时,$f(x) < f(x_0)$;当$x \in (x_0, x_0 + \delta)$时,$f(x) < f(x_0)$.因此$x_0$是$f(x)$的一个极小值点.
+    即当$x \in (x_0 - \delta, x_0)$时,$f(x) < f(x_0)$;当$x \in (x_0, x_0 + \delta)$时,$f(x) < f(x_0)$.因此$x_0$是$f(x)$的一个极大值点.
+
+    例:设$f(x) = x^4$,则$f''(0) = 0$,但$x = 0$是$f(x)$的一个极小值点.设$g(x) = -x^4$,则$g''(0) = 0$,但$x = 0$是$g(x)$的一个极大值点.设$h(x) = x^3$,则$h''(0) = 0$,但$x = 0$不是$h(x)$的极值点.
+\end{solution}
+
 \begin{exercise}[3.3.20]
     设 $f(x)$ 在 $[0,1]$ 上有二阶导数, 且 $f(0)=f'(0), f(1)=f'(1)$. 求证: 存在 $\xi \in (0,1)$, 满足 $f(\xi)=f''(\xi)$.
 \end{exercise}
+
+\begin{solution}
+    设$g(x) = \e^x \left( f(x) - f'(x) \right)$,则
+    $$
+        g'(x) = \e^x (f(x) - f'(x)) + \e^x (f'(x) - f''(x)) = \e^x (f(x) - f''(x)).
+    $$
+    又$g(0) = \e^0 (f(0) - f'(0)) = 0, g(1) = \e^1 (f(1) - f'(1)) = 0$.由Rolle定理,在$(0,1)$内至少有一点$\xi$,使得$g'(\xi) = 0$,即$f(\xi) = f''(\xi)$.
+\end{solution}
 
 \begin{exercise}[3.3.21]
     求下列函数的单调区间与极值.
@@ -291,6 +338,43 @@ $$ \lim_{y\to x} 0 = \lim_{y\to x} M|x-y| = 0 \Rightarrow |f'(x)| = \lim_{y\to x
         \task $y = \arctan x - \frac{1}{2}\ln(1+x^2)$.
     \end{tasks}
 \end{exercise}
+
+\begin{solution}
+    高中的时候大家就已经很熟悉怎么用导数来求函数的单调区间与极值了,这里仅给出答案.
+    \begin{enumerate}
+        \item $$y' = 6x^2 - 6x = 6x(x-1), \quad y'' = 12x - 6.$$
+              \begin{enumerate}
+                  \item[] 单调区间:在$(-\infty,0)$和$(1,+\infty)$上单调递增,在$(0,1)$上单调递减.
+                  \item[] 极值:在$x = 0$处取得极小值$0$,在$x = 1$处取得极大值$-1$.
+              \end{enumerate}
+        \item $$y' = \frac{2}{3}x^{-1/3}, \quad y'' = -\frac{2}{9}x^{-4/3}.$$
+              \begin{enumerate}
+                  \item[] 单调区间:在$(0,+\infty)$上单调递增,在$(-\infty,0)$上单调递减.
+                  \item[] 极值:在$x = 0$处取得极小值$0$.
+              \end{enumerate}
+        \item $$y' = 2x\mathrm{e}^{-x^2}(1-x^2), \quad y'' = 2\mathrm{e}^{-x^2}(1 - 4x^2 + x^4).$$
+              \begin{enumerate}
+                  \item[] 单调区间:在$(-\infty,-1)$和$(1,+\infty)$上单调递减,在$(-1,0)$和$(0,1)$上单调递增.
+                  \item[] 极值:在$x = -1$处取得极大值$\frac{1}{\mathrm{e}}$,在$x = 0$处取得极小值$0$,在$x = 1$处取得极大值$\frac{1}{\mathrm{e}}$.
+              \end{enumerate}
+        \item 此函数只在$(0,+\infty)$有定义.
+              $$y' = x^{1/x} \frac{1 - \ln x}{x}, \quad y'' = x^{1/x} \frac{(\ln x)^2 - 3\ln x + 2}{x^2}.$$
+              \begin{enumerate}
+                  \item[] 单调区间:在$(0,\mathrm{e})$上单调递增,在$(\mathrm{e},+\infty)$上单调递减.
+                  \item[] 极值:在$x = \mathrm{e}$处取得极大值$\mathrm{e}^{1/\mathrm{e}}$.
+              \end{enumerate}
+        \item $$y' = \frac{\ln x (2 - \ln x)}{x^2}, \quad y'' = \frac{(\ln x)^2 - 4\ln x + 2}{x^3}.$$
+              \begin{enumerate}
+                  \item[] 单调区间:在$(0,1)$和$(\mathrm{e}^2,+\infty)$上单调递减,在$(1,\mathrm{e}^2)$上单调递增.
+                  \item[] 极值:在$x = 1$处取得极小值$0$,在$x = \mathrm{e}^2$处取得极大值$\frac{4}{\mathrm{e}^2}$.
+              \end{enumerate}
+        \item $$y' = \frac{1}{1+x^2} - \frac{x}{1+x^2} = \frac{1 - x}{1 + x^2}, \quad y'' = -\frac{(1+x^2) + 2x(1 - x)}{(1+x^2)^2} = \frac{x^2 - 2x - 1}{(1+x^2)^2}.$$
+              \begin{enumerate}
+                  \item[] 单调区间:在$(-\infty,1)$上单调递增,在$(1,+\infty)$上单调递减.
+                  \item[] 极值:在$x = 1$处取得极大值$\frac{\pi}{4} - \frac{1}{2}\ln 2$.
+              \end{enumerate}
+    \end{enumerate}
+\end{solution}
 
 \begin{proposition*}[极值点的判别法] \quad
     \begin{enumerate}
@@ -310,6 +394,27 @@ $$ \lim_{y\to x} 0 = \lim_{y\to x} M|x-y| = 0 \Rightarrow |f'(x)| = \lim_{y\to x
     \end{tasks}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item $$y' = 4x^3 - 4x = 4x(x^2 - 1) = 0 \Rightarrow x = -1, 0, 1.$$
+              计算所有极值点疑点和边界点:
+              $$
+                  y(-2) = 13, \quad y(-1) = 4, \quad y(0) = 5, \quad y(1) = 4, \quad y(2) = 13.
+              $$
+              故最大值为$13$, 最小值为$4$.
+        \item $$y' = 2\cos 2x - 1 = 0 \Rightarrow x = \pm \frac{\pi}{6}.$$
+              计算所有极值点疑点和边界点:
+              $$
+                  y\left(-\frac{\pi}{2}\right) = \frac{\pi}{2}, \quad y\left(-\frac{\pi}{6}\right) = -\frac{\sqrt{3}}{2} + \frac{\pi}{6}, \quad y\left(\frac{\pi}{6}\right) = \frac{\sqrt{3}}{2} - \frac{\pi}{6}, \quad y\left(\frac{\pi}{2}\right) = -\frac{\pi}{2}.
+              $$
+              故最大值为$\frac{\pi}{2}$, 最小值为$-\frac{\pi}{2}$.
+        \item $$y' = -\frac{2}{(1+x)^2 + (1-x)^2} = -\frac{1}{1+x^2} < 0 \quad (x \in [0,1]).$$
+              故在$[0,1]$上单调递减,最大值为$y(0) = \frac{\pi}{4}$, 最小值为$y(1) = 0$.
+        \item $$y' = \ln x + 1 = 0 \Rightarrow x = \frac{1}{\mathrm{e}}.$$
+              函数在$\left(0, \frac{1}{\mathrm{e}}\right]$上单调递减,在$\left[\frac{1}{\mathrm{e}}, +\infty\right)$上单调递增且趋于$+\infty$.故最小值为$y\left(\frac{1}{\mathrm{e}}\right) = -\frac{1}{\mathrm{e}}$, 无最大值.
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.3.23]
     证明下列不等式:
     \begin{enumerate}
@@ -324,6 +429,57 @@ $$ \lim_{y\to x} 0 = \lim_{y\to x} M|x-y| = 0 \Rightarrow |f'(x)| = \lim_{y\to x
     \end{enumerate}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item 设$f(x) = x^p + (1-x)^p$,则$f'(x) = p[x^{p-1} - (1-x)^{p-1}]$.因此$f(x)$在$\left[ 0 , \frac{1}{2} \right]$上单调递增,在$\left[ \frac{1}{2}, 1 \right]$上单调递减.故$f(x)$的最小值为$f\left(\frac{1}{2}\right) = \frac{1}{2^{p-1}}$,最大值为$f(0) = f(1) = 1$,即
+              $$
+                  \frac{1}{2^{p-1}} \les x^p + (1-x)^p \les 1.
+              $$
+        \item 设$g(x) = \tan x - x + \frac{x^3}{3}$,则$g'(x) = \sec^2 x - 1 + x^2 = \tan^2 x + x^2 > 0$.因此$g(x)$在$(0, \frac{\pi}{2})$上单调递增,又$g(0) = 0$,故$g(x) > 0$,即
+              $$
+                  \tan x > x - \frac{x^3}{3}.
+              $$
+        \item 设$h(x) = \frac{\tan x}{x}$,
+              则$h'(x) = \frac{x\sec^2 x - \tan x}{x^2} = \frac{x\tan^2 x}{x^2} > 0$.因此$h(x)$在$(0, \frac{\pi}{2})$上单调递增,故$h(x_2) > h(x_1)$,即
+              $$
+                  \frac{\tan x_2}{\tan x_1} > \frac{x_2}{x_1}.
+              $$
+        \item 设$f(x) = \ln(1+x) - \frac{\arctan x}{1+x}$,则
+              $$f'(x) = \frac{\arctan x + x^2 \arctan x + x^3 + x^2}{x^4 + 2x^3 + 2x^2 + 2x +1} > 0 , \quad x > 0$$
+              因此$f(x)$在$(0, +\infty)$上单调递增,又$f(0) = 0$,故$f(x) > 0$,即
+              $$
+                  \ln(1+x) > \frac{\arctan x}{1+x}.
+              $$
+        \item[(4)] \textbf{另解} 令 $f(x) = (1+x)\ln(1+x) - \arctan x, g(x) = \arctan x, \forall x > 0$,
+            $$ \exists \xi_1 \in [0, x], \frac{f(x) - f(0)}{x-0} = \frac{f(x)}{x} = f'(\xi_1) = 1 + \ln(1+x) > 1. $$
+            $$ \exists \xi_2 \in [0, x], \frac{g(x) - g(0)}{g-0} = \frac{g(x)}{x} = g'(\xi_2) = \frac{1}{1+\xi_2^2} < 1. $$
+            故
+            $$ g(x) < x < f(x). $$
+            即
+            $$ \ln(1+x) > \frac{\arctan x}{1+x}. $$
+        \item 令 $f(x) = \ln(x+\sqrt{1+x^2}), \forall x \in \mathbb{R}$,
+              $$ \exists \xi \in [0, x], \frac{f(x) - f(0)}{x-0} = \frac{f(x)}{x} = f'(\xi) = \frac{1}{\sqrt{1+\xi^2}} \ges \frac{1}{\sqrt{1+x^2}}. $$
+              $$ \frac{\ln(x+\sqrt{1+x^2})}{x} \ges \frac{1}{\sqrt{1+x^2}} \Rightarrow x \ln(x+\sqrt{1+x^2}) \ges \frac{x^2}{\sqrt{1+x^2}} = \sqrt{1+x^2} - \frac{1}{\sqrt{1+x^2}} \ges \sqrt{1+x^2} - 1 $$
+              即
+              $$ 1+x \ln(x+\sqrt{1+x^2}) \ges \sqrt{1+x^2}. $$
+        \item 令 $f(x) = x - \frac{4}{3} \sin x + \frac{1}{3} \sin x \cos x$, 则
+              $$ f'(x) = 1 - \frac{4}{3} \cos x + \frac{1}{3} \cos 2x = \frac{1}{3} (2 \cos x - 1)^2 \ges 0 \Rightarrow g(x) > g(0) = 0. $$
+              又 $\forall x \in (0, \frac{\pi}{2}), \sin x > 0,$
+              $$ \frac{x}{\sin x} > \frac{4}{3} - \frac{1}{3} \cos x. $$
+              另一方面, 由于
+              $$ \lim_{x \to 0^+} \frac{x}{\sin x} - \frac{4}{3} + \frac{1}{3} \cos x = 0, $$
+              $\frac{4}{3}$ 不能被替换为更大的数.
+        \item $$ \left(1-\frac{1}{x}\right)^{x-1} \left(1+\frac{1}{x}\right)^{x+1} = \left(1-\frac{1}{x^2}\right)^{x-1} \left(1+\frac{1}{x}\right)^2 < \left(1+\frac{1}{x}\right)^2 < 4 $$
+        \item 令 $f(x) = x^{a-1} + x^{a+1}$, 则 $\forall x \in (0, 1), a \in (0, 1)$,
+              $$ f'(x) = (a-1)x^{a-2} + (a+1)x^a = (a+1) \left(x + \sqrt{\frac{1-a}{1+a}}\right) \left(x - \sqrt{\frac{1-a}{1+a}}\right) x^{a-2}. $$
+              $$\forall x \in \left(0, \sqrt{\frac{1-a}{1+a}}\right), f'(x) < 0, f(x) > f\left(\sqrt{\frac{1-a}{1+a}}\right) = \left(\frac{1-a}{1+a}\right)^{\frac{a-1}{2}} + \left(\frac{1-a}{1+a}\right)^{\frac{a+1}{2}}.$$
+              $$\forall x \in \left(\sqrt{\frac{1-a}{1+a}}, 1\right), f'(x) > 0, f(x) > f\left(\sqrt{\frac{1-a}{1+a}}\right) = \left(\frac{1-a}{1+a}\right)^{\frac{a-1}{2}} + \left(\frac{1-a}{1+a}\right)^{\frac{a+1}{2}}.$$
+
+              综上,
+              $\forall x \in (0, 1), a \in (0, 1), x^{a-1} + x^{a+1} \ges \left(\frac{1-a}{1+a}\right)^{\frac{a-1}{2}} + \left(\frac{1-a}{1+a}\right)^{\frac{a+1}{2}}.$
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.3.24]
     试确定下列函数零点的个数及所在范围:
     \begin{tasks}[label=(\arabic*)](2)
@@ -332,10 +488,87 @@ $$ \lim_{y\to x} 0 = \lim_{y\to x} M|x-y| = 0 \Rightarrow |f'(x)| = \lim_{y\to x
     \end{tasks}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item
+              令 $f(x) = x^3-6x^2+9x-10$.
+              我们首先分析 $f(x)$ 的单调性. 求导得:
+              $$ f'(x) = 3x^2 - 12x + 9 = 3(x^2 - 4x + 3) = 3(x-1)(x-3). $$
+              令 $f'(x) = 0$, 解得 $x_1 = 1, x_2 = 3$.
+
+              \begin{itemize}
+                  \item 当 $x \in (-\infty, 1)$ 时, $f'(x) > 0$, $f(x)$ 单调递增.
+                  \item 当 $x \in (1, 3)$ 时, $f'(x) < 0$, $f(x)$ 单调递减.
+                  \item 当 $x \in (3, +\infty)$ 时, $f'(x) > 0$, $f(x)$ 单调递增.
+              \end{itemize}
+
+              $f(x)$ 在 $x=1$ 处取得极大值, $$f(1) = 1^3 - 6(1)^2 + 9(1) - 10 = 1 - 6 + 9 - 10 = -6.$$
+              $f(x)$ 在 $x=3$ 处取得极小值, $$f(3) = 3^3 - 6(3)^2 + 9(3) - 10 = 27 - 54 + 27 - 10 = -10.$$
+
+              同时, 考察 $x$ 趋于无穷时的极限:
+              $$ \lim_{x \to -\infty} f(x) = -\infty $$
+              $$ \lim_{x \to +\infty} f(x) = +\infty $$
+
+              由于极大值 $f(1) = -6 < 0$, 且 $\lim_{x \to -\infty} f(x) = -\infty$, 所以在 $(-\infty, 1]$ 上 $f(x)$ 恒为负, 没有零点.
+              由于极小值 $f(3) = -10 < 0$, 且极大值 $f(1) = -6 < 0$, 所以在 $(1, 3]$ 上 $f(x)$ 恒为负, 没有零点.
+              由于 $f(3) = -10 < 0$ 且 $\lim_{x \to +\infty} f(x) = +\infty$, 且 $f(x)$ 在 $(3, +\infty)$ 上连续且单调递增, 根据零点存在定理, $f(x)$ 在 $(3, +\infty)$ 上有且仅有一个零点.
+
+              又因为
+              $$f(4) =  -6 < 0 ,\quad f(5) =  10 > 0 .$$
+              所以零点在 $(4, 5)$ 范围内.
+
+              该函数只有一个零点, 位于区间 $(4, 5)$ 内.
+
+        \item
+              令 $g(x) = ax - \ln x$. 函数的定义域为 $(0, +\infty)$. (题目已给出 $a>0$)
+              我们分析 $g(x)$ 的单调性. 求导得:
+              $$ g'(x) = a - \frac{1}{x} = \frac{ax - 1}{x}. $$
+              令 $g'(x) = 0$, 解得 $x = \frac{1}{a}$.
+
+              \begin{itemize}
+                  \item 当 $x \in (0, 1/a)$ 时, $g'(x) < 0$, $g(x)$ 单调递减.
+                  \item 当 $x \in (1/a, +\infty)$ 时, $g'(x) > 0$, $g(x)$ 单调递增.
+              \end{itemize}
+
+              因此, $g(x)$ 在 $x = 1/a$ 处取得全局最小值, 最小值为:
+              $$ g(1/a) = a\left(\frac{1}{a}\right) - \ln\left(\frac{1}{a}\right) = 1 - \ln(a^{-1}) = 1 + \ln a. $$
+
+              我们考察 $g(x)$ 在定义域边界的行为:
+              $$ \lim_{x \to 0^+} g(x) = \lim_{x \to 0^+} (ax - \ln x) = 0 - (-\infty) = +\infty. $$
+              $$ \lim_{x \to +\infty} g(x) = \lim_{x \to +\infty} (ax - \ln x) = \lim_{x \to +\infty} x \left(a - \frac{\ln x}{x}\right) = +\infty \cdot (a - 0) = +\infty. $$
+
+              函数 $g(x)$ 从 $+\infty$ 递减到最小值 $1+\ln a$, 然后再递增到 $+\infty$. 零点的个数取决于最小值 $1+\ln a$ 的符号:
+
+              \begin{enumerate}
+                  \item[\textbf{情况 1}] 若最小值 $1 + \ln a > 0$, 即 $\ln a > -1$, $a > \e^{-1}$ ($a > 1/\e$).
+                      此时 $g(x)$ 的最小值大于 0, $g(x)$ 恒大于 0, 故函数没有零点.
+
+                  \item[\textbf{情况 2}] 若最小值 $1 + \ln a = 0$, 即 $\ln a = -1$, $a = \e^{-1}$ ($a = 1/\e$).
+                      此时 $g(x)$ 的最小值等于 0, $g(x)$ 仅在 $x=1/a = \e$ 处与 $x$ 轴相切, 故函数有且仅有一个零点, 零点为 $x=\e$.
+
+                  \item[\textbf{情况 3}] 若最小值 $1 + \ln a < 0$, 即 $\ln a < -1$, $0 < a < \e^{-1}$ ($0 < a < 1/\e$).
+                      此时 $g(x)$ 的最小值小于 0.
+                      由于 $\lim_{x \to 0^+} g(x) = +\infty$ 且 $g(1/a) < 0$, $g(x)$ 在 $(0, 1/a)$ 上连续且单调递减, 故在 $(0, 1/a)$ 内必有一个零点.
+                      由于 $g(1/a) < 0$ 且 $\lim_{x \to +\infty} g(x) = +\infty$, $g(x)$ 在 $(1/a, +\infty)$ 上连续且单调递增, 故在 $(1/a, +\infty)$ 内必有一个零点.
+                      故函数有两个零点.
+              \end{enumerate}
+
+              结论:
+              \begin{itemize}
+                  \item 若 $a > \e^{-1}$, 函数有 0 个零点.
+                  \item 若 $a = \e^{-1}$, 函数有 1 个零点, 位于 $x = \e$.
+                  \item 若 $0 < a < \e^{-1}$, 函数有 2 个零点, 一个位于 $(0, 1/a)$, 另一个位于 $(1/a, +\infty)$.
+              \end{itemize}
+
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.3.25]
     设 $a \in (0,1), b_1=1-a$,
     $$ b_{n+1} = \frac{b_n}{1-\mathrm{e}^{-b_n}} - a, \quad n=1,2,\dots. $$
     问 $\{b_n\}$ 是否收敛? 若不收敛, 则给予证明, 若收敛, 则求极限.
 \end{exercise}
+
+
 
 \newpage
