@@ -1,0 +1,89 @@
+\section{习题 3.5}
+
+\begin{exercise}[3.5.1]
+    证明 (Jensen (\text{延森}) 不等式): 设 $f(x)$ 是区间 $I$ 上的凸函数, $x_1, \dots, x_n$ 是 $I$ 中 $n$ 个点, 则对任意满足 $\alpha_1 + \dots + \alpha_n = 1$ 的正数 $\alpha_1, \dots, \alpha_n$, 有
+    $$f(\alpha_1 x_1 + \dots + \alpha_n x_n) \les \alpha_1 f(x_1) + \dots + \alpha_n f(x_n).$$
+\end{exercise}
+
+\begin{exercise}[3.5.2]
+    设 $x_1, x_2, \dots, x_n$ 和 $\lambda_1, \lambda_2, \dots, \lambda_n$ 都是正数, 且 $\lambda_1 + \lambda_2 + \dots + \lambda_n = 1$, 证明: 有不等式
+    $$x_1^{\lambda_1} x_2^{\lambda_2} \dots x_n^{\lambda_n} \les \lambda_1 x_1 + \lambda_2 x_2 + \dots + \lambda_n x_n.$$
+    特别, 取 $\lambda_1 = \lambda_2 = \dots = \lambda_n = \frac{1}{n}$, 则得到算术平均不等式
+    $$\sqrt[n]{x_1 x_2 \dots x_n} \les \frac{x_1 + x_2 + \dots + x_n}{n}.$$
+    (\text{提示}: \text{考虑区间} $(0, +\infty)$ \text{上的函数} $f(x) = -\ln x$ \text{的凸凹性, 并利用} Jensen \text{不等式.})
+\end{exercise}
+
+\begin{exercise}[3.5.3]
+    设 $a, b, c, d$ 满足 $\frac{a}{b} \les \frac{c}{d}$, 其中 $b>0, d>0$, 证明不等式
+    $$\frac{a}{b} \les \frac{a+c}{b+d} \les \frac{c}{d}.$$
+\end{exercise}
+
+\begin{exercise}[3.5.4]
+    设 $f(x)$ 是区间 $I$ 上的凸函数, 证明: $f(x)$ 在 $I$ 的内点是连续的.
+\end{exercise}
+
+\begin{exercise}[3.5.5]
+    设函数 $f(x)$ 在区间 $I$ 上处处可导, 且除了有限个点之外, 均有 $f''(x) > 0$, 证明: $f(x)$ 在 $I$ 上是凸的. \text{将本题用于} $f(-x)$, \text{就得到关于凹函数的类似结论.}
+\end{exercise}
+
+\begin{exercise}[3.5.6]
+    设函数 $f(x)$ 在区间 $I$ 内有连续的二阶导数. 若 $x_0$ 是 $f(x)$ 的一个拐点, 证明: $f''(x_0) = 0$.
+\end{exercise}
+
+\begin{exercise}[3.5.7]
+    设函数 $f(x)$ 在点 $x_0$ 及其附近二阶可导, 且 $f''(x_0) = 0$. 若 $f'''(x_0)$ 存在但不为零, 证明: $x_0$ 是 $f(x)$ \text{的拐点}.
+\end{exercise}
+
+\begin{exercise}[3.5.8]
+    求下列函数的凸、凹区间和拐点.
+    \begin{tasks}(2)
+        \task $y = 2x^3 - 3x^2 - 36x + 25$;
+        \task $y = x + \frac{1}{x}$;
+        \task $y = x^{5/3}$;
+        \task $y = (1 + x^2)\mathrm{e}^x$;
+        \task $y = x^4$;
+        \task $y = x + \sin x$.
+    \end{tasks}
+\end{exercise}
+
+\begin{exercise}[3.5.9]
+    求 $a, b$ 值, 使点 $(1, 3)$ 为曲线 $y = ax^3 + bx^2$ 的拐点.
+\end{exercise}
+
+\begin{exercise}[3.5.10]
+    描绘下列各曲线的图形.
+    \begin{tasks}(2)
+        \task $y = x^3 + 6x^2 - 15x - 20$;
+        \task $y = \frac{x^3}{2(1 + x)^2}$;
+        \task $y = x - 2 \arctan x$;
+        \task $y = x \mathrm{e}^{-x}$.
+    \end{tasks}
+\end{exercise}
+
+\begin{exercise}[3.5.11]
+    设函数 $y = f(x)$ 所表示的曲线为 $C$. 记 $C$ 上一点 $M(x, y)$ 处的曲率为 $\kappa (\kappa \ne 0)$, 过点 $M$ 引曲线的法线, 在此法线上曲线上凸的一侧取点 $D$, 使 $|DM| = \frac{1}{\kappa} = \rho$. 以 $D$ 为圆心, $\rho$ 为半径作圆, 这个圆称为曲线在点 $M$ 处的曲率圆, 其圆心 $D$ 称为曲线在点 $M$ 处的曲率中心, 半径 $\rho$ 称为曲线在点 $M$ 处的曲率半径.
+
+    求下列曲线在指定点的曲率、曲率中心及曲率半径.
+    \begin{tasks}(2)
+        \task $xy = 1$ \text{在点} $(1, 1)$ \text{处};
+        \task $y = \mathrm{e}^{-x^2}$ \text{在点} $(0, 1)$ \text{处}.
+    \end{tasks}
+\end{exercise}
+
+\begin{exercise}[3.5.12]
+    求下列曲线在指定点的曲率.
+    \begin{tasks}(2)
+        \task $\begin{cases} x = 3t^2 \\ y = 3t - t^3 \end{cases}$, \text{在} $t = 1$ \text{处};
+        \task $\begin{cases} x = \cos t + t \sin t \\ y = \sin t - t \cos t \end{cases}$ \text{在} $t = \frac{\pi}{2}$ \text{处}.
+    \end{tasks}
+\end{exercise}
+
+\begin{exercise}[3.5.13]
+    对数曲线 $y = \ln x$ 上哪一点的曲率半径最小? 并求出该点的曲率半径.
+\end{exercise}
+
+\begin{exercise}[3.5.14]
+    设函数 $f(x)$ 是定义在 $(-\infty, +\infty)$ 上的凸函数且有界, 求证: $f(x)$ 是常数.
+\end{exercise}
+
+\newpage

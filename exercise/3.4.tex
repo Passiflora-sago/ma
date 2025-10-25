@@ -1,0 +1,211 @@
+\section{习题 3.4}
+
+\begin{exercise}[3.4.1]
+    试给出 Cauchy 中值定理的几何解释.
+\end{exercise}
+
+\begin{solution}
+    设函数 $f(x)$ 和 $g(x)$ 在闭区间 $[a, b]$ 上连续, 在开区间 $(a, b)$ 内可微. 根据 Cauchy 中值定理, 存在 $\xi \in (a, b)$, 使得
+    $$\frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f'(\xi)}{g'(\xi)}.$$
+
+    几何上, 这意味着在区间 $[a, b]$ 上, 存在一点 $\xi$, 使得函数 $f(x)$ 在该点的瞬时变化率（导数）与函数 $g(x)$ 在该点的瞬时变化率之比等于它们在端点处的平均变化率之比。换句话说，存在一条切线，其斜率与通过点 $(a, f(a))$ 和 $(b, f(b))$ 的割线的斜率成比例关系，这个比例由函数 $g(x)$ 的变化决定。
+\end{solution}
+
+\begin{exercise}[3.4.2]
+    试说明在闭区间 $[-1, 1]$ 上 Cauchy 中值定理对函数 $f(x) = x^2$ 和 $g(x) = x^3$ 为什么不正确.
+\end{exercise}
+
+\begin{solution}
+    在闭区间 $[-1, 1]$ 上, 函数 $f(x) = x^2$ 和 $g(x) = x^3$ 都是连续的, 并且在开区间 $(-1, 1)$ 内可微. 然而, 我们计算它们在端点处的变化:
+    $$f(1) - f(-1) = 1^2 - (-1)^2 = 0,$$
+    $$g(1) - g(-1) = 1^3 - (-1)^3 = 2.$$
+
+    因此, Cauchy 中值定理要求存在 $\xi \in (-1, 1)$, 使得
+    $$\frac{f(1) - f(-1)}{g(1) - g(-1)} = \frac{0}{2} = 0 = \frac{f'(\xi)}{g'(\xi)}.$$
+
+    计算导数:
+    $$f'(x) = 2x, \quad g'(x) = 3x^2.$$
+
+    因此,
+    $$\frac{f'(\xi)}{g'(\xi)} = \frac{2\xi}{3\xi^2} = \frac{2}{3\xi}.$$
+
+    要使得 $\frac{2}{3\xi} = 0$, 必须有 $\xi \to \infty$, 这显然不可能在区间 $(-1, 1)$ 内实现。因此, 在这个例子中, Cauchy 中值定理不成立.
+
+    这个例子说明了Cauchy中值定理的适用条件必须严格满足, 其中要求$g'(x)$在$(a, b)$内不为零，否则可能导致分母为零的情况，从而使得定理无法应用.
+\end{solution}
+
+\begin{exercise}[3.4.3]
+    设 $b > a > 0$，函数 $f(x)$ 在 $[a, b]$ 上连续，在 $(a, b)$ 内可微，求证：存在 $\xi \in (a, b)$，使得
+    $$2\xi (f(b) - f(a)) = (b^2 - a^2) f'(\xi).$$
+\end{exercise}
+
+\begin{solution}
+    设 $g(x) = x^2$，则 $g'(x) = 2x$. 根据 Cauchy 中值定理，存在 $\xi \in (a, b)$，使得
+    $$
+        \frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f'(\xi)}{g'(\xi)} = \frac{2\xi}{f'(\xi)}.
+    $$
+    整理即得.
+\end{solution}
+
+\begin{exercise}[3.4.4]
+    设 $f(x)$ 在 $[a, b]$ 上连续 ($ab > 0$)，在 $(a, b)$ 上可微. 求证：存在 $\xi \in (a, b)$，使
+    $$\frac{a f(b) - b f(a)}{a - b} = f(\xi) - \xi f'(\xi).$$
+\end{exercise}
+
+\begin{solution}
+    由Cauchy中值定理，存在$\xi \in (a, b)$，使得
+    $$\frac{ \frac{f(b)}{b} - \frac{f(a)}{a} }{ \frac{1}{b} - \frac{1}{a} } = \frac{\frac{f'(\xi)\xi - f(\xi)}{\xi^2}}{-\frac{1}{\xi^2}}.$$
+    整理即得.
+\end{solution}
+
+\begin{exercise}[3.4.5]
+    求下列极限.
+    \begin{tasks}(2)
+        \task* $\displaystyle \lim_{x \to 0} \frac{\sqrt[m]{1 + \alpha x} - \sqrt[n]{1 + \beta x}}{x}$ ($m, n$ 为正整数, $\alpha, \beta$ 为实数);
+
+        \task* $\displaystyle \lim_{x \to 0} \frac{(1 + m x)^n - (1 + n x)^m}{x^2}$ ($m, n$ 为自然数);
+
+        \task
+        $\displaystyle \lim_{x \to 1} \frac{x^3 + x - 2}{x^2 - 3x + 2}$;
+
+        \task
+        $\displaystyle \lim_{x \to 0} \frac{x - \arcsin x}{\sin^3 x}$;
+
+        \task
+        $\displaystyle \lim_{x \to 0} \frac{\mathrm{e}^x - 1}{\sin x}$;
+
+        \task
+        $\displaystyle \lim_{x \to 0} \frac{(1 + x)^\alpha - 1}{x}$ ($\alpha$ 为任意实数);
+
+        \task
+        $\displaystyle \lim_{x \to 0} \frac{\mathrm{e}^{x^2} - 1}{x}$;
+
+        \task
+        $\displaystyle \lim_{x \to 0} \frac{(a + x)^x - a^x}{x^2}$ ($a > 0$);
+
+        \task
+        $\displaystyle \lim_{x \to 0} x \sin \frac{1}{x}$;
+
+        \task
+        $\displaystyle \lim_{x \to \frac{\pi}{2}} \frac{\cos^2 x}{\tan x}$;
+
+        \task
+        $\displaystyle \lim_{x \to 0} \left(\frac{1}{\arctan^2 x} - \frac{1}{x^2}\right)$;
+
+        \task
+        $\displaystyle \lim_{x \to 1} \frac{\ln x}{\ln (1 - x)}$;
+
+        \task
+        $\displaystyle \lim_{x \to \frac{\pi}{2}^-} (\tan x)^{2x - \pi}$;
+
+        \task
+        $\displaystyle \lim_{x \to 0} \frac{\left(1 + x\right)^{1/x} - \mathrm{e}}{x}$ % 使用 \mathrm{e}
+
+        \task
+        $\displaystyle \lim_{x \to 1^-} \frac{\ln(1 - x) + \tan \frac{\pi}{2} x}{\cot \pi x}$;
+
+        \task
+        $\displaystyle \lim_{x \to 0} \frac{(\arcsin x^3)^2}{(1 - \cos x)(\mathrm{e}^{x^2} - 1) \tan^2 x}$;
+
+        \task
+        $\displaystyle \lim_{x \to +\infty} \left(\frac{\ln(1 + x)}{x}\right)^{1/x}$;
+
+        \task
+        $\displaystyle \lim_{x \to 0} \frac{\arctan x^2}{\sqrt{1 + x \sin x} - \sqrt{\cos x}} \cdot \left(2 - \frac{x}{\mathrm{e}^x - 1}\right)$;
+
+        \task* $\displaystyle \lim_{n \to \infty} \frac{n^k}{a^n}$ ($n$ 为自然数, $a > 1, k > 0$);
+
+        \task* $\displaystyle \lim_{n \to \infty} \frac{\ln n}{n^k}$ ($n$ 为正整数, $k > 0$).
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item $$\displaystyle \lim_{x \to 0} \frac{\sqrt[m]{1 + \alpha x} - \sqrt[n]{1 + \beta x}}{x} \overset{\text{L'Hôpital 法则}}{=} \lim_{x \to 0} \frac{\frac{\alpha}{m}(1 + \alpha x)^{\frac{1}{m} - 1} - \frac{\beta}{n}(1 + \beta x)^{\frac{1}{n} - 1}}{1} = \frac{\alpha}{m} - \frac{\beta}{n}.$$
+        \item \begin{align*}
+                  \lim_{x \to 0} \frac{(1 + m x)^n - (1 + n x)^m}{x^2} & \overset{\text{L'Hôpital 法则}}{=} \lim_{x \to 0} \frac{n m (1 + m x)^{n - 1} - m n (1 + n x)^{m - 1}}{2x}                  \\
+                                                                       & \overset{\text{L'Hôpital 法则}}{=} \lim_{x \to 0} \frac{n m^2 (n - 1)(1 + m x)^{n - 2} - m n^2 (m - 1)(1 + n x)^{m - 2}}{2} \\
+                                                                       & = \frac{mn(n-m)}{2}
+              \end{align*}
+        \item $$\lim_{x \to 1} \frac{x^3 + x - 2}{x^2 - 3x + 2} \overset{\text{L'Hôpital 法则}}{=} \lim_{x \to 1} \frac{3x^2 + 1}{2x - 3} = -4.$$
+        \item $$\lim_{x \to 0} \frac{x - \arcsin x}{\sin^3 x} = \lim_{x\to 0} \frac{x - \arcsin x}{x^3} \overset{\arcsin x = t}{=} \lim_{t \to 0} \frac{\sin t - t}{\sin^3 t} = \lim_{t \to 0} \frac{\sin t - t}{t^3}= -\frac{1}{6}.$$
+        \item $$\lim_{x \to 0} \frac{\mathrm{e}^x - 1}{\sin x} \overset{\text{L'Hôpital 法则}}{=} \lim_{x \to 0} \frac{\mathrm{e}^x}{\cos x} = 1.$$
+        \item $$\lim_{x \to 0} \frac{(1 + x)^\alpha - 1}{x} \overset{\text{L'Hôpital 法则}}{=} \lim_{x \to 0} \frac{\alpha (1 + x)^{\alpha - 1}}{1} = \alpha.$$
+        \item $$\lim_{x \to 0} \frac{\mathrm{e}^{x^2} - 1}{x} \overset{\text{L'Hôpital 法则}}{=} \lim_{x \to 0} \frac{2x \mathrm{e}^{x^2}}{1} = 0.$$
+        \item $$\left( (a+x)^x \right)' = \left( \e^{x\ln(a+x)} \right)' = \left( \frac{x}{a+x} + \ln(a+x) \right)\e^{x\ln(a+x)}$$
+              $$\left( (a+x)^x \right)'' =  \left( \frac{x}{a+x} + \ln(a+x) \right)^2 \e^{x\ln(a+x)} + \left( \frac{a}{(a+x)^2} + \frac{1}{a+x} \right) \e^{x\ln(a+x)} \to (\ln a)^2 + \frac{2}{a} \quad (x \to 0)$$
+              $$\left(a^x \right)'' = \ln^2(a) a^x \to \ln^2(a) \quad (x \to 0)$$
+              $$\lim_{x \to 0} \frac{(a + x)^x - a^x}{x^2} \overset{\text{L'Hôpital 法则}}{=} \cdots = \frac{(\ln a)^2 + \frac{2}{a} - (\ln a)^2}{2} = \frac{1}{a}.$$
+        \item $$\left| \lim_{x \to 0} x \sin \frac{1}{x} \right| \les \lim_{x \to 0} |x| = 0.$$
+        \item $$\left| \lim_{x \to \frac{\pi}{2}} \frac{\cos^2 x}{\tan x} \right| \les \lim_{x \to \frac{\pi}{2}} \frac{1}{\left| \tan x \right|} = \lim_{x \to \frac{\pi}{2}} |\cot x| = 0.$$
+        \item \begin{align*}
+                  \lim_{x \to 0} \left(\frac{1}{\arctan^2 x} - \frac{1}{x^2}\right) & = \lim_{x \to 0} \frac{x^2 - \arctan^2 x}{x^2 \arctan^2 x}    = \lim_{x \to 0} \frac{x^2 - \arctan^2 x}{x^4}                   \\
+                                                                                    & = \lim_{x \to 0} \frac{(x - \arctan x)(x + \arctan x)}{x^4}   = \lim_{x \to 0} 2 \frac{x - \arctan x}{x^3}                     \\
+                                                                                    & \stackrel{x = \tan y}{=} \lim_{y \to 0} 2 \frac{\tan y - y}{\tan^3 y}  = 2 \lim_{y \to 0} \frac{\tan y - y}{y^3} = \frac{2}{3}
+              \end{align*}
+        \item \begin{align*}
+                  \lim_{x \to 1^-} \ln x \ln(1 - x) & = \lim_{x \to 0^+} \ln(1 - x) \ln x = \lim_{x \to 0^+} -x \ln x                                        \\
+                                                    & = \lim_{x \to 0^+} \frac{\ln x}{-\frac{1}{x}} = \lim_{x \to 0^+} \frac{\frac{1}{x}}{\frac{1}{x^2}} = 0
+              \end{align*}
+        \item \begin{align*}
+                  \lim_{x \to \frac{\pi}{2}^-} (\tan x)^{(2x - \pi)} & = \lim_{x \to \frac{\pi}{2}^-} \mathrm{e}^{(2x - \pi) \ln(\tan x)} = \exp\left(\lim_{x \to \frac{\pi}{2}^-} \frac{\ln(\tan x)}{\frac{1}{2x - \pi}}\right)                                               \\
+                                                                     & \stackrel{L'H}{=} \exp\left(\lim_{x \to \frac{\pi}{2}^-} \frac{\frac{1}{\tan x \cos^2 x}}{-\frac{2}{(2x - \pi)^2}}\right) = \exp\left(\lim_{x \to \frac{\pi}{2}^-} \frac{-(2x - \pi)^2}{\sin 2x}\right) \\
+                                                                     & \stackrel{x - \frac{\pi}{2} = y}{=} \exp\left(\lim_{y \to 0^+} \frac{-4y^2}{-\sin 2y}\right) = \mathrm{e}^0 = 1
+              \end{align*}
+        \item \begin{align*}
+                  \lim_{x \to 0} \frac{\left(1 + x\right)^{1/x} - \mathrm{e}}{x} & = \exp\left(\lim_{x \to 0} \frac{1}{x} \left(\frac{1}{x} \ln(1 + x) - 1\right)\right)                                                           \\
+                                                                                 & = \exp\left(\lim_{x \to 0} \frac{1}{x} \left(\frac{1}{x} \left(x - \frac{1}{2}x^2 + o(x^2)\right) - 1\right)\right) = \mathrm{e}^{-\frac{1}{2}}
+              \end{align*}
+        \item \begin{align*}
+                  \lim_{x \to 1^-} \frac{\ln(1 - x) + \tan \frac{\pi}{2} x}{\cot \pi x} & \stackrel{y=1-x}{=} \lim_{y \to 0^+} \frac{\ln y + \tan \frac{\pi}{2} (1-y)}{\cot \pi (1-y)} \\
+                                                                                        & = \lim_{y \to 0^+} \frac{\sin \pi y(\ln y + \tan \frac{\pi}{2} y)}{-\cos \pi y}              \\ % 这一步使用了 \cot \pi y = \frac{\cos \pi y}{\sin \pi y}
+                                                                                        & = -\lim_{y \to 0^+} \frac{\sin \pi y}{\tan \frac{\pi}{2} y} = -2
+              \end{align*}
+        \item \begin{align*}
+                  \lim_{x \to 0} \frac{(\arcsin x^3)^2}{(1 - \cos x)(\mathrm{e}^{x^2} - 1) \tan^2 x} & = \lim_{x \to 0} \frac{(x^3)^2}{(\frac{1}{2} x^2)(x^2) x^2} = 2
+              \end{align*}
+        \item 当$x$充分大时,$1 < \ln(1+x) < x^{1/2}$,此时$\frac{1}{x} < \frac{\ln(1+x)}{x} < \frac{1}{x^{1/2}}$,同时
+              \begin{align*}
+                  \lim_{x \to +\infty} \left(\frac{1}{x}\right)^{1/x}       & = \lim_{x \to +\infty} \exp\left(\lim_{x \to +\infty} \frac{1}{x} \ln(1/x)\right) = 1      \\
+                  \lim_{x \to +\infty} \left(\frac{1}{x^{1/2}}\right)^{1/x} & = \lim_{x \to +\infty} \exp\left(\lim_{x \to +\infty} \frac{1}{x} \ln(x^{-1/2})\right) = 1
+              \end{align*}
+              因此$\lim_{x \to +\infty} \left(\frac{1}{x}\right)^{1/x} = \lim_{x \to +\infty} \left(\frac{1}{x^{1/2}}\right)^{1/x} = 1$.
+        \item \begin{align*}
+                  \lim_{x \to 0} \frac{\arctan x^2}{\sqrt{1 + x \sin x} - \sqrt{\cos x}} \cdot \left(2 - \frac{x}{\mathrm{e}^x - 1}\right) & = \lim_{x \to 0} \frac{x^2(\sqrt{1 + x \sin x} + \sqrt{\cos x})}{1 + x \sin x - \cos x} \cdot \lim_{x \to 0} \left(2 - \frac{x}{\mathrm{e}^x - 1}\right) \\
+                                                                                                                                           & = \lim_{x \to 0} \frac{x^2(1 + 1)}{1 + x \sin x - (1 - \frac{1}{2}x^2 + o(x^2))}                                                                         \\
+                                                                                                                                           & = \lim_{x \to 0} \frac{2x^2}{x^2 + \frac{1}{2}x^2 + o(x^2)} = \frac{4}{3}
+              \end{align*}
+        \item 转而证明:$$\lim_{x \to + \infty} \frac{x^k}{a^x} = 0.$$
+              而后由Heine定理即得.
+              $$\lim_{x \to + \infty} \frac{x^k}{a^x} \les \lim_{x \to + \infty} \frac {x^{\llceil k \rrceil}}{a^x} \overset{\text{L'Hôpital 法则}}{=} \lim_{x \to + \infty} \frac{\llceil k \rrceil x^{\llceil k \rrceil - 1}}{(\ln a) a^x} = \cdots = \lim_{x \to + \infty} \frac{\llceil k \rrceil !}{(\ln a)^{\llceil k \rrceil} a^x} = 0.$$
+        \item 转而证明:$$\lim_{x \to + \infty} \frac{\ln x}{x^k} = 0.$$
+              而后由Henie定理即得.
+              $$\lim_{x \to + \infty} \frac{\ln x}{x^k} \overset{\text{L'Hôpital 法则}}{=} \lim_{x \to + \infty} \frac{\frac{1}{x}}{k x^{k-1}} = \lim_{x \to + \infty} \frac{1}{k x^k} = 0.$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[3.4.6]
+    设 $f(x)$ 在区间 $[0, a]$ 上有二阶连续导数, $f'(0) = 1, f''(0) \neq 0$, 且 $0 < f(x) < x$, $x \in (0, a)$. 令
+    $$x_{n+1} = f(x_n), \quad x_1 \in (0, a).$$
+
+    \begin{enumerate}
+        \item 求证: $\{x_n\}$ 收敛并求其极限;
+        \item 试问 $\{n x_n\}$ 是否收敛? 若收敛, 则求其极限.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item $\{x_n\}$ 是递减的, 因为 $x_{n+1} - x_n = f(x_n) - x_n < 0$. $\{x_n\}$ 具有下界 $0$, 故可设 $\{x_n\}$ 收敛到 $x$. 令 $n \to \infty$, 由 $f$ 的连续性, 得 $x = f(x)$, 故 $x = 0$.
+        \item 由泰勒展开, $f(x) = x + \frac{f''(0)}{2}x^2 + o(x^2)$,因此
+              \begin{align*}
+                  \lim_{n \to \infty} n x_n & \stackrel{\text{Stolz}}{=} \lim_{n \to \infty} \frac{n+1 - n}{\frac{1}{x_{n+1}} - \frac{1}{x_n}}
+                  = \lim_{n \to \infty} \frac{x_n x_{n+1}}{x_n - f(x_n)}                                                                               \\
+                                            & = \lim_{n \to \infty} \frac{x_n^2 + o(x_n^2)}{x_n - \left(x_n + \frac{f''(0)}{2}x_n^2 + o(x_n^2)\right)}
+                  = \lim_{n \to \infty} \frac{x_n^2}{- \frac{f''(0)}{2}x_n^2 + o(x_n^2)}                                                               \\
+                                            & = - \frac{2}{f''(0)}
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\newpage
