@@ -5,3 +5,5 @@
 *.bcf
 *.xml
 *.synctex.gz
+*.pdf
+*.gz
