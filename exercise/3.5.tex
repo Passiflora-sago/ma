@@ -1,38 +1,148 @@
 \section{习题 3.5}
 
-\begin{exercise}[3.5.1]
+\begin{exercise}[3.5.1]\label{3.5.1}
     证明 (Jensen (\text{延森}) 不等式): 设 $f(x)$ 是区间 $I$ 上的凸函数, $x_1, \dots, x_n$ 是 $I$ 中 $n$ 个点, 则对任意满足 $\alpha_1 + \dots + \alpha_n = 1$ 的正数 $\alpha_1, \dots, \alpha_n$, 有
     $$f(\alpha_1 x_1 + \dots + \alpha_n x_n) \les \alpha_1 f(x_1) + \dots + \alpha_n f(x_n).$$
 \end{exercise}
+
+\begin{solution}
+    采用数学归纳法. 当 $n = 2$ 时, 结论显然成立.
+
+    假设当 $n = k$ 时结论成立, 即对任意满足 $\alpha_1 + \dots + \alpha_k = 1$ 的正数 $\alpha_1, \dots, \alpha_k$, 有
+    $$f(\alpha_1 x_1 + \dots + \alpha_k x_k) \les \alpha_1 f(x_1) + \dots + \alpha_k f(x_k).$$
+
+    现考虑 $n = k + 1$ 的情形. 设 $\alpha_1, \dots, \alpha_{k+1}$ 是满足 $\alpha_1 + \dots + \alpha_{k+1} = 1$ 的正数. 记 $\beta = \alpha_1 + \dots + \alpha_k$, 则有 $0 < \beta < 1$. 因此,
+    \begin{align*}
+        f(\alpha_1 x_1 + \dots + \alpha_{k+1} x_{k+1}) & = f(\beta (\frac{\alpha_1}{\beta} x_1 + \dots + \frac{\alpha_k}{\beta} x_k) + (1 - \beta) x_{k+1})                                    \\
+                                                       & \les \beta f(\frac{\alpha_1}{\beta} x_1 + \dots + \frac{\alpha_k}{\beta} x_k) + (1 - \beta) f(x_{k+1}) \quad (\text{由凸函数的定义})  \\
+                                                       & \les \beta (\frac{\alpha_1}{\beta} f(x_1) + \dots + \frac{\alpha_k}{\beta} f(x_k)) + (1 - \beta) f(x_{k+1}) \quad (\text{由归纳假设}) \\
+                                                       & = \alpha_1 f(x_1) + \dots + \alpha_k f(x_k) + \alpha_{k+1} f(x_{k+1}).
+    \end{align*}
+
+    由数学归纳法可知, 对任意正整数 $n$, 结论均成立.
+\end{solution}
 
 \begin{exercise}[3.5.2]
     设 $x_1, x_2, \dots, x_n$ 和 $\lambda_1, \lambda_2, \dots, \lambda_n$ 都是正数, 且 $\lambda_1 + \lambda_2 + \dots + \lambda_n = 1$, 证明: 有不等式
     $$x_1^{\lambda_1} x_2^{\lambda_2} \dots x_n^{\lambda_n} \les \lambda_1 x_1 + \lambda_2 x_2 + \dots + \lambda_n x_n.$$
     特别, 取 $\lambda_1 = \lambda_2 = \dots = \lambda_n = \frac{1}{n}$, 则得到算术平均不等式
     $$\sqrt[n]{x_1 x_2 \dots x_n} \les \frac{x_1 + x_2 + \dots + x_n}{n}.$$
-    (\text{提示}: \text{考虑区间} $(0, +\infty)$ \text{上的函数} $f(x) = -\ln x$ \text{的凸凹性, 并利用} Jensen \text{不等式.})
+    (提示: 考虑区间 $(0, +\infty)$ 上的函数 $f(x) = -\ln x$ 的凸凹性, 并利用 Jensen 不等式.)
 \end{exercise}
 
-\begin{exercise}[3.5.3]
+\begin{solution}
+    设$f(x) = -\ln x$, 则 $f''(x) = \frac{1}{x^2} > 0$, 因此 $f(x)$ 在区间 $(0, +\infty)$ 上是凸函数. 由\hyperref[3.5.1]{习题 3.5.1}, 对任意满足 $\lambda_1 + \lambda_2 + \dots + \lambda_n = 1$ 的正数 $\lambda_1, \lambda_2, \dots, \lambda_n$, 有
+    \begin{align*}
+        f(\lambda_1 x_1 + \lambda_2 x_2 + \dots + \lambda_n x_n)     & \les \lambda_1 f(x_1) + \lambda_2 f(x_2) + \dots + \lambda_n f(x_n)        \\
+        -\ln (\lambda_1 x_1 + \lambda_2 x_2 + \dots + \lambda_n x_n) & \les -(\lambda_1 \ln x_1 + \lambda_2 \ln x_2 + \dots + \lambda_n \ln x_n).
+    \end{align*}
+    即
+    $$\ln (\lambda_1 x_1 + \lambda_2 x_2 + \dots + \lambda_n x_n) \ges \ln (x_1^{\lambda_1} x_2^{\lambda_2} \dots x_n^{\lambda_n}).$$
+    即
+    $$\lambda_1 x_1 + \lambda_2 x_2 + \dots + \lambda_n x_n \ges x_1^{\lambda_1} x_2^{\lambda_2} \dots x_n^{\lambda_n}.$$
+\end{solution}
+
+\begin{exercise}[3.5.3]\label{3.5.3}
     设 $a, b, c, d$ 满足 $\frac{a}{b} \les \frac{c}{d}$, 其中 $b>0, d>0$, 证明不等式
     $$\frac{a}{b} \les \frac{a+c}{b+d} \les \frac{c}{d}.$$
 \end{exercise}
+
+\begin{solution}
+    由 $\frac{a}{b} \les \frac{c}{d}$ 可得 $ad \les bc$. 因为 $b > 0, d > 0$, 故有
+    $$ad + ab \les bc + ab \Rightarrow a(d + b) \les b(c + a) \Rightarrow \frac{a}{b} \les \frac{a + c}{b + d}.$$
+    同理,
+    $$ad \les bc \Rightarrow ad + cd \les bc + cd \Rightarrow c(b + d) \ges d(a + c) \Rightarrow \frac{a + c}{b + d} \les \frac{c}{d}.$$
+\end{solution}
 
 \begin{exercise}[3.5.4]
     设 $f(x)$ 是区间 $I$ 上的凸函数, 证明: $f(x)$ 在 $I$ 的内点是连续的.
 \end{exercise}
 
+\begin{solution}
+    设$x_0$ 是区间 $I$ 的一个内点, 即证明 $\lim_{x \to x_0} f(x) = f(x_0)$.
+    仅证右连续$\lim_{x \to x_0^+} f(x) = f(x_0)$, 左连续同理.
+
+    由于$x_0$ 是区间 $I$ 的内点, 故存在 $\delta > 0$, 使得区间 $(x_0-\delta, x_0 + \delta) \subset I$.
+
+    任取$x \in (x_0, x_0 + \delta)$, 则由凸函数的定义, 对任意 $a \in (x_0 - \delta, x_0)$, 有
+    $$\frac{f(x) - f(x_0-\delta)}{x - (x_0 - \delta)} \les \frac{f(x)-f(x_0)}{x-x_0} \les \frac{f(x_0 + \delta) - f(x_0)}{(x_0 + \delta) - x_0}.$$
+    记 $M_1 = \frac{f(x_0) - f(x_0 - \delta)}{\delta}$, $M_2 = \frac{f(x_0 + \delta) - f(x_0)}{\delta}$, 则 $M_1, M_2$ 均为常数, 上式可写为
+    $$M_1(x-x_0) \les f(x) - f(x_0) \les M_2 (x - x_0).$$
+    当 $x \to x_0^+$ 时, 由夹逼定理可知, $\lim_{x \to x_0^+} f(x) = f(x_0)$.
+\end{solution}
+
 \begin{exercise}[3.5.5]
     设函数 $f(x)$ 在区间 $I$ 上处处可导, 且除了有限个点之外, 均有 $f''(x) > 0$, 证明: $f(x)$ 在 $I$ 上是凸的. \text{将本题用于} $f(-x)$, \text{就得到关于凹函数的类似结论.}
 \end{exercise}
+
+\begin{solution}
+    由题设条件以及\hyperref[ex:3.3.16]{习题 3.3.16}知,可得,$f'(x)$单调增,由一阶导判别法即证.
+\end{solution}
+
+其中,一阶导判别法表述为:
+\begin{theorem*}[零阶导判别法]\label{thm:3.27}
+    $f(x)$在区间$I$上为凸函数 $\Leftrightarrow$ $\forall x_1,x_2 \in I, x_1<x_2$都有 $$\dfrac{f(x) - f(x_1)}{x-x_1} \les \dfrac{f(x_2) - f(x_1)}{x_2-x_1} \les \dfrac{f(x_2) - f(x)}{x_2 - x}.$$
+\end{theorem*}
+
+\begin{theorem*}[一阶导判别法]
+    若$f'(x)$在$I$上存在,则$f(x)$在$I$上为凸函数 $\Leftrightarrow$ $f'(x)$在$I$上单调增.
+\end{theorem*}
+
+\begin{proof}
+    必要求  任取 $x_1, x_2 \in I, x_1 < x_2, x_1 < x < x_2$,应用\autoref{thm:3.27} 中第一个不等式,有
+    $$
+        \frac{f(x) - f(x_1)}{x - x_1} \les \frac{f(x_2) - f(x_1)}{x_2 - x_1}
+    $$
+
+    同理,对 $x_1 < x' < x_2$,应用\autoref{thm:3.27} 中的第二个不等式,有
+    $$
+        \frac{f(x) - f(x_1)}{x - x_1} \les \frac{f(x_2) - f(x_1)}{x_2 - x_1}
+    $$
+    并令 $x' \to x_2$,有
+    $$
+        \frac{f(x_2) - f(x_1)}{x_2 - x_1} \les f'(x_1)
+    $$
+    所以 $f'(x_1) \les \frac{f(x_2) - f(x_1)}{x_2 - x_1}$.根据 $x_1, x_2$ 的任意性,必须性证明毕.
+
+    充分析 对任意的 $x_1 < x < x_2$,由微分中值定理,存在 $\xi \in (x_1, x_2), \eta \in (x_1, x_2)$,使得
+    $$
+        f(x) - f(x_1) = f'(\xi) \cdot (x - x_1), \quad f(x_2) - f(x_1) = f'(\eta) \cdot (x_2 - x_1)
+    $$
+    因为 $f'(x)$ 单调增,且 $x_1 < x < x_2$,即
+    $$
+        f'(\xi) \les f'(\eta)
+    $$
+    可知函数 $f$ 是凸函数.
+\end{proof}
+
+\begin{theorem*}[二阶导判别法]\label{thm:3.28}
+    若$f''(x)$在$I$上存在,则$f(x)$在$I$上为凸函数 $\Leftrightarrow$ $f''(x) \ges 0, x \in I$.
+\end{theorem*}
 
 \begin{exercise}[3.5.6]
     设函数 $f(x)$ 在区间 $I$ 内有连续的二阶导数. 若 $x_0$ 是 $f(x)$ 的一个拐点, 证明: $f''(x_0) = 0$.
 \end{exercise}
 
+\begin{solution}
+    由拐点的定义可知, 存在 $\delta > 0$, 使得在区间 $(x_0 - \delta, x_0)$ 上, $f(x)$ 为凸函数, 在区间 $(x_0, x_0 + \delta)$ 上, $f(x)$ 为凹函数. 由\hyperref[thm:3.28]{二阶导判别法}知, 对任意 $x \in (x_0 - \delta, x_0)$, 有 $f''(x) \ges 0$; 对任意 $x \in (x_0, x_0 + \delta)$, 有 $f''(x) \les 0$. 由于 $f''(x)$ 在区间 $I$ 内连续, 故有
+    $$f''(x_0) = \lim_{x \to x_0^-} f''(x) \ges 0, \quad f''(x_0) = \lim_{x \to x_0^+} f''(x) \les 0.$$
+    因此, $f''(x_0) = 0$.
+\end{solution}
+
 \begin{exercise}[3.5.7]
     设函数 $f(x)$ 在点 $x_0$ 及其附近二阶可导, 且 $f''(x_0) = 0$. 若 $f'''(x_0)$ 存在但不为零, 证明: $x_0$ 是 $f(x)$ \text{的拐点}.
 \end{exercise}
+
+\begin{solution}
+    不妨设$f'''(x_0) > 0$. 则$\lim_{x \to x_0} \frac{f''(x) - f''(x_0)}{x - x_0} = f'''(x_0) > 0$,所以存在 $\delta > 0$,使得当 $0 < |x - x_0| < \delta$ 时,有
+    $$
+        \frac{f''(x) - f''(x_0)}{x - x_0} > 0 \Rightarrow \begin{cases}
+            f''(x) \ges 0, & x_0 < x < x_0 + \delta; \\
+            f''(x) \les 0, & x_0 - \delta < x < x_0.
+        \end{cases}
+    $$
+    由\hyperref[thm:3.28]{二阶导判别法}知, $f(x)$ 在区间 $(x_0 - \delta, x_0)$ 上为凹函数, 在区间 $(x_0, x_0 + \delta)$ 上为凸函数, 因此, $x_0$ 是 $f(x)$ 的拐点.
+\end{solution}
 
 \begin{exercise}[3.5.8]
     求下列函数的凸、凹区间和拐点.
@@ -46,9 +156,51 @@
     \end{tasks}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item $y' = 6x^2 - 6x - 36$, $y'' = 12x - 6$.
+              \begin{itemize}
+                  \item 当 $x \in (-\infty, \frac{1}{2})$ 时, $y'' < 0$, 函数在 $(-\infty, \frac{1}{2})$ 上为凹函数;
+                  \item 当 $x \in (\frac{1}{2}, +\infty)$ 时, $y'' > 0$, 函数在 $(\frac{1}{2}, +\infty)$ 上为凸函数;
+              \end{itemize}
+              $x = \frac{1}{2}$ 为拐点.
+        \item $y' = 1 - \frac{1}{x^2}$, $y'' = \frac{2}{x^3}$.
+              \begin{itemize}
+                  \item 当 $x \in (0, +\infty)$ 时, $y'' > 0$, 函数在 $(0, +\infty)$ 上为凸函数;
+                  \item 当 $x \in (-\infty, 0)$ 时, $y'' < 0$, 函数在 $(-\infty, 0)$ 上为凹函数;
+              \end{itemize}
+              $y=y(x)$在$x=0$处无定义, 故无拐点.
+        \item $y' = \frac{5}{3} x^{2/3}$, $y'' = \frac{10}{9} x^{-1/3}$.函数只在$x\ges0$上有定义,此时$y'' > 0$, 函数在 $[0, +\infty)$ 上为凸函数,无拐点.
+        \item $y' = (1+2x+x^2)\mathrm{e}^x$, $y'' = (3 + 4x + x^2)\mathrm{e}^x$.
+              \begin{itemize}
+                  \item 当 $x \in (-\infty, -3) \cup (-1, +\infty)$ 时, $y'' > 0$, 函数在 $(-\infty, -3) \cup (-1, +\infty)$ 上为凸函数;
+                  \item 当 $x \in (-3, -1)$ 时, $y'' < 0$, 函数在 $(-3, -1)$ 上为凹函数;
+              \end{itemize}
+              $x = -3, -1$ 为拐点.
+        \item $y' = 4x^3$, $y'' = 12x^2 \ges 0$, 函数在 $(-\infty, +\infty)$ 上为凸函数,无拐点.
+        \item $y' = 1 + \cos x$, $y'' = -\sin x$.
+              \begin{itemize}
+                  \item 当 $x \in (2k\pi, (2k+1)\pi), k \in \mathbb{Z}$ 时, $y'' < 0$, 函数在 $(2k\pi, (2k+1)\pi)$ 上为凹函数;
+                  \item 当 $x \in ((2k+1)\pi, 2(k+1)\pi), k \in \mathbb{Z}$ 时, $y'' > 0$, 函数在 $((2k+1)\pi, 2(k+1)\pi)$ 上为凸函数;
+              \end{itemize}
+              $x = k\pi, k \in \mathbb{Z}$ 为拐点.
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.5.9]
     求 $a, b$ 值, 使点 $(1, 3)$ 为曲线 $y = ax^3 + bx^2$ 的拐点.
 \end{exercise}
+
+\begin{solution}
+    $y' = 3ax^2 + 2bx$, $y'' = 6ax + 2b$. 因为点 $(1, 3)$ 为曲线 $y = ax^3 + bx^2$ 的拐点, 故有
+    $$\begin{cases}
+            3 = a + b; \\
+            0 = 6a + 2b.
+        \end{cases} \Rightarrow \begin{cases}
+            a = 1; \\
+            b = 2.
+        \end{cases}$$
+\end{solution}
 
 \begin{exercise}[3.5.10]
     描绘下列各曲线的图形.
@@ -60,6 +212,162 @@
     \end{tasks}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item \quad
+
+              \begin{tikzpicture}[thick,every node/.style={inner sep=2pt},
+                  >={Stealth[width=3pt]},
+                  xscale=0.9, yscale=0.05] % 调整 x 和 y 轴的缩放比例以适应图像
+
+                  \draw(0,0)node[below left]{$O$};
+
+                  % 绘制坐标轴 (替换 xx,xx)
+                  \draw[->](-8.5, 0)--(0,0)--(4, 0)node[below]{$x$};
+                  \draw[->](0, -35)--(0,0)--(0, 90)node[left]{$y$};
+
+                  % 绘制函数 y = x^3 + 6x^2 - 15x - 20
+                  \draw[domain=-8:3.5, smooth, samples=100]
+                  plot (\x, {\x*\x*\x + 6*\x*\x - 15*\x - 20});
+
+                  % 标记关键点
+                  % 使用 transform shape=false 确保节点和标签不会被缩放
+                  \node[draw, circle, inner sep=1.5pt, fill=black, transform shape=false,
+                      label={[transform shape=false]above:$(-5, 80)$}] at (-5, 80) {};
+                  \node[draw, circle, inner sep=1.5pt, fill=black, transform shape=false,
+                      label={[transform shape=false]below:$(1, -28)$}] at (1, -28) {};
+                  \node[draw, circle, inner sep=1.5pt, fill=black, transform shape=false,
+                      label={[transform shape=false]left:$(0, -20)$}] at (0, -20) {};
+                  \node[draw, circle, inner sep=1.5pt, fill=black, transform shape=false,
+                      label={[transform shape=false]above:$(-1, 0)$}] at (-1, 0) {};
+
+              \end{tikzpicture}
+        \item \quad
+
+              \begin{tikzpicture}[thick,every node/.style={inner sep=2pt},
+                  >={Stealth[width=3pt]},
+                  x=1cm, y=0.5cm] % 调整 x 和 y 轴的缩放比例
+
+                  % --- 1. 定义绘图区域并裁剪 ---
+                  \def\xmin{-7}
+                  \def\xmax{6}
+                  \def\ymin{-9}
+                  \def\ymax{5}
+                  \clip (\xmin, \ymin) rectangle (\xmax+2, \ymax+2);
+
+                  % --- 2. 绘制坐标轴 (替换 xx,xx) ---
+                  \draw(0,0)node[below left]{$O$};
+                  \draw[->](\xmin, 0)--(0,0)--(\xmax, 0)node[below]{$x$};
+                  \draw[->](0, \ymin)--(0,0)--(0, \ymax)node[left]{$y$};
+
+                  % --- 3. 绘制渐近线 ---
+                  % 垂直渐近线 x = -1
+                  \draw[dashed] (-1, \ymin) -- (-1, \ymax);
+                  % 斜渐近线 y = 0.5x - 1
+                  \draw[dashed, domain=\xmin:\xmax, samples=2] plot (\x, {0.5*\x - 1});
+
+                  % --- 4. 绘制函数图像 (分两部分) ---
+                  % 渐近线左侧
+                  \draw[domain=\xmin:-1.05, smooth, black, samples=100, variable=\x]
+                  plot (\x, {(\x^3) / (2 * (1 + \x)^2)});
+                  % 渐近线右侧
+                  \draw[domain=-0.95:\xmax, smooth, black, samples=100, variable=\x]
+                  plot (\x, {(\x^3) / (2 * (1 + \x)^2)});
+
+                  % --- 5. 标记关键点 ---
+                  % 局部极大值
+                  \node[draw, circle, inner sep=1.5pt, fill=black, transform shape=false,
+                      label={[transform shape=false]above left:$(-3, -3.375)$}] at (-3, -3.375) {};
+                  % 拐点
+                  \node[draw, circle, inner sep=1.5pt, fill=black, transform shape=false,
+                      label={[transform shape=false]below right:$(0, 0)$}] at (0, 0) {};
+
+              \end{tikzpicture}
+        \item \quad
+
+              \begin{tikzpicture}[thick,every node/.style={inner sep=2pt},
+                  >={Stealth[width=3pt]},
+                  x=1cm, y=0.8cm] % 使用1:1比例
+
+                  % --- 1. 定义绘图区域并裁剪 ---
+                  \def\xmin{-7}
+                  \def\xmax{7}
+                  \def\ymin{-4}
+                  \def\ymax{4}
+                  \clip (\xmin, \ymin) rectangle (\xmax+1, \ymax+1);
+
+                  % % --- 2. 绘制坐标轴 (替换 xx,xx) ---
+                  % \draw(0,0)node[below left]{$O$};
+                  \draw[->](\xmin, 0)--(0,0)--(\xmax, 0)node[below]{$x$};
+                  \draw[->](0, \ymin)--(0,0)--(0, \ymax)node[left]{$y$};
+
+                  % --- 3. 绘制渐近线 (黑色虚线) ---
+                  % \pi (pi) 在 PGF/TikZ 中已定义
+                  % y = x - pi
+                  \draw[dashed, black, domain=\xmin:\xmax, samples=2] plot (\x, {\x - pi});
+                  % y = x + pi
+                  \draw[dashed, black, domain=\xmin:\xmax, samples=2] plot (\x, {\x + pi});
+
+                  % --- 4. 绘制函数图像 (黑色实线) ---
+                  % 注意: \x 是 x 坐标。atan(\x) 在 PGF 中返回的是角度（degrees）。
+                  % 我们需要 rad() 将角度转为弧度（radians）来进行坐标计算。
+                  \draw[domain=\xmin:\xmax, smooth, black, samples=100, variable=\x]
+                  plot (\x, {\x - 2*rad(atan(\x))});
+
+                  % --- 5. 标记关键点 (黑色) ---
+                  % 局部极大值 (-1, pi/2 - 1)
+                  \node[draw, circle, inner sep=1.5pt, fill=black, transform shape=false,
+                      label={[transform shape=false]above:$(-1, \frac{\pi}{2}-1)$}] at (-1, {pi/2 - 1}) {};
+                  % 局部极小值 (1, 1 - pi/2)
+                  \node[draw, circle, inner sep=1.5pt, fill=black, transform shape=false,
+                      label={[transform shape=false]below:$(1, 1-\frac{\pi}{2})$}] at (1, {1 - pi/2}) {};
+                  % 拐点 (0, 0)
+                  \node[draw, circle, inner sep=1.5pt, fill=black, transform shape=false,
+                      label={[transform shape=false]below left:$\text{拐点}(0, 0)$}] at (0, 0) {};
+
+              \end{tikzpicture}
+        \item \quad
+
+              \begin{tikzpicture}[thick,every node/.style={inner sep=2pt},
+                  >={Stealth[width=3pt]},
+                  x=1.5cm, y=3cm] % y轴拉伸，以便更清晰地显示峰值
+
+                  % --- 1. 定义绘图区域并裁剪 ---
+                  \def\xmin{-2}
+                  \def\xmax{7}
+                  \def\ymin{-1.5}
+                  \def\ymax{1}
+                  \clip (\xmin, \ymin) rectangle (\xmax+0.2, \ymax+0.2);
+
+                  % --- 2. 绘制坐标轴 (替换 xx,xx) ---
+                  \draw(0,0)node[below left]{$O$};
+                  \draw[->](\xmin, 0)--(0,0)--(\xmax, 0)node[below]{$x$};
+                  \draw[->](0, \ymin)--(0,0)--(0, \ymax)node[left]{$y$};
+
+                  % --- 3. 绘制渐近线 (黑色虚线) ---
+                  % y = 0
+                  \draw[dashed, black, domain=0:\xmax, samples=2] plot (\x, {0});
+
+                  % --- 4. 绘制函数图像 (黑色实线) ---
+                  % exp() 函数在 pgf/tikz 中可用
+                  \draw[domain=\xmin:\xmax, smooth, black, samples=100, variable=\x]
+                  plot (\x, {\x * exp(-\x)});
+
+                  % --- 5. 标记关键点 (黑色) ---
+                  % 局部极大值 (1, 1/e)
+                  \node[draw, circle, inner sep=1.5pt, fill=black, transform shape=false,
+                      label={[transform shape=false]above:$(1, 1/\mathrm{e})$}] at (1, {exp(-1)}) {};
+                  % 拐点 (2, 2/e^2)
+                  \node[draw, circle, inner sep=1.5pt, fill=black, transform shape=false,
+                      label={[transform shape=false]right:$(2, 2/\mathrm{e}^2)$}] at (2, {2*exp(-2)}) {};
+                  % % 截距 (0, 0)
+                  % \node[draw, circle, inner sep=1.5pt, fill=black, transform shape=false, 
+                  %     label={[transform shape=false]below left:$(0, 0)$}] at (0, 0) {};
+
+              \end{tikzpicture}
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.5.11]
     设函数 $y = f(x)$ 所表示的曲线为 $C$. 记 $C$ 上一点 $M(x, y)$ 处的曲率为 $\kappa (\kappa \ne 0)$, 过点 $M$ 引曲线的法线, 在此法线上曲线上凸的一侧取点 $D$, 使 $|DM| = \frac{1}{\kappa} = \rho$. 以 $D$ 为圆心, $\rho$ 为半径作圆, 这个圆称为曲线在点 $M$ 处的曲率圆, 其圆心 $D$ 称为曲线在点 $M$ 处的曲率中心, 半径 $\rho$ 称为曲线在点 $M$ 处的曲率半径.
 
@@ -70,6 +378,21 @@
     \end{tasks}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item 设 $y = \frac{1}{x}$, 则 $y' = -\frac{1}{x^2}$, $y'' = \frac{2}{x^3}$. 在点 $(1, 1)$ 处, 有
+              $$\kappa = \frac{|y''|}{(1 + (y')^2)^{3/2}} = \frac{2}{(1 + 1)^{3/2}} = \frac{\sqrt{2}}{2},$$
+              $$\rho = \frac{1}{\kappa} = \sqrt{2}.$$
+              曲线在点 $(1, 1)$ 处的法线方程为 $y - 1 = x - 1$, 即 $y = x$. 因此, 曲率中心 $D$ 的坐标为
+              $$D\left(1 + \frac{\sqrt{2}}{2}, 1 + \frac{\sqrt{2}}{2}\right).$$
+        \item 设 $y = \mathrm{e}^{-x^2}$, 则 $y' = -2x \mathrm{e}^{-x^2}$, $y'' = (4x^2 - 2) \mathrm{e}^{-x^2}$. 在点 $(0, 1)$ 处, 有
+              $$\kappa = \frac{|y''|}{(1 + (y')^2)^{3/2}} = \frac{2}{(1 + 0)^{3/2}} = 2,$$
+              $$\rho = \frac{1}{\kappa} = \frac{1}{2}.$$
+              曲线在点 $(0, 1)$ 处的法线方程为 $y - 1 = 0$, 即 $y = 1$. 因此, 曲率中心 $D$ 的坐标为
+              $$D\left(0, 1 + \frac{1}{2}\right) = (0, \frac{3}{2}).$$
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.5.12]
     求下列曲线在指定点的曲率.
     \begin{tasks}(2)
@@ -78,12 +401,62 @@
     \end{tasks}
 \end{exercise}
 
+\begin{solution}
+    \begin{enumerate}
+        \item 对于参数方程 $\begin{cases} x = 3t^2 \\ y = 3t - t^3 \end{cases}$，参数方程曲线的曲率公式为：
+              $$\kappa = \frac{|x'y'' - y'x''|}{(x'^2 + y'^2)^{3/2}}$$
+
+              计算各阶导数：
+              $$x' = 6t, \quad x'' = 6$$
+              $$y' = 3 - 3t^2, \quad y'' = -6t$$
+
+              在 $t = 1$ 处：
+              $$x'(1) = 6, \quad x''(1) = 6$$
+              $$y'(1) = 3 - 3 = 0, \quad y''(1) = -6$$
+
+              因此曲率为：
+              $$\kappa = \frac{|6 \cdot (-6) - 0 \cdot 6|}{(6^2 + 0^2)^{3/2}} = \frac{|-36|}{6^3} = \frac{36}{216} = \frac{1}{6}$$
+
+        \item 对于参数方程 $\begin{cases} x = \cos t + t \sin t \\ y = \sin t - t \cos t \end{cases}$，计算各阶导数：
+              $$x' = -\sin t + \sin t + t \cos t = t \cos t$$
+              $$x'' = \cos t - t \sin t$$
+              $$y' = \cos t - \cos t + t \sin t = t \sin t$$
+              $$y'' = \sin t + t \cos t$$
+
+              在 $t = \frac{\pi}{2}$ 处：
+              $$x'\left(\frac{\pi}{2}\right) = \frac{\pi}{2} \cos\frac{\pi}{2} = 0$$
+              $$x''\left(\frac{\pi}{2}\right) = \cos\frac{\pi}{2} - \frac{\pi}{2}\sin\frac{\pi}{2} = 0 - \frac{\pi}{2} = -\frac{\pi}{2}$$
+              $$y'\left(\frac{\pi}{2}\right) = \frac{\pi}{2} \sin\frac{\pi}{2} = \frac{\pi}{2}$$
+              $$y''\left(\frac{\pi}{2}\right) = \sin\frac{\pi}{2} + \frac{\pi}{2}\cos\frac{\pi}{2} = 1 + 0 = 1$$
+
+              因此曲率为：
+              $$\kappa = \frac{\left|0 \cdot 1 - \frac{\pi}{2} \cdot \left(-\frac{\pi}{2}\right)\right|}{\left(0^2 + \left(\frac{\pi}{2}\right)^2\right)^{3/2}} = \frac{\left|\frac{\pi^2}{4}\right|}{\left(\frac{\pi^2}{4}\right)^{3/2}} = \frac{\frac{\pi^2}{4}}{\frac{\pi^3}{8}} = \frac{\pi^2}{4} \cdot \frac{8}{\pi^3} = \frac{2}{\pi}$$
+    \end{enumerate}
+\end{solution}
+
 \begin{exercise}[3.5.13]
     对数曲线 $y = \ln x$ 上哪一点的曲率半径最小? 并求出该点的曲率半径.
 \end{exercise}
 
+\begin{solution}
+    设 $y = \ln x$, 则 $y' = \frac{1}{x}$, $y'' = -\frac{1}{x^2}$. 曲率半径 $\rho$ 的表达式为
+    $$\rho = \frac{(1 + (y')^2)^{3/2}}{|y''|} = \frac{\left(1 + \frac{1}{x^2}\right)^{3/2}}{\frac{1}{x^2}} = \frac{(x^2 + 1)^{3/2}}{x}.$$
+    为了求出曲率半径的最小值, 只需求出函数 $g(x) = \frac{(x^2 + 1)^{3/2}}{x}$ 的最小值. 计算 $g'(x)$:
+    $$g'(x) = \frac{3x(x^2 + 1)^{1/2} \cdot x - (x^2 + 1)^{3/2}}{x^2} = \frac{(x^2 + 1)^{1/2}(3x^2 - (x^2 + 1))}{x^2} = \frac{(x^2 + 1)^{1/2}(2x^2 - 1)}{x^2}.$$
+    令 $g'(x) = 0$, 可得 $2x^2 - 1 = 0$, 即 $x = \frac{\sqrt{2}}{2}$. 当 $x > 0$ 时, $g'(x) < 0$ 当 $0 < x < \frac{\sqrt{2}}{2}$, 且 $g'(x) > 0$ 当 $x > \frac{\sqrt{2}}{2}$, 因此, 函数 $g(x)$ 在 $x = \frac{\sqrt{2}}{2}$ 处取得最小值. 此时的曲率半径为
+    $$\rho_{\min} = g\left(\frac{\sqrt{2}}{2}\right) = \frac{\left(\left(\frac{\sqrt{2}}{2}\right)^2 + 1\right)^{3/2}}{\frac{\sqrt{2}}{2}} = \frac{\left(\frac{1}{2} + 1\right)^{3/2}}{\frac{\sqrt{2}}{2}} = \frac{\left(\frac{3}{2}\right)^{3/2}}{\frac{\sqrt{2}}{2}} = \sqrt{6} \cdot \frac{3}{2} = \frac{3\sqrt{6}}{2}.$$
+\end{solution}
+
 \begin{exercise}[3.5.14]
     设函数 $f(x)$ 是定义在 $(-\infty, +\infty)$ 上的凸函数且有界, 求证: $f(x)$ 是常数.
 \end{exercise}
+
+\begin{solution}
+    反证法. 假设 $f(x)$ 不是常数, 则存在 $x,y \in (-\infty, +\infty)$,使得 $f(x) > f(y)$. 由凸函数的定义可知, 对任意 $t \in (0, 1)$, 有
+    $$f(x) \les \lambda f\left( \frac{x-(1-\lambda)y}{\lambda} \right) + (1 - \lambda) f(y), \quad \forall \lambda \in (0, 1).$$
+    因此$$\frac{f(x) - (1-\lambda)f(y)}{\lambda} \les f\left( \frac{x-(1-\lambda)y}{\lambda} \right).$$
+    由于$f(x)>f(y)$,$$\frac{f(x) - (1-\lambda)f(y)}{\lambda} = \frac{f(x) - f(y)}{\lambda} + f(y) \to +\infty, \quad \lambda \to 0^+.$$
+    所以当 $\lambda \to 0^+$ 时,$$f\left(\frac{x-(1-\lambda)y}{\lambda}\right) \to +\infty,$$与$f(x)$有界矛盾. 因此,$f(x)$是常数.
+\end{solution}
 
 \newpage
