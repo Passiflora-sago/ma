@@ -570,5 +570,54 @@
     $$ b_{n+1} = \frac{b_n}{1-\mathrm{e}^{-b_n}} - a, \quad n=1,2,\dots. $$
     问 $\{b_n\}$ 是否收敛? 若不收敛, 则给予证明, 若收敛, 则求极限.
 \end{exercise}
+\begin{solution}
+    我们记$f(x)=\frac{x}{1-\mathrm{e}^{-x}}-a,x>0$,
+    则有$$b_{n+1}=f(b_n),\quad n=1,2,\dots. $$
+    
+    得出$f'(x)=\frac{1-\mathrm{e}^{-x}-x\mathrm{e}^{-x}}{(1-\mathrm{e}^{-x})^2}$
+    \begin{align*}
+        \e^{x}\ges 1+x\quad\Rightarrow\quad
+        1\ges (1+x)\e^{-x}\quad\Rightarrow\quad
+        1-\mathrm{e}^{-x}-x\mathrm{e}^{-x}&\ges 0
+    \end{align*}
+
+    故$f'(x)\ges 0$.
+    $$b_{n+2}-b_{n+1}=f(b_{n+1})-f(b_n)=f'(\xi_n)\left(b_{n+2}-b_{n+1}\right).$$
+
+    据此可知,$\{b_n\}$是一个单调数列,增减性由$b_2-b_1$确定.
+
+    再设$g(x)=\begin{cases}
+        f(x)-x,&x>0\\
+        1-a,&x=0
+    \end{cases}$
+
+    化简得到$x>0$时,$g(x)=\frac{x}{1-\e^{-x}}-x-a=\frac{x\e^{-x}}{1-\e^{-x}}-a=\frac{x}{\e^x-1}-a$
+
+    $g'(x)=\frac{\e^x-1-x\e^x}{(\e^x-1)^2}$,
+
+    将$-x$替换$1-\mathrm{e}^{-x}-x\mathrm{e}^{-x}\ges 0$里的$x$可得到$1-\mathrm{e}^{x}+x\mathrm{e}^{x}\ges 0$,即$g'(x)\les 0$.
+    
+    可知$g(x)$在$x\ges0$处连续,递减.且由于$g(0)=1-a>0$,$g(1)=\frac{1}{1-\e^{-1}}-1-a<0$,故存在唯一的$c\in(0,1)$使得$g(c)=0$,即$f(c)=c$.
+
+    又由于
+    \begin{align*}
+        b_2-b_1 = f(b_1)-b_1
+        = g(b_1)
+        = \frac{b_1}{\e^{b_1}-1}-a
+        = \frac{1-a}{\e^{1-a}-1}-a
+        = \frac{1-a\e^{1-a}}{\e^{1-a}-1}
+    \end{align*}
+    将$a-1$替换$1-\mathrm{e}^{-x}-x\mathrm{e}^{-x}\ges 0$里的$x$可得到$1-\mathrm{e}^{1-a}-(a-1)\mathrm{e}^{1-a}=1-a\e^{1-a}\ges 0$,即$g(b_1)=b_2-b_1\ges 0$.
+
+    由上述分析可知$b_1<c ,$且$\{b_n\}$单调递增
+
+    并且$b_{n+1}-c=f(b_n)-f(c)=f'(\eta_n)\left(b_n-c\right)$
+
+    可知,$b_n<c$.
+
+    综上,$\{b_n\}$单调有界,故收敛.设$\lim\limits_{n\to\infty}b_n=b$,则
+    $$b=\lim\limits_{n\to\infty}b_{n+1}=\lim\limits_{n\to\infty}f(b_n)=f(b).$$
+    故$b=c$.
+\end{solution}
 
 \newpage
