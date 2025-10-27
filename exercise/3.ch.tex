@@ -274,25 +274,82 @@
     求 $\displaystyle \lim_{n \to \infty} \left(1 + \frac{1}{n^2}\right) \left(1 + \frac{2}{n^2}\right) \dots \left(1 + \frac{n}{n^2}\right)$.
 \end{exercise}
 
+\begin{solution}
+    \begin{align*}
+        & \lim_{n \to \infty} \left(1 + \frac{1}{n^2}\right) \left(1 + \frac{2}{n^2}\right) \dots \left(1 + \frac{n}{n^2}\right) \\
+     = &\lim_{n \to \infty} \prod_{k=1}^n \left(1 + \frac{k}{n^2}\right) = \lim_{n \to \infty} \exp\left(\sum_{k=1}^n \ln\left(1 + \frac{k}{n^2}\right)\right)          \\
+                                                                                                                                                =& \lim_{n \to \infty} \exp\left(\sum_{k=1}^n \left(\frac{k}{n^2} - \frac{k^2}{2 n^4} + o\left(\frac{k^2}{n^4}\right)\right)\right)                                   \\
+                                                                                                                                                 =& \lim_{n \to \infty} \exp\left(\frac{1}{n^2} \cdot \frac{n(n+1)}{2} - \frac{1}{2 n^4} \cdot \frac{n(n+1)(2n+1)}{6} + o\left(\frac{1}{n}\right)\right)        \\
+                                                                                                                                                =& \lim_{n \to \infty} \exp\left(\frac{1}{2} + \frac{1}{2 n} - \frac{2 n^2 + 3 n + 1}{12 n^3} + o\left(\frac{1}{n}\right)\right)                             \\
+                                                                                                                                                =& \e^{\frac{1}{2}}.
+    \end{align*}
+\end{solution}
+
+\begin{solution}
+    由$\ln(1+x) < x$,知
+    $$\lim_{n \to \infty} \left(1 + \frac{1}{n^2}\right) \left(1 + \frac{2}{n^2}\right) \dots \left(1 + \frac{n}{n^2}\right) \les \lim_{n \to \infty} \exp\left(\sum_{k=1}^n \frac{k}{n^2}\right) = \e^{\frac{1}{2}}.$$
+    由$\ln(1+x) > \frac{x}{1+x}$,知
+    $$\lim_{n \to \infty} \left(1 + \frac{1}{n^2}\right) \left(1 + \frac{2}{n^2}\right) \dots \left(1 + \frac{n}{n^2}\right) \ges \lim_{n \to \infty} \exp\left(\sum_{k=1}^n \frac{\frac{k}{n^2}}{1 + \frac{k}{n^2}}\right) \ges \lim_{n \to \infty} \exp\left(\sum_{k=1}^n \frac{k}{n^2 + n}\right) = \e^{\frac{1}{2}}.$$
+\end{solution}
+
 \begin{exercise}[3.C.16]
     求 $\sqrt[n]{n} (n=1, 2, \dots)$ 的最大值.
 \end{exercise}
 
+\begin{solution}
+    设函数$f(x) = \sqrt[x]{x} = \e^{\frac{\ln x}{x}}$,则
+    $$f'(x) = \e^{\frac{\ln x}{x}} \cdot \frac{1 - \ln x}{x^2}.$$
+    当$x = \e$时,$f'(x) = 0$,且$f'(x) > 0$当$x \in (0, \e)$, $f'(x) < 0$.故
+    $$\sqrt[n]{n} \ges  \begin{cases}
+        \sqrt[3]{3}, & n \ges 3, \\
+        \sqrt{2}, & n = 1, 2.
+    \end{cases}$$
+    又$\sqrt[3]{3} > \sqrt{2}$,故$\sqrt[n]{n}$的最大值为$\sqrt[3]{3}$,当$n = 3$时取到.
+\end{solution}
+
 \begin{exercise}[3.C.17]
-    试给出函数 $x \cos x$ 在 $[0, \frac{\pi}{2}]$ 上的一个尽可能小的上界.
+    试给出函数 $x \cos x$ 在 $\left[0, \frac{\pi}{2}\right]$ 上的一个尽可能小的上界.
 \end{exercise}
+
+\begin{solution}
+    $$0.5610963381910451$$
+\end{solution}
 
 \begin{exercise}[3.C.18]
     设函数 $f(x)$ 在闭区间 $[-1, 1]$ 上具有三阶连续导数, 且 $f(-1) = 0, f(1) = 1, f'(0) = 0$. 证明: 存在 $\xi \in (-1, 1)$, 使得 $f'''(\xi) = 3$.
 \end{exercise}
+
+\begin{solution}
+    由Taylor展开
+    $$f(1) = f(0) + f'(0) + \frac{f''(0)}{2} + \frac{f'''(\xi_1)}{6}, \quad \xi_1 \in (0, 1),$$
+    $$f(-1) = f(0) - f'(0) + \frac{f''(0)}{2} - \frac{f'''(\xi_2)}{6}, \quad \xi_2 \in (-1, 0).$$
+    整理得$f'''(\xi_1) + f'''(\xi_2) = 6$. 不妨设$f'''(\xi_1) \ges 3$,则存在$\xi \in (0, \xi_1) \subset (-1, 1)$,使得$f'''(\xi) = 3$.
+\end{solution}
 
 \begin{exercise}[3.C.19]
     设 $a > 1$, 函数 $f: (0, +\infty) \to (0, +\infty)$ 可微. 求证: 存在趋于无穷的正数列 $\{x_n\}$, 使得
     $$f'(x_n) < f(a x_n), \quad n=1, 2, \dots$$
 \end{exercise}
 
+\begin{solution}
+    反证法. 若不存在如此数列,则存在$M > 0$,使得当$x > M$时,$f'(x) \ges f(a x)$. 由Lagrange中值定理,对任意$x > M$,存在$\xi \in (x, a x)$,使得
+    $$f'( \xi) = \frac{f(a x) - f(x)}{(a - 1) x} \les \frac{f(a x)}{(a - 1) x}.$$
+    因为在$(M, +\infty)$上,$f'(x)>0$,因此$f'(\xi) \ges f(a \xi) \ges f(ax)$,另一方面取$x > \frac{1}{a-1}$有$f(ax) > \frac{f(ax)}{(a-1)x}$. 综上,当$x > \max\left\{M, \frac{1}{a-1}\right\}$时,$f'( \xi) < f(a x)$,矛盾.
+\end{solution}
+
 \begin{exercise}[3.C.20]
     利用凸函数的性质证明 Hölder (赫尔德) 不等式: 设 $a_i, b_i, i = 1, 2, \dots, n$ 是正数, $p, q$ 是大于 $1$ 的正数, 且 $\frac{1}{p} + \frac{1}{q} = 1$, 则有
     $$\sum_{i=1}^n a_i b_i \les \left(\sum_{i=1}^n a_i^p\right)^{\frac{1}{p}} \left(\sum_{i=1}^n b_i^q\right)^{\frac{1}{q}}.$$
     (提示: 考虑函数 $f(x) = x^p$.)
+
+\begin{solution}
+    由题设知$f(x) = x^p$为凸函数,由Jensen不等式,对任意正数$c_i$,有
+    $$f\left(\frac{\sum_{i=1}^n c_i x_i}{\sum_{i=1}^n c_i}\right) \les \frac{\sum_{i=1}^n c_i f(x_i)}{\sum_{i=1}^n c_i}.$$
+    取$c_i = b_i^q, x_i = \frac{a_i}{b_i}$,则
+    $$\left(\frac{\sum_{i=1}^n a_i b_i}{\sum_{i=1}^n b_i^q}\right)^p \les \frac{\sum_{i=1}^n b_i^q \left(\frac{a_i}{b_i}\right)^p}{\sum_{i=1}^n b_i^q} = \frac{\sum_{i=1}^n a_i^p b_i^{q - p}}{\sum_{i=1}^n b_i^q}.$$
+    整理得
+    $$\sum_{i=1}^n a_i b_i \les \left(\sum_{i=1}^n a_i^p b_i^{q - p}\right)^{\frac{1}{p}} \left(\sum_{i=1}^n b_i^q\right)^{\frac{1}{q}}.$$
+    因为$q - p = \frac{q}{p}$,所以
+    $$\sum_{i=1}^n a_i b_i \les \left(\sum_{i=1}^n a_i^p\right)^{\frac{1}{p}} \left(\sum_{i=1}^n b_i^q\right)^{\frac{1}{q}}.$$
+\end{solution}
 \end{exercise}
