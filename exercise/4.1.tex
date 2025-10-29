@@ -1,0 +1,688 @@
+\section{习题 4.1}
+
+\begin{exercise}[4.1.1]
+    求下列不定积分:
+    \begin{tasks}(2)
+        \task $\displaystyle \int x(x - 1)^3 \mathrm{d}x$;
+        \task $\displaystyle \int \frac{\mathrm{e}^{3x} + 1}{\mathrm{e}^x + 1} \mathrm{d}x$;
+        \task $\displaystyle \int (2^x + 3^x)^2 \mathrm{d}x$;
+        \task $\displaystyle \int \tan^2 x \mathrm{d}x$;
+        \task $\displaystyle \int \frac{x^2}{1 + x^2} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{1 + \cos^2 x}{1 + \cos 2x} \mathrm{d}x$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \begin{align*}
+                  \int x(x-1)^3 \dif x & = \int (x-1)^4 + (x-1)^3 \dif x                                 \\
+                                       & = \frac{(x-1)^5}{5} + \frac{(x-1)^4}{4} + C                     \\
+                                       & = \frac{1}{20}(x-1)^4 (4x+1) + C                                \\
+                                       & = \frac{1}{5} x^5 - \frac{3}{4} x^4 + x^3 - \frac{1}{2} x^2 + C
+              \end{align*}
+        \item \begin{align*}
+                  \int \frac{\e^{3x} + 1}{\e^x + 1} \dif x & = \int \frac{(\e^x + 1)(\e^{2x} - \e^x + 1)}{\e^x + 1} \dif x = \int \e^{2x} - \e^x + 1 \dif x \\
+                                                           & = \frac{1}{2} \e^{2x} - \e^x + x + C
+              \end{align*}
+        \item \begin{align*}
+                  \int (2^x + 3^x)^2 \dif x & = \int 2^{2x} + 2 \cdot 2^x 3^x + 3^{2x} \dif x                                 \\
+                                            & = \frac{1}{2 \ln 2} 2^{2x} + \frac{2}{\ln 6} 6^x + \frac{1}{2 \ln 3} 3^{2x} + C
+              \end{align*}
+        \item \begin{align*}
+                  \int \tan^2 x \dif x & = \int (\sec^2 x - 1) \dif x = \tan x - x + C
+              \end{align*}
+        \item \begin{align*}
+                  \int \frac{x^2}{1 + x^2} \dif x & = \int \left(1 - \frac{1}{1 + x^2}\right) \dif x = x - \arctan x + C
+              \end{align*}
+        \item \begin{align*}
+                  \int \frac{1 + \cos^2 x}{1 + \cos 2x} \dif x & = \int \frac{1 + \cos^2 x}{2 \cos^2 x} \dif x = \int \frac{1}{2} + \frac{1}{2} \sec^2 x \dif x \\
+                                                               & = \frac{x}{2} + \frac{1}{2} \tan x + C
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[4.1.2]
+    用第一代换法求下列不定积分:
+    \begin{tasks}(2)
+        \task $\displaystyle \int (2x - 1)^{100} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{1}{x^2} \sin \frac{1}{x} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{\cos x - \sin x}{1 + \sin x + \cos x} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{\arctan x}{1 + x^2} \mathrm{d}x$;
+        \task $\displaystyle \int x \sqrt{1 - x^2} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{1}{\sqrt{x}(1 + x)} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{\arctan \frac{1}{x}}{1 + x^2} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{1 + \ln x}{1 + x \ln x} \mathrm{d}x$;
+        \task $\displaystyle \int \sin^2 x \mathrm{d}x$;
+        \task $\displaystyle \int \sin^5 x \cos x \mathrm{d}x$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item $$\int (2x - 1)^{100} \dif x = \int (2x-1)^{100} \cdot \frac{1}{2} \cdot 2 \dif x = \int (2x-1)^{100} \cdot \frac{1}{2} \diff (2x-1) = \frac{(2x-1)^{101}}{202} + C.$$
+        \item $$\int \frac{1}{x^2} \sin \frac{1}{x} \dif x = \int \sin \frac{1}{x} \cdot (-1) \cdot \left(-\frac{1}{x^2}\right) \dif x = \int \sin \frac{1}{x} \cdot (-1) \diff \left(\frac{1}{x}\right) = \cos \frac{1}{x} + C.$$
+        \item $$\int \frac{\cos x - \sin x}{1 + \sin x + \cos x} \dif x = \int \frac{\diff (\sin x + \cos x)}{1 + \sin x + \cos x} = \ln |1 + \sin x + \cos x| + C.$$
+              %   \begin{remark}
+              %       在外国的教材中,结果可能会写为$\log(1+\sin x + \cos x)$,这可以理解为原式在复数域上积分的结果,因此表示为$\log(\cdots)$而不是$\log|\cdots|$.
+              %   \end{remark}
+        \item $$\int \frac{\arctan x}{1 + x^2} \dif x = \int \arctan x \dif \arctan x = \frac{1}{2} \arctan^2 x + C.$$
+        \item $$\int x \sqrt{1 - x^2} \dif x = \int \sqrt{1 - x^2} \cdot (-\frac{1}{2}) \cdot (-2x) \dif x = \int \sqrt{1 - x^2} \cdot (-\frac{1}{2}) \diff (1 - x^2) = \frac{1}{3} (1 - x^2)^{3/2} + C.$$
+        \item $$\int \frac{1}{\sqrt{x}(1 + x)} \dif x = \int \frac{1}{\sqrt{x}} \cdot \frac{1}{1 + x} \dif x = \int \frac{1}{1 + x} \cdot 2 \cdot \dif \sqrt{x} = 2 \arctan \sqrt{x} + C.$$
+        \item \begin{align*}
+                  \int \frac{\arctan \frac{1}{x}}{1 + x^2} \dif x & = \int \arctan \frac{1}{x} \cdot (-\frac{1}{x^2}) \cdot (-x^2) \cdot \frac{1}{1 + x^2} \dif x          \\
+                                                                  & = \int \arctan \frac{1}{x} \cdot \frac{1}{1+\left(\frac{1}{x}\right)^2} \diff \left(\frac{1}{x}\right) \\
+                                                                  & = \frac{1}{2} \arctan^2 \frac{1}{x} + C.                                                               \\
+                  \int \frac{\arctan \frac{1}{x}}{1 + x^2} \dif x & = \int \frac{\arccot x}{1 + x^2} \dif x = \int \arccot x \cdot (-1) \cdot \diff (\arccot x)            \\
+                                                                  & = -\frac{1}{2} \arccot^2 x + C.
+              \end{align*}
+        \item \begin{align*}
+                  \int \frac{1 + \ln x}{1 + x \ln x} \dif x & = \int \frac{1 + \ln x}{1 + x \ln x} \cdot \frac{1}{x} \cdot x \dif x  \\
+                                                            & = \int \frac{1 + \ln x}{1 + x \ln x} \cdot \frac{1}{x} \diff (x \ln x) \\
+                                                            & = \int \frac{1}{u} \diff u = \ln |1 + x \ln x| + C.
+              \end{align*}
+        \item $$\int \sin^2 x \dif x = \int \frac{1 - \cos 2x}{2} \dif x = \frac{x}{2} - \frac{1}{4} \sin 2x + C. = \frac{x}{2} - \frac{1}{2} \sin x \cos x + C.$$
+        \item $$\int \sin^5 x \cos x \dif x = \int \sin^5 x \diff (\sin x) = \frac{1}{6} \sin^6 x + C.$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[4.1.3]
+    用第二代换法求下列不定积分, 其中的 $a$ 均为正常数:
+    \begin{tasks}(2)
+        \task $\displaystyle \int \sqrt{\mathrm{e}^x - 2} \mathrm{d}x$;
+        \task $\displaystyle \int \sqrt{x^2 + a^2} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{1}{(x^2 - a^2)^{3/2}} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{x^2}{\sqrt{a^2 - x^2}} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{1}{1 + \sqrt{x+ 1} } \mathrm{d}x$;
+        \task $\displaystyle \int \frac{x \ln x}{(1 + x^2)^{3/2}} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{1 - \ln x}{(x - \ln x)^2} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{1}{x^2 \sqrt{x^2 + a^2}} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{x + 2}{\sqrt[3]{2x + 1}} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{x^{1/7} + x^{1/2}}{x^{8/7} + x^{1/14}} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{x - 1}{x^2 \sqrt{x^2 - 1}} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{1}{x^8 (1 + x^2)} \mathrm{d}x$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \begin{align*}
+                  \int \sqrt{\mathrm{e}^x - 2} \mathrm{d}x & \overset{x = \ln(t^2+2)}{=} \int \sqrt{t^2} \cdot \frac{2t}{t^2 + 2} \mathrm{d}t
+                  \overset{t>0}{=} \int \frac{2t^2}{t^2 + 2} \mathrm{d}t = \int \left(2 - \frac{4}{t^2 + 2}\right) \mathrm{d}t                \\
+                                                           & = 2t - 2\sqrt{2} \arctan \frac{t}{\sqrt{2}} + C
+                  \overset{t = \sqrt{\mathrm{e}^x - 2}}{=} 2\sqrt{\mathrm{e}^x - 2} - 2\sqrt{2} \arctan \frac{\sqrt{\mathrm{e}^x - 2}}{\sqrt{2}} + C.
+              \end{align*}
+        \item 令$t^2 = x^2 + a^2$,则$t = \sqrt{x^2 + a^2}>0$,对$t^2 = x^2 + a^2$两侧同时取微分,有$$t \dif t = x \dif x,$$因此\begin{align*}
+                  \int t \dif x & = \frac{1}{2} \int\left( t \dif x + x \dif t\right) + \frac{1}{2} \int \left( t \dif x - x \dif t\right) \\
+                                & = \frac{1}{2} \left( xt + a^2 \int \frac{\dif x}{t} \right)
+              \end{align*}
+              其中,$$\frac{\dif x}{t} = \frac{\dif t}{x} = \frac{\diff (x+t)}{x+t} \Rightarrow
+                  \int \frac{\dif x}{t} = \int \frac{\diff (x+t)}{x+t} = \ln |x+t| + C.$$
+              整理一下就是,
+              $$\int \sqrt{x^2 + a^2} \dif x = \int t \dif x = \frac{1}{2} \left( xt + a^2 \ln|x+t| + C\right) = \frac{x}{2} \sqrt{x^2 + a^2} + \frac{a^2}{2} \ln |x + \sqrt{x^2 + a^2}| + C.$$
+              \begin{remark}
+                  当然这道题有更简单的计算方式,但是我们仿照以上过程可以得到一个快速计算式:
+                  $$\int p \dif q = \frac{1}{2} \left(pq + c^2 \int \frac{\dif q}{p} \right), \quad \int \frac{\dif q}{p} = \begin{cases}
+                          \ln |p+q| + C,           & p^2 - q^2 = c^2; \\
+                          \arctan \frac{q}{p} + C, & p^2 + q^2 = c^2; \\
+                      \end{cases}$$
+              \end{remark}
+        \item[(2)]
+            \begin{align*}
+                \int \sqrt{x^2+a^2} \dif x & \overset{x = a \tan t}{=} \int a \sec t \cdot a \sec^2 t \dif t = a^2 \int \sec^3 t \dif t = \frac{a^2}{2} (\sec t \tan t + \ln |\sec t + \tan t|) + C                                \\
+                                           & \overset{\tan t = \frac{x}{a},\sec t = \frac{\sqrt{x^2 + a^2}}{a}}{=} \frac{1}{2} x \sqrt{x^2 + a^2} + \frac{a^2}{2} \ln \left| \frac{\sqrt{x^2 + a^2}}{a} + \frac{x}{a} \right| + C.
+            \end{align*}
+        \item[(2)]
+            \begin{align*}
+                \int \sqrt{x^2+a^2} \dif x & \overset{x = a \sinh t}{=} \int a \cosh t \cdot a \cosh t \dif t = a^2 \int \cosh^2 t \dif t = \frac{a^2}{2} (\sinh t \cosh t + t) + C                                                                   \\
+                                           & =\frac{1}{2} x \sqrt{x^2 + a^2} + \frac{a^2}{2} \operatorname{arcsinh} \frac{x}{a} + C = \frac{1}{2} x \sqrt{x^2 + a^2} + \frac{a^2}{2} \ln \left| \frac{x}{a} + \sqrt{\frac{x^2}{a^2} + 1} \right| + C.
+            \end{align*}
+            \begin{remark}
+                $\operatorname{arcsinh} x = \ln (x + \sqrt{x^2 + 1})$.
+            \end{remark}
+        \item \begin{align*}
+                  \int \frac{1}{(x^2 - a^2)^{3/2}} \mathrm{d}x & \overset{x = a \sec t}{=} \int \frac{a \sec t \tan t}{(a^2 \tan^2 t)^{3/2}} \mathrm{d}t = \frac{1}{a^2} \int \csc t \cot t \dif t = -\frac{1}{a^2} \csc t + C \\
+                                                               & \overset{\csc t = \frac{\sec t}{\sqrt{\sec^2 t - 1}} = \frac{x}{\sqrt{x^2 - a^2}}}{=} -\frac{x}{a^2 \sqrt{x^2 - a^2}} + C.
+              \end{align*}
+        \item \begin{align*}
+                  \int \frac{x^2}{\sqrt{a^2 - x^2}} \mathrm{d}x & \overset{x = a \sin t}{=} \int \frac{a^2 \sin^2 t}{a \cos t} \cdot a \cos t \mathrm{d}t = a^2 \int \sin^2 t \mathrm{d}t = a^2 \left( \frac{t}{2} - \frac{1}{2} \sin t \cos t \right) + C \\
+                                                                & \overset{\sin t = \frac{x}{a},\cos t = \frac{\sqrt{a^2 - x^2}}{a}}{=} \frac{a^2}{2} \arcsin \frac{x}{a} - \frac{x}{2} \sqrt{a^2 - x^2} + C.
+              \end{align*}
+        \item[(4)] 记$p = \sqrt{a^2 - x^2}, q = x$,则
+            \begin{align*}
+                \int \frac{q^2}{p} \dif q & = -\frac{1}{2} \left( \int p \dif q + q \dif p \right) + \frac{1}{2} \int \frac{p^2 + q^2}{p} \dif q               \\
+                                          & = -\frac{1}{2} pq + \frac{a^2}{2} \int \frac{\dif q}{p} = -\frac{1}{2} pq + \frac{a^2}{2} \arctan \frac{q}{p} + C. \\
+                                          & = -\frac{1}{2} x \sqrt{a^2 - x^2} + \frac{a^2}{2} \arctan \frac{x}{\sqrt{a^2 - x^2}} + C.
+            \end{align*}
+        \item \begin{align*}
+                  \int \frac{1}{1 + \sqrt{x+ 1} } \mathrm{d}x & \overset{t = \sqrt{x+1}}{=} \int \frac{2t}{1+t} \mathrm{d}t = \int \left(2 - \frac{2}{1+t}\right) \mathrm{d}t = 2t - 2 \ln |1+t| + C \\
+                                                              & \overset{t = \sqrt{x+1}}{=} 2\sqrt{x+1} - 2 \ln |1 + \sqrt{x+1}| + C.
+              \end{align*}
+        \item[(6)] \begin{align*}
+                \int \frac{x \ln x}{(1 + x^2)^{3/2}} \mathrm{d}x & = \left( 1 - \frac{1}{\sqrt{1 + x^2}} \right) \ln x + \left( \sqrt{1 + x^2} - 1 \right)
+            \end{align*}
+        \item % (6)
+              \begin{align*}
+                  \int \frac{x \ln x}{(1 + x^2)^{3/2}} \mathrm{d}x & = \int \ln x \diff\left(-\frac{1}{\sqrt{1 + x^2}}\right)                      \\
+                                                                   & = -\frac{\ln x}{\sqrt{1 + x^2}} - \int -\frac{1}{\sqrt{1 + x^2}} \diff(\ln x) \\
+                                                                   & = -\frac{\ln x}{\sqrt{1 + x^2}} + \int \frac{1}{x \sqrt{1 + x^2}} \mathrm{d}x
+              \end{align*}
+              对于 $I_1 = \int \frac{1}{x \sqrt{1 + x^2}} \mathrm{d}x$, 令 $t = 1/x$, 则 $\mathrm{d}x = -1/t^2 \mathrm{d}t$.
+              \begin{align*}
+                  I_1 & = \int \frac{1}{(1/t) \sqrt{1 + 1/t^2}} \diff\left(-\frac{1}{t^2}\right) = \int \frac{t}{\sqrt{(t^2+1)/t^2}} \left(-\frac{1}{t^2}\right) \mathrm{d}t \\
+                      & = -\int \frac{t^2}{t^2 \sqrt{t^2+1}} \mathrm{d}t = -\int \frac{1}{\sqrt{t^2+1}} \mathrm{d}t                                                          \\
+                      & = -\ln|t + \sqrt{t^2+1}| + C = -\ln\left|\frac{1}{x} + \sqrt{\frac{1}{x^2} + 1}\right| + C                                                           \\
+                      & = -\ln\left|\frac{1 + \sqrt{1 + x^2}}{x}\right| + C.
+              \end{align*}
+              所以, 原式 $= -\frac{\ln x}{\sqrt{1+x^2}} - \ln\left|\frac{1 + \sqrt{1 + x^2}}{x}\right| + C$.
+
+        \item % (7)
+              令 $t = \frac{\ln x}{x}$, 则 $\mathrm{d}t = \frac{(1/x) \cdot x - \ln x \cdot 1}{x^2} \mathrm{d}x = \frac{1 - \ln x}{x^2} \mathrm{d}x$.
+              \begin{align*}
+                  \int \frac{1 - \ln x}{(x - \ln x)^2} \mathrm{d}x & = \int \frac{1 - \ln x}{x^2 (1 - \frac{\ln x}{x})^2} \mathrm{d}x = \int \frac{1}{(1 - t)^2} \mathrm{d}t \\
+                                                                   & = \frac{1}{1 - t} + C = \frac{1}{1 - \frac{\ln x}{x}} + C = \frac{x}{x - \ln x} + C.
+              \end{align*}
+
+        \item % (8)
+              令 $x = a \tan t$, $\mathrm{d}x = a \sec^2 t \mathrm{d}t$.
+              \begin{align*}
+                  \int \frac{1}{x^2 \sqrt{x^2 + a^2}} \mathrm{d}x & = \int \frac{a \sec^2 t}{(a \tan t)^2 \sqrt{a^2 \tan^2 t + a^2}} \mathrm{d}t                                                 \\
+                                                                  & = \int \frac{a \sec^2 t}{a^2 \tan^2 t \cdot a \sec t} \mathrm{d}t = \frac{1}{a^2} \int \frac{\sec t}{\tan^2 t} \mathrm{d}t   \\
+                                                                  & = \frac{1}{a^2} \int \frac{1/\cos t}{\sin^2 t/\cos^2 t} \mathrm{d}t = \frac{1}{a^2} \int \frac{\cos t}{\sin^2 t} \mathrm{d}t \\
+                                                                  & = \frac{1}{a^2} \int \cot t \csc t \mathrm{d}t = -\frac{1}{a^2} \csc t + C                                                   \\
+                                                                  & \overset{\tan t = x/a}{=} -\frac{1}{a^2} \frac{\sqrt{x^2 + a^2}}{x} + C.
+              \end{align*}
+
+        \item % (9)
+              令 $t = \sqrt[3]{2x + 1}$, 则 $t^3 = 2x + 1$, $x = \frac{t^3 - 1}{2}$, $\mathrm{d}x = \frac{3t^2}{2} \mathrm{d}t$.
+              \begin{align*}
+                  \int \frac{x + 2}{\sqrt[3]{2x + 1}} \mathrm{d}x & = \int \frac{\frac{t^3 - 1}{2} + 2}{t} \cdot \frac{3t^2}{2} \mathrm{d}t = \int \frac{t^3 + 3}{2t} \cdot \frac{3t^2}{2} \mathrm{d}t \\
+                                                                  & = \frac{3}{4} \int (t^3 + 3) t \mathrm{d}t = \frac{3}{4} \int (t^4 + 3t) \mathrm{d}t                                               \\
+                                                                  & = \frac{3}{4} \left( \frac{t^5}{5} + \frac{3t^2}{2} \right) + C = \frac{3}{20} t^5 + \frac{9}{8} t^2 + C                           \\
+                                                                  & = \frac{3}{20} (2x+1)^{5/3} + \frac{9}{8} (2x+1)^{2/3} + C.
+              \end{align*}
+
+        \item % (10)
+              令 $t = x^{1/14}$, 则 $x = t^{14}$, $\mathrm{d}x = 14 t^{13} \mathrm{d}t$,$u = t^5 = x^{\frac{5}{14}}$.
+              \begin{align*}
+                  \int \frac{x^{1/7} + x^{1/2}}{x^{8/7} + x^{1/14}} \mathrm{d}x & = \int \frac{t^2 + t^7}{t^{16} + t} \cdot 14 t^{13} \mathrm{d}t = 14 \int \frac{t^{14}}{t^{10}-t^5+1} \dif t \\
+                  &=\frac{14}{5}\int \left( 1 + \frac{u - \frac{1}{2}}{\left(u - \frac{1}{2}\right)^2 + \frac{3}{4}} + \frac{\frac{1}{2}}{\left(u- \frac12\right)^2 + \frac{3}{4}} \right) \dif u \\
+                  &=\frac{14}{5} \left( u + \frac{1}{2} \ln \left| u^2 - u + 1 \right| + \frac{1}{\sqrt 3} \arctan \frac{2u - 1}{\sqrt 3} \right) + C \\
+                  &=\frac{14}{5} \left( x^{\frac{5}{14}} + \frac{1}{2} \ln \left| x^{\frac{10}{14}} - x^{\frac{5}{14}} + 1 \right| + \frac{1}{\sqrt 3} \arctan \frac{2x^{\frac{5}{14}} - 1}{\sqrt 3} \right) + C.
+              \end{align*}
+        \item % (11)
+              \begin{align*}
+                  \int \frac{x - 1}{x^2 \sqrt{x^2 - 1}} \mathrm{d}x & = \int \frac{x}{x^2 \sqrt{x^2 - 1}} \mathrm{d}x - \int \frac{1}{x^2 \sqrt{x^2 - 1}} \mathrm{d}x \\
+                                                                    & = \int \frac{1}{x \sqrt{x^2 - 1}} \mathrm{d}x - \int \frac{1}{x^2 \sqrt{x^2 - 1}} \mathrm{d}x
+              \end{align*}
+              对于 $I_1 = \int \frac{1}{x \sqrt{x^2 - 1}} \mathrm{d}x$, 令 $x = \sec t$, $\mathrm{d}x = \sec t \tan t \mathrm{d}t$.
+              $$ I_1 = \int \frac{\sec t \tan t}{\sec t \tan t} \mathrm{d}t = t + C_1 = \operatorname{arcsec} x + C_1. $$
+              对于 $I_2 = \int \frac{1}{x^2 \sqrt{x^2 - 1}} \mathrm{d}x$, 令 $x = \sec t$, $\mathrm{d}x = \sec t \tan t \mathrm{d}t$.
+              \begin{align*}
+                  I_2 & = \int \frac{\sec t \tan t}{\sec^2 t \tan t} \mathrm{d}t = \int \cos t \mathrm{d}t = \sin t + C_2 \\
+                      & \overset{\sec t = x}{=} \frac{\sqrt{x^2 - 1}}{x} + C_2.
+              \end{align*}
+              原式 $= I_1 - I_2 = \operatorname{arcsec} x - \frac{\sqrt{x^2 - 1}}{x} + C$.
+
+        \item % (12)
+              令 $t = 1/x$, $x = 1/t$, $\mathrm{d}x = -1/t^2 \mathrm{d}t$.
+              \begin{align*}
+                  \int \frac{1}{x^8 (1 + x^2)} \mathrm{d}x & = \int \frac{1}{(1/t)^8 (1 + 1/t^2)} \diff\left(-\frac{1}{t^2}\right) = \int \frac{t^8}{(t^2+1)/t^2} \left(-\frac{1}{t^2}\right) \mathrm{d}t \\
+                                                           & = -\int \frac{t^8}{t^2 + 1} \mathrm{d}t = -\int \frac{t^8 - 1 + 1}{t^2 + 1} \mathrm{d}t                                                      \\
+                                                           & = -\int \frac{(t^4 - 1)(t^4 + 1)}{t^2 + 1} \mathrm{d}t - \int \frac{1}{t^2 + 1} \mathrm{d}t                                                  \\
+                                                           & = -\int (t^2 - 1)(t^4 + 1) \mathrm{d}t - \arctan t + C                                                                                       \\
+                                                           & = -\int (t^6 - t^4 + t^2 - 1) \mathrm{d}t - \arctan t + C                                                                                    \\
+                                                           & = -\left( \frac{t^7}{7} - \frac{t^5}{5} + \frac{t^3}{3} - t \right) - \arctan t + C                                                          \\
+                                                           & = -\frac{1}{7x^7} + \frac{1}{5x^5} - \frac{1}{3x^3} + \frac{1}{x} - \arctan(1/x) + C.
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[4.1.4]
+    求下列不定积分:
+    \begin{tasks}(2)
+        \task $\displaystyle \int |x| \mathrm{d}x$;
+        \task $\displaystyle \int \max\{1, x^2\} \mathrm{d}x$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item $$\int |x| \dif x = \begin{cases}
+                      \frac{1}{2} x^2 + C,  & x \ges 0; \\
+                      -\frac{1}{2} x^2 + C, & x < 0.
+                  \end{cases}$$
+        \item $$\int \max\{1, x^2\} \dif x = \begin{cases}
+                      x - 1 + C ,                        & |x| \les 1; \\
+                      \frac{1}{3} x^3 - \frac{1}{3} + C, & |x| > 1.
+                  \end{cases}$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[4.1.5]
+    用分部积分法求下列不定积分:
+    \begin{tasks}(2)
+        \task $\displaystyle \int x \sin x \mathrm{d}x$;
+        \task $\displaystyle \int x^2 \ln x \mathrm{d}x$;
+        \task $\displaystyle \int \cos(\ln x) \mathrm{d}x$;
+        \task $\displaystyle \int x^2 \cos 5x \mathrm{d}x$;
+        \task $\displaystyle \int \sec^3 x \mathrm{d}x$;
+        \task $\displaystyle \int x^2 \mathrm{e}^x \mathrm{d}x$;
+        \task $\displaystyle \int x \arcsin x \mathrm{d}x$;
+        \task $\displaystyle \int x (\arctan x)^2 \mathrm{d}x$;
+        \task $\displaystyle \int (\arcsin x)^2 \mathrm{d}x$;
+        \task $\displaystyle \int \ln(x + \sqrt{x^2 + 1}) \mathrm{d}x$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \begin{align*}
+                  \int x \sin x \dif x & = \int x \diff (-\cos x) = -x \cos x + \int \cos x \dif x = -x \cos x + \sin x + C.
+              \end{align*}
+        \item \begin{align*}
+                  \int x^2 \ln x \dif x & = \int \ln x \diff \left( \frac{x^3}{3} \right) = \frac{x^3}{3} \ln x - \int \frac{x^3}{3} \cdot \frac{1}{x} \dif x = \frac{x^3}{3} \ln x - \frac{1}{9} x^3 + C.
+              \end{align*}
+
+        \item % (3)
+              \begin{align*}
+                  I & = \int \cos(\ln x) \dif x = x \cos(\ln x) - \int x \diff(\cos(\ln x))               \\
+                    & = x \cos(\ln x) - \int x \cdot (-\sin(\ln x)) \cdot \frac{1}{x} \dif x              \\
+                    & = x \cos(\ln x) + \int \sin(\ln x) \dif x                                           \\
+                    & = x \cos(\ln x) + \left( x \sin(\ln x) - \int x \diff(\sin(\ln x)) \right)          \\
+                    & = x \cos(\ln x) + x \sin(\ln x) - \int x \cdot \cos(\ln x) \cdot \frac{1}{x} \dif x \\
+                    & = x \cos(\ln x) + x \sin(\ln x) - I
+              \end{align*}
+              移项得 $2I = x(\cos(\ln x) + \sin(\ln x)) + C_1$,
+              $$ \implies I = \frac{x}{2}(\cos(\ln x) + \sin(\ln x)) + C $$
+
+        \item % (4)
+              \begin{align*}
+                  \int x^2 \cos 5x \dif x & = \int x^2 \diff\left(\frac{1}{5} \sin 5x \right)                                                               \\
+                                          & = \frac{1}{5} x^2 \sin 5x - \int \frac{1}{5} \sin 5x \diff(x^2)                                                 \\
+                                          & = \frac{1}{5} x^2 \sin 5x - \frac{2}{5} \int x \sin 5x \dif x                                                   \\
+                                          & = \frac{1}{5} x^2 \sin 5x - \frac{2}{5} \int x \diff\left(-\frac{1}{5} \cos 5x \right)                          \\
+                                          & = \frac{1}{5} x^2 \sin 5x - \frac{2}{5} \left[ -\frac{1}{5} x \cos 5x + \int \frac{1}{5} \cos 5x \dif x \right] \\
+                                          & = \frac{1}{5} x^2 \sin 5x + \frac{2}{25} x \cos 5x - \frac{2}{25} \int \cos 5x \dif x                           \\
+                                          & = \frac{1}{5} x^2 \sin 5x + \frac{2}{25} x \cos 5x - \frac{2}{125} \sin 5x + C
+              \end{align*}
+
+        \item % (5)
+              \begin{align*}
+                  I & = \int \sec^3 x \dif x = \int \sec x \cdot \sec^2 x \dif x = \int \sec x \diff(\tan x) \\
+                    & = \sec x \tan x - \int \tan x \diff(\sec x)                                            \\
+                    & = \sec x \tan x - \int \tan x (\sec x \tan x) \dif x                                   \\
+                    & = \sec x \tan x - \int \sec x (\sec^2 x - 1) \dif x                                    \\
+                    & = \sec x \tan x - \int \sec^3 x \dif x + \int \sec x \dif x                            \\
+                    & = \sec x \tan x - I + \ln|\sec x + \tan x|
+              \end{align*}
+              移项得 $2I = \sec x \tan x + \ln|\sec x + \tan x| + C_1$,
+              $$ \implies I = \frac{1}{2}(\sec x \tan x + \ln|\sec x + \tan x|) + C $$
+
+        \item % (6)
+              \begin{align*}
+                  \int x^2 \mathrm{e}^x \dif x & = \int x^2 \diff(\mathrm{e}^x)                                                                     \\
+                                               & = x^2 \mathrm{e}^x - \int \mathrm{e}^x \diff(x^2) = x^2 \mathrm{e}^x - \int 2x \mathrm{e}^x \dif x \\
+                                               & = x^2 \mathrm{e}^x - 2 \int x \diff(\mathrm{e}^x)                                                  \\
+                                               & = x^2 \mathrm{e}^x - 2 \left( x \mathrm{e}^x - \int \mathrm{e}^x \dif x \right)                    \\
+                                               & = x^2 \mathrm{e}^x - 2x \mathrm{e}^x + 2\mathrm{e}^x + C = (x^2 - 2x + 2)\mathrm{e}^x + C
+              \end{align*}
+
+        \item % (7)
+              \begin{align*}
+                  \int x \arcsin x \dif x & = \int \arcsin x \diff\left(\frac{x^2}{2}\right)                                                                                    \\
+                                          & = \frac{x^2}{2} \arcsin x - \int \frac{x^2}{2} \diff(\arcsin x)                                                                     \\
+                                          & = \frac{x^2}{2} \arcsin x - \frac{1}{2} \int \frac{x^2}{\sqrt{1 - x^2}} \dif x                                                      \\
+                                          & = \frac{x^2}{2} \arcsin x - \frac{1}{2} \int \frac{-(1 - x^2) + 1}{\sqrt{1 - x^2}} \dif x                                           \\
+                                          & = \frac{x^2}{2} \arcsin x + \frac{1}{2} \int \sqrt{1 - x^2} \dif x - \frac{1}{2} \int \frac{1}{\sqrt{1 - x^2}} \dif x               \\
+                                          & = \frac{x^2}{2} \arcsin x + \frac{1}{2} \left( \frac{x}{2}\sqrt{1 - x^2} + \frac{1}{2}\arcsin x \right) - \frac{1}{2} \arcsin x + C \\
+                                          & = \frac{2x^2 - 1}{4} \arcsin x + \frac{x}{4}\sqrt{1 - x^2} + C
+              \end{align*}
+
+        \item % (8)
+              \begin{align*}
+                  \int x (\arctan x)^2 \dif x & = \int (\arctan x)^2 \diff\left(\frac{x^2}{2}\right)                                                                       \\
+                                              & = \frac{x^2}{2} (\arctan x)^2 - \int \frac{x^2}{2} \diff((\arctan x)^2)                                                    \\
+                                              & = \frac{x^2}{2} (\arctan x)^2 - \int \frac{x^2}{2} \cdot 2 \arctan x \cdot \frac{1}{1+x^2} \dif x                          \\
+                                              & = \frac{x^2}{2} (\arctan x)^2 - \int \frac{(1+x^2) - 1}{1+x^2} \arctan x \dif x                                            \\
+                                              & = \frac{x^2}{2} (\arctan x)^2 - \int \arctan x \dif x + \int \frac{\arctan x}{1+x^2} \dif x                                \\
+                                              & = \frac{x^2}{2} (\arctan x)^2 - \left( x \arctan x - \int \frac{x}{1+x^2} \dif x \right) + \int \arctan x \diff(\arctan x) \\
+                                              & = \frac{x^2}{2} (\arctan x)^2 - x \arctan x + \frac{1}{2} \ln(1+x^2) + \frac{1}{2}(\arctan x)^2 + C                        \\
+                                              & = \frac{x^2 + 1}{2} (\arctan x)^2 - x \arctan x + \frac{1}{2} \ln(1+x^2) + C
+              \end{align*}
+
+        \item % (9)
+              \begin{align*}
+                  \int (\arcsin x)^2 \dif x & = x (\arcsin x)^2 - \int x \diff((\arcsin x)^2)                                                      \\
+                                            & = x (\arcsin x)^2 - \int x \cdot 2 \arcsin x \cdot \frac{1}{\sqrt{1-x^2}} \dif x                     \\
+                                            & = x (\arcsin x)^2 - \int \arcsin x \left( \frac{2x}{\sqrt{1-x^2}} \right) \dif x                     \\
+                                            & = x (\arcsin x)^2 - \int \arcsin x \diff(-2\sqrt{1-x^2})                                             \\
+                                            & = x (\arcsin x)^2 - \left[ -2\sqrt{1-x^2} \arcsin x - \int -2\sqrt{1-x^2} \diff(\arcsin x) \right]   \\
+                                            & = x (\arcsin x)^2 + 2\sqrt{1-x^2} \arcsin x - \int 2\sqrt{1-x^2} \cdot \frac{1}{\sqrt{1-x^2}} \dif x \\
+                                            & = x (\arcsin x)^2 + 2\sqrt{1-x^2} \arcsin x - 2x + C
+              \end{align*}
+
+        \item % (10)
+              \begin{align*}
+                  \int \ln(x + \sqrt{x^2 + 1}) \dif x & = x \ln(x + \sqrt{x^2 + 1}) - \int x \diff(\ln(x + \sqrt{x^2 + 1}))                  \\
+                                                      & = x \ln(x + \sqrt{x^2 + 1}) - \int x \cdot \frac{1}{\sqrt{x^2 + 1}} \dif x           \\
+                                                      & = x \ln(x + \sqrt{x^2 + 1}) - \int (x^2 + 1)^{-1/2} \cdot \frac{1}{2} \diff(x^2 + 1) \\
+                                                      & = x \ln(x + \sqrt{x^2 + 1}) - \sqrt{x^2 + 1} + C
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[4.1.6]
+    导出下列不定积分的递推公式:
+    \begin{tasks}(2)
+        \task $\displaystyle \int \sin^n x \mathrm{d}x \quad (n = 1, 2, \dots)$;
+        \task $\displaystyle \int x^n \mathrm{e}^x \mathrm{d}x \quad (n = 1, 2, \dots)$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 记$I_n = \int \sin^n x \dif x$,则
+              \begin{align*}
+                  I_n & = \int \sin^{n-1} x \cdot \sin x \dif x = \int \sin^{n-1} x \diff(-\cos x)           \\
+                      & = -\sin^{n-1} x \cos x + (n-1) \int \sin^{n-2} x \cos^2 x \dif x                     \\
+                      & = -\sin^{n-1} x \cos x + (n-1) \int \sin^{n-2} x (1 - \sin^2 x) \dif x               \\
+                      & = -\sin^{n-1} x \cos x + (n-1) \int \sin^{n-2} x \dif x - (n-1) \int \sin^n x \dif x \\
+                      & = -\sin^{n-1} x \cos x + (n-1) I_{n-2} - (n-1) I_n
+              \end{align*}
+              移项得 $n I_n = -\sin^{n-1} x \cos x + (n-1) I_{n-2} + C$,
+              $$\implies I_n = -\frac{1}{n} \sin^{n-1} x \cos x + \frac{n-1}{n} I_{n-2} + C.$$
+        \item 记$J_n = \int x^n \mathrm{e}^x \dif x$,则
+              \begin{align*}
+                  J_n & = \int x^n \diff(\mathrm{e}^x) = x^n \mathrm{e}^x - \int \mathrm{e}^x \diff(x^n)       \\
+                      & = x^n \mathrm{e}^x - n \int x^{n-1} \mathrm{e}^x \dif x = x^n \mathrm{e}^x - n J_{n-1}
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[4.1.7]
+    求下列不定积分:
+    \begin{tasks}(2)
+        \task $\displaystyle \int \frac{1}{1 + \mathrm{e}^x} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{x^2 - 1}{x^4 + x^2 + 1} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{1}{x^4 + x^6} \mathrm{d}x$;
+        \task $\displaystyle \int x \sqrt{x - 2} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{\sqrt{x - 1} \arctan \sqrt{x - 1}}{x} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{x \mathrm{e}^x}{\sqrt{\mathrm{e}^{x} - 2}} \mathrm{d}x$;
+        \task $\displaystyle \int x \mathrm{e}^x \sin x \mathrm{d}x$;
+        \task $\displaystyle \int \frac{1}{(1 + \tan x) \sin^2 x} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{\sqrt{1 - x}}{1 - \sqrt x} \mathrm{d}x$;
+        \task $\displaystyle \int \sqrt{\frac{x - 1}{x + 1}} \frac{1}{x^2} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{x \arctan x}{(1 + x^2)^3} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{x}{1 + \sin x} \mathrm{d}x$;
+        \task $\displaystyle \int \arcsin \sqrt{x} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{x + \sin x}{1 + \cos x} \mathrm{d}x$;
+        \task $\displaystyle \int x \sin^2 x \mathrm{d}x$;
+        \task $\displaystyle \int \frac{x^3}{\sqrt{1 + x^2}} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{\arctan x}{x^2 (1 + x^2)} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{\arctan \mathrm{e}^x}{\mathrm{e}^x} \mathrm{d}x$;
+        \task $\displaystyle \int \mathrm{e}^{2x} (1 + \tan x)^2 \mathrm{d}x$;
+        \task $\displaystyle \int \frac{x^2}{(x \sin x + \cos x)^2} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{\cos x \cos 2x}{\cos 3x} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{1}{\sqrt{x - 1} + \sqrt{x + 1}} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{1}{\sqrt{\sqrt{x}+1}} \mathrm{d}x$;
+        \task $\displaystyle \int \sqrt{\frac{x}{1 - x \sqrt{x}}} \mathrm{d}x$;
+        \task $\displaystyle \int \mathrm{e}^{-x^2/2} \frac{\cos x - 2x \sin x}{2 \sqrt{\sin x}} \mathrm{d}x$;
+        \task $\displaystyle \int \frac{x \mathrm{e}^x}{(1 + x)^2} \mathrm{d}x$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 令 $u = \mathrm{e}^x$, 则 $\mathrm{d}x = \frac{\mathrm{d}u}{u}$.
+              \begin{align*}
+                  \int \frac{1}{1 + \mathrm{e}^x} \mathrm{d}x & = \int \frac{1}{1 + u} \cdot \frac{1}{u} \mathrm{d}u = \int \left(\frac{1}{u} - \frac{1}{u + 1}\right) \mathrm{d}u \\
+                                                              & = \ln|u| - \ln|u + 1| + C                                                                                          \\
+                                                              & = \ln(\mathrm{e}^x) - \ln(1 + \mathrm{e}^x) + C = x - \ln(1 + \mathrm{e}^x) + C.
+              \end{align*}
+
+        \item \begin{align*}
+                  \int \frac{x^2 - 1}{x^4 + x^2 + 1} \mathrm{d}x & = \int \frac{1 - \frac{1}{x^2}}{x^2 + 1 + \frac{1}{x^2}} \mathrm{d}x \\
+                                                                 & = \int \frac{1 - \frac{1}{x^2}}{(x + \frac{1}{x})^2 - 1} \mathrm{d}x
+              \end{align*}
+              令 $u = x + \frac{1}{x}$, 则 $\mathrm{d}u = (1 - \frac{1}{x^2}) \mathrm{d}x$.
+              \begin{align*}
+                  \int \frac{1}{u^2 - 1} \mathrm{d}u & = \frac{1}{2} \ln\left|\frac{u - 1}{u + 1}\right| + C                                                                                                \\
+                                                     & = \frac{1}{2} \ln\left|\frac{x + \frac{1}{x} - 1}{x + \frac{1}{x} + 1}\right| + C = \frac{1}{2} \ln\left|\frac{x^2 - x + 1}{x^2 + x + 1}\right| + C.
+              \end{align*}
+
+        \item 令 $t = \frac{1}{x}$, 则 $x = \frac{1}{t}$, $\mathrm{d}x = -\frac{1}{t^2} \mathrm{d}t$.
+              \begin{align*}
+                  \int \frac{1}{x^4 (1 + x^2)} \mathrm{d}x & = \int \frac{1}{(\frac{1}{t})^4 (1 + \frac{1}{t^2})} \diff\left(-\frac{1}{t^2}\right)                                \\
+                                                           & = \int \frac{t^4}{\frac{t^2+1}{t^2}} \left(-\frac{1}{t^2}\right) \mathrm{d}t = -\int \frac{t^4}{t^2 + 1} \mathrm{d}t \\
+                                                           & = -\int \frac{(t^4 - 1) + 1}{t^2 + 1} \mathrm{d}t = -\int \left(t^2 - 1 + \frac{1}{t^2 + 1}\right) \mathrm{d}t       \\
+                                                           & = -\left( \frac{t^3}{3} - t + \arctan t \right) + C                                                                  \\
+                                                           & = -\frac{1}{3x^3} + \frac{1}{x} - \arctan\left(\frac{1}{x}\right) + C.
+              \end{align*}
+
+        \item 令 $t = \sqrt{x - 2}$, 则 $t^2 = x - 2$, $x = t^2 + 2$, $\mathrm{d}x = 2t \mathrm{d}t$.
+              \begin{align*}
+                  \int x \sqrt{x - 2} \mathrm{d}x & = \int (t^2 + 2) \cdot t \cdot (2t \mathrm{d}t) = 2 \int (t^4 + 2t^2) \mathrm{d}t                                                  \\
+                                                  & = 2 \left( \frac{t^5}{5} + \frac{2t^3}{3} \right) + C = \frac{2}{5} (x - 2)^{\frac{5}{2}} + \frac{4}{3} (x - 2)^{\frac{3}{2}} + C.
+              \end{align*}
+
+        \item 令 $t = \sqrt{x - 1}$, 则 $t^2 = x - 1$, $x = t^2 + 1$, $\mathrm{d}x = 2t \mathrm{d}t$.
+              \begin{align*}
+                  I & = \int \frac{t \arctan t}{t^2 + 1} (2t \mathrm{d}t) = 2 \int \frac{t^2}{t^2 + 1} \arctan t \mathrm{d}t \\
+                    & = 2 \int \frac{(t^2 + 1) - 1}{t^2 + 1} \arctan t \mathrm{d}t                                           \\
+                    & = 2 \int \arctan t \mathrm{d}t - 2 \int \frac{\arctan t}{1 + t^2} \mathrm{d}t                          \\
+                    & = 2t \arctan t - \ln(1 + t^2) - (\arctan t)^2 + C                                                      \\
+                    & = 2\sqrt{x - 1} \arctan \sqrt{x - 1} - \ln x - (\arctan \sqrt{x - 1})^2 + C.
+              \end{align*}
+
+        \item 令 $u = \mathrm{e}^x - 2$, 则 $u + 2 = \mathrm{e}^x$, 于是 $x = \ln(u + 2)$.
+              同时, $\mathrm{d}u = \mathrm{e}^x \mathrm{d}x$.
+              \begin{align*}
+                  \int \frac{x \mathrm{e}^x}{\sqrt{\mathrm{e}^{x} - 2}} \mathrm{d}x & = \int \frac{\ln(u + 2)}{\sqrt{u}} \mathrm{d}u       \\
+                                                                                    & = \int \ln(u + 2) \cdot u^{-\frac{1}{2}} \mathrm{d}u
+              \end{align*}
+              接下来使用分部积分法：
+              \begin{align*}
+                  \int \ln(u + 2) u^{-\frac{1}{2}} \mathrm{d}u & = 2\sqrt{u} \ln(u + 2) - \int \frac{1}{u + 2} \cdot 2\sqrt{u} \mathrm{d}u \\
+                                                               & = 2\sqrt{u} \ln(u + 2) - 2 \int \frac{\sqrt{u}}{u + 2} \mathrm{d}u
+              \end{align*}
+              对于 $I_2 = \int \frac{\sqrt{u}}{u + 2} \mathrm{d}u$, 令 $t = \sqrt{u}$, 则 $u = t^2$, $\mathrm{d}u = 2t \mathrm{d}t$.
+              \begin{align*}
+                  I_2 & = \int \frac{t}{t^2 + 2} \cdot (2t \mathrm{d}t) = \int \frac{2t^2}{t^2 + 2} \mathrm{d}t \\
+                      & = \int \frac{2(t^2 + 2) - 4}{t^2 + 2} \mathrm{d}t                                       \\
+                      & = \int \left( 2 - \frac{4}{t^2 + 2} \right) \mathrm{d}t                                 \\
+                      & = 2t - 4 \int \frac{1}{t^2 + (\sqrt{2})^2} \mathrm{d}t                                  \\
+                      & = 2t - 4 \cdot \frac{1}{\sqrt{2}} \arctan\left(\frac{t}{\sqrt{2}}\right) + C_1          \\
+                      & = 2\sqrt{u} - 2\sqrt{2} \arctan\left(\frac{\sqrt{u}}{\sqrt{2}}\right) + C_1
+              \end{align*}
+              将 $I_2$ 代回原式：
+              \begin{align*}
+                  I & = 2\sqrt{u} \ln(u + 2) - 2 \left[ 2\sqrt{u} - 2\sqrt{2} \arctan\left(\frac{\sqrt{u}}{\sqrt{2}}\right) \right] + C \\
+                    & = 2\sqrt{u} \ln(u + 2) - 4\sqrt{u} + 4\sqrt{2} \arctan\left(\frac{\sqrt{u}}{\sqrt{2}}\right) + C
+              \end{align*}
+              于是,
+              \begin{align*}
+                  I & = 2\sqrt{\mathrm{e}^x - 2} \ln(\mathrm{e}^x - 2 + 2) - 4\sqrt{\mathrm{e}^x - 2} + 4\sqrt{2} \arctan\left(\frac{\sqrt{\mathrm{e}^x - 2}}{\sqrt{2}}\right) + C \\
+                    & = 2x\sqrt{\mathrm{e}^x - 2} - 4\sqrt{\mathrm{e}^x - 2} + 4\sqrt{2} \arctan\left(\sqrt{\frac{\mathrm{e}^x - 2}{2}}\right) + C.
+              \end{align*}
+
+        \item \begin{align*}
+                  I & = \int (x \sin x) \mathrm{d}(\mathrm{e}^x)                                                                                                                                                     \\
+                    & = x \mathrm{e}^x \sin x - \int \mathrm{e}^x (x \cos x + \sin x) \mathrm{d}x                                                                                                                    \\
+                    & = x \mathrm{e}^x \sin x - \int x \mathrm{e}^x \cos x \mathrm{d}x - \int \mathrm{e}^x \sin x \mathrm{d}x                                                                                        \\
+                    & = x \mathrm{e}^x \sin x - \int (x \cos x) \mathrm{d}(\mathrm{e}^x) - \int \sin x \mathrm{d}(\mathrm{e}^x)                                                                                      \\
+                    & = x \mathrm{e}^x \sin x - \left[ x \mathrm{e}^x \cos x - \int \mathrm{e}^x (\cos x - x \sin x) \mathrm{d}x \right] - \left[ \mathrm{e}^x \sin x - \int \mathrm{e}^x \cos x \mathrm{d}x \right] \\
+                    & = (x-1)\mathrm{e}^x \sin x - x \mathrm{e}^x \cos x + 2 \int \mathrm{e}^x \cos x \mathrm{d}x - \int x \mathrm{e}^x \sin x \mathrm{d}x                                                           \\
+                  & = (x-1)\mathrm{e}^x \sin x - x \mathrm{e}^x \cos x + 2 \int \mathrm{e}^x \cos x \mathrm{d}x - I
+              \end{align*}
+              已知 $\int \mathrm{e}^x \cos x \mathrm{d}x = \frac{\mathrm{e}^x}{2}(\sin x + \cos x) + C'$.
+              \begin{align*}
+                  2I & = (x-1)\mathrm{e}^x \sin x - x \mathrm{e}^x \cos x + \mathrm{e}^x(\sin x + \cos x) + C_1 \\
+                  2I & = \mathrm{e}^x (x \sin x - x \cos x + \cos x) + C_1                                      \\
+                  I  & = \frac{\mathrm{e}^x}{2} (x (\sin x - \cos x) + \cos x) + C.
+              \end{align*}
+
+        \item 令 $u = 1 + \cot x$, 则 $\mathrm{d}u = -\csc^2 x \mathrm{d}x$.
+              \begin{align*}
+                  \int \frac{\csc^2 x}{1 + \tan x} \mathrm{d}x & = \int \frac{\csc^2 x}{1 + \frac{1}{\cot x}} \mathrm{d}x = \int \frac{\cot x \csc^2 x}{\cot x + 1} \mathrm{d}x \\
+                                                               & = \int \frac{u-1}{u} (-\mathrm{d}u) = \int \left(-1 + \frac{1}{u}\right) \mathrm{d}u                           \\
+                                                               & = - u +  \ln|u| + C =- (1 + \cot x) + \ln|1 + \cot x| + C.
+              \end{align*}
+
+        \item \begin{align*}
+                  \int \frac{\sqrt{1 - x}}{1 - \sqrt x} \mathrm{d}x & = \int \frac{\sqrt{1 - x}(1 + \sqrt x)}{(1 - \sqrt x)(1 + \sqrt x)} \mathrm{d}x   \\
+                                                                    & = \int \frac{1}{\sqrt{1-x}} \mathrm{d}x + \int \sqrt{\frac{x}{1 - x}} \mathrm{d}x \\
+              \end{align*}
+              其中$$\int \sqrt{\frac{x}{1 - x}} \mathrm{d}x = \int \sqrt{x} \diff (-\sqrt{1-x}) = -\sqrt{x} \sqrt{1-x} + 2 \arctan \left( \frac{\sqrt{x}}{\sqrt{1-x}-1} \right) + C_1,$$
+              因此$$\int \frac{\sqrt{1 - x}}{1 - \sqrt x} \mathrm{d}x = - (2 + \sqrt{x}) \sqrt{1 - x} + 2 \arctan \left( \frac{\sqrt{x}}{\sqrt{1-x}-1} \right) + C.$$
+              或者$$\int \frac{\sqrt{1 - x}}{1 - \sqrt x} \mathrm{d}x = - (2 + \sqrt{x}) \sqrt{1 - x} + \arcsin \sqrt{x} + C.$$
+        \item 令$x = \sec t$,
+        \begin{align*}
+         \int \sqrt{\frac{x - 1}{x + 1}} \frac{1}{x^2} \mathrm{d}x & = \int \sqrt{\frac{\sec t - 1}{\sec t + 1}} \cdot \cos^2 t \cdot \sec t \tan t \mathrm{d}t = \int 1 - \cos t \mathrm{d}t \\
+         & = t - \sin t + C = \operatorname{arcsec} x - \frac{\sqrt{x^2 - 1}}{x} + C \\
+         & = \arctan \sqrt{x^2 - 1} - \frac{\sqrt{x^2 - 1}}{x} + C.
+        \end{align*}
+        \item \begin{align*}
+                  I & = -\frac{\arctan x}{4(1 + x^2)^2} - \int -\frac{1}{4(1 + x^2)^2} \cdot \frac{1}{1 + x^2} \mathrm{d}x \\
+                    & = -\frac{\arctan x}{4(1 + x^2)^2} + \frac{1}{4} \int \frac{1}{(1 + x^2)^3} \mathrm{d}x
+              \end{align*}
+              $I_2 = \int \frac{1}{(1+x^2)^3} \mathrm{d}x$. 令 $x = \tan t$, $\mathrm{d}x = \sec^2 t \mathrm{d}t$.
+              \begin{align*}
+                  I_2 & = \int \frac{1}{(\sec^2 t)^3} \sec^2 t \mathrm{d}t = \int \cos^4 t \mathrm{d}t = \int \left(\frac{1 + \cos 2t}{2}\right)^2 \mathrm{d}t     \\
+                      & = \frac{1}{4} \int (1 + 2\cos 2t + \cos^2 2t) \mathrm{d}t = \frac{1}{4} \int \left(1 + 2\cos 2t + \frac{1 + \cos 4t}{2}\right) \mathrm{d}t \\
+                      & = \frac{1}{4} \left( \frac{3}{2}t + \sin 2t + \frac{1}{8} \sin 4t \right) + C_1                                                            \\
+                      & = \frac{3}{8}\arctan x + \frac{1}{4}\left(\frac{2x}{1+x^2}\right) + \frac{1}{32}\left(\frac{4x(1-x^2)}{(1+x^2)^2}\right) + C_1             \\
+                  I   & = -\frac{\arctan x}{4(1+x^2)^2} + \frac{1}{4} \left[ \frac{3}{8}\arctan x + \frac{x}{2(1+x^2)} + \frac{x(1-x^2)}{8(1+x^2)^2} \right] + C \\
+                      & = -\frac{\arctan x}{4(1+x^2)^2} + \frac{x(3x^2 + 5)}{32(1+x^2)^2} + \frac{3}{32} \arctan x + C
+              \end{align*}
+
+        \item \begin{align*}
+                  I & = \int \frac{x(1 - \sin x)}{1 - \sin^2 x} \mathrm{d}x = \int \frac{x - x \sin x}{\cos^2 x} \mathrm{d}x \\
+                    & = \int x \sec^2 x \mathrm{d}x - \int x \sec x \tan x \mathrm{d}x
+              \end{align*}
+              $I_1 = \int x \mathrm{d}(\tan x) = x \tan x - \int \tan x \mathrm{d}x = x \tan x - \ln|\sec x| + C_1$.
+              $I_2 = \int x \mathrm{d}(\sec x) = x \sec x - \int \sec x \mathrm{d}x = x \sec x - \ln|\sec x + \tan x| + C_2$.
+              \begin{align*}
+                  I & = I_1 - I_2 = (x \tan x - \ln|\sec x|) - (x \sec x - \ln|\sec x + \tan x|) + C \\
+                    & = x(\tan x - \sec x) + \ln\left|\frac{\sec x + \tan x}{\sec x}\right| + C      \\
+                    & = x\left(\frac{\sin x - 1}{\cos x}\right) + \ln|1 + \sin x| + C.
+              \end{align*}
+
+        \item 令 $t = \sqrt{x}$, 则 $x = t^2$, $\mathrm{d}x = 2t \mathrm{d}t$.
+              \begin{align*}
+                  I & = \int \arcsin t \cdot (2t \mathrm{d}t) = 2 \int t \arcsin t \mathrm{d}t                            \\
+                    & = 2 \left[ \frac{t^2}{2} \arcsin t - \int \frac{t^2}{2 \sqrt{1 - t^2}} \mathrm{d}t \right]          \\
+                    & = t^2 \arcsin t - \int \frac{-(1 - t^2) + 1}{\sqrt{1 - t^2}} \mathrm{d}t                            \\
+                    & = t^2 \arcsin t + \int \sqrt{1 - t^2} \mathrm{d}t - \int \frac{1}{\sqrt{1 - t^2}} \mathrm{d}t       \\
+                    & = t^2 \arcsin t + \left( \frac{t}{2} \sqrt{1 - t^2} + \frac{1}{2} \arcsin t \right) - \arcsin t + C \\
+                    & = \left(t^2 - \frac{1}{2}\right) \arcsin t + \frac{t}{2} \sqrt{1 - t^2} + C                         \\
+                    & = \frac{2x - 1}{2} \arcsin \sqrt{x} + \frac{1}{2} \sqrt{x(1 - x)} + C.
+              \end{align*}
+
+        \item \begin{align*}
+                  I   & = \int \frac{x}{1 + \cos x} \mathrm{d}x + \int \frac{\sin x}{1 + \cos x} \mathrm{d}x                               \\
+                  I_1 & = \int \frac{x}{2 \cos^2(\frac{x}{2})} \mathrm{d}x = \frac{1}{2} \int x \sec^2(\frac{x}{2}) \mathrm{d}x            \\
+                      & = \frac{1}{2} \left[ x (2 \tan(\frac{x}{2})) - \int 2 \tan(\frac{x}{2}) \mathrm{d}x \right]                        \\
+                      & = x \tan(\frac{x}{2}) - \int \tan(\frac{x}{2}) \mathrm{d}x = x \tan(\frac{x}{2}) - 2 \ln|\sec(\frac{x}{2})| + C_1.
+              \end{align*}
+              $I_2 = \int \frac{\sin x}{1 + \cos x} \mathrm{d}x$. 令 $u = 1 + \cos x$, $\mathrm{d}u = -\sin x \mathrm{d}x$.
+              \begin{align*}
+                  I_2 = \int \frac{1}{u} (-\mathrm{d}u) = -\ln|u| + C_2 = -\ln(1 + \cos x) + C_2.
+              \end{align*}
+              $I = I_1 + I_2 = x \tan(\frac{x}{2}) - 2 \ln|\sec(\frac{x}{2})| - \ln(2\cos^2(\frac{x}{2})) + C_3$
+              $$ = x \tan(\frac{x}{2}) - 2 \ln|\sec(\frac{x}{2})| - \ln 2 - 2 \ln|\cos(\frac{x}{2})| + C_3 = x \tan(\frac{x}{2}) + C. $$
+
+        \item \begin{align*}
+                  I   & = \int x \left(\frac{1 - \cos 2x}{2}\right) \mathrm{d}x = \frac{1}{2} \int x \mathrm{d}x - \frac{1}{2} \int x \cos 2x \mathrm{d}x \\
+                  I_1 & = \frac{1}{2} \frac{x^2}{2} = \frac{x^2}{4}.                                                                                      \\
+                  I_2 & = \frac{1}{2} \int x \diff\left(\frac{1}{2} \sin 2x\right) = \frac{1}{4} \left[ x \sin 2x - \int \sin 2x \mathrm{d}x \right]      \\
+                      & = \frac{1}{4} x \sin 2x - \frac{1}{4} \left(-\frac{1}{2} \cos 2x\right) + C' = \frac{1}{4} x \sin 2x + \frac{1}{8} \cos 2x + C'.
+              \end{align*}
+              $I = I_1 - I_2 = \frac{x^2}{4} - \frac{1}{4} x \sin 2x - \frac{1}{8} \cos 2x + C$.
+
+        \item 令 $u = 1 + x^2$, 则 $x^2 = u - 1$, $\mathrm{d}u = 2x \mathrm{d}x$.
+              \begin{align*}
+                  \int \frac{x^2 \cdot x}{\sqrt{1 + x^2}} \mathrm{d}x & = \int \frac{u - 1}{\sqrt{u}} \diff\left(\frac{1}{2}\right) = \frac{1}{2} \int (u^{\frac{1}{2}} - u^{-\frac{1}{2}}) \mathrm{d}u \\
+                                                                      & = \frac{1}{2} \left[ \frac{u^{\frac{3}{2}}}{\frac{3}{2}} - \frac{u^{\frac{1}{2}}}{\frac{1}{2}} \right] + C                      \\
+                                                                      & = \frac{1}{3} (1 + x^2)^{\frac{3}{2}} - (1 + x^2)^{\frac{1}{2}} + C.
+              \end{align*}
+
+        \item \begin{align*}
+                  I & = \arctan x \left(-\frac{1}{x} - \arctan x\right) - \int \left(-\frac{1}{x} - \arctan x\right) \frac{1}{1 + x^2} \mathrm{d}x \\
+                    & = -\frac{\arctan x}{x} - (\arctan x)^2 + \int \frac{1}{x(1 + x^2)} \mathrm{d}x + \int \frac{\arctan x}{1 + x^2} \mathrm{d}x
+              \end{align*}
+              $I_1 = \int \left(\frac{1}{x} - \frac{x}{1 + x^2}\right) \mathrm{d}x = \ln|x| - \frac{1}{2} \ln(1 + x^2) + C_1$.
+              $I_2 = \int \arctan x \mathrm{d}(\arctan x) = \frac{1}{2} (\arctan x)^2 + C_2$.
+              \begin{align*}
+                  I & = -\frac{\arctan x}{x} - (\arctan x)^2 + \left(\ln|x| - \frac{1}{2} \ln(1 + x^2)\right) + \frac{1}{2} (\arctan x)^2 + C \\
+                    & = -\frac{\arctan x}{x} - \frac{1}{2} (\arctan x)^2 + \ln|x| - \frac{1}{2} \ln(1 + x^2) + C.
+              \end{align*}
+
+        \item 令 $u = \mathrm{e}^x$, $\mathrm{d}u = \mathrm{e}^x \mathrm{d}x$.
+              \begin{align*}
+                  \int \frac{\arctan \e^x}{\e^x} \dif x &= \int \frac{\arctan u}{u^2} \dif u = \int \arctan u \diff\left(-\frac{1}{u}\right) \\
+                                                       & = -\frac{\arctan u}{u} + \int \frac{1}{u} \cdot \frac{1}{1 + u^2} \dif u\\
+                                                       &= - \frac{\arctan u}{u} + \ln \left| \frac{u}{\sqrt{1 + u^2}} \right| + C \\
+                                                       & = - \frac{\arctan \e^x}{\e^x} + \ln \left| \frac{\e^x}{\sqrt{1 + \e^{2x}}} \right| + C.
+              \end{align*}
+
+        \item \begin{align*}
+                  I & = \int \mathrm{e}^{2x} (1 + 2\tan x + \tan^2 x) \mathrm{d}x                                                              \\
+                    & = \int \mathrm{e}^{2x} (\sec^2 x + 2\tan x) \mathrm{d}x                                                                  \\
+                    & = \int \mathrm{e}^{2x} \sec^2 x \mathrm{d}x + \int 2 \mathrm{e}^{2x} \tan x \mathrm{d}x                                  \\
+                    & = \int \mathrm{e}^{2x} \mathrm{d}(\tan x) + \int 2 \mathrm{e}^{2x} \tan x \mathrm{d}x                                    \\
+                    & = \left[ \mathrm{e}^{2x} \tan x - \int \tan x \diff(\mathrm{e}^{2x}) \right] + \int 2 \mathrm{e}^{2x} \tan x \mathrm{d}x \\
+                    & = \mathrm{e}^{2x} \tan x - \int \tan x \cdot (2 \mathrm{e}^{2x}) \mathrm{d}x + \int 2 \mathrm{e}^{2x} \tan x \mathrm{d}x \\
+                    & = \mathrm{e}^{2x} \tan x + C.
+              \end{align*}
+
+        \item \begin{align*}
+                  \int \frac{x^2}{(x \sin x + \cos x)^2} \mathrm{d}x
+                   & = \int \frac{x}{\cos x} \cdot \frac{x \cos x}{(x \sin x + \cos x)^2} \mathrm{d}x                                                       \\
+                   & = \int \frac{x}{\cos x} \mathrm{d}\left(-\frac{1}{x \sin x + \cos x}\right)                                                            \\
+                   & = -\frac{x}{\cos x (x \sin x + \cos x)} - \int \left(-\frac{1}{x \sin x + \cos x}\right) \mathrm{d}\left(\frac{x}{\cos x}\right)       \\
+                   & = -\frac{x}{\cos x (x \sin x + \cos x)} + \int \frac{1}{x \sin x + \cos x} \left(\frac{\cos x + x \sin x}{\cos^2 x}\right) \mathrm{d}x \\
+                   & = -\frac{x}{\cos x (x \sin x + \cos x)} + \int \frac{1}{\cos^2 x} \mathrm{d}x                                                          \\
+                   & = -\frac{x}{\cos x (x \sin x + \cos x)} + \tan x + C                                                                                   \\
+                   & = \frac{\sin x - x \cos x}{x \sin x + \cos x} + C.
+              \end{align*}
+
+        \item \begin{align*}
+                  \int \cos x \cos 2x \cos 3x \mathrm{d}x & = \frac{1}{2} \int \cos^2 2x + \cos 2x \cos 4x \mathrm{d}x                               \\
+                                                          & = \frac{1}{4} \int 1 + \cos 2x + \cos 4x + \cos 6x \mathrm{d}x                           \\
+                                                          & = \frac{1}{4} x + \frac{1}{8} \sin 2x + \frac{1}{16} \sin 4x + \frac{1}{24} \sin 6x + C.
+              \end{align*}
+
+        \item \begin{align*}
+                  \int \frac{1}{\sqrt{x + 1} + \sqrt{x - 1}} \mathrm{d}x
+                   & = \int \frac{\sqrt{x + 1} - \sqrt{x - 1}}{(\sqrt{x + 1})^2 - (\sqrt{x - 1})^2} \mathrm{d}x                                            \\
+                   & = \int \frac{\sqrt{x + 1} - \sqrt{x - 1}}{(x + 1) - (x - 1)} \mathrm{d}x = \frac{1}{2} \int (\sqrt{x + 1} - \sqrt{x - 1}) \mathrm{d}x \\
+                   & = \frac{1}{2} \left[ \frac{(x + 1)^{\frac{3}{2}}}{\frac{3}{2}} - \frac{(x - 1)^{\frac{3}{2}}}{\frac{3}{2}} \right] + C                \\
+                   & = \frac{1}{3} (x + 1)^{\frac{3}{2}} - \frac{1}{3} (x - 1)^{\frac{3}{2}} + C.
+              \end{align*}
+
+        \item \begin{align*}
+                  \int \frac{1}{\sqrt{\sqrt{x} + 1}} \mathrm{d}x & = \int \frac{1}{\sqrt{t + 1}} \cdot 2t \mathrm{d}t \quad (t = \sqrt{x}, \mathrm{d}t = \frac{1}{2\sqrt{x}} \mathrm{d}x) \\
+                                                                 & = \frac{4}{3} (t-2) \sqrt{t + 1} + C                                                                                   \\
+                                                                 & = \frac{4}{3} (\sqrt{x} - 2) \sqrt{\sqrt{x} + 1} + C.
+              \end{align*}
+
+        \item \begin{align*}
+                  \int \sqrt{\frac{x}{1 - x \sqrt{x}}} \mathrm{d}x & = \frac{2}{3} \int \frac{1}{\sqrt{1 - x^{\frac{3}{2}}}} \mathrm{d}(x^{\frac{3}{2}})  = \frac{2}{3} (-2) \sqrt{1 - x^{\frac{3}{2}}} + C  = -\frac{4}{3} \sqrt{1 - x \sqrt{x}} + C.
+              \end{align*}
+
+        \item \begin{align*}
+                  \int \mathrm{e}^{-\frac{x^2}{2}} \frac{\cos x - 2x \sin x}{2 \sqrt{\sin x}} \mathrm{d}x & = \int \frac{\cos x - 2x \sin x}{(-x) \cdot 2 \sqrt{\sin x}} \mathrm{d}(\mathrm{e}^{-\frac{x^2}{2}})                                                                                                                                                          \\
+                                                                                                          & =- \int \frac{\cos x}{2 x \sqrt{\sin x}} \mathrm{d}(\mathrm{e}^{-\frac{x^2}{2}}) +\left(  \frac{2x \sin x}{2 x \sqrt{\sin x}} \e^{\mathrm{-\frac{x^2}{2}}} - \int \e^{\mathrm{-\frac{x^2}{2}}} \mathrm{d}\left( \frac{ \sin x}{\sqrt{\sin x}} \right) \right) \\
+                                                                                                          & = - \int \frac{\cos x}{2 x \sqrt{\sin x}} \mathrm{d}(\mathrm{e}^{-\frac{x^2}{2}}) + \e^{\mathrm{-\frac{x^2}{2}}} \sqrt{\sin x} - \int \e^{\mathrm{-\frac{x^2}{2}}} \mathrm{d}(\sqrt{\sin x})                                                                  \\
+                                                                                                          & = \e^{\mathrm{-\frac{x^2}{2}}} \sqrt{\sin x}
+              \end{align*}
+
+        \item \begin{align*}
+                  \int \frac{x \mathrm{e}^x}{(1 + x)^2} \mathrm{d}x & = -\frac{x \mathrm{e}^x}{1 + x} - \int \left(-\frac{1}{1 + x}\right) \mathrm{e}^x (1 + x) \mathrm{d}x               \\
+                                                                    & = -\frac{x \mathrm{e}^x}{1 + x} + \int \mathrm{e}^x \mathrm{d}x  = -\frac{x \mathrm{e}^x}{1 + x} + \mathrm{e}^x + C \\
+                                                                    & = \mathrm{e}^x \left( 1 - \frac{x}{1 + x} \right) + C  = \frac{\mathrm{e}^x}{1 + x} + C.
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\newpage

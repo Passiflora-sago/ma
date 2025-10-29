@@ -309,8 +309,8 @@
                   \draw[dashed, black, domain=\xmin:\xmax, samples=2] plot (\x, {\x + pi});
 
                   % --- 4. 绘制函数图像 (黑色实线) ---
-                  % 注意: \x 是 x 坐标。atan(\x) 在 PGF 中返回的是角度（degrees）。
-                  % 我们需要 rad() 将角度转为弧度（radians）来进行坐标计算。
+                  % 注意: \x 是 x 坐标.atan(\x) 在 PGF 中返回的是角度（degrees）.
+                  % 我们需要 rad() 将角度转为弧度（radians）来进行坐标计算.
                   \draw[domain=\xmin:\xmax, smooth, black, samples=100, variable=\x]
                   plot (\x, {\x - 2*rad(atan(\x))});
 
@@ -330,7 +330,7 @@
 
               \begin{tikzpicture}[thick,every node/.style={inner sep=2pt},
                   >={Stealth[width=3pt]},
-                  x=1.5cm, y=3cm] % y轴拉伸，以便更清晰地显示峰值
+                  x=1.5cm, y=3cm] % y轴拉伸,以便更清晰地显示峰值
 
                   % --- 1. 定义绘图区域并裁剪 ---
                   \def\xmin{-2}
@@ -403,7 +403,7 @@
 
 \begin{solution}
     \begin{enumerate}
-        \item 对于参数方程 $\begin{cases} x = 3t^2 \\ y = 3t - t^3 \end{cases}$，参数方程曲线的曲率公式为：
+        \item 对于参数方程 $\begin{cases} x = 3t^2 \\ y = 3t - t^3 \end{cases}$,参数方程曲线的曲率公式为：
               $$\kappa = \frac{|x'y'' - y'x''|}{(x'^2 + y'^2)^{3/2}}$$
 
               计算各阶导数：
@@ -417,7 +417,7 @@
               因此曲率为：
               $$\kappa = \frac{|6 \cdot (-6) - 0 \cdot 6|}{(6^2 + 0^2)^{3/2}} = \frac{|-36|}{6^3} = \frac{36}{216} = \frac{1}{6}$$
 
-        \item 对于参数方程 $\begin{cases} x = \cos t + t \sin t \\ y = \sin t - t \cos t \end{cases}$，计算各阶导数：
+        \item 对于参数方程 $\begin{cases} x = \cos t + t \sin t \\ y = \sin t - t \cos t \end{cases}$,计算各阶导数：
               $$x' = -\sin t + \sin t + t \cos t = t \cos t$$
               $$x'' = \cos t - t \sin t$$
               $$y' = \cos t - \cos t + t \sin t = t \sin t$$

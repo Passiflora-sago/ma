@@ -167,7 +167,7 @@
               \begin{enumerate}
                   \item 若$f'(x_0) = 0$,则$f^2(x_0) + f'(x_0) = 0$成立.
                   \item 若$f'(x_0) > 0 $,则存在$\delta > 0$,使得当$x \in (x_0 - \delta, x_0 + \delta)$时,$f'(x) > 0$,所以$f$在$(x_0 - \delta, x_0 + \delta)$上单调递增.又$f(x_0) = 0$,所以当$x \in (x_0 - \delta, x_0)$时,$f(x) < 0$.这与$x_0 = \inf\{x:f(x)=0\}$矛盾.
-                  \item 若$f'(x_0) < 0 $,再考虑$f(x)$在$[x_0,1]$上的极小值点$y_0<0$,有
+                  \item 若$f'(x_0) < 0 $,存在$f(x)$在$[x_0,1]$上的极小值点$y_0:f(y)<0$,则$f'(y_0) = 0$.因此
                         $$f^2(x_0) + f'(x_0) = f'(x_0) < 0,$$
                         $$f^2(y_0) + f'(y_0) = f^2(y_0) \ges 0.$$
                         \begin{remark}
@@ -285,7 +285,7 @@
     \end{align*}
 \end{solution}
 
-\begin{solution}
+\begin{solution}[另解]
     由$\ln(1+x) < x$,知
     $$\lim_{n \to \infty} \left(1 + \frac{1}{n^2}\right) \left(1 + \frac{2}{n^2}\right) \dots \left(1 + \frac{n}{n^2}\right) \les \lim_{n \to \infty} \exp\left(\sum_{k=1}^n \frac{k}{n^2}\right) = \e^{\frac{1}{2}}.$$
     由$\ln(1+x) > \frac{x}{1+x}$,知
