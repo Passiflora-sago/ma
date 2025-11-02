@@ -1,0 +1,160 @@
+\section{习题 5.3}
+
+\begin{exercise}[5.3.1]
+    求下列曲线弧的弧长.
+    \begin{tasks}(1)
+        \task 抛物线 $y = x^2$ 在 $x = -a$ 到 $x = a$ 之间的弧;
+        \task 星形线 $\begin{cases} x = a \cos^3 t, \\ y = a \sin^3 t \end{cases}$ ($0 \les t < 2\pi$, $a > 0$ 为常数);
+        \task Archimedes 螺线 $r = a\theta$ ($0 \les \theta \le 2\pi$).
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 假设$a > 0$,则
+              \begin{align*}
+                  l & = 2 \int_0^a \sqrt{1 + f'(x)^2} \mathrm{d}x                                                                       \\
+                    & = 2 \int_0^a \sqrt{1 + 4x^2} \mathrm{d}x                                                                          \\
+                    & = 2 \left( \frac{1}{2} x \sqrt{4x^2 + 1} + \frac{1}{4} \log \left( \sqrt{4x^2 + 1} + 2x \right) \right) \Big|_0^a \\
+                    & = a \sqrt{1 + 4a^2} + \frac{1}{2} \log \left( \sqrt{1 + 4a^2} + 2a \right)
+              \end{align*}
+        \item \begin{align*}
+                  l & = \int_0^{2\pi} \sqrt{x'(t)^2 + y'(t)^2} \mathrm{d}t                              \\
+                    & = \int_0^{2\pi} \sqrt{(-3 \cos^2 t \sin t)^2 + (3 \sin^2 t \cos t)^2} \mathrm{d}t \\
+                    & = \frac{3}{2} a \int_0^{2\pi} |\sin 2t| \mathrm{d}t                               \\
+                    & = 6a
+              \end{align*}
+        \item 假设$a > 0$,则
+              \begin{align*}
+                  l & = \int_0^{2\pi} \sqrt{r^2(\theta) + r'(\theta)^2} \mathrm{d}\theta                                                                      \\
+                    & = a \int_0^{2\pi} \sqrt{\theta^2 + 1} \mathrm{d}\theta                                                                                  \\
+                    & = a \left( \frac{1}{2} \theta \sqrt{\theta^2 + 1} + \frac{1}{2} \log \left( \theta + \sqrt{\theta^2 + 1} \right) \right) \Big|_0^{2\pi} \\
+                    & = \frac{1}{2} a \left( 2\pi \sqrt{1 + 4\pi^2} + \log \left( 2\pi + \sqrt{1 + 4\pi^2} \right) \right)
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.3.2]
+    计算下面的曲线所围成的平面图形的面积.
+    \begin{tasks}(1)
+        \task 双纽线 $r^2 = a^2 \cos 2\theta$ ($\displaystyle 0 \les \theta \les \frac{\pi}{4} \cup \left[\frac{3\pi}{4}, \frac{5\pi}{4}\right]$, $a$ 为正常数);
+        \task $\begin{cases} x = t - \sin t, \\ y = 1 - \cos t \end{cases}$ ($0 \les t \le 2\pi$) 及 $x$ 轴;
+        \task $y = \mathrm{e}^x, y = \mathrm{e}^{-x}$ 及 $x = 1$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item $$S = 4 \cdot \frac{1}{2} \int_0^{\frac{\pi}{4}} \frac{1}{2} r^2 \mathrm{d}\theta = \frac{a^2}{4} \int_0^{\frac{\pi}{4}} \cos 2\theta \mathrm{d}\theta = \frac{a^2}{8};$$
+        \item $$S = \int_0^{2\pi} |y'(t)| | \mathrm{d}x(t)|= \int_0^{2\pi} (1 + \cos t)^2 \mathrm{d}t = \pi;$$
+        \item $$S = \int_0^1 (\mathrm{e}^x - \mathrm{e}^{-x}) \mathrm{d}x = \mathrm{e} + \frac{1}{\mathrm{e}} - 2.$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.3.3]
+    计算下列旋转体的体积.
+    \begin{tasks}(1)
+        \task $y = \sin x$ ($0 \les x \les \pi$) 与 $x$ 轴围成的图形分别绕 $x$ 轴及 $y$ 轴旋转一周;
+        \task $y = \mathrm{e}^{x^2}$ ($0 \les x \le 1$) 与 $y$ 轴围成的图形绕 $y$ 轴旋转一周;
+        \task $\begin{cases} x = t - \sin t, \\ y = 1 - \cos t \end{cases}$ ($0 \les t \le 2\pi$) 与 $x$ 轴围成的图形绕 $x$ 轴旋转一周.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \begin{align*}
+                  V_x & = \int_0^\pi \pi y^2 \mathrm{d}x = \frac{1}{2}\pi^2
+              \end{align*}
+
+              $$V_y = \int_0^{\pi} 2 \pi x \sin x \mathrm{d}x = 2\pi^2;$$
+        \item $$V_y = \int_0^1 2\pi x \cdot \mathrm{e}^{x^2} \mathrm{d}x = \pi (\mathrm{e} - 1);$$
+        \item \begin{align*}
+                  V_x & = \int_0^{2\pi} \pi y^2(t) \mathrm{d}x(t) = \pi \int_0^{2\pi} (1 - \cos t)^3 \mathrm{d}t = 5\pi^2
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.3.4]
+    求证: 以 $R$ 为半径, 高为 $h$ 的球缺的体积为 $\displaystyle \pi h^2 \left(R - \frac{h}{3}\right)$.
+\end{exercise}
+
+\begin{solution}
+    \begin{align*}
+        V & = \int_0^h \pi (R^2 - (R - y)^2) \mathrm{d}y \\
+          & = \pi \int_0^h (2Ry - y^2) \mathrm{d}y       \\
+          & = \pi \left( R h^2 - \frac{h^3}{3} \right)
+    \end{align*}
+\end{solution}
+
+\begin{exercise}[5.3.5]
+    求下列曲线绕旋转一周后所得立体的侧面积.
+    \begin{tasks}(1)
+        \task $x^2 + y^2 = r^2$ 绕 $x$ 轴, 其中常数 $r > 0$;
+        \task $\displaystyle \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ 绕 $y$ 轴, 这里 $a > b > 0$;
+        \task $y = a \cosh x$ ($0 \les x \les a$) 绕 $x$ 轴;
+        \task $r = a(1 + \cos \theta)$ 绕极轴, $a > 0$.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 设$x = r \cos t, y = r \sin t (0 \les t \les \pi)$,则
+              \begin{align*}
+                  S & = \int_0^\pi 2\pi y(t) \sqrt{x'(t)^2 + y'(t)^2} \mathrm{d}t \\
+                    & = \int_0^\pi 2\pi r \sin t \cdot r \mathrm{d}t              \\
+                    & = 4\pi r^2
+              \end{align*}
+        \item $$S = \int_{-b}^{b} 2\pi x(y) \sqrt{1 + \left( \frac{\mathrm{d}x}{\mathrm{d}y} \right)^2} \mathrm{d}y = \int_{-b}^{b} 2\pi a \sqrt{1 - \frac{y^2}{b^2}} \cdot \frac{a}{b} \cdot \frac{b}{\sqrt{b^2 - y^2}} \mathrm{d}y = \frac{4\pi a^2 b}{b} = 4\pi a b;$$
+        \item \begin{align*}
+                  S & = \int_0^a 2\pi y \sqrt{1 + y'^2} \mathrm{d}x                                                        \\
+                    & = 2\pi \int_0^a a \cosh x \sqrt{1 + a^2 \sinh^2 x} \mathrm{d}x                                       \\
+                    & = 2\pi \int_0^a \sqrt{1 + a^2 \sinh^2 x} \, \mathrm{d}(a \sinh x)                                    \\
+                    & = \pi \left( s \sqrt{1 + s^2} + \log(s + \sqrt{1 + s^2}) \right) \Big|_0^{a \sinh a}                 \\
+                    & = \pi \left( a \sinh a \sqrt{1 + a^2 \sinh^2 a} + \log(a \sinh a + \sqrt{1 + a^2 \sinh^2 a}) \right)
+              \end{align*}
+        \item \begin{align*}
+                  S & = 2\pi \int_0^\pi a(1 + \cos \theta) \sin \theta \sqrt{(a(1 + \cos \theta))^2 + (-a \sin \theta)^2} \, \mathrm{d}\theta \\
+                    & = 2\pi \sqrt{2} a^2 \int_0^\pi (1 + \cos \theta)^{3/2} \sin \theta \, \mathrm{d}\theta                                  \\
+                    & = 2\pi \sqrt{2} a^2 \frac{2}{5} \left(1 + \cos \theta\right)^{5/2} \Big|_\pi^0                                          \\
+                    & = \frac{32}{5}\pi a^2
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.3.6]
+    半径为 $r$ 的球沉入水中, 与水面相切 (球的密度为 $1$), 现将球从水中捞出, 需做多少功?
+\end{exercise}
+
+\begin{solution}
+    设球心距水面高度为 $h (0 \les h \les 2r)$, 则球被提起 $\mathrm{d}h$ 时, 有 $\mathrm{d}W = \rho g V(h) \mathrm{d}h$, 其中 $V(h)$ 为球露出水面的体积, 则
+    \begin{align*}
+        V(h) & = \int_0^h \pi (r^2 - (r - y)^2) \mathrm{d}y \\
+             & = \pi \int_0^h (2ry - y^2) \mathrm{d}y       \\
+             & = \pi \left( r h^2 - \frac{h^3}{3} \right)
+    \end{align*}
+    所以
+    \begin{align*}
+        W & = \int_0^{2r} \rho g V(h) \mathrm{d}h                                     \\
+          & = \rho g \pi \int_0^{2r} \left( r h^2 - \frac{h^3}{3} \right) \mathrm{d}h \\
+          & = \rho g \pi \left( \frac{2}{3} r^4 - \frac{4}{12} r^4 \right)            \\
+          & = \frac{4}{3} \rho g \pi r^4
+    \end{align*}
+\end{solution}
+
+\begin{exercise}[5.3.7]
+    两条长为 $L$, 质量为 $m$ 的均匀细杆位于同一直线上, 两杆近端距离为 $l$, 求两杆之间的引力.
+\end{exercise}
+
+\begin{solution}
+    设两杆的线密度均为 $\lambda = \frac{m}{L}$, 记一杆位于$[0,L]$, 另一杆位于 $[L+l, 2L+l]$, 两杆微元长度 $\mathrm{d}x, \mathrm{d}y$ 之间的引力为
+    $$\mathrm{d}F = G \frac{\lambda \mathrm{d}x \cdot \lambda \mathrm{d}y}{(y - x)^2} = G \frac{m^2}{L^2} \frac{\mathrm{d}x \mathrm{d}y}{(y - x)^2},$$
+    则两杆之间的引力为
+    \begin{align*}
+        F & = \int_0^L \int_{L+l}^{2L+l} G \frac{m^2}{L^2} \frac{\mathrm{d}x \mathrm{d}y}{(y - x)^2} \\
+          & = G \frac{m^2}{L^2} \int_0^L \left( \frac{1}{L + l - x} - \frac{1}{2L + l - x} \right) \mathrm{d}x       \\
+          & = G \frac{m^2}{L^2} \left( \log\frac{L + l}{l} - \log\frac{2L + l}{L + l} \right)                     \\
+          & = G \frac{m^2}{L^2} \log\frac{(L + l)^2}{l(2L + l)}
+    \end{align*}
+\end{solution}
+
+\newpage

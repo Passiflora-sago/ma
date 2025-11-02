@@ -1,0 +1,749 @@
+\chapter{单变量函数的积分}
+
+\section{习题 5.1}
+
+\begin{exercise}[5.1.1]
+    指出下面的哪些函数在区间 $[0, 1]$ 上可积, 并说明理由.
+    \begin{tasks}(2)
+        \task $f(x) = \begin{cases} \frac{\sin x}{x}, & x \neq 0, \\ 1, & x = 0; \end{cases}$
+        \task $f(x) = \begin{cases} \sin \frac{1}{x}, & x \neq 0, \\ 1, & x = 0; \end{cases}$
+        \task $f(x) = \begin{cases} \left[ \frac{1}{x} \right], & 0 < x \les 1, \\ 0, & x = 0. \end{cases}$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 函数 $f(x)$ 在区间 $[0, 1]$ 上连续, 故可积.
+        \item 函数 $f(x)$ 在区间 $[0, 1]$ 上有界, 且只有一点间断, 故可积.
+        \item 函数 $f(x)$ 在区间 $[0, 1]$ 上无界, 故不可积.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.1.2]
+    证明: Dirichlet 函数在任意区间 $[a, b]$ 上不可积. (因此有界的函数未必可积.)
+\end{exercise}
+
+\begin{solution}
+    设 $f(x)$ 是 Dirichlet 函数, 即
+    $$ f(x) = \begin{cases} 1, & x \in \mathbb{Q}, \\ 0, & x \in \mathbb{R} \setminus \mathbb{Q}. \end{cases} $$
+    取区间 $[a, b]$ 上的任意一个分点集 $P = \{ x_0, x_1, \dots, x_n \}$, 则对每一个子区间 $[x_{i-1}, x_i]$ ($i = 1, 2, \dots, n$), 由于 $\mathbb{Q}$ 和 $\mathbb{R} \setminus \mathbb{Q}$ 在 $\mathbb{R}$ 上稠密, 故在该子区间内既有有理数也有无理数.
+    \begin{itemize}
+        \item 当$\xi_i \in [x_{i-1}, x_i]$ 为有理数时, $f(\xi_i) = 1$;
+              $$S_n(T) = \sum_{i=1}^n f(\xi_i) \Delta x_i = \sum_{i=1}^n 1 \cdot \Delta x_i = b - a;$$
+        \item 当$\eta_i \in [x_{i-1}, x_i]$ 为无理数时, $f(\eta_i) = 0$;
+              $$S_n(T) = \sum_{i=1}^n f(\eta_i) \Delta x_i = \sum_{i=1}^n 0 \cdot \Delta x_i = 0.$$
+              因此, 不同的取样点所对应的 Riemann 和可以取到不同的值, 即不存在$I$,使得 $\lim_{n \to \infty} S_n(T) = I.$
+    \end{itemize}
+
+\end{solution}
+
+\begin{exercise}[5.1.3]
+    举例说明, 一个函数的绝对值函数在 $[a, b]$ 上可积, 不能保证该函数在 $[a, b]$ 上可积. (提示: 适当的地修改 Dirichlet 函数可得出这样的例子. 比较习题 2.1 中第 5 题.)
+\end{exercise}
+
+\begin{solution}
+    设函数 $f(x)$ 如下定义:
+    $$ f(x) = \begin{cases} 1, & x \in \mathbb{Q}, \\ -1, & x \in \mathbb{R} \setminus \mathbb{Q}. \end{cases} $$
+    则 $|f(x)| = 1$ 在区间 $[a, b]$ 上连续, 故 $|f(x)|$ 在区间 $[a, b]$ 上可积. 但
+    $$S_n(T) = \sum_{i = 1}^n f(\xi_i) \Delta x_i = \begin{cases} b - a,    & \xi_i \in [x_i,x_{i+1}] \cap \Q                \\
+              -(b - a), & \xi_i \in [x_i,x_{i+1}] \cap (\R \setminus \Q)\end{cases} $$
+    即证明了 $f(x)$ 在区间 $[a, b]$ 上不可积.
+\end{solution}
+
+\begin{exercise}[5.1.4]
+    \begin{enumerate}[(1)]
+        \item 设可积函数 $f(x)$ 在 $[a, b]$ 上非负, 且在一点 $c$ 处连续 (这里 $a \les c \les b$), 若 $f(c) > 0$, 则 $\displaystyle \int_a^b f(x) \mathrm{d}x > 0$;
+        \item 证明: 若 $f$ 是区间 $[a, b]$ 上非负的连续函数, 且不恒为零, 则 $\displaystyle \int_a^b f(x) \mathrm{d}x > 0$;
+        \item 举例说明, 有这样的可积函数 $f$, 在区间 $[a, b]$ 上非负且不恒为零, 但 $f$ 在该区间上的积分为 0.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 由 $f(c) > 0$ 和 $f(x)$ 在 $c$ 处连续, 存在 $\delta > 0$, 使得当 $|x - c| < \delta$ 时, 有 $f(x) > \frac{f(c)}{2} > 0$. 取区间 $[c - \delta, c + \delta] \cap [a, b]$, 则
+              $$ \int_a^b f(x) \mathrm{d}x \ges \int_{c - \delta}^{c + \delta} f(x) \mathrm{d}x \ges \int_{c - \delta}^{c + \delta} \frac{f(c)}{2} \mathrm{d}x = f(c) \delta > 0. $$
+        \item 由 $f$ 在 $[a, b]$ 上不恒为零, 存在 $c \in [a, b]$, 使得 $f(c) > 0$. 由 (1) 可知 $\displaystyle \int_a^b f(x) \mathrm{d}x > 0$.
+        \item 函数 $f(x)$ 定义如下:
+              $$ f(x) = \begin{cases} 1  & a \les x \les \frac{a+b}{2} \\
+              -1 & \frac{a+b}{2} < x \les b\end{cases} $$
+              则 $f(x)$ 在区间 $[a, b]$ 上非负且不恒为零, 但$$\int_a^b f(x) \dif x = \int_a^{\frac{a+b}{2}} 1 \dif x + \int_{\frac{a+b}{2}}^b (-1) \dif x = 0.$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.1.5]
+    若函数 $f(x)$ 在 $[a, b]$ 上单调递增, 证明:
+    $$ (b-a)f(a) \les \int_a^b f(x) \mathrm{d}x \les (b-a)f(b). $$
+    若 $f(x)$ 在 $[a, b]$ 上单调递减, 应该有什么样的不等式?
+\end{exercise}
+
+\begin{solution}
+    $$f\int_a^b f(x) \dif x \les \int_a^b f(b) \dif x = (b-a)f(b).$$
+    $$\int_a^b f(x) \dif x \ges \int_a^b f(a) \dif x = (b-a)f(a).$$
+
+    若 $f(x)$ 在 $[a, b]$ 上单调递减,则
+    $$(b-a)f(b) \les \int_a^b f(x) \mathrm{d}x \les (b-a)f(a). $$
+\end{solution}
+
+\begin{exercise}[5.1.6]
+    证明下列不等式:
+    \begin{enumerate}[(1)]
+        \item $\displaystyle \int_0^{2\pi} |a \sin x + b \cos x| \mathrm{d}x \les 2\pi \sqrt{a^2 + b^2}$ ($a, b$ 为常数);
+        \item $\displaystyle \int_0^1 x^m (1 - x)^n \mathrm{d}x \les \frac{m^m n^n}{(m + n)^{m+n}}$ ($m > 0, n > 0$ 均为常数).
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item $$\int_0^{2\pi} |a \sin x + b \cos x| \mathrm{d}x \les \int_0^{2\pi} \sqrt{(a^2 + b^2)(\sin^2 x + \cos^2 x)} \mathrm{d}x = \int_0^{2\pi} \sqrt{a^2 + b^2} \mathrm{d}x = 2\pi \sqrt{a^2 + b^2}.$$
+
+        \item 对 $f(x) = x^m (1-x)^n$ 求导:
+              $$f'(x) = m x^{m-1} (1-x)^n - n x^m (1-x)^{n-1} = x^{m-1} (1-x)^{n-1} [m(1-x) - nx].$$
+
+              令 $f'(x) = 0$, 得到 $m(1-x) = nx$, 即 $x = \frac{m}{m+n}$.
+
+              在这点处, $f\left(\frac{m}{m+n}\right) = \left(\frac{m}{m+n}\right)^m \left(\frac{n}{m+n}\right)^n = \frac{m^m n^n}{(m+n)^{m+n}}$.
+
+              由于 $f(0) = f(1) = 0$, 且 $f(x) \ges 0$ 在 $[0,1]$ 上, 所以 $\frac{m^m n^n}{(m+n)^{m+n}}$ 是 $f(x)$ 在 $[0,1]$ 上的最大值.
+
+              因此
+              $$\int_0^1 x^m (1-x)^n \mathrm{d}x \les \int_0^1 \frac{m^m n^n}{(m+n)^{m+n}} \mathrm{d}x = \frac{m^m n^n}{(m+n)^{m+n}}.$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.1.7]
+    \begin{enumerate}[(1)]
+        \item 证明: 积分中值定理中的 $\xi$ 值, 可取在区间 $[a, b]$ 内部;
+
+              (提示: 由该定理的证明可见, 只要指出当 $f$ 的最大值 $M$ 或最小值 $m$ 在区间端点取得, 且等于 $\displaystyle \frac{1}{b-a} \int_a^b f(x) \mathrm{d}x$ 时, 结论成立.)
+
+        \item 举例说明, 积分中值定理中连续性的条件是必需的.
+
+              (提示: 在 $[-1, 1]$ 上, $f(x) = x$ 的积分为 $0$; 而改变 $f(x)$ 在某个点处的值, 不改变积分值.)
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 反证法:若积分中值定理仅在边界,不妨设为点$a$处取到,则$\int_a^b f(x) \dif x = f(a) \neq f(x), \forall x \in (a,b)$.
+
+              不妨假设$f(x) > f(a) \Rightarrow f(x) - f(a) > 0 $,则由习题 5.1.4 可得
+              $$\int_a^b (f(x) - f(a)) \dif x > 0 \Rightarrow \int_a^b f(x) \dif x > \int_a^b f(a) \dif x = (b-a)f(a),$$
+              矛盾.
+        \item 函数 $f(x)$ 定义如下:
+              $$ f(x) = \begin{cases} 1  & a \les x \les \frac{a+b}{2} \\
+              -1 & \frac{a+b}{2} < x \les b\end{cases} $$
+              则 $f(x)$ 在区间 $[a, b]$ 上非负且不恒为零, 但$$\int_a^b f(x) \dif x = \int_a^{\frac{a+b}{2}} 1 \dif x + \int_{\frac{a+b}{2}}^b (-1) \dif x = 0.$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.1.8]
+    设 $f(x)$ 是区间 $[a, b]$ 上的连续函数. 证明: 若 $\displaystyle \int_a^b f(x) \mathrm{d}x = 0$, 则 $f(x)$ 在 $(a, b)$ 中至少有一个零点. (因此, 由函数的积分这一整体信息, 能够推断函数值的某些性质.)
+\end{exercise}
+
+\begin{solution}
+    反证法:若$f(x) \neq 0, \forall x \in (a,b)$,则$f(x)$在$(a,b)$上恒为正或恒为负.不妨设$f(x) > 0, \forall x \in (a,b)$.
+
+    由习题 5.1.4 可得
+    $$\int_a^b f(x) \dif x > 0,$$
+    矛盾.
+\end{solution}
+
+\begin{exercise}[5.1.9]
+    \begin{enumerate}[(1)]
+        \item 设函数 $f(x)$ 在 $[a, b]$ 上连续, 而 $g(x)$ 在 $[a, b]$ 上可积且非负 (或非正) 的, 证明:
+
+              存在 $\xi \in [a, b]$, 使得
+              $$ \int_a^b f(x) g(x) \mathrm{d}x = f(\xi) \int_a^b g(x) \mathrm{d}x $$
+
+              (提示: 与积分中值定理类似地证明.)
+
+              \textbf{注} (1) 中的结果也称为积分中值定理的加权推广. 这种加权的积分中值定理也提供了估计积分的一个手段: 当 $\displaystyle \int_a^b \varphi(x) \mathrm{d}x$ 不易计算时, 可试着将 $\varphi(x)$ 写成 $f(x) g(x)$, 其中 $f(x)$ 和 $g(x)$ 满足上面 (1) 中的条件, 且使得 $\displaystyle \int_a^b g(x) \mathrm{d}x$ 易于计算. 由此导出
+              $$ m \int_a^b g(x) \mathrm{d}x \les \int_a^b \varphi(x) \mathrm{d}x \les M \int_a^b g(x) \mathrm{d}x, $$
+              这里 $M, m$ 分别是 $f(x)$ 在 $[a, b]$ 上的最大值及最小值. 易见, $\displaystyle \int_a^b \varphi(x) \mathrm{d}x$ 这一上、下界估计, 优于直接用定理 5.11 所得的结果.
+
+        \item 举例说明, (1) 中对于函数 $g(x)$ 的假设是必需的. (提示: 在 $[-1, 1]$ 上, 取 $f(x) = g(x) = x$.)
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item
+              在证明积分中值定理前我们先证明一个引理:
+
+              \begin{lemma}
+                  设 $f \in R[a, b]$,且 $I = \int_{a}^{b} f(x) \, dx > 0$,则有子区间 $[c, d] \subset [a, b]$ 和 $\mu > 0$,使在区间 $[c, d]$ 上成立 $f(x) \ges \mu$.
+              \end{lemma}
+
+              \begin{proof}证 1
+
+                  从积分定义可知,存在 $[a, b]$ 的一个分划 $P = \{x_0, x_1, \cdots, x_n\}$,使得对从属于 $P$ 的任何介点集 $\xi$,成立
+                  $$\sum_{i=1}^{n} f(\xi_i) \Delta x_i > \frac{I}{2} > 0.$$
+
+                  记 $m_i = \inf_{x \in [x_{i-1}, x_i]} f(x), i = 1, 2, \cdots, n$,并对于上面的和式取下确界,就得到
+                  $$\sum_{i=1}^{n} m_i \Delta x_i \ges \frac{I}{2} > 0.$$
+
+                  显然在和式中至少有一项大于 0.设这一项是第 $k$ 项,则就可取 $\mu = m_k, [c, d] = [x_{k-1}, x_k]$.
+              \end{proof}
+
+              \begin{proof}证 2
+
+                  用反证法.若结论不成立,则（由对偶法则）对于每个 $\mu > 0$ 和每个子区间 $[c, d]$,存在 $\xi \in [c, d]$,满足 $f(\xi) < \mu$.在 $f$ 的 Riemann 和式中对于任何分划都取满足这个要求的介点集,这样就得到
+                  $$\int_{a}^{b} f(x) \, dx \les \mu (b-a).$$
+                  由于 $\mu > 0$ 是任意的,因此只能得到
+                  $$\int_{a}^{b} f(x) \, dx \les 0,$$
+                  与条件矛盾.
+              \end{proof}
+
+              这里加强,证明$\xi \in (a,b)$.
+
+              \begin{proof}
+                  下列三种情况是平凡的,不需要多加讨论：
+
+                  (1) 如果积分 $\int_a^b g(x)dx = 0$,则积分第一中值定理可以通过不等式左边也等于 $0$,于是 $\xi$ 可取,结论已成立.
+
+                  (2) 如果 $f$ 在 $[a,b]$ 的最小值和最大值相等,即 $m = M$,则 $f$ 为常值函数,因此 $\xi$ 也可取.
+
+                  (3) 如果 $m < M$,且 $\eta \in (m,M)$ 时,连续函数的介值性可知存在 $\xi \in (a,b)$,使得 $f(\xi) = \eta$.
+
+                  要讨论的只是以上三种情况之外的问题.不妨设 $g$ 在区间 $[a,b]$ 上非负,且有
+                  $\int_a^b g(x)dx > 0.$
+                  又由于 $f(x)-m$ 和 $g(x)$ 在 $[a,b]$ 上均非负,因此得到
+                  $$
+                      0 = \int_a^b (f(x) - m)g(x)dx \ges \int_c^d (f(x) - m)dx > 0,
+                  $$
+                  可以上式右边的积分仍等于 $0$.由于 $f \in C[c,d]$,这只能导致在区间 $[c,d]$ 上成立
+                  $f(x) \equiv m.$
+
+                  因此在 $c, d \in (a,b)$ 中任取一点作为中值点即可.
+              \end{proof}
+
+        \item 设 $f(x) = x$, $g(x) = x$, 则
+              $$ \int_{-1}^1 f(x) g(x) \mathrm{d}x = \int_{-1}^1 x^2 \mathrm{d}x = \frac{2}{3}, $$
+              但对于任意 $\xi \in [-1, 1]$, 有
+              $$ f(\xi) \int_{-1}^1 g(x) \mathrm{d}x = \xi \int_{-1}^1 x \mathrm{d}x = 0. $$
+              因此不存在 $\xi \in [-1, 1]$, 使得
+              $$ \int_{-1}^1 f(x) g(x) \mathrm{d}x = f(\xi) \int_{-1}^1 g(x) \mathrm{d}x. $$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.1.10]
+    举例说明: 在定理 5.13 中, 函数 $f(x)$ 在 $x=c$ 处连续, 不是 $F(x) = \displaystyle \int_a^x f(t) \mathrm{d}t$ 在 $x=c$ 处可导的必要条件.
+\end{exercise}
+
+\begin{solution}
+    设函数 $f(x)$ 如下定义:
+    $$ f(x) = \begin{cases} 0, & x \neq 0, \\ 1, & x = 0. \end{cases} $$
+    则 $f(x)$ 在 $x=0$ 处连续, 但
+    $$ F(x) = \int_0^x f(t) \mathrm{d}t = 0, $$
+    故 $F(x)$ 在 $x=0$ 处可导, 且 $F'(0) = 0$.
+\end{solution}
+
+\begin{exercise}[5.1.11]
+    求下列函数的导数.
+    \begin{tasks}(2)
+        \task $f(x) = \displaystyle \int_0^x \sin t^2 \mathrm{d}t;$
+        \task $f(x) = \displaystyle \int_0^{\frac{1}{x}} \frac{1}{1 + t^2 + \cos^2 t} \mathrm{d}t;$
+        \task $f(x) = \displaystyle \int_0^{x^2} \e^{-t^2} \mathrm{d}t;$
+        \task $f(x) = \displaystyle \sin \left( \int_0^x \sin \left( \int_0^y \sin t^2 \mathrm{d}t \right) \mathrm{d}y \right).$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \begin{align*}
+                  f'(x) & = \frac{\mathrm{d}}{\mathrm{d}x} \int_0^x \sin t^2 \mathrm{d}t =  \sin x^2.
+              \end{align*}
+        \item \begin{align*}
+                  f'(x) & = \frac{\mathrm{d}}{\mathrm{d}x} \int_0^{\frac{1}{x}} \frac{1}{1 + t^2 + \cos^2 t} \mathrm{d}t =  \frac{\mathrm{d}}{\mathrm{d} \left(\frac{1}{x}\right)} \int_0^{\frac{1}{x}} \frac{1}{1 + t^2 + \cos^2 t} \mathrm{d}t \cdot \frac{\mathrm{d}\frac{1}{x}}{\mathrm{d}x} \\
+                        & =  \frac{1}{1 + \frac{1}{x^2} + \cos^2 \frac{1}{x}} \cdot \left( -\frac{1}{x^2} \right) = -\frac{1}{x^2 + 1 + x^2 \cos^2 \frac{1}{x}}.
+              \end{align*}
+        \item \begin{align*}
+                  f'(x) & = \frac{\mathrm{d}}{\mathrm{d}x} \int_0^{x^2} \e^{-t^2} \mathrm{d}t =  \frac{\mathrm{d}}{\mathrm{d}(x^2)} \int_0^{x^2} \e^{-t^2} \mathrm{d}t \cdot \frac{\mathrm{d}(x^2)}{\mathrm{d}x} \\
+                        & =  \e^{-(x^2)^2} \cdot 2x = 2x \e^{-x^4}.
+              \end{align*}
+        \item \begin{align*}
+                  f'(x) & = \frac{\mathrm{d}}{\mathrm{d}x} \sin \left( \int_0^x \sin \left( \int_0^y \sin t^2 \mathrm{d}t \right) \mathrm{d}y \right)                                                                                              \\
+                        & =  \cos \left( \int_0^x \sin \left( \int_0^y \sin t^2 \mathrm{d}t \right) \mathrm{d}y \right) \cdot \frac{\mathrm{d}}{\mathrm{d}x} \left( \int_0^x \sin \left( \int_0^y \sin t^2 \mathrm{d}t \right) \mathrm{d}y \right) \\
+                        & =  \cos \left( \int_0^x \sin \left( \int_0^y \sin t^2 \mathrm{d}t \right) \mathrm{d}y \right) \cdot \sin \left( \int_0^x \sin t^2 \mathrm{d}t \right).
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.1.12]
+    对下面的函数, 求 $(f^{-1})'(0)$, 这里 $f^{-1}$ 表示函数 $f$ 的反函数.
+    \begin{tasks}(2)
+        \task $f(x) = \displaystyle \int_0^x (1 + \sin(\sin t)) \mathrm{d}t;$
+        \task $f(x) = \displaystyle \int_1^x \e^{-t^2} \mathrm{d}t.$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 设$y=f(x)$,
+              $$\dif y = f'(x) \dif x = (1 + \sin(\sin x)) \dif x.$$
+              因此
+              $$(f^{-1})'(0) = \left. \frac{\dif x}{\dif y} \right|_{y=0} = \left. \frac{1}{1 + \sin(\sin x)} \right|_{x=0} = 1.$$
+        \item 设$y=f(x)$,
+              $$\dif y = f'(x) \dif x = \e^{-x^2} \dif x.$$
+              因此
+              $$(f^{-1})'(0) = \left. \frac{\dif x}{\dif y} \right|_{y=0} = \left. \e^{x^2} \right|_{x=1} = \e.$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.1.13]
+    设函数 $f(x)$ 处处连续. $F(x) = \displaystyle \int_0^x x f(t) \mathrm{d}t$, 求 $F'(x)$.
+\end{exercise}
+
+\begin{solution}
+    $$F'(x) = \left( x \int_0^x f(t) \mathrm{d}t \right)' = \int_0^x f(t) \mathrm{d}t + x \cdot \left( \int_0^x f(t) \mathrm{d}t \right)' =
+        \int_0^x f(t) \mathrm{d}t + x f(x).$$
+\end{solution}
+
+\begin{exercise}[5.1.14]
+    设 $f(x)$ 在 $[0, +\infty)$ 上为正值连续函数. 证明: 当 $x > 0$ 时, 函数
+    $$ G(x) = \frac{\displaystyle \int_0^x t f(t) \mathrm{d}t}{\displaystyle \int_0^x f(t) \mathrm{d}t} $$
+    单调递增.
+\end{exercise}
+
+\begin{solution}
+    $$G'(x) = \frac{\left( \int_0^x t f(t) \mathrm{d}t \right)' \int_0^x f(t) \mathrm{d}t - \left( \int_0^x f(t) \mathrm{d}t \right)' \int_0^x t f(t) \mathrm{d}t}{\left( \int_0^x f(t) \mathrm{d}t \right)^2}.$$
+    \begin{align*}
+        G'(x) & = \frac{\left( \int_0^x t f(t) \mathrm{d}t \right)' \int_0^x f(t) \mathrm{d}t - \left( \int_0^x f(t) \mathrm{d}t \right)' \int_0^x t f(t) \mathrm{d}t}{\left( \int_0^x f(t) \mathrm{d}t \right)^2} \\
+              & = \frac{x f(x) \int_0^x f(t) \mathrm{d}t - f(x) \int_0^x t f(t) \mathrm{d}t}{\left( \int_0^x f(t) \mathrm{d}t \right)^2}                                                                           \\
+              & = \frac{f(x)}{\left( \int_0^x f(t) \mathrm{d}t \right)^2}  \int_0^x \left( x -t \right) f(t) \mathrm{d}t \ges 0.
+    \end{align*}
+\end{solution}
+
+\begin{exercise}[5.1.15]
+    用 Newton-Leibniz 公式计算下列积分.
+    \begin{tasks}(2)
+        \task $\displaystyle \int_0^x \sin x \mathrm{d}x;$
+        \task $\displaystyle \int_0^x x^\alpha \mathrm{d}x$, $\alpha$ 为常数, $\alpha > 0;$
+        \task $\displaystyle \int_1^{\mathrm{e}^2} \ln x \mathrm{d}x;$
+        \task $\displaystyle \int_2^3 \frac{1}{2x^2 + 3x - 2} \mathrm{d}x.$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item $$\int_0^x \sin x \mathrm{d}x = \left. -\cos x \right|_0^x = 1 - \cos x.$$
+        \item $$\int_0^x x^\alpha \mathrm{d}x = \left. \frac{x^{\alpha + 1}}{\alpha + 1} \right|_0^x = \frac{x^{\alpha + 1}}{\alpha + 1}.$$
+        \item $$\int_1^{\mathrm{e}^2} \ln x \mathrm{d}x = \left. x \ln x - x \right|_1^{\mathrm{e}^2} = 2\mathrm{e}^2 - \mathrm{e}^2 + 1 = \mathrm{e}^2 + 1.$$
+        \item $$\int_2^3 \frac{1}{2x^2 + 3x - 2} \mathrm{d}x = \int_2^3 \frac{1}{5} \left( \frac{1}{2x - 1} -\frac{1}{2} \frac{1}{x + 2} \right) \mathrm{d}x = \frac{1}{5} \left. \left( \frac{1}{2} \ln |2x - 1| - \frac{1}{2} \ln |x + 2| \right) \right|_2^3 = \frac{1}{5} \ln \frac{4}{3}.$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.1.16]
+    设 $f(x) = \begin{cases} -1, & -1 \les x < 0, \\ 0, & x = 0, \\ 1, & 0 < x \les 1, \end{cases}$ 求 $F(x) = \displaystyle \int_{-1}^x f(t) \mathrm{d}t$, 并研究 $F(x)$ 在 $[-1, 1]$ 上的可微性.
+\end{exercise}
+
+\begin{solution}
+    \begin{itemize}
+        \item 当$x \in [-1,0)$时,$$F(x) = \int_{-1}^x -1 \mathrm{d}t = -x - 1;$$
+        \item 当$x = 0$时,$$F(0) = \int_{-1}^0 -1 \mathrm{d}t = -0 - 1 = -1;$$
+        \item 当$x \in (0,1]$时,$$F(x) = \int_{-1}^0 -1 \mathrm{d}t + \int_0^x 1 \mathrm{d}t = -0 - 1 + x - 0 = x - 1.$$
+    \end{itemize}
+    即$$F(x) = \begin{cases} -x - 1, & -1 \les x < 0, \\ -1, & x = 0, \\ x - 1, & 0 < x \les 1. \end{cases}$$
+
+    显然, $F(x)$ 在 $(-1, 0)$ 和 $(0, 1)$ 上可微, 且
+    $$F'(x) = \begin{cases} -1, & -1 < x < 0, \\ 1, & 0 < x < 1. \end{cases}$$
+
+    考察 $x=0$ 处的可微性:
+    $$\lim_{h \to 0^-} \frac{F(0+h) - F(0)}{h} = \lim_{h \to 0^-} \frac{-h - 1 - 0}{h} = -1;$$
+    $$\lim_{h \to 0^+} \frac{F(0+h) - F(0)}{h} = \lim_{h \to 0^+} \frac{h - 1 - 0}{h} = 1.$$
+    因此 $F(x)$ 在 $x=0$ 处不可微.
+\end{solution}
+
+\begin{exercise}[5.1.17]
+    计算下面平面图形的面积.
+    \begin{tasks}(1)
+        \task 由曲线 $y = \sqrt{x}$ 与 $y = x^2$ 所围成的图形;
+        \task 由曲线 $y = x^2, y = \frac{1}{4}x^2$ 及 $y = 1$ 所围成的图形.
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 曲线 $y = \sqrt{x}$ 与 $y = x^2$ 的交点为 $(0, 0)$ 和 $(1, 1)$.
+              $$S = \int_0^1 (\sqrt{x} - x^2) \mathrm{d}x = \left. \left( \frac{2}{3} x^{\frac{3}{2}} - \frac{1}{3} x^3 \right) \right|_0^1 = \frac{1}{3}.$$
+        \item 曲线 $y = x^2$ 与 $y = 1$ 的交点为 $(-1, 1)$ 和 $(1, 1)$; 曲线 $y = \frac{1}{4}x^2$ 与 $y = 1$ 的交点为 $(-2, 1)$ 和 $(2, 1)$.
+              $$S = \int_{-2}^{-1} \left( 1 - \frac{1}{4} x^2 \right) \mathrm{d}x + \int_{-1}^1 \left( x^2 - \frac{1}{4} x^2 \right) \mathrm{d}x + \int_1^2 \left( 1 - \frac{1}{4} x^2 \right) \mathrm{d}x = \frac{4}{3}.$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.1.18]
+    求下列极限.
+    \begin{tasks}(1)
+        \task $\displaystyle \lim_{x \to 0} \frac{\displaystyle \int_0^x \sin t^3 \mathrm{d}t}{x^4};$
+        \task $\displaystyle \lim_{x \to 0} \frac{1}{\sin^3 x} \int_0^{\tan x} \arcsin t^2 \mathrm{d}t;$
+        \task $\displaystyle \lim_{n \to \infty} \left( \frac{1}{\sqrt{n^2 - 1^2}} + \frac{1}{\sqrt{n^2 - 2^2}} + \dots + \frac{1}{\sqrt{n^2 - (n-1)^2}} \right);$
+        \task $\displaystyle \lim_{n \to \infty} \frac{1^p + 2^p + \dots + n^p}{n^{p+1}}$, $p$ 是常数, $p > 0.$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \begin{align*}
+                  \lim_{x \to 0} \frac{\displaystyle \int_0^x \sin t^3 \mathrm{d}t}{x^4} & = \lim_{x \to 0} \frac{\sin x^3}{4x^3} = \lim_{x \to 0} \frac{x^3}{4x^3} = \frac{1}{4}.
+              \end{align*}
+        \item \begin{align*}
+                  \lim_{x \to 0} \frac{1}{\sin^3 x} \int_0^{\tan x} \arcsin t^2 \mathrm{d}t & = \lim_{x \to 0} \frac{\int_0^{\tan x} \arcsin t^2 \mathrm{d}t}{x^3}             \\
+                                                                                            & = \lim_{x \to 0} \frac{\arcsin (\tan x)^2 \sec^2 x}{3x^2}                        \\
+                                                                                            & = \lim_{x \to 0} \frac{(\arcsin (\tan x)^2)}{3x^2} \cdot \lim_{x \to 0} \sec^2 x \\
+                                                                                            & = \lim_{x \to 0} \frac{(\tan x)^2}{3x^2} \cdot \lim_{x \to 0} \frac{1}{\cos^4 x} \\
+                                                                                            & = \frac{1}{3}.
+              \end{align*}
+        \item \begin{align*}
+                  \lim_{n \to \infty} \left( \frac{1}{\sqrt{n^2 - 1^2}} + \frac{1}{\sqrt{n^2 - 2^2}} + \dots + \frac{1}{\sqrt{n^2 - (n-1)^2}} \right) & = \lim_{n \to \infty} \sum_{k=1}^{n-1} \frac{1}{\sqrt{n^2 - k^2}}                                          \\
+                                                                                                                                                      & = \lim_{n \to \infty} \sum_{k=1}^{n-1} \frac{1}{n} \cdot \frac{1}{\sqrt{1 - \left( \frac{k}{n} \right)^2}} \\
+                                                                                                                                                      & = \int_0^1 \frac{1}{\sqrt{1 - x^2}} \mathrm{d}x = \frac{\pi}{2}.
+              \end{align*}
+        \item \begin{align*}
+                  \lim_{n \to \infty} \frac{1^p + 2^p + \dots + n^p}{n^{p+1}} & = \lim_{n \to \infty} \sum_{k=1}^n \frac{1}{n} \left( \frac{k}{n} \right)^p \\
+                                                                              & = \int_0^1 x^p \mathrm{d}x = \frac{1}{p+1}.
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.1.19]
+    求下列极限.
+    \begin{tasks}(1)
+        \task $\displaystyle \lim_{n \to \infty} \int_a^b \mathrm{e}^{-nx^2} \mathrm{d}x$, 这里 $a, b$ 为常数, 且 $0 < a < b;$
+        \task $\displaystyle \lim_{n \to \infty} \int_0^1 \frac{x^n}{1 + x} \mathrm{d}x;$
+        \task $\displaystyle \lim_{n \to \infty} \int_n^{n+a} \frac{\sin x}{x} \mathrm{d}x$, 这里 $a$ 为常数, 且 $a > 0.$
+    \end{tasks}
+
+    (注意: 对于 (2) 若用积分中值定理, 则积分为 $\displaystyle \frac{\xi^n}{1 + \xi}$, 其中 $0 < \xi < 1$; 但这时 $\xi$ 与 $n$ 有关, 故在 $n \to \infty$ 时, 不能断言 $\xi^n \to 0.$)
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \begin{align*}
+                  \lim_{n \to \infty} \int_a^b \mathrm{e}^{-nx^2} \mathrm{d}x & = \lim_{n \to \infty} \int_a^b \frac{1}{n} \cdot n \mathrm{e}^{-nx^2} \mathrm{d}x                                    \\
+                                                                              & = \lim_{n \to \infty} \left. -\frac{1}{2n} \mathrm{e}^{-nx^2} \right|_a^b \les \lim_{n \to \infty} \frac{1}{2n} = 0.
+              \end{align*}
+        \item \begin{align*}
+                  \lim_{n \to \infty} \int_0^1 \frac{x^n}{1 + x} \mathrm{d}x & = \lim_{n \to \infty} \int_0^1 x^n \cdot \frac{1}{1 + x} \mathrm{d}x = \lim_{n \to \infty} \int_0^1 \frac{1}{(n+1)(x+1)} \mathrm{d}x^{n+1}  \\
+                  \\
+                                                                             & = \lim_{n \to \infty} \left. \frac{x^{n+1}}{(n+1)(1+x)} \right|_0^1 + \lim_{n \to \infty} \int_0^1 \frac{x^{n+1}}{(n+1)(1+x)^2} \mathrm{d}x \\
+                                                                             & = \lim_{n \to \infty} \frac{1}{(n+1)(1+1)} + \lim_{n \to \infty} \int_0^1 \frac{x^{n+1}}{(n+1)(1+x)^2} \mathrm{d}x
+              \end{align*}
+              而$$\lim_{n \to \infty} \frac{1}{(n+1)(1+1)} = 0,$$
+              且
+              $$0 \les \int_0^1 \frac{x^{n+1}}{(n+1)(1+x)^2} \mathrm{d}x \les \int_0^1 \frac{x^{n+1}}{n+1} \mathrm{d}x = \frac{1}{(n+1)(n+2)} \to 0,$$
+              故$$\lim_{n \to \infty} \int_0^1 \frac{x^n}{1 + x} \mathrm{d}x = 0.$$
+        \item \begin{align*}
+                  \left| \lim_{n \to \infty} \int_n^{n+a} \frac{\sin x}{x} \mathrm{d}x \right| & \les \lim_{n \to \infty} \int_n^{n+a} \frac{1}{x} \mathrm{d}x = \lim_{n \to \infty} \left. \ln x \right|_n^{n+a} = \lim_{n \to \infty} \ln \frac{n+a}{n} = 0.
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.1.20]
+    设函数 $f(x)$ 在区间 $[-a, a]$ 上连续. 证明:
+    \begin{enumerate}[(1)]
+        \item 若 $f(x)$ 是奇函数, 则 $\displaystyle \int_{-a}^a f(x) \mathrm{d}x = 0$;
+        \item 若 $f(x)$ 是偶函数, 则 $\displaystyle \int_{-a}^a f(x) \mathrm{d}x = 2 \int_0^a f(x) \mathrm{d}x$.
+    \end{enumerate}
+    (本题在几何上看是十分明显的.)
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 由于 $f(x)$ 是奇函数, 则对任意的 $x \in [-a, a]$, 有 $f(-x) = -f(x)$. 因此
+              \begin{align*}
+                  \int_{-a}^a f(x) \mathrm{d}x & = \int_{-a}^0 f(x) \mathrm{d}x + \int_0^a f(x) \mathrm{d}x                      \\
+                                               & = \left. -\int_a^0 f(-t) \mathrm{d}t \right|_{t=-x} + \int_0^a f(x) \mathrm{d}x \\
+                                               & = \int_0^a -f(t) \mathrm{d}t + \int_0^a f(x) \mathrm{d}x = 0.
+              \end{align*}
+        \item 由于 $f(x)$ 是偶函数, 则对任意的 $x \in [-a, a]$, 有 $f(-x) = f(x)$. 因此
+              \begin{align*}
+                  \int_{-a}^a f(x) \mathrm{d}x & = \int_{-a}^0 f(x) \mathrm{d}x + \int_0^a f(x) \mathrm{d}x                             \\
+                                               & = \left. -\int_a^0 f(-t) \mathrm{d}t \right|_{t=-x} + \int_0^a f(x) \mathrm{d}x        \\
+                                               & = \int_0^a f(t) \mathrm{d}t + \int_0^a f(x) \mathrm{d}x = 2 \int_0^a f(x) \mathrm{d}x.
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.1.21]
+    设 $f(x)$ 为具有周期 $T$ 的连续函数, 证明: 对任意的常数 $a$, 有
+    $$ \int_a^{a+T} f(x) \mathrm{d}x = \int_0^T f(x) \mathrm{d}x. $$
+    (提示: 证明 $\displaystyle \int_a^{a+T} f(x) \mathrm{d}x = \int_0^T f(x) \mathrm{d}x$, 这在几何上是显然的.)
+\end{exercise}
+
+\begin{solution}
+    由于 $f(x)$ 为具有周期 $T$ 的连续函数, 则对任意的 $x \in \mathbb{R}$, 有 $f(x+T) = f(x)$.因此
+    \begin{align*}
+        \int_a^{a+T} f(x) \mathrm{d}x & = \int_a^0 f(x) \mathrm{d}x + \int_0^T f(x) \mathrm{d}x + \int_T^{a+T} f(x) \mathrm{d}x                     \\
+                                      & =\int_a^0 f(x) \mathrm{d}x + \int_0^T f(x) \mathrm{d}x + \left. \int_0^a f(t+T) \mathrm{d}t \right|_{t=x-T} \\
+                                      & = \int_a^0 f(x) \mathrm{d}x + \int_0^T f(x) \mathrm{d}x + \int_0^a f(t) \mathrm{d}t                         \\
+                                      & = \int_0^T f(x) \mathrm{d}x.
+    \end{align*}
+\end{solution}
+
+\begin{exercise}[5.1.22]
+    计算下面的积分.
+    \begin{tasks}(2)
+        \task $\displaystyle \int_0^{2\pi} |\cos x| \mathrm{d}x;$
+        \task $\displaystyle \int_{-3}^{4} [x] \mathrm{d}x;$
+        \task $\displaystyle \int_{-1}^1 \cos x \ln \frac{1 + x}{1 - x} \mathrm{d}x;$
+        \task $\displaystyle \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{1}{1 + \mathrm{e}^x} \cos^3 x \mathrm{d}x;$
+        \task $\displaystyle \int_0^{\ln 2} \sqrt{1 - \mathrm{e}^{-2x}} \mathrm{d}x;$
+        \task $\displaystyle \int_0^1 x \arcsin x \mathrm{d}x;$
+        \task $\displaystyle \int_0^{1} x^3 \mathrm{e}^x \mathrm{d}x;$
+        \task $\displaystyle \int_0^a \frac{1}{x + \sqrt{a^2 - x^2}} \mathrm{d}x;$
+        \task $\displaystyle \int_0^{\frac{\pi}{4}} \sqrt{\tan x} \mathrm{d}x;$
+        \task $\displaystyle \int_0^{2\pi} \frac{1}{a^2 \sin^2 x + b^2 \cos^2 x} \mathrm{d}x$ ($a > 0, b > 0$);
+        \task $\displaystyle \int_{-1}^1 x^4 \sqrt{1 - x^2} \mathrm{d}x;$
+        \task $\displaystyle \int_0^{2\pi} \sin^6 x \mathrm{d}x;$
+        \task $\displaystyle \int_{-1}^1 \mathrm{e}^{|x|} \arctan \mathrm{e}^x \mathrm{d}x;$
+        \task $\displaystyle \int_0^{\pi} \frac{\sec^2 x}{2 + \tan^2 x} \mathrm{d}x.$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item $$\int_0^{2\pi} |\cos x| \mathrm{d}x = 4\int_0^{\frac{\pi}{2}} \cos x \mathrm{d}x = 4.$$
+        \item $$\int_{-3}^{4} [x] \mathrm{d}x = \sum_{k=-3}^{3} \int_k^{k+1} k \mathrm{d}x = \sum_{k=-3}^{3} k = 0.$$
+        \item $$\cos(-x) = \cos x, \quad \ln \frac{1 - x}{1 + x} = -\ln \frac{1 + x}{1 - x}.$$
+              因此被积函数为奇函数, 故$$\int_{-1}^1 \cos x \ln \frac{1 + x}{1 - x} \mathrm{d}x = 0.$$
+        \item \begin{align*}
+                  \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{1}{1 + \mathrm{e}^x} \cos^3 x \mathrm{d}x & = \int_{-\frac{\pi}{2}}^0 \frac{1}{1 + \mathrm{e}^x} \cos^3 x \mathrm{d}x + \int_0^{\frac{\pi}{2}} \frac{1}{1 + \mathrm{e}^x} \cos^3 x \mathrm{d}x           \\
+                                                                                                        & = \int_0^{\frac{\pi}{2}} \frac{1}{1 + \mathrm{e}^{-t}} \cos^3 (-t) (-\mathrm{d}t) + \int_0^{\frac{\pi}{2}} \frac{1}{1 + \mathrm{e}^x} \cos^3 x \mathrm{d}x   \\
+                                                                                                        & = \int_0^{\frac{\pi}{2}} \frac{\mathrm{e}^t}{1 + \mathrm{e}^t} \cos^3 t \mathrm{d}t + \int_0^{\frac{\pi}{2}} \frac{1}{1 + \mathrm{e}^x} \cos^3 x \mathrm{d}x \\
+                                                                                                        & = \int_0^{\frac{\pi}{2}} \cos^3 x \mathrm{d}x = \left. \frac{\sin x - \sin^3 x / 3}{1} \right|_0^{\frac{\pi}{2}} = \frac{2}{3}.
+              \end{align*}
+        \item \begin{align*}
+                  \int_0^{\ln 2} \sqrt{1 - \mathrm{e}^{-2x}} \mathrm{d}x & \overset{x = \ln t, \dif x = \frac{1}{t} \dif t}{=} \int_1^2 \sqrt{1 - \frac{1}{t^2}} \cdot \frac{1}{t} \mathrm{d}t = \overset{t = \sec u}{=} \int_0^{\frac{\pi}{3}} \sqrt{1 - \cos^2 u} \cdot \frac{1}{\sec u} \cdot \sec u \tan u \mathrm{d}u \\
+                                                                         & = \int_0^{\frac{\pi}{3}} \sin u \tan u \dif u \overset{\sin u = v}{=} \int_0^{\frac{\sqrt{3}}{2}} \frac{v^2}{1-v^2} \dif v = \left. \left( -v + \frac{1}{2} \ln \frac{1+v}{1-v} \right) \right|_0^{\frac{\sqrt{3}}{2}}                          \\
+                                                                         & = -\frac{\sqrt{3}}{2} + \ln (2 + \sqrt{3}).
+              \end{align*}
+        \item \begin{align*}
+                  \int_0^1 x \arcsin x \mathrm{d}x & = \left. \frac{1}{4}\left( x \sqrt{1-x^2}+ (2x^2 -1) \arcsin x \right) \right|_0^1 = \frac{\pi}{8}.
+              \end{align*}
+        \item \begin{align*}
+                  \int_0^{1} x^3 \mathrm{e}^x \mathrm{d}x & = \left. \mathrm{e}^x (x^3 - 3x^2 + 6x - 6) \right|_0^1 =6 - 2\mathrm{e}.
+              \end{align*}
+        \item \begin{align*}
+                  \int_0^a \frac{1}{x + \sqrt{a^2 - x^2}} \mathrm{d}x & \overset{x = a \sin t, \dif x = a \cos t \dif t}{=} \int_0^{\frac{\pi}{2}} \frac{a \cos t}{a \sin t + a \cos t} \mathrm{d}t = \int_0^{\frac{\pi}{2}} \frac{\cos t}{\sin t + \cos t} \mathrm{d}t                              \\
+                                                                      & = \int_0^{\frac{\pi}{2}} \frac{\frac{1}{2}(\sin t + \cos t) + \frac{1}{2}(\cos t - \sin t)}{\sin t + \cos t} \mathrm{d}t = \left. \frac{t}{2} + \frac{1}{2} \ln (\sin t + \cos t) \right|_0^{\frac{\pi}{2}} = \frac{\pi}{4}.
+              \end{align*}
+        \item \begin{align*}
+                  \int_0^{\frac{\pi}{4}} \sqrt{\tan x} \mathrm{d}x & \overset{\tan x = t^2, \dif x = \frac{2t}{1+t^4} \mathrm{d}t}{=} \int_0^1 \frac{2t^2}{1+t^4} \mathrm{d}t =\left. \left( \frac{1}{2\sqrt{2}} \ln \frac{t^2 - \sqrt{2} t + 1}{t^2 + \sqrt{2} t + 1} + \frac{1}{\sqrt{2}} \arctan \frac{\sqrt{2} t}{1 - t^2}\right) \right|_0^{1^-} \\
+                                                                   & = \frac{1}{2\sqrt{2}} \ln (3 - 2\sqrt{2}) + \frac{\pi}{2\sqrt{2}}.
+              \end{align*}
+        \item
+              \begin{align*}
+                  \int_0^{\frac{\pi}{2}} \frac{1}{a^2 \sin^2 x + b^2 \cos^2 x} \mathrm{d}x & \stackrel{t=\tan x}{=} \int_0^{+\infty} \frac{1}{a^2 \tan^2 x + b^2} \frac{1}{\cos^2 x} \mathrm{d}x   \\
+                                                                                           & = \int_0^{+\infty} \frac{1}{a^2 t^2 + b^2} \mathrm{d}t                                                \\
+                                                                                           & = \left. \frac{1}{a b} \arctan\left(\frac{a t}{b}\right) \right|_0^{+\infty}                            \\
+                                                                                           & = \frac{\pi}{2ab} 
+              \end{align*}
+        \item
+              \begin{align*}
+                  \int_{-1}^1 x^4 \sqrt{1 - x^2} \mathrm{d}x & \stackrel{x=\sin t}{=} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin^4 t \cos^2 t \mathrm{d}t               \\
+                                                             & = 2 \int_0^{\frac{\pi}{2}} (\sin^4 t - \sin^6 t) \mathrm{d}t                                          \\
+                                                             & = \pi \left( 4!! \over 3!! \right) \left( \frac{3!!}{4!!} - \frac{5!!}{6!!} \right) = \frac{\pi}{16}
+              \end{align*}
+        \item
+              \begin{align*}
+                  \int_0^{2\pi} \sin^6 x \mathrm{d}x & = 4 \int_0^{\frac{\pi}{2}} \sin^6 x \mathrm{d}x                     \\
+                                                     & = 4 \cdot \frac{5!!}{6!!} \cdot \frac{\pi}{2} = \frac{5}{8} \pi
+              \end{align*}
+        \item
+              \begin{align*}
+                  \int_{-1}^1 \mathrm{e}^{|x|} \arctan \mathrm{e}^x \mathrm{d}x & = \int_0^1 \mathrm{e}^x \arctan \mathrm{e}^x \mathrm{d}x - \int_{-1}^0 \mathrm{e}^{-x} \arctan \mathrm{e}^x \mathrm{d}x          \\
+                                                                                & \stackrel{\mathrm{e}^x=t}{=} \int_1^{\mathrm{e}} \arctan t \mathrm{d}t + \int_{1}^{\mathrm{e}} \arctan \frac{1}{t} \mathrm{d}t   \\
+                                                                                & = \int_1^{\mathrm{e}} \left( \arctan t + \arctan \frac{1}{t} \right) \mathrm{d}t                                                 \\
+                                                                                & = \int_1^{\mathrm{e}} \frac{\pi}{2} \mathrm{d}t                                                                                \\
+                                                                                & = \frac{\pi}{2} (\mathrm{e} - 1)
+              \end{align*}
+        \item
+              \begin{align*}
+                  \int_0^{\frac{\pi}{4}} \frac{\sec^2 x}{2 + \tan^2 x} \mathrm{d}x & \stackrel{u=\tan x}{=} \int_0^1 \frac{1}{2 + u^2} \mathrm{d}u        \\
+                                                                                   & = \left. \frac{1}{\sqrt{2}} \arctan \frac{u}{\sqrt{2}} \right|_0^1   \\
+                                                                                   & = \frac{\pi}{2\sqrt{2}}
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.1.23]
+    设 $f(x)$ 在 $[0, \pi]$ 上连续, 证明:
+    $$ \int_0^\pi x f(\sin x) \mathrm{d}x = \frac{\pi}{2} \int_0^\pi f(\sin x) \mathrm{d}x, $$
+    并用这一结果计算 $\displaystyle \int_0^\pi \frac{x \sin x}{1 + \cos^2 x} \mathrm{d}x.$
+\end{exercise}
+
+\begin{solution}
+    设$I = \int_0^\pi x f(\sin x) \mathrm{d}x$, 则
+    \begin{align*}
+        I & = \int_0^\pi (\pi - t) f(\sin (\pi - t)) \mathrm{d}t \overset{\sin (\pi - t) = \sin t}{=} \int_0^\pi (\pi - t) f(\sin t) \mathrm{d}t \\
+          & = \pi \int_0^\pi f(\sin t) \mathrm{d}t - \int_0^\pi t f(\sin t) \mathrm{d}t = \pi \int_0^\pi f(\sin t) \mathrm{d}t - I.
+    \end{align*}
+    因此$$2I = \pi \int_0^\pi f(\sin t) \mathrm{d}t,$$
+    即$$I = \frac{\pi}{2} \int_0^\pi f(\sin t) \mathrm{d}t.$$
+
+    由此, 可得
+    \begin{align*}
+        \int_0^\pi \frac{x \sin x}{1 + \cos^2 x} \mathrm{d}x & = \frac{\pi}{2} \int_0^\pi \frac{\sin x}{1 + \cos^2 x} \mathrm{d}x = \frac{\pi}{2} \left. (-\arctan (\cos x)) \right|_0^\pi = \frac{\pi^2}{4}.
+    \end{align*}
+\end{solution}
+
+\begin{exercise}[5.1.24]
+    证明: $\displaystyle \frac{1}{6} < \int_0^1 \sin x^2 \mathrm{d}x < \frac{1}{3}.$
+    (注意: 求解问题中的积分将是徒劳的. 解答本题的一个方法在本节的正文中已提到.)
+\end{exercise}
+
+\begin{solution}
+    由于在区间 $[0, 1]$ 上, 对任意的 $x$, 有
+    $$x^2 - \frac{x^6}{6} < \sin x^2 < x^2,$$
+    故
+    $$\int_0^1 \left( x^2 - \frac{x^6}{6} \right) \mathrm{d}x < \int_0^1 \sin x^2 \mathrm{d}x < \int_0^1 x^2 \mathrm{d}x,$$
+    即
+    $$\frac{1}{3} - \frac{1}{42} < \int_0^1 \sin x^2 \mathrm{d}x < \frac{1}{3},$$
+    从而得到
+    $$\frac{1}{6} < \int_0^1 \sin x^2 \mathrm{d}x < \frac{1}{3}.$$
+\end{solution}
+
+\begin{exercise}[5.1.25]
+    设函数 $f(x)$ 在 $[a, b]$ 上可积, 我们将 $\displaystyle \frac{1}{b-a} \int_a^b f(x) \mathrm{d}x$ 定义为函数 $f(x)$ 在区间 $[a, b]$ 上的平均值. 对下列函数, 计算在指定区间上的平均值, 以及最大、最小值.
+    \begin{tasks}(1)
+        \task $f(x) = x$, 区间 $[0, 1]$ 及 $[0, 10^5];$
+        \task $f(x) = \mathrm{e}^{-x}$, 区间 $[0, 1]$ 及 $[0, 10^5];$
+        \task $f(x) = x \mathrm{e}^{-x}$, 区间 $[0, 1]$ 及 $[0, 10^5].$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \begin{enumerate}
+                  \item 区间 $[0, 1]$ 上, 平均值为 $$\frac{1}{1-0} \int_0^1 x \mathrm{d}x = \frac{1}{2};$$ 最大值为 $1$; 最小值为 $0$.
+                  \item 区间 $[0, 10^5]$ 上, 平均值为 $$\frac{1}{10^5 - 0} \int_0^{10^5} x \mathrm{d}x = \frac{10^5}{2};$$ 最大值为 $10^5$; 最小值为 $0$.
+              \end{enumerate}
+        \item \begin{enumerate}
+                  \item 区间 $[0, 1]$ 上, 平均值为 $$\frac{1}{1-0} \int_0^1 \mathrm{e}^{-x} \mathrm{d}x = 1 - \frac{1}{\mathrm{e}};$$ 最大值为 $1$; 最小值为 $\frac{1}{\mathrm{e}}$.
+                  \item 区间 $[0, 10^5]$ 上, 平均值为 $$\frac{1}{10^5 - 0} \int_0^{10^5} \mathrm{e}^{-x} \mathrm{d}x = \frac{1 - \mathrm{e}^{-10^5}}{10^5};$$ 最大值为 $1$; 最小值为 $\mathrm{e}^{-10^5}$.
+              \end{enumerate}
+        \item \begin{enumerate}
+                  \item 区间 $[0, 1]$ 上, 平均值为 $$\frac{1}{1-0} \int_0^1 x \mathrm{e}^{-x} \mathrm{d}x = \frac{2}{\mathrm{e}};$$ 最大值为 $\frac{1}{\mathrm{e}}$; 最小值为 $0$.
+                  \item 区间 $[0, 10^5]$ 上, 平均值为 $$\frac{1}{10^5 - 0} \int_0^{10^5} x \mathrm{e}^{-x} \mathrm{d}x = \frac{1 - (10^5 + 1) \mathrm{e}^{-10^5}}{10^5};$$ 最大值为 $\frac{1}{\mathrm{e}}$; 最小值为 $0$.
+              \end{enumerate}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.1.26]
+    考虑积分 $\displaystyle I = \int_0^{100} \frac{\mathrm{e}^{-x}}{x + 100} \mathrm{d}x.$
+    \begin{enumerate}[(1)]
+        \item 试给出 $I$ 的尽可能好的上、下界估计;
+        \item 求出 $I$ 的近似值, 精确到 $0.0001$. (提醒: 本题用本节中的知识就能解决.)
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.2.27]
+    (1) 设 $f(x)$ 是 $[0, 1]$ 上单调递减的连续函数, 证明: 对任意 $\alpha \in (0, 1)$, 有
+    $$ \int_0^\alpha f(x) \mathrm{d}x \ges \alpha \int_0^1 f(x) \mathrm{d}x; $$
+    (2) 若仅仅设 $f(x)$ 在 $[0, 1]$ 上单调递减, 证明同样的结论.
+
+    (提示: (1) 有几种证法. 第一种方法: 利用 $\displaystyle \int_0^\alpha f(x) \mathrm{d}x = \alpha \int_0^1 f(\alpha x) \mathrm{d}x$; 第二种方法: 考虑 $g(\alpha) = \displaystyle \frac{1}{\alpha} \int_0^\alpha f(x) \mathrm{d}x$ ($0 < \alpha < 1$), 证明 $g(\alpha)$ 是减函数. 注意, 这两种方法都需要 $f(x)$ 连续这一假设, 因此都不适用于解决 (2).)
+\end{exercise}
+
+\begin{solution}
+    \begin{solution}
+        \begin{enumerate}
+            \item $$\int_0^\alpha f(x) \mathrm{d}x = \alpha \int_0^1 f(\alpha x) \mathrm{d}x \ges \alpha \int_0^1 f(x) \mathrm{d}x.$$
+            \item \begin{align*}
+                      \int_0^\alpha f(x) \mathrm{d}x - \alpha \int_0^1 f(x) \mathrm{d}x & = (1 - \alpha) \int_0^\alpha f(x) \mathrm{d}x - \alpha \int_\alpha^1 f(x) \mathrm{d}x \\
+                                                                                        & \ges (1 - \alpha) \alpha f(\alpha) - \alpha (1 - \alpha) f(\alpha) = 0
+                  \end{align*}
+        \end{enumerate}
+
+    \end{solution}
+\end{solution}
+
+\begin{exercise}[5.2.28]
+    设函数 $f(x)$ 在 $[a, b]$ 上可微, 且 $|f'(x)| \les M$ (对任意 $x \in [a, b]$).
+    \begin{enumerate}[(1)]
+        \item 若 $f(a) = 0$, 证明:
+              $$ \int_a^b |f(x)| \mathrm{d}x \les \frac{M}{2} (b-a)^2; $$
+        \item 若 $f(a) = f(b) = 0$, 证明:
+              $$ \int_a^b |f(x)| \mathrm{d}x \les \frac{M}{4} (b-a)^2. $$
+    \end{enumerate}
+    (提示: 通过对积分的上限求导能得出 (1) 的一个证明, 即考虑函数 $G(t) = \displaystyle \int_a^t |f(x)| \mathrm{d}x - \frac{M}{2} (t-a)^2, a \les t \les b.$)
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 由 Lagrange 中值定理, $|f(x)| = |f(x) - f(a)| = |f'(\xi)|(x - a) \les M(x - a)$, 则对它取积分:
+              $$ \int_a^b |f(x)| \mathrm{d}x \les \int_a^b M(x - a) \mathrm{d}x = \frac{M}{2} (b-a)^2 $$
+        \item 对于 $x \in \left(a, \frac{a+b}{2}\right)$, $$|f(x)| = |f(x) - f(a)| \les M(x - a);$$
+              对于 $x \in \left(\frac{a+b}{2}, b\right)$, $$|f(x)| = |f(x) - f(b)| \les M(b - x).$$
+              则
+              \begin{align*}
+                  \int_a^b |f(x)| \mathrm{d}x & = \int_a^{\frac{a+b}{2}} |f(x)| \mathrm{d}x + \int_{\frac{a+b}{2}}^b |f(x)| \mathrm{d}x        \\
+                                              & \les \int_a^{\frac{a+b}{2}} M(x - a) \mathrm{d}x + \int_{\frac{a+b}{2}}^b M(b - x) \mathrm{d}x \\
+                                              & = \frac{M}{4} (b-a)^2
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.2.29]
+    利用变换 $u = \sin x$, 将下列积分
+    $$ \int \frac{\mathrm{d}x}{\sqrt{\cos 2x}} $$
+    变为椭圆积分的形式.
+\end{exercise}
+
+\begin{solution}
+    由 $\cos 2x = 1 - 2\sin^2 x = 1 - 2u^2$, 则
+    \begin{align*}
+        \int \frac{\mathrm{d}x}{\sqrt{\cos 2x}} & = \int \frac{1}{\sqrt{1 - 2u^2}} \cdot \frac{1}{\sqrt{1 - u^2}} \mathrm{d}u = \int \frac{\mathrm{d}u}{\sqrt{(1 - u^2)(1 - 2u^2)}}.
+    \end{align*}
+\end{solution}
+
+\begin{exercise}[5.2.30]
+    利用
+    $$ f(x) - f(a) = \int_a^x f'(t) \mathrm{d}t = \int_a^x f'(t) \mathrm{d}(t - x) $$
+    经过多次分部积分, 详细推导出 Taylor 展开式和它的余项的积分表示式.
+\end{exercise}
+
+\begin{solution}
+    由题意, 我们有
+    $$ f(x) = f(a) + \int_a^x f'(t) \mathrm{d}(t - x). $$
+    对积分部分进行分部积分, 令 $u = f'(t)$, $\mathrm{d}v = \mathrm{d}(t - x)$, 则 $\mathrm{d}u = f''(t) \mathrm{d}t$, $v = t - x$. 因此,
+    \begin{align*}
+        f(x) & = f(a) + \left. f'(t)(t - x) \right|_{t=a}^{t=x} - \int_a^x f''(t)(t - x) \mathrm{d}t \\
+             & = f(a) + f'(x)(x - x) - f'(a)(a - x) - \int_a^x f''(t)(t - x) \mathrm{d}t             \\
+             & = f(a) + f'(a)(x - a) + \int_a^x f''(t)(x - t) \mathrm{d}t.
+    \end{align*}
+    重复上述过程, 对 $\displaystyle \int_a^x f''(t)(x - t) \mathrm{d}t$ 进行分部积分, 令 $u = f''(t)$, $\mathrm{d}v = (x - t) \mathrm{d}t$, 则 $\mathrm{d}u = f'''(t) \mathrm{d}t$, $v = \frac{(x - t)^2}{2}$. 因此,
+    \begin{align*}
+        f(x) & = f(a) + f'(a)(x - a) + \left. f''(t) \frac{(x - t)^2}{2} \right|_{t=a}^{t=x} - \int_a^x f'''(t) \frac{(x - t)^2}{2} \mathrm{d}t \\
+             & = f(a) + f'(a)(x - a) + f''(a) \frac{(x - a)^2}{2} + \int_a^x f'''(t)
+        \frac{(x - t)^2}{2} \mathrm{d}t.
+    \end{align*}
+    重复上述过程 $n$ 次, 我们得到
+    \begin{align*}
+        f(x) & = f(a) + f'(a)(x - a) + \frac{f''(a)}{2!} (x - a)^2 + \cdots + \frac{f^{(n)}(a)}{n!} (x - a)^n + \int_a^x f^{(n+1)}(t) \frac{(x - t)^n}{n!} \mathrm{d}t.
+    \end{align*}
+    这就是 Taylor 展开式,其中积分余项为
+    $$ R_n(x) = \int_a^x f^{(n+1)}(t) \frac{(x - t)^n}{n!} \mathrm{d}t. $$
+\end{solution}
+
+\begin{exercise}[5.2.31]
+    设 $f(x)$ 在 $\mathbb{R}$ 上连续, 令
+    $$ g(x, y) = \int_0^x (f(t + y) - f(t)) \mathrm{d}t, $$
+    求证: $g(x, y) = g(y, x).$
+\end{exercise}
+
+\begin{solution}
+    \begin{align*}
+        g(x, y) & = \int_0^x (f(t + y) - f(t)) \mathrm{d}t = \left( \int_y^{x+y} - \int_0^x \right) f(t) \mathrm{d}t = \left( \int_0^{x+y} - \int_0^y - \int_0^x \right) f(t) \mathrm{d}t \\
+        g(y, x) & = \int_0^y (f(t + x) - f(t)) \mathrm{d}t = \left( \int_x^{x+y} - \int_0^y \right) f(t) \mathrm{d}t = \left( \int_0^{x+y} - \int_0^x - \int_0^y \right) f(t) \mathrm{d}t
+    \end{align*}
+    因此, $g(x, y) = g(y, x).$
+\end{solution}
+
+\newpage
