@@ -1,0 +1,207 @@
+\section{习题 5.4}
+
+\begin{exercise}[5.4.1]
+判断下列反常积分是否收敛, 并求出收敛的反常积分的值.
+\begin{tasks}(2)
+    \task $\displaystyle \int_0^{+\infty} x \mathrm{e}^{-x} \mathrm{d}x;$
+    \task $\displaystyle \int_0^{+\infty} x \sin x \mathrm{d}x;$
+    \task $\displaystyle \int_2^{+\infty} \frac{\ln x}{x} \mathrm{d}x;$
+    \task $\displaystyle \int_1^{+\infty} \frac{\arctan x}{x} \mathrm{d}x;$
+    \task $\displaystyle \int_0^{+\infty} \mathrm{e}^{-x} \sin x \mathrm{d}x;$
+    \task $\displaystyle \int_{-\infty}^{+\infty} \frac{1}{x^2 + 2x + 2} \mathrm{d}x;$
+    \task $\displaystyle \int_0^1 \ln x \mathrm{d}x;$
+    \task $\displaystyle \int_{-1}^1 \frac{1}{\sqrt{1 - x^2}} \mathrm{d}x;$
+    \task $\displaystyle \int_0^1 \frac{x \ln x}{(1 - x^2)^{3/2}} \mathrm{d}x;$
+    \task $\displaystyle \int_0^1 \ln \frac{1}{1 - x^2} \mathrm{d}x;$
+    \task $\displaystyle \int_0^{+\infty} x^n \mathrm{e}^{-x} \mathrm{d}x$ ($n$ 为自然数);
+    \task $\displaystyle \int_0^1 (\ln x)^n \mathrm{d}x$ ($n$ 为自然数).
+\end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item % (1)
+        $$\int_0^{+\infty} x \mathrm{e}^{-x} \mathrm{d}x = \lim_{A \to +\infty} \left[ - (x + 1) \mathrm{e}^{-x} \right]_0^A = 1;$$
+        
+        \item % (2)
+        $$\int_0^{+\infty} x \sin x \mathrm{d}x = \lim_{A \to +\infty} \left[ - x \cos x + \sin x \right]_0^A \overset{\text{取$A = n \pi \to +\infty$}}{=} \lim_{n \to +\infty} (-1)^{n+1} n \pi \text{ (发散)};$$
+        
+        \item % (3)
+        $$\int_2^{+\infty} \frac{\ln x}{x} \mathrm{d}x = \lim_{A \to +\infty} \left[ \frac{1}{2} (\ln x)^2 \right]_2^A = \lim_{A \to +\infty} \left( \frac{1}{2}(\ln A)^2 - \frac{1}{2}(\ln 2)^2 \right) = +\infty \text{ (发散)};$$
+        
+        \item % (4)
+        $$\int_1^{+\infty} \frac{\arctan x}{x} \mathrm{d}x \ge \int_1^{+\infty} \frac{\pi/4}{x} \mathrm{d}x = \frac{\pi}{4} \lim_{A \to +\infty} \left[ \ln x \right]_1^A = +\infty \text{ (发散)};$$
+        
+        \item % (5)
+        $$\int_0^{+\infty} \mathrm{e}^{-x} \sin x \mathrm{d}x = \lim_{A \to +\infty} \left[ -\frac{1}{2} \mathrm{e}^{-x}(\sin x + \cos x) \right]_0^A = \frac{1}{2};$$
+        
+        \item % (6)
+        \begin{align*}
+            \int_{-\infty}^{+\infty} \frac{1}{x^2 + 2x + 2} \mathrm{d}x &= \int_{-\infty}^{+\infty} \frac{1}{(x+1)^2 + 1} \mathrm{d}x \\
+            &= \lim_{A \to -\infty} \int_A^0 \frac{1}{(x+1)^2 + 1} \mathrm{d}x + \lim_{B \to +\infty} \int_0^B \frac{1}{(x+1)^2 + 1} \mathrm{d}x \\
+            &= \lim_{A \to -\infty} [\arctan(x+1)]_A^0 + \lim_{B \to +\infty} [\arctan(x+1)]_0^B \\
+            &= \left( \arctan(1) - \left(-\frac{\pi}{2}\right) \right) + \left( \frac{\pi}{2} - \arctan(1) \right) = \pi;
+        \end{align*}
+        
+        \item % (7)
+        $$\int_0^1 \ln x \mathrm{d}x = \lim_{\varepsilon \to 0^+} \left[ x \ln x - x \right]_\varepsilon^1 = -1 - \lim_{\varepsilon \to 0^+} (\varepsilon \ln \varepsilon - \varepsilon) = -1;$$
+        
+        \item % (8)
+        \begin{align*}
+            \int_{-1}^1 \frac{1}{\sqrt{1 - x^2}} \mathrm{d}x &= \lim_{\varepsilon \to 0^+} \int_{-1+\varepsilon}^0 \frac{1}{\sqrt{1 - x^2}} \mathrm{d}x + \lim_{\delta \to 0^+} \int_0^{1-\delta} \frac{1}{\sqrt{1 - x^2}} \mathrm{d}x \\
+            &= \lim_{\varepsilon \to 0^+} [\arcsin x]_{-1+\varepsilon}^0 + \lim_{\delta \to 0^+} [\arcsin x]_0^{1-\delta} \\
+            &= \left( 0 - \left(-\frac{\pi}{2}\right) \right) + \left( \frac{\pi}{2} - 0 \right) = \pi;
+        \end{align*}
+
+        \item % (9)
+        \begin{align*}
+            \int_0^1 \frac{x \ln x}{(1 - x^2)^{3/2}} \mathrm{d}x &= \int_0^{1} \ln x \diff\left( \frac{1}{\sqrt{1-x^2}} -1 \right) \\
+            &= \left. \ln x \cdot \left( \frac{1}{\sqrt{1-x^2}} -1 \right) \right|_0^1 - \int_0^1 \frac{1}{x} \left( \frac{1}{\sqrt{1-x^2}} -1 \right) \mathrm{d}x \\
+            &= 0 - \int_0^1 \left( \frac{1}{x \sqrt{1-x^2}} - \frac{1}{x} \right) \mathrm{d}x \\
+            &\overset{t=\sqrt{1-x^2}}{=} \int_0^1 \frac{1}{1-t^2} - \frac{t}{1-t^2} \dif t \\
+            &= \frac{1}{2} \ln \frac{1+t}{1-t} + \frac12 \ln(1-t^2) \\
+            &= - \ln 2
+        \end{align*}
+        
+        \item % (10)
+        \begin{align*}
+            \int_0^1 \ln \frac{1}{1 - x^2} \mathrm{d}x &= - \int_0^1 \ln(1 - x) \mathrm{d}x - \int_0^1 \ln(1 + x) \mathrm{d}x \\
+            &= - \lim_{\delta \to 0^+} [ (1-x)\ln(1-x) - (1-x) ]_0^{1-\delta} - [ (1+x)\ln(1+x) - (1+x) ]_0^1 \\
+            &= - (0 - (-1)) - [ (2\ln 2 - 2) - (-1) ] \\
+            &= -1 - (2\ln 2 - 1) = 2 - 2\ln 2;
+        \end{align*}
+
+        \item % (11)
+        \begin{align*}
+            \int_0^{+\infty} x^n \mathrm{e}^{-x} \mathrm{d}x &= \left[ -x^n \mathrm{e}^{-x} \right]_0^{+\infty} + \int_0^{+\infty} n x^{n-1} \mathrm{e}^{-x} \mathrm{d}x \\
+            &= 0 + n \int_0^{+\infty} x^{n-1} \mathrm{e}^{-x} \mathrm{d}x \\
+            &= n \cdot (n-1) \int_0^{+\infty} x^{n-2} \mathrm{e}^{-x} \mathrm{d}x = \dots \\
+            &= n! \int_0^{+\infty} \mathrm{e}^{-x} \mathrm{d}x = n!;
+        \end{align*}
+        
+        \item % (12)
+        \begin{align*}
+            \int_0^1 (\ln x)^n \mathrm{d}x &= \left[ x (\ln x)^n \right]_0^1 - \int_0^1 x \cdot n (\ln x)^{n-1} \cdot \frac{1}{x} \mathrm{d}x \\
+            &= 0 - n \int_0^1 (\ln x)^{n-1} \mathrm{d}x \\
+            &= (-n) \cdot (-n+1) \int_0^1 (\ln x)^{n-2} \mathrm{d}x = \dots \\
+            &= (-1)^n n! \int_0^1 \mathrm{d}x = (-1)^n n!;
+        \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.4.2]
+反常积分 $\displaystyle \int_{-\infty}^{+\infty} f(x) \mathrm{d}x$ 的 Cauchy 主值定义为
+$$ \mathrm{P.V.} \int_{-\infty}^{+\infty} f(x) \mathrm{d}x = \lim_{B \to +\infty} \int_{-B}^{B} f(x) \mathrm{d}x. $$
+显然, 若反常积分 $\displaystyle \int_{-\infty}^{+\infty} f(x) \mathrm{d}x$ 收敛, 则其 Cauchy 主值也收敛, 但反过来不一定成立.
+
+研究下列反常积分 Cauchy 主值的收敛性.
+\begin{tasks}(2)
+    \task $\displaystyle \mathrm{P.V.} \int_{-\infty}^{+\infty} \frac{x}{1 + x^2} \mathrm{d}x;$
+    \task $\displaystyle \mathrm{P.V.} \int_{-\infty}^{+\infty} \frac{|x|}{1 + x^2} \mathrm{d}x.$
+\end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \begin{align*}
+                  \mathrm{P.V.} \int_{-\infty}^{+\infty} \frac{x}{1 + x^2} \mathrm{d}x & = \lim_{B \to +\infty} \int_{-B}^{B} \frac{x}{1 + x^2} \mathrm{d}x \\
+                                                                              & = \lim_{B \to +\infty} \left[ \frac{1}{2} \ln(1 + x^2) \right]_{-B}^{B} = \lim_{B \to +\infty} (0) = 0;
+              \end{align*}
+        \item \begin{align*}
+                    \mathrm{P.V.} \int_{-\infty}^{+\infty} \frac{|x|}{1 + x^2} \mathrm{d}x & = \lim_{B \to +\infty} \int_{-B}^{B} \frac{|x|}{1 + x^2} \mathrm{d}x \\
+                                                                                & = \lim_{B \to +\infty} \left( \int_{-B}^{0} \frac{-x}{1 + x^2} \mathrm{d}x + \int_0^{B} \frac{x}{1 + x^2} \mathrm{d}x \right) \\
+                                                                                & = 2 \lim_{B \to +\infty} \left[ \frac{1}{2} \ln(1 + x^2) \right]_0^{B} = \lim_{B \to +\infty} \ln(1 + B^2) = +\infty \text{ (发散)}.
+                \end{align*}
+    \end{enumerate}
+\end{solution}
+
+
+\begin{exercise}[5.4.3]
+若函数 $f(x)$ 在 $(a, +\infty)$ 上连续, 并且以 $a$ 为瑕点, 则反常积分 $\displaystyle \int_a^{+\infty} f(x) \mathrm{d}x$ 定义为
+$$ \int_a^b f(x) \mathrm{d}x + \int_b^{+\infty} f(x) \mathrm{d}x, $$
+这是本节讲的两类反常积分的组合, 其中 $b > a$ 是任一实数. 当上面两个反常积分都收敛时, 我们称 $\displaystyle \int_a^{+\infty} f(x) \mathrm{d}x$ 收敛; 否则称其发散.
+\begin{enumerate}[(1)]
+    \item 证明 $\displaystyle \int_1^{+\infty} \frac{1}{x \sqrt{x - 1}} \mathrm{d}x$ 收敛, 并求其值;
+    \item 证明: 对任意实数 $\alpha$, $\displaystyle \int_0^{+\infty} \frac{1}{x^\alpha} \mathrm{d}x$ 发散.
+\end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \begin{align*}
+                  \int_1^{+\infty} \frac{1}{x \sqrt{x - 1}} \mathrm{d}x & = \int_1^2 \frac{1}{x \sqrt{x - 1}} \mathrm{d}x + \int_2^{+\infty} \frac{1}{x \sqrt{x - 1}} \mathrm{d}x \\
+                                                                      & = \lim_{t \to 1^+} \int_t^2 \frac{1}{x \sqrt{x - 1}} \mathrm{d}x + \lim_{A \to +\infty} \int_2^{A} \frac{1}{x \sqrt{x - 1}} \mathrm{d}x
+              \end{align*}
+
+              设 $x - 1 = u^2$, 则
+              \begin{align*}
+                  \int \frac{1}{x \sqrt{x - 1}} \mathrm{d}x & = \int \frac{1}{(u^2 + 1) u} 2u \mathrm{d}u = 2 \int \frac{1}{u^2 + 1} \mathrm{d}u = 2 \arctan u + C       \\
+                                                            & = 2 \arctan \sqrt{x - 1} + C
+              \end{align*}
+
+              因此,
+              \begin{align*}
+                  \int_1^{+\infty} \frac{1}{x \sqrt{x - 1}} \mathrm{d}x & = \lim_{t \to 1^+} [2 \arctan \sqrt{x - 1}]_t^2 + \lim_{A \to +\infty} [2 \arctan \sqrt{x - 1}]_2^{A}       \\
+                                                                      & = 2 (\arctan 1 - \arctan 0) + 2\left( \frac{\pi}{2} - \arctan 1 \right) = \pi
+              \end{align*}
+        \item \begin{proposition*}[第一类$p$积分]
+    $I(p) = \int_1^{+\infty} \frac1{x^p} \dif x, a >0$,当$p>1$时,积分收敛,当$p \les 1$时,积分发散.
+\end{proposition*}
+
+\begin{proof}
+    当$p > 1$时, $$\int_1^{+\infty} \frac1{x^p} \dif x = \lim_{b \to +\infty} \int_1^b \frac1{x^p} \dif x = \lim_{b \to +\infty} \left( \frac1{1-p} x^{1-p} \right) \bigg|_1^b = \lim_{b \to +\infty} \left( \frac1{1-p} - \frac1{1-p} b^{1-p} \right) = \frac1{p-1},$$
+
+    当$p \les 1$时, $$\int_1^{+\infty} \frac1{x^p} \dif x = \lim_{b \to +\infty} \int_1^b \frac1{x^p} \dif x = \lim_{b \to +\infty} \left( \frac1{1-p} x^{1-p} \right) \bigg|_1^b = \lim_{b \to +\infty} \left( \frac1{1-p} - \frac1{1-p} b^{1-p} \right) = +\infty.$$
+\end{proof}
+
+\begin{proposition*}[第二类$p$积分]
+    $J(p) = \int_0^1 \frac1{x^p} \dif x, a >0$,当$p \ges 1$时,积分发散,当$p < 1$时,积分收敛.
+\end{proposition*}
+
+\begin{proof}
+    当$p \ges 1$时, $$\int_0^1 \frac1{x^p} \dif x = \lim_{\varepsilon \to 0^+} \int_\varepsilon^1 \frac1{x^p} \dif x = \lim_{\varepsilon \to 0^+} \left( \frac1{1-p} x^{1-p} \right) \bigg|_\varepsilon^1 = \lim_{\varepsilon \to 0^+} \left( \frac1{1-p} - \frac1{1-p} \varepsilon^{1-p} \right) = +\infty,$$
+
+    当$p < 1$时, $$\int_0^1 \frac1{x^p} \dif x = \lim_{\varepsilon \to 0^+} \int_\varepsilon^1 \frac1{x^p} \dif x = \lim_{\varepsilon \to 0^+} \left( \frac1{1-p} x^{1-p} \right) \bigg|_\varepsilon^1 = \lim_{\varepsilon \to 0^+} \left( \frac1{1-p} - \frac1{1-p} \varepsilon^{1-p} \right) = \frac1{1-p}.$$
+\end{proof}
+
+    综上, 当$\alpha \les 1$时, $\displaystyle \int_0^{+\infty} \frac{1}{x^\alpha} \mathrm{d}x$发散;当$\alpha \ges 1$时,$\displaystyle \int_0^{+\infty} \frac{1}{x^\alpha} \mathrm{d}x$发散,因此$\displaystyle \int_0^{+\infty} \frac{1}{x^\alpha} \mathrm{d}x$发散.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[5.4.4]
+设 $a < c < b$, 点 $c$ 是函数 $f(x)$ 在区间 $[a, b]$ 内唯一的瑕点, 则积分 $\displaystyle \int_a^b f(x) \mathrm{d}x$ 定义为两个瑕积分 $\displaystyle \int_a^c f(x) \mathrm{d}x$ 与 $\displaystyle \int_c^b f(x) \mathrm{d}x$ 的和. 求:
+\begin{tasks}(2)
+    \task $\displaystyle \int_{-1}^4 \frac{1}{x^2 + x - 2} \mathrm{d}x;$
+    \task $\displaystyle \int_{-1}^1 x^{-\frac{1}{3}} \mathrm{d}x.$
+\end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \begin{align*}
+                  \int_{-1}^4 \frac{1}{x^2 + x - 2} \mathrm{d}x & = \int_{-1}^1 \frac{1}{x^2 + x - 2} \mathrm{d}x + \int_1^4 \frac{1}{x^2 + x - 2} \mathrm{d}x 
+              \end{align*}
+              其中
+              $$\int \frac{1}{x^2 + x - 2} \mathrm{d}x = \int \frac{1}{(x - 1)(x + 2)} \mathrm{d}x = \frac{1}{3} \int \left( \frac{1}{x - 1} - \frac{1}{x + 2} \right) \mathrm{d}x = \frac{1}{3} \ln \left| \frac{x - 1}{x + 2} \right| + C;$$
+
+              因此,$\int_1^4 \frac{1}{x^2 + x - 2} \mathrm{d}x$发散.故$\displaystyle \int_{-1}^4 \frac{1}{x^2 + x - 2} \mathrm{d}x$发散.事实上, $\int_{-1}^1 \frac{1}{x^2 + x - 2} \mathrm{d}x$也发散.
+        \item \begin{remark}
+            这里认为$x^{-\frac{1}{3}}$在$(-\infty,0)\cup(0,+\infty)$上有定义,$x=0$为瑕点.
+        \end{remark}
+        \begin{align*}
+                  \int_{-1}^1 x^{-\frac{1}{3}} \mathrm{d}x & = \int_{-1}^0 x^{-\frac{1}{3}} \mathrm{d}x + \int_0^1 x^{-\frac{1}{3}} \mathrm{d}x 
+              \end{align*}
+              其中
+              $$\int x^{-\frac{1}{3}} \mathrm{d}x = \frac{3}{2} x^{\frac{2}{3}} + C;$$
+
+              因此,
+              \begin{align*}
+                  \int_{-1}^0 x^{-\frac{1}{3}} \mathrm{d}x & = \lim_{\varepsilon \to 0^-} \left[ \frac{3}{2} x^{\frac{2}{3}} \right]_{-1}^{\varepsilon} = \lim_{\varepsilon \to 0^-} \left( \frac{3}{2} \varepsilon^{\frac{2}{3}} - \left(\frac{3}{2}\right) \right) = -\frac{3}{2};       \\
+                  \int_0^1 x^{-\frac{1}{3}} \mathrm{d}x   & = \lim_{\delta \to 0^+} \left[ \frac{3}{2} x^{\frac{2}{3}} \right]_{\delta}^{1} = \lim_{\delta \to 0^+} \left( \frac{3}{2} - \frac{3}{2} \delta^{\frac{2}{3}} \right) = \frac{3}{2};
+              \end{align*}
+
+              故$\displaystyle \int_{-1}^1 x^{-\frac{1}{3}} \mathrm{d}x = 0.$
+    \end{enumerate}
+\end{solution}
+
+\newpage

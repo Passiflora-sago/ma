@@ -50,7 +50,7 @@
     即证明了 $f(x)$ 在区间 $[a, b]$ 上不可积.
 \end{solution}
 
-\begin{exercise}[5.1.4]
+\begin{exercise}[5.1.4]\label{ex:5.1.4}
     \begin{enumerate}[(1)]
         \item 设可积函数 $f(x)$ 在 $[a, b]$ 上非负, 且在一点 $c$ 处连续 (这里 $a \les c \les b$), 若 $f(c) > 0$, 则 $\displaystyle \int_a^b f(x) \mathrm{d}x > 0$;
         \item 证明: 若 $f$ 是区间 $[a, b]$ 上非负的连续函数, 且不恒为零, 则 $\displaystyle \int_a^b f(x) \mathrm{d}x > 0$;
@@ -136,16 +136,16 @@
     \end{enumerate}
 \end{solution}
 
-\begin{exercise}[5.1.8]
+\begin{exercise}[5.1.8]\label{ex:5.1.8}
     设 $f(x)$ 是区间 $[a, b]$ 上的连续函数. 证明: 若 $\displaystyle \int_a^b f(x) \mathrm{d}x = 0$, 则 $f(x)$ 在 $(a, b)$ 中至少有一个零点. (因此, 由函数的积分这一整体信息, 能够推断函数值的某些性质.)
 \end{exercise}
 
 \begin{solution}
     反证法:若$f(x) \neq 0, \forall x \in (a,b)$,则$f(x)$在$(a,b)$上恒为正或恒为负.不妨设$f(x) > 0, \forall x \in (a,b)$.
 
-    由习题 5.1.4 可得
+    由\hyperref[ex:5.1.4]{习题 5.1.4} 可得
     $$\int_a^b f(x) \dif x > 0,$$
-    矛盾.
+    这与题设$\int_a^b f(x) \dif x = 0$ 矛盾.
 \end{solution}
 
 \begin{exercise}[5.1.9]
@@ -464,7 +464,7 @@
     \end{enumerate}
 \end{solution}
 
-\begin{exercise}[5.1.21]
+\begin{exercise}[5.1.21]\label{ex:5.1.21}
     设 $f(x)$ 为具有周期 $T$ 的连续函数, 证明: 对任意的常数 $a$, 有
     $$ \int_a^{a+T} f(x) \mathrm{d}x = \int_0^T f(x) \mathrm{d}x. $$
     (提示: 证明 $\displaystyle \int_a^{a+T} f(x) \mathrm{d}x = \int_0^T f(x) \mathrm{d}x$, 这在几何上是显然的.)
