@@ -1,0 +1,160 @@
+\section{第 7 章综合习题}
+
+\begin{exercise}[7.C.1]
+计算级数 $\displaystyle \sum_{n=1}^\infty \frac{1}{n(n+1)} \left( 1 + \frac{1}{2} + \dots + \frac{1}{n} \right)$ 的和.
+\end{exercise}
+
+\begin{solution}
+    由Abell求和公式,有
+    \begin{align*}
+        \sum_{n=1}^N \frac{1}{n(n+1)} \left( 1 + \frac{1}{2} + \dots + \frac{1}{n} \right) & = \sum_{n=1}^N \frac{1}{n(n+1)} \sum_{k=1}^n \frac{1}{k}                      \\
+                                                                                           & = \sum_{k=1}^N \frac{1}{k} \sum_{n=k}^N \frac{1}{n(n+1)}                      \\
+                                                                                           & = \sum_{k=1}^N \frac{1}{k} \left( \frac{1}{k} - \frac{1}{N+1} \right)         \\
+                                                                                           & = \sum_{k=1}^N \frac{1}{k^2} - \frac{1}{N+1} \sum_{k=1}^N \frac{1}{k}.
+    \end{align*}
+    当$N \to \infty$时,由$\sum_{k=1}^\infty \frac{1}{k^2} = \frac{\pi^2}{6}$以及$\lim_{N \to \infty} \frac{1}{N+1} \sum_{k=1}^N \frac{1}{k} = \lim_{N \to \infty} \frac{\ln N}{N+1} = 0$,得级数和为$\frac{\pi^2}{6}$.
+\end{solution}
+
+\begin{exercise}[7.C.2]
+证明: $\displaystyle \sum_{n=0}^\infty (-1)^n \frac{2n + 3}{(n+1)(n+2)} = 1.$
+\end{exercise}
+
+\begin{solution}
+    \begin{align*}
+        \sum_{n=0}^N \frac{2n+3}{(n+1)(n+2)} (-1)^n & = \sum_{n=0}^N \left( \frac{1}{n+1} + \frac{1}{n+2} \right) (-1)^n \\
+                                                     & = \sum_{n=0}^N \frac{(-1)^n}{n+1} + \sum_{n=0}^N \frac{(-1)^n}{n+2}     \\
+                                                     & = \sum_{n=0}^N \frac{(-1)^n}{n+1} + \sum_{n=1}^{N+1} \frac{(-1)^{n-1}}{n} \\
+                                                     & = 1 + (-1)^{N+1} \frac{1}{N+2} \to 1, \quad (N \to \infty).
+    \end{align*}
+\end{solution}
+
+\begin{exercise}[7.C.3]
+设 $\{a_n\}$ 是正的递增数列. 求证: 级数 $\displaystyle \sum_{n=1}^\infty \left( \frac{a_{n+1}}{a_n} - 1 \right)$ 收敛的充分必要条件是 $\{a_n\}$ 有界.
+\end{exercise}
+
+\begin{solution}
+    若$a_n$有上界$M$,则 
+    $$\sum_{n=1}^N \left( \frac{a_{n+1}}{a_n} - 1 \right) = \sum_{n=1}^N \frac{a_{n+1} - a_n}{a_n} \les \frac{1}{a_1} \sum_{n=1}^N (a_{n+1} - a_n) = \frac{a_{N+1} - a_1}{a_1} \les \frac{M - a_1}{a_1},$$
+    故正项级数$\sum_{n=1}^\infty \left( \frac{a_{n+1}}{a_n} - 1 \right)$收敛.
+
+    若$a_n$无上界,则对任意$M > 0$,存在$a_n$的子列$\{a_{n_k}\}$使得$a_{n_{k+1}} \ges 2 a_{n_k}$,则对任意$k \in \mathbb{N}^+$,有
+    \begin{align*}
+\sum_{n=1}^\infty \left(\frac{a_{n+1}}{a_n} - 1\right) &\ges \sum_{k=1}^\infty \sum_{n=n_k}^{n_{k+1}-1} \frac{a_{n+1} - a_n}{a_{n_{k+1}}} \\
+&\ges \sum_{k=1}^\infty \sum_{n=n_k}^{n_{k+1}-1} \frac{a_{n+1} - a_n}{a_{n_{k+1}}} \\
+&\ges \sum_{k=1}^\infty \frac{1}{2}
+\end{align*}
+ 因此正项级数$\sum_{n=1}^\infty \left( \frac{a_{n+1}}{a_n} - 1 \right)$发散.
+\end{solution}
+
+\begin{exercise}[7.C.4]
+设 $\alpha > 0$, $\{a_n\}$ 是正的递增数列. 求证: 级数 $\displaystyle \sum_{n=1}^\infty \frac{a_{n+1} - a_n}{a_{n+1} a_n^\alpha}$ 收敛.
+\end{exercise}
+
+\begin{solution}
+    记$b_n = \frac{1}{a_n}$,则$b_n$为正的递减数列,且
+    $$\sum_{n=1}^\infty \frac{a_{n+1} - a_n}{a_{n+1} a_n^\alpha} = \sum_{n=1}^\infty (b_n - b_{n+1}) b_n^{\alpha} \les \sum_{n=1}^\infty (b_n - b_{n+1}) b_1^{\alpha} = b_1^{\alpha} \lim_{N \to \infty} (b_1 - b_{N+1}) \les b_1^{\alpha + 1} < +\infty.$$
+    故级数收敛.
+\end{solution}
+
+\begin{exercise}[7.C.5]
+设 $\phi(x)$ 是 $(0, +\infty)$ 上正的严格增函数, $\{a_n\}, \{b_n\}, \{c_n\}$ 是三个非负数列, 满足
+$$ a_{n+1} \les a_n - b_n \phi(a_n) + c_n a_n, \quad \sum_{n=1}^\infty b_n = +\infty, \quad \sum_{n=1}^\infty c_n < +\infty. $$
+求证: $\displaystyle \lim_{n \to \infty} a_n = 0.$
+\end{exercise}
+
+\begin{exercise}[7.C.6]
+设 $\{a_n\}$ 是正数数列使得 $\displaystyle \sum_{n=1}^\infty \frac{1}{a_n}$ 收敛. 求证: 存在常数 $M > 0$ 使得
+$$ \sum_{n=1}^\infty \frac{n}{a_1 + a_2 + \dots + a_n} \les M \sum_{n=1}^\infty \frac{1}{a_n}. $$
+\end{exercise}
+
+\begin{exercise}[7.C.7]
+设 $\{a_n\}$ 是一个严格单调递增的实数列, 且对任意正整数 $n$ 有 $a_n \les n^2 \ln n$.
+
+求证: 级数 $\displaystyle \sum_{n=1}^\infty \frac{1}{a_{n+1} - a_n}$ 发散.
+\end{exercise}
+
+\begin{exercise}[7.C.8]
+如果级数 $\displaystyle \sum_{n=1}^\infty |a_{n+1} - a_n|$ 收敛, 就称数列 $\{a_n\}$ 是具有有界变差的.
+\begin{enumerate}[(1)]
+    \item 证明: 具有有界变差的数列 $\{a_n\}$ 一定收敛;
+    \item 构造一个发散的无穷级数 $\displaystyle \sum_{n=1}^\infty a_n$, 使得其通项构成的数列 $\{a_n\}$ 是一个具有有界变差的数列.
+\end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 由Cauchy收敛准则,对任意$\varepsilon > 0$,存在$N \in \mathbb{N}^+$,当$m >n > N$时,有
+        $$|a_n - a_m| \les \sum_{k=n}^{m-1} |a_{k+1} - a_k| < \varepsilon,$$
+        故数列$\{a_n\}$收敛.
+        \item 取$a_n = \frac{1}{n}$,则级数$\sum_{n=1}^\infty a_n$发散,且
+        $$\sum_{n=1}^\infty |a_{n+1} - a_n| = \sum_{n=1}^\infty \left| \frac{1}{n+1} - \frac{1}{n} \right| = \sum_{n=1}^\infty \frac{1}{n(n+1)} = 1 < +\infty,$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.C.9]
+设函数列 $\{f_n(x)\}, n = 1, 2, \dots$ 在区间 $[0, 1]$ 上由等式
+$$ f_0(x) = 1, \quad f_n(x) = \sqrt{x f_{n-1}(x)} $$
+定义. 证明: 当 $n \to \infty$ 时, 函数列在 $[0, 1]$ 上一致收敛到一个连续函数.
+\end{exercise}
+
+\begin{solution}
+    $$f_n(x) = x^{1 - \frac{1}{2^n}},$$
+    由于每个$f_n(x)$在$[0, 1]$上连续,且固定$x$时,$f_n(x)$单调递增有极限$$\lim_{n \to \infty} f_n(x) = x,$$
+    且逐点极限$f(x) = x$在$[0, 1]$上连续,由Dini定理知,$f_n(x)$在$[0, 1]$上一致收敛到$f(x) = x$.
+\end{solution}
+
+\begin{exercise}[7.C.10]
+递归定义连续可微函数列 $f_1, f_2, \dots : [0, 1] \to \mathbb{R}$ 如下: $f_1 = 1$, 在 $(0, 1)$ 上有
+$$ f'_{n+1} = f_n f_{n+1}, $$
+且 $f_{n+1}(0) = 1$. 求证: 对每一个 $x \in (0, 1)$, $\displaystyle \lim_{n \to \infty} f_n(x)$ 存在, 并求出其极限函数.
+\end{exercise}
+
+\begin{solution}
+    在习题7.2.10 中我们将$f_n(x)$展开为幂级数来处理,这里给出法二.
+
+    解微分方程得$$f_{n+1}(x) = \mathrm{e}^{\int_0^x f_n(t) \mathrm{d}t}.$$
+
+    首先归纳的证明$f_n(x) \les \frac{1}{1-x}$,$n=1$时已知成立,假设$n=k$时成立,则
+    $$f_{k+1}(x) = \mathrm{e}^{\int_0^x f_k(t) \mathrm{d}t} \les \mathrm{e}^{\int_0^x \frac{1}{1-t} \mathrm{d}t} = \frac{1}{1-x},$$
+    故对任意$n \in \mathbb{N}^+$,有$f_n(x) \les \frac{1}{1-x}.$
+
+    再归纳的证明$$f_n(x) \ges 1 + x + x^2 + \dots + x^{n-1},$$$n=1$时已知成立,假设$n=k$时成立,则
+    \begin{align*}
+        f_{k+1}(x) & = \mathrm{e}^{\int_0^x f_k(t) \mathrm{d}t} \ges \mathrm{e}^{\int_0^x (1 + t + t^2 + \dots + t^{k-1}) \mathrm{d}t} \\
+                   & = \mathrm{e}^{x + \frac{x^2}{2} + \frac{x^3}{3} + \dots + \frac{x^k}{k}} \ges 1 + x + x^2 + \dots + x^k.
+    \end{align*}
+    故对任意$n \in \mathbb{N}^+$,有$f_n(x) \ges 1 + x + x^2 + \dots + x^{n-1}.$
+
+    综上,对任意$x \in (0, 1)$,有
+    $$1 + x + x^2 + \dots + x^{n-1} \les f_n(x) \les \frac{1}{1-x},$$
+    故$\lim_{n \to \infty} f_n(x) = \frac{1}{1-x}.$
+\end{solution}
+
+\begin{exercise}[7.C.11]
+设 $f_0(x)$ 是区间 $[0, a]$ 上的连续函数, 证明: 按照下列公式
+$$ f_n(x) = \int_0^x f_{n-1}(u) \mathrm{d}u $$
+定义的函数列 $\{f_n(x)\}$ 在区间 $[0, a]$ 上一致收敛于 0.
+\end{exercise}
+
+\begin{solution}
+    由$f_0(x)$在$[0, a]$上连续,故存在$M > 0$,使得对任意$x \in [0, a]$,有$|f_0(x)| \les M$.下归纳的证明:$f_n(x) \les \frac{M a^n}{n!}, n=0, 1, 2, \dots$当$n=0$时由$M$的定义已知.假设$n=k-1$时成立,则当$x \in [0, a]$时,
+    \begin{align*}
+|f_n(x)| &\les \int_0^x |f_{n-1}(u)| \mathrm{d}u \\
+&\les \int_0^x \frac{M u^{n-1}}{(n - 1)!} \mathrm{d}u = \frac{M x^n}{n!}
+\end{align*}
+    故对任意$n \in \mathbb{N}$,有$|f_n(x)| \les \frac{M a^n}{n!}$.因此,对任意$\varepsilon > 0$,存在$N \in \mathbb{N}$,当$m > n > N$时,有
+    $$|f_n(x) - f_m(x)| \les |f_n(x)| + |f_m(x)| \les \frac{M a^n}{n!} + \frac{M a^m}{m!} < \varepsilon,$$
+    故函数列$\{f_n(x)\}$在$[0, a]$上一致收敛于0.
+\end{solution}
+
+\begin{exercise}[7.C.12]
+利用二项式级数, 计算 $\sqrt{2}$ 到四位小数.
+\end{exercise}
+
+\begin{solution}
+    由二项式级数,有
+    $$\sqrt{2} = (1 + 1)^{\frac{1}{2}} = \sum_{n=0}^\infty \binom{\frac{1}{2}}{n} 1^n = 1 + \frac{1}{2} - \frac{1}{8} + \frac{1}{16} - \frac{5}{128} + \dots$$
+    取前五项和为$1.4140625$.
+\end{solution}
+
+\newpage

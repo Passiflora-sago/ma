@@ -1,0 +1,315 @@
+\chapter{无穷级数}
+\section{习题 7.1}
+
+\begin{exercise}[7.1.1]
+    证明下列等式:
+    \begin{tasks}(2)
+        \task* $\displaystyle \sum_{n=1}^\infty \frac{1}{(2n - 1)(2n + 1)} = \frac{1}{2};$
+        \task* $\displaystyle \sum_{n=1}^\infty (\sqrt{n + 2} - 2\sqrt{n + 1} + \sqrt{n}) = 1 - \sqrt{2};$
+        \task $\displaystyle \sum_{n=1}^\infty \ln \frac{n(2n + 1)}{(n + 1)(2n - 1)} = \ln 2;$
+        \task $\displaystyle \sum_{n=1}^\infty \frac{2n + 1}{n^2 (n + 1)^2} = 1.$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \begin{align*}
+                  \sum_{n=1}^\infty \frac{1}{(2n - 1)(2n + 1)} & = \sum_{n=1}^\infty \left( \frac{1}{2(2n - 1)} - \frac{1}{2(2n + 1)} \right)         \\
+                                                               & = \frac{1}{2} \left( 1 - \lim_{n \to \infty} \frac{1}{2n + 1} \right) = \frac{1}{2}.
+              \end{align*}
+        \item \begin{align*}
+                  \sum_{n=1}^\infty (\sqrt{n + 2} - 2\sqrt{n + 1} + \sqrt{n}) & = \sum_{n=1}^\infty \left( (\sqrt{n + 2} - \sqrt{n + 1}) - (\sqrt{n + 1} - \sqrt{n}) \right) \\
+                                                                              & = \lim_{n \to \infty} (\sqrt{n + 2} - \sqrt{n + 1}) - (\sqrt{2} - 1)                         \\
+                                                                              & = \lim_{n \to \infty} \frac{1}{\sqrt{n + 2} + \sqrt{n + 1}} - (\sqrt{2} - 1) = 1 - \sqrt{2}.
+              \end{align*}
+        \item \begin{align*}
+                  \sum_{n=1}^\infty \ln \frac{n(2n + 1)}{(n + 1)(2n - 1)} & = \sum_{n=1}^\infty \left( \ln n - \ln(n + 1) + \ln(2n + 1) - \ln(2n - 1) \right)      \\
+                                                                          & = \lim_{n \to \infty} \left( \ln 1 - \ln(n + 1) + \ln 3 - \ln(2n - 1) \right) = \ln 2.
+              \end{align*}
+        \item \begin{align*}
+                  \sum_{n=1}^\infty \frac{2n + 1}{n^2 (n + 1)^2} & = \sum_{n=1}^\infty \left( \frac{1}{n^2} - \frac{1}{(n + 1)^2} + \frac{1}{n} - \frac{1}{n + 1} \right) \\
+                                                                 & = \lim_{n \to \infty} \left( 1 - \frac{1}{(n + 1)^2} + 1 - \frac{1}{n + 1} \right) = 1.
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.1.2]
+    研究下列级数的敛散性:
+    \begin{tasks}(2)
+        \task $\displaystyle \sum_{n=1}^\infty \sqrt[n]{0.001};$
+        \task $\displaystyle \sum_{n=2}^\infty \frac{1}{n\sqrt{n} - 1};$
+        \task $\displaystyle \sum_{n=1}^\infty \frac{1}{\sqrt{(2n - 1)(2n + 1)}};$
+        \task $\displaystyle \sum_{n=1}^\infty \sin n;$
+        \task $\displaystyle \sum_{n=1}^\infty 2^n \sin \frac{\pi}{3^n};$
+        \task $\displaystyle \sum_{n=1}^\infty \frac{1}{n \sqrt[n]{n}};$
+        \task $\displaystyle \sum_{n=1}^\infty \frac{1}{(2 + \frac{1}{n})^n};$
+        \task $\displaystyle \sum_{n=1}^\infty \frac{n}{(n + \frac{1}{n})^n};$
+        \task $\displaystyle \sum_{n=1}^\infty \arctan \frac{\pi}{4n};$
+        \task $\displaystyle \sum_{n=1}^\infty \frac{1000^n}{n!};$
+        \task $\displaystyle \sum_{n=1}^\infty \frac{(n!)^2}{(2n)!};$
+        \task $\displaystyle \sum_{n=1}^\infty \frac{3 + (-1)^n}{2^n};$
+        \task $\displaystyle \sum_{n=1}^\infty \frac{\ln n}{\sqrt[4]{n^5}};$
+        \task $\displaystyle \sum_{n=3}^\infty \frac{1}{n \ln n (\ln \ln n)^k};$
+        \task $\displaystyle \sum_{n=1}^\infty \left( \cos \frac{1}{n} \right)^{n^3};$
+        \task $\displaystyle \sum_{n=2}^\infty \left( \frac{an}{n+1} \right)^n (a > 0).$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 发散, 因为 $\displaystyle \lim_{n \to \infty} \sqrt[n]{0.001} = 1$.
+        \item 收敛, 因为 $\displaystyle \frac{1}{n\sqrt{n} - 1} \sim \frac{1}{n^{3/2}}$,而 $\displaystyle \sum_{n=2}^\infty \frac{1}{n^{3/2}}$ 收敛.
+        \item 发散, 因为 $\displaystyle \frac{1}{\sqrt{(2n - 1)(2n + 1)}} \sim \frac{1}{2n}$, 而 $\displaystyle \sum_{n=1}^\infty \frac{1}{2n}$ 发散.
+        \item 发散, 因为 $\sin n$ 不趋于零.
+        \item 收敛, 因为 $\displaystyle 2^n \sin \frac{\pi}{3^n} \sim \frac{2^n \pi}{3^n}$, 而 $\displaystyle \sum_{n=1}^\infty \frac{2^n \pi}{3^n}$ 收敛.
+        \item 发散, 因为 $\displaystyle \frac{1}{n \sqrt[n]{n}} \sim \frac{1}{n}$, 而 $\displaystyle \sum_{n=1}^\infty \frac{1}{n}$ 发散.
+        \item 收敛, 因为 $\displaystyle \frac{1}{(2 + \frac{1}{n})^n} \les \frac{1}{2^n}$, 而 $\displaystyle \sum_{n=1}^\infty \frac{1}{2^n}$ 收敛.
+        \item 收敛, 因为 $\displaystyle \frac{n}{(n + \frac{1}{n})^n} \les \frac{n}{n^n} \les \frac{1}{2^{n - 1}}$, 而 $\displaystyle \sum_{n=1}^\infty \frac{1}{2^{n - 1}}$ 收敛.
+        \item 发散, 因为 $\displaystyle \arctan \frac{\pi}{4n} \sim \frac{\pi}{4n}$, 而 $\displaystyle \sum_{n=1}^\infty \frac{\pi}{4n}$ 发散.
+        \item 收敛, 因为 $\displaystyle \frac{1000^n}{n!} \sim \frac{1000^n}{\sqrt{2 \pi n} \left( \frac{n}{e} \right)^n}$, 而 $\displaystyle \sum_{n=1}^\infty \frac{1000^n}{\sqrt{2 \pi n} \left( \frac{n}{e} \right)^n}$ 收敛.
+        \item 收敛, 因为 $\displaystyle \frac{(n!)^2}{(2n)!} \sim \frac{(n!)^2}{\sqrt{4 \pi n} = \prod_{k=1}^n \frac{k}{n+k} \les \prod_{k=1}^n \frac{1}{2} = \frac{1}{2^n}}$, 而 $\displaystyle \sum_{n=1}^\infty \frac{1}{2^n}$ 收敛.
+        \item 收敛, 因为 $\displaystyle \frac{3 + (-1)^n}{2^n} \les \frac{4}{2^n}$, 而 $\displaystyle \sum_{n=1}^\infty \frac{4}{2^n}$ 收敛.
+        \item 收敛, 因为 $\displaystyle \frac{\ln n}{\sqrt[4]{n^5}} = o\left( \frac{\sqrt[8]{n}}{\sqrt[4]{n^5}} \right)= o\left( \frac{1}{n^\frac{9}{8}} \right)$, 而 $\displaystyle \sum_{n=1}^\infty \frac{1}{n^\frac{9}{8}}$ 收敛.
+        \item 级数收敛性同$$\int_{3}^{\infty} \frac{1}{x (\ln x) (\ln \ln x)^k} \dif x = \int_{\ln \ln3}^{\infty} \frac{1}{t^k} \dif t,$$故$k > 1$ 时, 级数收敛;$k \les 1$ 时, 级数发散.
+        \item 收敛, 因为
+              $$ \left( \cos \frac{1}{n} \right)^{n^3} = \e^{n^3 \ln \left( \cos \frac{1}{n} \right)} \sim \e^{n^3 \left( \ln\left( 1 - \frac{1}{2n^2} + O\left( \frac{1}{n^4} \right) \right) \right)} \sim \e^{-\frac{n}{2} , n \to \infty}, $$
+              而 $\displaystyle \sum_{n=1}^\infty \e^{-\frac{n}{2}}$ 收敛.
+        \item $\lim_{n \to \infty} \frac{ \alpha n}{n+1} =  \alpha$. 当$ \alpha < 1$时,收敛;当$ \alpha \ges 1$时,发散.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.1.3]
+    设 $\displaystyle \sum_{n=1}^\infty a_n$ 收敛, 证明: $\displaystyle \sum_{n=1}^\infty (a_n + a_{n+1})$ 也收敛. 试举例说明逆命题不成立; 但若 $a_n > 0$ 则逆命题成立.
+\end{exercise}
+
+\begin{solution}
+    因为 $\displaystyle \sum_{n=1}^\infty a_n$ 收敛, 故 $\displaystyle \lim_{n \to \infty} a_n = 0$. 因此,
+    \begin{align*}
+        \sum_{n=1}^\infty (a_n + a_{n+1}) & = 2 \sum_{n=1}^\infty a_n - a_1
+    \end{align*}
+    收敛.
+
+    反例: 令 $a_n = (-1)^{n-1}$, 则 $\displaystyle \sum_{n=1}^\infty (a_n + a_{n+1}) = \sum_{n=1}^\infty 0$ 收敛, 而 $\displaystyle \sum_{n=1}^\infty a_n$ 发散.
+
+    若 $a_n > 0$, 由比较判别法,因为$a_n + a_{n+1} \ges a_n$,故$\displaystyle \sum_{n=1}^\infty (a_n + a_{n+1})$推出$\displaystyle \sum_{n=1}^\infty a_n$收敛.
+\end{solution}
+
+\begin{exercise}[7.1.4]
+    证明或回答下面论断:
+    \begin{enumerate}[(1)]
+        \item 若 $\displaystyle \lim_{n \to \infty} n a_n = a \neq 0$, 则级数 $\displaystyle \sum_{n=1}^\infty a_n$ 发散.
+        \item 若级数 $\displaystyle \sum_{n=1}^\infty a_n$ 收敛, 是否有 $\displaystyle \lim_{n \to \infty} n a_n = 0$?
+        \item 若 $\displaystyle \lim_{n \to \infty} n a_n = a$, 且级数 $\displaystyle \sum_{n=1}^\infty n(a_n - a_{n+1})$ 收敛, 则 $\displaystyle \sum_{n=1}^\infty a_n$ 收敛.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 正确, 因为$a_n \sim \frac{a}{n}$, 而 $\displaystyle \sum_{n=1}^\infty \frac{a}{n}$ 发散.
+        \item 不一定, 如$a_n = \frac{(-1)^{n-1}}{n},$则$\displaystyle \sum_{n=1}^\infty a_n$收敛,但$\displaystyle \lim_{n \to \infty} n a_n = (-1)^{n-1}$不存在.
+        \item 正确, $$ \sum_{n=1}^{N+1} a_{n} = \sum_{n=1}^N n(a_n - a_{n+1}) + (N + 1) a_{N+1}. $$
+              当 $N \to \infty$ 时, $\sum_{n=1}^N n(a_n - a_{n+1})$ 收敛, 故 $$\lim_{N \to \infty} \sum_{n=1}^N n(a_n - a_{n+1})$$ 存在; 又因为 $\displaystyle \lim_{n \to \infty} n a_n = a$ , 故 $$\lim_{N \to \infty} (N + 1) a_{N+1} = a$$也存在
+              , 故级数 $\displaystyle \sum_{n=1}^\infty a_n$ 收敛.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.1.5]
+    设正项级数 $\displaystyle \sum_{n=1}^\infty a_n$ 收敛, 证明: $\displaystyle \sum_{n=1}^\infty a_n^2$ 也收敛. 试问反之是否成立?
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 由教材推论7.8, 由于 $$\lim_{n \to \infty} \frac{a_n^2}{a_n} = \lim_{n \to \infty} a_n = 0,$$ 故 $\displaystyle \sum_{n=1}^\infty a_n^2$ 收敛.
+        \item 反之不成立, 例如 $\displaystyle \sum_{n=1}^\infty \frac{1}{n^2}$ 收敛, 但 $\displaystyle \sum_{n=1}^\infty \frac{1}{n}$ 发散.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.1.6]
+    设 $\{a_n\}, \{b_n\}$ 是两个非负数列, 满足 $a_{n+1} < a_n + b_n$, 而且 $\displaystyle \sum_{n=1}^\infty b_n$ 收敛. 求证: $\displaystyle \lim_{n \to \infty} a_n$ 存在.
+\end{exercise}
+
+\begin{solution}
+    由$$0\les a_n < a_{n-1} + b_{n-1} < a_{n-2} + b_{n-2} + b_{n-1} < \dots < a_1 + \sum_{k=1}^{n-1} b_k,$$ 故$\{a_n\}$有界,因此存在收敛子列,设为$\{ a_{n_k} \} \to a$.$\forall n , \exists k, \st n_k < n < n_{k+1},$则$$ a_{n_k} - \sum_{i=n_k}^{n-1} b_i < a_n < a_{n_{k+1}} + \sum_{i=n}^{n_{k+1}-1} b_i .$$当$n \to \infty$时,$k \to \infty$,由$\displaystyle \sum_{n=1}^\infty b_n$收敛可知,$\sum_{i=n_k}^{n-1} b_i \to 0 , \sum_{i=n}^{n_{k+1}-1} b_i \to 0,$由夹逼定理可知,$a_n \to a.$
+\end{solution}
+
+\begin{exercise}[7.1.7]
+    证明: 若级数 $\displaystyle \sum_{n=1}^\infty a_n^2$ 和 $\displaystyle \sum_{n=1}^\infty b_n^2$ 收敛, 则级数 $\displaystyle \sum_{n=1}^\infty |a_n b_n|$, $\displaystyle \sum_{n=1}^\infty (a_n + b_n)^2$, 以及 $\displaystyle \sum_{n=1}^\infty \frac{|a_n|}{n}$ 也收敛.
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 由柯西-施瓦茨不等式, 有
+              $$ \sum_{n=1}^N |a_n b_n| \les \sqrt{\sum_{n=1}^N a_n^2} \sqrt{\sum_{n=1}^N b_n^2}. $$
+              当 $N \to \infty$ 时, 右端有界, 故 $\displaystyle \sum_{n=1}^\infty |a_n b_n|$ 收敛.
+        \item 正项级数满足
+              $$ \sum_{n=1}^\infty (a_n + b_n)^2 = \sum_{n=1}^\infty a_n^2 + \sum_{n=1}^\infty b_n^2 + 2 \sum_{n=1}^\infty a_n b_n \les \sum_{n=1}^\infty a_n^2 + \sum_{n=1}^\infty b_n^2 + 2 \sum_{n=1}^\infty |a_n b_n|, $$
+              故 $\displaystyle \sum_{n=1}^\infty (a_n + b_n)^2$ 收敛.
+        \item 由柯西-施瓦茨不等式, 有
+              $$ \sum_{n=1}^N \frac{|a_n|}{n} \les \sqrt{\sum_{n=1}^N a_n^2} \sqrt{\sum_{n=1}^N \frac{1}{n^2}}. $$
+              当 $N \to \infty$ 时, 右端有界, 故 $\displaystyle \sum_{n=1}^\infty \frac{|a_n|}{n}$ 收敛.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.1.8]
+    求下列极限 (其中 $p > 1$):
+    \begin{tasks}(1)
+        \task $\displaystyle \lim_{n \to \infty} \left( \frac{1}{(n+1)^p} + \frac{1}{(n+2)^p} + \dots + \frac{1}{(2n)^p} \right);$
+        \task $\displaystyle \lim_{n \to \infty} \left( \frac{1}{p^{n+1}} + \frac{1}{p^{n+2}} + \dots + \frac{1}{p^{2n}} \right).$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 因为
+              $$ \frac{1}{(n+1)^p} + \frac{1}{(n+2)^p} + \dots + \frac{1}{(2n)^p} \les n \cdot \frac{1}{(n+1)^p} = \frac{n}{(n+1)^p} \les \frac{1}{(n+1)^{p-1}}, $$
+              故$\displaystyle \lim_{n \to \infty} \left( \frac{1}{(n+1)^p} + \frac{1}{(n+2)^p} + \dots + \frac{1}{(2n)^p} \right) = 0$.
+        \item 因为
+              $$ \lim_{n \to \infty} \left( \frac{1}{p^{n+1}} + \frac{1}{p^{n+2}} + \dots + \frac{1}{p^{2n}} \right) = \lim_{n \to \infty} \frac{1/p^{n+1} (1 - (1/p)^n)}{1 - 1/p} = 0. $$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.1.9]
+    设正项数列 $\{a_n\}$ 单调递减, 且 $\displaystyle \sum_{n=1}^\infty (-1)^n a_n$ 发散, 试问 $\displaystyle \sum_{n=1}^\infty \left( \frac{1}{a_n + 1} \right)^n$ 是否收敛? 说明理由.
+\end{exercise}
+
+\begin{solution}
+    因为 $\displaystyle \sum_{n=1}^\infty (-1)^n a_n$ 发散, 故 $\displaystyle \lim_{n \to \infty} a_n \neq 0$. 又因为 $\{a_n\}$ 单调递减, 故存在常数 $a > 0$, 使得当 $n$ 足够大时, 有 $a_n \ges a$. 因此, 当 $n$ 足够大时,
+    $$ \left( \frac{1}{a_n + 1} \right)^n \les \left( \frac{1}{a + 1} \right)^n. $$
+    由于 $\displaystyle \sum_{n=1}^\infty \left( \frac{1}{a + 1} \right)^n$ 收敛, 故由比较判别法可知, 级数 $\displaystyle \sum_{n=1}^\infty \left( \frac{1}{a_n + 1} \right)^n$ 收敛.
+\end{solution}
+
+\begin{exercise}[7.1.10]
+    设 $a_n > 0, a_n > a_{n+1}$ ($n = 1, 2, \dots$), 且 $\displaystyle \lim_{n \to \infty} a_n = 0$, 证明: 级数
+    $$ \sum_{n=1}^\infty (-1)^{n-1} \frac{a_1 + a_2 + \dots + a_n}{n} $$
+    是收敛的.
+\end{exercise}
+
+\begin{solution}
+    由Stolz定理, 有
+    $$ \lim_{n \to \infty} \frac{a_1 + a_2 + \dots + a_n}{n} = \lim_{n \to \infty} a_n = 0. $$
+    又因为
+    $$\frac{a_1 + a_2 + \dots + a_{n+1}}{n+1} - \frac{a_1 + a_2 + \dots + a_n}{n} = \frac{n a_{n+1} - (a_1 + a_2 + \dots + a_n)}{n(n+1)} < 0,$$
+    故数列 $\left\{ \frac{a_1 + a_2 + \dots + a_n}{n} \right\}$ 单调递减. 由Leibniz判别法, 级数
+    $$ \sum_{n=1}^\infty (-1)^{n-1} \frac{a_1 + a_2 + \dots + a_n}{n} $$
+    收敛.
+\end{solution}
+
+\begin{exercise}[7.1.11]
+    设 $\displaystyle \sum_{n=1}^\infty a_n$ 和 $\displaystyle \sum_{n=1}^\infty b_n$ 绝对收敛, 求证: $\displaystyle \sum_{n=1}^\infty (a_n + b_n)$ 绝对收敛.
+\end{exercise}
+
+\begin{solution}
+    由三角不等式, 有
+    $$ |a_n + b_n| \les |a_n| + |b_n|. $$
+    因为 $\displaystyle \sum_{n=1}^\infty |a_n|$ 和 $\displaystyle \sum_{n=1}^\infty |b_n|$ 收敛, 故由比较判别法可知, 级数 $\displaystyle \sum_{n=1}^\infty |a_n + b_n|$ 收敛, 即级数 $\displaystyle \sum_{n=1}^\infty (a_n + b_n)$ 绝对收敛.
+\end{solution}
+
+\begin{exercise}[7.1.12]
+    研究下列级数的条件收敛性与绝对收敛性:
+    \begin{tasks}(2)
+        \task $\displaystyle \sum_{n=1}^\infty (-1)^n \left( \frac{2n + 100}{3n + 1} \right)^n;$
+        \task $\displaystyle \sum_{n=1}^\infty \frac{(-1)^{\frac{n(n-1)}{2}}}{2^n};$
+        \task $\displaystyle \sum_{n=1}^\infty (-1)^n \frac{\sqrt{n}}{n + 100};$
+        \task $\displaystyle \sum_{n=1}^\infty (-1)^{n-1} \sin \frac{1}{n};$
+        \task $\displaystyle \sum_{n=1}^\infty (-1)^{n-1} \frac{\ln n}{n};$
+        \task $\displaystyle \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n^p};$
+        \task $\displaystyle \sum_{n=1}^\infty (-1)^n (\mathrm{e}^{\frac{1}{n}} - 1);$
+        \task $\displaystyle \sum_{n=1}^\infty (-1)^n \left( \frac{1}{n} - \ln \left( 1 + \frac{1}{n} \right) \right);$
+        \task $\displaystyle \sum_{n=1}^\infty (-1)^n \left( 1 - \cos \frac{p}{n} \right);$
+        \task $\displaystyle \sum_{n=1}^\infty (-1)^n \left( 1 - \cos \frac{1}{n} \right)^p.$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 绝对收敛. $\left| (-1)^n \left( \frac{2n + 100}{3n + 1} \right)^n\right| \sim \left( \frac{2}{3} \right)^n$,且$\displaystyle \sum_{n=1}^\infty \left( \frac{2}{3} \right)^n$收敛.
+        \item 绝对收敛. $\left| \frac{(-1)^{\frac{n(n-1)}{2}}}{2^n} \right| = \frac{1}{2^n}$,且$\displaystyle \sum_{n=1}^\infty \frac{1}{2^n}$收敛.
+        \item 条件收敛,绝对发散. 因为$$\left| (-1)^n \frac{\sqrt{n}}{n + 100} \right| \sim \frac{1}{\sqrt{n}},$$且$\displaystyle \sum_{n=1}^\infty \frac{1}{\sqrt{n}}$发散,故绝对发散.又因为$$\frac{\sqrt{n+1}}{n + 1 + 100} - \frac{\sqrt{n}}{n + 100} = \frac{100 - \sqrt{n(n+1)}}{(n + 1 + 100)(n + 100)} < 0,$$在$n$充分大时成立,由Leibniz判别法,级数条件收敛.
+        \item 条件收敛,绝对发散. 因为$$\left| (-1)^{n-1} \sin \frac{1}{n} \right| \sim \frac{1}{n},$$且$\displaystyle \sum_{n=1}^\infty \frac{1}{n}$发散,故绝对发散.又因为$\sin \frac{1}{n}$单调递减,由Leibniz判别法,级数条件收敛.
+        \item 条件收敛,绝对发散. 因为$$\left| (-1)^{n-1} \frac{\ln n}{n} \right| \sim \frac{\ln n}{n} ,$$且$\int_2^{+\infty} \frac{\ln x}{x} \dif x =\lim_{x \to + \infty} \frac12 \ln^2 x$发散,故绝对发散.又因为$\frac{\ln n}{n}$在$n$充分大时单调递减,由Leibniz判别法,级数条件收敛.
+        \item \begin{enumerate}
+                  \item $p \les 0$时, $\lim_{n \to \infty} \frac{1}{n^p} \neq 0$,级数发散.
+                  \item $0 < p \les 1$时,条件收敛,绝对发散. 因为$$\left| \frac{(-1)^{n-1}}{n^p} \right| = \frac{1}{n^p},$$且$\int_1^{+\infty} \frac{1}{x^p} \dif x$发散,故绝对发散.又因为$\frac{1}{n^p}$单调递减,由Leibniz判别法,级数条件收敛.
+                  \item $p > 1$时,绝对收敛. 因为$$\left| \frac{(-1)^{n-1}}{n^p} \right| = \frac{1}{n^p},$$且$\sum_{n=1}^\infty \frac{1}{n^p}$收敛,故绝对收敛.
+              \end{enumerate}
+        \item 条件收敛,绝对发散. 因为$$\left| (-1)^n (\mathrm{e}^{\frac{1}{n}} - 1) \right| \sim \frac{1}{n},$$且$\displaystyle \sum_{n=1}^\infty \frac{1}{n}$发散,故绝对发散.又因为$\mathrm{e}^{\frac{1}{n}} - 1$单调递减,由Leibniz判别法,级数条件收敛.
+        \item 绝对收敛. 因为$$ \left| (-1)^n \left( \frac{1}{n} - \ln \left( 1 + \frac{1}{n} \right) \right) \right| = \frac{1}{n} - \ln \left( 1 + \frac{1}{n} \right) \les \frac{1}{n} - \left( \frac{1}{n} - \frac{1}{2n^2} \right) = \frac{1}{2n^2}, $$且$\displaystyle \sum_{n=1}^\infty \frac{1}{2n^2}$收敛,故绝对收敛.
+        \item \begin{enumerate}
+                  \item $p \ne 0$时绝对收敛. 因为$$\left| (-1)^n \left( 1 - \cos \frac{p}{n} \right) \right| \sim \frac{p^2}{2n^2},$$
+                        且$\displaystyle \sum_{n=1}^\infty \frac{p^2}{2n^2}$收敛,故绝对收敛.
+                  \item $p = 0$时,级数$\displaystyle \sum_{n=1}^\infty (-1)^n (1 - \cos 0) = \sum_{n=1}^\infty 0$收敛.
+              \end{enumerate}
+        \item 由$1- \cos \frac{1}{n} \sim \frac{1}{2n^2}$以及(6)的结论可知,
+              \begin{enumerate}
+                  \item $p \ges \frac12$时,绝对收敛.
+                  \item $0 < p < \frac12$时,条件收敛,绝对发散.
+                  \item $p \les 0$时,发散.
+              \end{enumerate}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.1.13]
+    如果级数 $\displaystyle \sum_{n=1}^\infty a_n$ 条件收敛, 证明: $\displaystyle S_n^\pm$ 当 $n \to \infty$ 时有极限且 $\displaystyle \lim_{n \to \infty} \frac{S_n^+}{S_n^-} = 1$. 这里, $S_n^\pm$ 是正项级数 $\displaystyle \sum_{n=1}^\infty a_n^\pm$ 的部分和, $a_n^+, a_n^-$ 的定义由 7.1.3 小节给出.
+\end{exercise}
+
+\begin{solution}
+    因为$\displaystyle \sum_{n=1}^\infty a_n$条件收敛,设$\lim_{n \to \infty} \sum_{k=1}^n a_k = S$,又$S_n^-$发散到$+\infty$,故
+    $$\lim_{n \to \infty} \frac{S_n^+ - S_n^-}{S_n^-} = \lim_{n \to \infty} \frac{\sum_{k=1}^n a_k}{S_n^-} =  \lim_{n \to \infty} \frac{S}{S_n^-} =0,$$
+\end{solution}
+
+\begin{exercise}[7.1.14]
+    证明: 如果正项级数 $\displaystyle \sum_{n=1}^\infty b_n$ 收敛, 并且从某项之后有
+    $$ \left| \frac{a_{n+1}}{a_n} \right| < \frac{b_{n+1}}{b_n}, $$
+    则级数 $\displaystyle \sum_{n=1}^\infty a_n$ 绝对收敛.
+\end{exercise}
+
+\begin{solution}
+    $\displaystyle \sum_{n=1}^\infty b_n$为正项级数,故$b_n > 0$.由题设不等式变形得
+    $$\frac{|a_{n+1}|}{b_{n+1}} < \frac{|a_n|}{b_n}.$$
+    因此$\exists M > 0$,使得$\forall n$充分大时,$\frac{|a_n|}{b_n} < M$,即$|a_n| < M b_n$.由比较判别法可知,$\displaystyle \sum_{n=1}^\infty a_n$绝对收敛.
+\end{solution}
+
+\begin{exercise}[7.1.15]
+    研究下列级数的敛散性:
+    \begin{tasks}(2)
+        \task $\displaystyle \sum_{n=1}^\infty \frac{\sin nx}{n};$
+        \task $\displaystyle \sum_{n=2}^\infty \frac{\cos \frac{n\pi}{4}}{\ln n};$
+        \task $\displaystyle \sum_{n=1}^\infty \frac{\sin n}{\sqrt{n}} \left( 1 + \frac{1}{n} \right)^n;$
+        \task $\displaystyle \sum_{n=1}^\infty (-1)^n \frac{n-1}{n+1} \frac{1}{100 \sqrt[3]{n}}.$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item
+              \begin{enumerate}
+                  \item $x = k \pi$时,$\sum_{n=1}^\infty \frac{\sin nx}{n} = \sum_{n=1}^\infty 0$收敛.
+                  \item $x \ne k \pi$时,$\sum_{n=1}^\infty \sin nx$的部分和有$$\sum_{n=1}^N \sin nx = \frac{\cos\left(n+\frac12\right)x - \cos \frac{x}{2}}{2 \sin \frac{x}{2}},$$部分和有界$\frac{1}{\sin \frac{x}{2}}$,又$\frac{1}{n}$单调递减趋于$0$,由Dirichlet判别法,级数条件收敛.
+
+                        同时$$\left| \frac{\sin nx}{n} \right| \ges \frac{\sin^2 nx}{n} = \frac{1}{2n} - \frac{\cos 2nx}{2n},$$其中$\sum_{n=1}^\infty \frac{1}{2n}$发散,$\sum_{n=1}^\infty \frac{\cos 2nx}{2n}$条件收敛,故$\sum_{n=1}^\infty \left| \frac{\sin nx}{n} \right|$发散,级数$\sum_{n=1}^\infty \frac{\sin nx}{n}$绝对发散.
+              \end{enumerate}
+        \item 记$S_1 = 0$,则
+              \begin{align*}
+                  S_{4n+1} & = \sum_{k=2}^n (S_{4k+1} - S_{4(k-1)+1})                                                                              \\
+                           & = \sum_{k=2}^n (-1)^k \left( \frac{\sqrt{2}}{2\log(4k-1)} + \frac{1}{\log(4k)} + \frac{\sqrt{2}}{2\log(4k+1)} \right)
+              \end{align*}
+              由Leibniz判别法,$\{S_{4n+1}\}$条件收敛,设为$S$.$\forall n, \exists k, \st 4k+1 \les n < 4(k+1)+1,$则\begin{align*}
+                  |S_n - S| & \les |S_n - S_{4k+1}| + |S_{4k+1} - x|                                                                                                        \\
+                            & \les \left( \frac{\sqrt{2}}{2\log(4k+3)} + \frac{1}{\log(4k+4)} + \frac{\sqrt{2}}{2\log(4k+5)} \right) + |S_{4k+1} - x| \to 0 , n \to \infty.
+              \end{align*}
+              即证条件收敛.
+
+              同时$$\left| \frac{\cos \frac{n\pi}{4}}{\ln n} \right| \ges \frac{|\cos \frac{n\pi}{4}|^2}{\ln n} = \frac{1}{2\ln n} + \frac{\cos \frac{n\pi}{2}}{2\ln n},$$其中$\sum_{n=2}^\infty \frac{1}{2\ln n}$发散,$\sum_{n=2}^\infty \frac{\cos \frac{n\pi}{2}}{2\ln n}$条件收敛,故$\sum_{n=2}^\infty \left| \frac{\cos \frac{n\pi}{4}}{\ln n} \right|$发散,级数$\sum_{n=2}^\infty \frac{\cos \frac{n\pi}{4}}{\ln n}$绝对发散.
+        \item 因为$$\frac{\sin n}{\sqrt{n}} \left( 1 + \frac{1}{n} \right)^n \sim \frac{\sin n}{\sqrt{n}} \mathrm{e},$$故只需要考虑$\sum_{n=1}^\infty \frac{\sin n}{\sqrt{n}}$的敛散性.
+
+              其中$\sum_{n=1}^N \sin n$的部分和有$$\sum_{n=1}^N \sin n = \frac{\cos\left(n+\frac12\right) - \cos \frac{1}{2}}{2 \sin \frac{1}{2}},$$部分和有界$\frac{1}{\sin \frac{1}{2}}$,又$\frac{1}{\sqrt{n}}$单调递减趋于$0$,由Dirichlet判别法,级数条件收敛.
+
+              同时$$\left| \frac{\sin n}{\sqrt{n}} \left( 1 + \frac{1}{n} \right)^n \right| \ges \frac{\sin^2 n}{\sqrt{n}} = \frac{1}{2\sqrt{n}} - \frac{\cos 2n}{2\sqrt{n}},$$其中$\sum_{n=1}^\infty \frac{1}{2\sqrt{n}}$发散,$\sum_{n=1}^\infty \frac{\cos 2n}{2\sqrt{n}}$条件收敛,故$\sum_{n=1}^\infty \left| \frac{\sin n}{\sqrt{n}} \left( 1 + \frac{1}{n} \right)^n \right|$发散,级数$\sum_{n=1}^\infty \frac{\sin n}{\sqrt{n}} \left( 1 + \frac{1}{n} \right)^n$绝对发散.
+        \item \begin{align*}
+                  \sum_{n=1}^\infty (-1)^n \frac{n-1}{n+1} \frac{1}{100 \sqrt[3]{n}} & = \sum_{n=1}^\infty (-1)^n \frac{1}{n^{1/100}} + \sum_{n=1}^\infty (-1)^n \frac{2}{(n+1) n^{1/100}}
+              \end{align*}
+              其中第一项条件收敛,第二项绝对收敛,故原级数条件收敛.
+    \end{enumerate}
+\end{solution}
+
+\newpage

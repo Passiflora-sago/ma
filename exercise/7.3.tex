@@ -1,0 +1,281 @@
+\section{习题 7.3}
+
+\begin{exercise}[7.3.1]
+求下列幂级数的收敛半径.
+\begin{tasks}(2)
+    \task $\displaystyle \sum_{n=1}^\infty (-1)^{n+1} \frac{x^n}{n^2};$
+    \task $\displaystyle \sum_{n=1}^\infty \frac{(n!)^2}{(2n)!} x^n;$
+    \task $\displaystyle \sum_{n=1}^\infty 2^n x^{2n};$
+    \task $\displaystyle \sum_{n=1}^\infty \frac{x^n}{a^n + b^n} (a > 0, b > 0);$
+    \task $\displaystyle \sum_{n=1}^\infty \frac{(x-2)^{2n-1}}{(2n-1)!};$
+    \task $\displaystyle \sum_{n=1}^\infty \frac{3^n + (-2)^n}{n} (x+1)^n;$
+    \task $\displaystyle \sum_{n=1}^\infty \left( 1 + \frac{1}{2} + \dots + \frac{1}{n} \right) x^n;$
+    \task $\displaystyle \sum_{n=1}^\infty \frac{x^{n^2}}{2^n}.$
+\end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item $$L = \limsup_{n \to \infty} \sqrt[n]{\left| \frac{(-1)^{n+1}}{n^2} \right|} = \lim_{n \to \infty} \frac{1}{\sqrt[n]{n^2}} = 1,$$故收敛半径$R = 1$.
+        \item $$L = \limsup_{n \to \infty} \sqrt[n]{\left| \frac{(n!)^2}{(2n)!} \right|} = \lim_{n \to \infty} \frac{(n!)^{2/n}}{(2n)!^{1/n}} = \lim_{n \to \infty} \frac{n^2}{(2n)(2n-1)} = \frac{1}{4},$$故收敛半径$R = 4$.
+        \item $$L = \limsup_{n \to \infty} \sqrt[(2n)]{\left| 2^n \right|} = \lim_{n \to \infty} \sqrt[2n]{2^n} = \sqrt{2},$$故收敛半径$R = \frac{1}{\sqrt{2}}$.
+        \item $$L = \limsup_{n \to \infty} \sqrt[n]{\left| \frac{1}{a^n + b^n} \right|} = \lim_{n \to \infty} \frac{1}{\sqrt[n]{a^n + b^n}} = \frac{1}{\max\{a, b\}},$$故收敛半径$R = \max\{a, b\}$.
+        \item $$L = \limsup_{n \to \infty} \sqrt[2n-1]{\left| \frac{1}{(2n-1)!} \right|} = \lim_{n \to \infty} \frac{1}{\sqrt[2n-1]{(2n-1)!}} = 0,$$故收敛半径$R = +\infty$.
+        \item $$L = \limsup_{n \to \infty} \sqrt[n]{\left| \frac{3^n + (-2)^n}{n} \right|} = \lim_{n \to \infty} \frac{\sqrt[n]{3^n + (-2)^n}}{\sqrt[n]{n}} = 3,$$故收敛半径$R = \frac{1}{3}$.
+        \item $$L = \limsup_{n \to \infty} \sqrt[n]{\left| 1 + \frac{1}{2} + \dots + \frac{1}{n} \right|} = \lim_{n \to \infty} \sqrt[n]{\ln n} = 1,$$故收敛半径$R = 1$.
+        \item $$L = \limsup_{n \to \infty} \sqrt[n]{\left| \frac{1}{2^n} \right|} = \lim_{n \to \infty} \frac{1}{\sqrt[n^2]{2^n}} = 1,$$故收敛半径$R = 1$.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.3.2]
+设 $\displaystyle f(x) = \sum_{n=0}^\infty a_n x^n$ 在 $|x| < R$ 时收敛, 若 $\displaystyle \sum_{n=0}^\infty \frac{a_n}{n+1} R^{n+1}$ 也收敛, 则
+$$ \int_0^R f(x) \mathrm{d}x = \sum_{n=0}^\infty \frac{a_n}{n+1} R^{n+1} $$
+(注意: 这里不管 $\displaystyle \sum_{n=0}^\infty a_n x^n$ 在 $x = R$ 是否收敛). 应用这个结果证明:
+$$ \int_0^1 \frac{1}{1+x} \mathrm{d}x = \ln 2 = \sum_{n=1}^\infty (-1)^{n-1} \frac{1}{n}. $$
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 先求幂级数$\frac{a_n}{n+1} R^{n+1}$的收敛半径:
+        任取$x_0 \in (-R,R)$，存在$r:|x_0| < r < R$,使得幂级数$\sum_{n=0}^\infty a_n x^n$在$(-r,r)$内一致收敛.同时$|a_n r^n|< M$有界,因此 
+        $$\left| \frac{a_n}{n+1} R^{n+1} \right| = \left| a_n r^n \cdot \frac{R^{n+1}}{(n+1) r^n} \right| \les M \cdot \frac{R^{n+1}}{(n+1) r^n}.$$
+        由比较判别法可知幂级数$\sum_{n=0}^\infty \frac{a_n}{n+1} R^{n+1}$在$(-\frac{r}{R} R, \frac{r}{R} R)$内一致收敛,因此收敛半径$R' \ges R$.
+
+        若$R' > R$,则存在$x_0: R < |x_0| < R'$,使得幂级数$\sum_{n=0}^\infty \frac{a_n}{n+1} R^{n+1}$在$(-|x_0|, |x_0|)$内一致收敛,矛盾,因此$R' = R$.
+
+        作为幂级数的,$\sum_{n=0}^\infty \frac{a_n}{n+1} R^{n+1}$在$(-R,R)$内的任意闭子区间$[-r,r]$上一致收敛,所以
+        $$ \int_0^r f(x) \mathrm{d}x = \sum_{n=0}^\infty \frac{a_n}{n+1} r^{n+1},$$
+        由$r$的任意性知在$(0,R)$上成立.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.3.3]
+求下列幂级数的收敛区域及其和函数.
+\begin{tasks}(2)
+    \task $\displaystyle \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n + 1};$
+    \task $\displaystyle \sum_{n=0}^\infty (n + 1) x^n;$
+    \task $\displaystyle \sum_{n=1}^\infty n(n + 1) x^{n-1};$
+    \task $\displaystyle \sum_{n=1}^\infty \frac{x^n}{n(n + 1)};$
+    \task $\displaystyle \sum_{n=1}^\infty \frac{x^{2n-1}}{(2n - 1)!!}.$
+\end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item $$L = \limsup_{n \to \infty} \sqrt[2n+1]{\left| (-1)^n \right|} = 1,$$故收敛半径$R = 1$.当$x=1$时,级数$\sum_{n=0}^\infty (-1)^n \frac{1}{2n + 1}$收敛;当$x=-1$时,级数$\sum_{n=0}^\infty (-1)^n \frac{-1}{2n + 1}$收敛.因此收敛区域为$[-1, 1]$.
+        
+              当$|x| < 1$时,$$S = \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n + 1} = \int_0^x \sum_{n=0}^\infty (-1)^n x^{2n} \mathrm{d}x = \int_0^x \frac{1}{1 + x^2} \mathrm{d}x = \arctan x.$$
+        \item $$L = \limsup_{n \to \infty} \sqrt[n]{\left| n + 1 \right|} = 1,$$故收敛半径$R = 1$.当$x=1$时,级数$\sum_{n=0}^\infty (n + 1)$发散;当$x=-1$时,级数$\sum_{n=0}^\infty (-1)^n (n + 1)$发散.因此收敛区域为$(-1, 1)$.
+              
+              当$|x| < 1$时,$$S = \sum_{n=0}^\infty (n + 1) x^n = \frac{\mathrm{d}}{\mathrm{d}x} \sum_{n=0}^\infty x^{n+1} = \frac{\mathrm{d}}{\mathrm{d}x} \left( \frac{x}{1 - x} \right) = \frac{1}{(1 - x)^2}.$$
+        \item $$L = \limsup_{n \to \infty} \sqrt[n-1]{\left| n(n + 1) \right|} = 1,$$故收敛半径$R = 1$.当$x=1$时,级数$\sum_{n=1}^\infty n(n + 1)$发散;当$x=-1$时,级数$\sum_{n=1}^\infty (-1)^{n-1} n(n + 1)$发散.因此收敛区域为$(-1, 1)$.
+              
+              当$|x| < 1$时,$$S = \sum_{n=1}^\infty n(n + 1) x^{n-1} = \frac{\mathrm{d}}{\mathrm{d}x} \sum_{n=1}^\infty (n + 1) x^n = \frac{\mathrm{d}}{\mathrm{d}x} \left( \frac{1}{(1 - x)^2} \right) = \frac{2}{(1 - x)^3}.$$
+        \item $$L = \limsup_{n \to \infty} \sqrt[n]{\left| \frac{1}{n(n + 1)} \right|} = 1,$$故收敛半径$R = 1$.当$x=1$时,级数$\sum_{n=1}^\infty \frac{1}{n(n + 1)}$收敛;当$x=-1$时,级数$\sum_{n=1}^\infty \frac{(-1)^n}{n(n + 1)}$收敛.因此收敛区域为$[-1, 1]$.
+              
+              当$|x| < 1$时,\begin{align*}
+                    S &= \sum_{n=1}^\infty \frac{x^n}{n(n + 1)} \\
+                        &= \int_0^x \sum_{n=1}^\infty \frac{t^{n-1}}{n} \mathrm{d}t \\
+                        &= \int_0^x \frac{-\ln(1 - t)}{t} \mathrm{d}t \\
+                        &= \frac{(1 - x) \ln(1 - x) + x}{x}.
+              \end{align*}
+        \item $$L = \limsup_{n \to \infty} \sqrt[2n-1]{\left| \frac{1}{(2n - 1)!!} \right|} = 0,$$故收敛半径$R = +\infty$.
+              
+              当$x \in \mathbb{R}$时,注意到$y' = xy+1, y(0) = 0$,解得
+              $$\sum_{n=1}^\infty \frac{x^{2n-1}}{(2n - 1)!!} = y = \mathrm{e}^{\frac{x^2}{2}} \int_0^x \mathrm{e}^{-\frac{t^2}{2}} \mathrm{d}t.$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.3.4]
+求下列级数的和.
+\begin{tasks}(2)
+    \task $\displaystyle \sum_{n=2}^\infty \frac{1}{(n^2 - 1) 2^n};$
+    \task $\displaystyle \sum_{n=0}^\infty \frac{(-1)^n (n^2 - n + 1)}{2^n};$
+    \task $\displaystyle \sum_{n=0}^\infty \frac{(-1)^n}{3n + 1};$
+    \task $\displaystyle \sum_{n=0}^\infty \frac{(n + 1)^2}{n!}.$
+\end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 考虑幂级数$$\sum_{n=2}^\infty \frac{x^n}{n^2 - 1},$$其收敛半径$R = 1$.当$|x| < 1$时,
+              \begin{align*}
+                    S &= \sum_{n=2}^\infty \frac{x^n}{n^2 - 1} \\
+                        &= \frac{1}{2} \sum_{n=2}^\infty \left( \frac{1}{n-1} - \frac{1}{n+1} \right) x^n \\
+                        &= \frac{1}{2} \left( x + \frac{x^2}{2} + \sum_{n=3}^\infty \left( \frac{1}{n-1} - \frac{1}{n+1} \right) x^n \right) \\
+                        &= \frac{x^2 - 2x^2 \ln(1-x) + 2x + 2\ln(1-x)}{4x}.
+                    \end{align*}
+              因此$$\sum_{n=2}^\infty \frac{1}{(n^2 - 1) 2^n} = S|_{x=\frac{1}{2}} = \frac{5}{8} - \frac{3}{4} \ln 2.$$
+        \item 考虑幂级数$$\sum_{n=0}^\infty x^n (n^2 - n+1),$$其收敛半径$R = 1$.当$|x| < 1$时,
+              \begin{align*}
+                    S &= \sum_{n=0}^\infty x^n (n^2 - n+1) \\
+                        &= \sum_{n=0}^\infty n^2 x^n - \sum_{n=0}^\infty n x^n + \sum_{n=0}^\infty x^n \\
+                        &= \frac{x(1+x)}{(1-x)^3} - \frac{x}{(1-x)^2} + \frac{1}{1-x} \\
+                        &= \frac{3x^2-2x+1}{(1 - x)^3}.
+              \end{align*}
+              因此$$\sum_{n=0}^\infty \frac{(-1)^n (n^2 - n + 1)}{2^n} = S|_{x=-\frac{1}{2}} = \frac{22}{27}.$$
+        \item 考虑幂级数$$\sum_{n=0}^\infty x^{3n+1},$$其收敛半径$R = 1$.当$|x| < 1$时,
+              \begin{align*}
+                    S &= \sum_{n=0}^\infty x^{3n+1} = \frac{x}{1 - x^3}.
+              \end{align*}
+              因此$$\sum_{n=0}^\infty \frac{(-1)^n}{3n + 1} = \int_0^{-1} \frac{x}{1 - x^3} \mathrm{d}x = \frac{1}{3} \ln 2 + \frac{\pi}{3\sqrt{3}}.$$
+            
+        \item 考虑幂级数$$\sum_{n=0}^\infty \frac{(n + 1)^2}{n!} x^n,$$其收敛半径$R = +\infty$.当$x \in \mathbb{R}$时,
+              \begin{align*}
+                    S &= \sum_{n=0}^\infty \frac{(n + 1)^2}{n!} x^n \\
+                        &= x^2 \mathrm{e}^x + 3x \mathrm{e}^x + \mathrm{e}^x \\
+                        &= (x^2 + 3x + 1) \mathrm{e}^x .
+              \end{align*}
+              因此$$\sum_{n=0}^\infty \frac{(n + 1)^2}{n!} = S|_{x=1} = 5\mathrm{e}.$$
+        \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.3.5]
+求下列函数在指定点处的 Taylor 展开式, 并给出收敛区域.
+\begin{tasks}(2)
+    \task $x^3 - 2x^2 + 5x - 7, x = 1;$
+    \task $\mathrm{e}^x, x = a;$
+    \task $\ln x, x = 1;$
+    \task $\frac{1}{x^2 + 3x + 2}, x = -4;$
+    \task $\ln(1 + x - 2x^2), x = 0;$
+    \task $\cos x, x = \frac{\pi}{4}.$
+\end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 记$y = x - 1$,则$$x^3 - 2x^2 + 5x - 7 = (y+1)^3 - 2(y+1)^2 + 5(y+1) - 7 = y^3 + y^2 + 4y - 3.$$
+              收敛区域为$\mathbb{R}$.
+        \item $$\mathrm{e}^x = \mathrm{e}^a \sum_{n=0}^\infty \frac{(x - a)^n}{n!}.$$
+              收敛区域为$\mathbb{R}$.
+        \item 记$y = x - 1$,则$$\ln x = \ln(y + 1) = \sum_{n=1}^\infty (-1)^{n-1} \frac{y^n}{n}.$$
+              收敛区域为$(-1, 1]$.
+        \item 记$y = x + 4$,则
+              \begin{align*}
+                    \frac{1}{x^2 + 3x + 2} &= \frac{1}{(y-4)^2 + 3(y-4) + 2} \\
+                        &= \frac{1}{y^2 - 5y + 6} =\sum_{n=0}^\infty \left( \frac{1}{2n + 1} - \frac{1}{3n + 1} \right) y^n \\
+                        &= \sum_{n=0}^\infty \left( \frac{1}{2n + 1} - \frac{1}{3n + 1} \right) (x + 4)^n
+                    \end{align*}
+              收敛区域为$(-6,-2)$.
+        \item $\ln(1 + x - 2x^2) = \ln(1 + 2x) + \ln(1 - x).$ 故
+$$ f(x) = \sum_{n=0}^\infty \frac{-(-2)^n - 1}{n} x^n. $$
+收敛区间为 $\left(-\frac{1}{2}, \frac{1}{2}\right].$
+\item $$ \cos x = \frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}} \left(x - \frac{\pi}{4}\right) - \frac{1}{\sqrt{2}} \frac{(x - \frac{\pi}{4})^2}{2!} + \frac{1}{\sqrt{2}} \frac{(x - \frac{\pi}{4})^3}{3!} + \dots $$
+符号规则以 $4$ 为周期: $+,-,-,+, \dots$. 收敛区间为 $\mathbb{R}.$
+    \end{enumerate}
+\end{solution}
+
+
+
+\begin{exercise}[7.3.6]
+求下列函数的 Maclaurin 展开式, 并给出收敛区域.
+\begin{tasks}(2)
+    \task $\sin^2 x;$
+    \task $\arcsin x;$
+    \task $\ln \sqrt{\frac{1+x}{1-x}};$
+    \task $(1 + x) \ln(1 + x);$
+    \task $\displaystyle \int_0^x \cos t^2 \mathrm{d}t;$
+    \task $\displaystyle \int_0^x \frac{\sin t}{t} \mathrm{d}t;$
+    \task $\displaystyle \int_0^x \mathrm{e}^{-t^2} \mathrm{d}t.$
+\end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item[(1)]
+        \begin{align*}
+        \sin^2 x &= \frac{1 - \cos 2x}{2} = \frac{1}{2} - \frac{1}{2} \sum_{n=0}^\infty \frac{(-1)^n (2x)^{2n}}{(2n)!} \\
+        &= \frac{1}{2} - \frac{1}{2} \left( 1 - \frac{(2x)^2}{2!} + \frac{(2x)^4}{4!} - \dots \right) \\
+        &= \sum_{n=1}^\infty \frac{(-1)^{n+1} 2^{2n-1}}{(2n)!} x^{2n}.
+        \end{align*}
+        $$L = \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| = \lim_{n \to \infty} \frac{2^{2n+1}}{(2n+2)!} \frac{(2n)!}{2^{2n-1}} = \lim_{n \to \infty} \frac{4}{(2n+2)(2n+1)} = 0,$$故收敛半径$R = +\infty$,收敛区域为$(-\infty, +\infty)$.
+
+        \item[(2)]
+        \begin{align*}
+        \arcsin x &= \int_0^x \frac{1}{\sqrt{1 - t^2}} \mathrm{d}t \\
+        &= \sum_{n=0}^\infty \frac{(2n - 1)!!}{(2n)!!} \frac{1}{2n + 1} x^{2n + 1}.
+        \end{align*}
+        $$L = \limsup_{n \to \infty} \sqrt[2n+1]{\left| \frac{(2n - 1)!!}{(2n)!!} \frac{1}{2n + 1} \right|} = 1,$$故收敛半径$R = 1$,当$x = \pm 1$时,级数由比值判别法知收敛.因此收敛区域为$[-1, 1]$.
+
+        \item[(3)]
+        \begin{align*}
+        \ln \sqrt{\frac{1 + x}{1 - x}} &= \frac{1}{2} [\ln(1 + x) - \ln(1 - x)] \\
+        &= \frac{1}{2} \left[ \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} x^n - \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} (-x)^n \right] \\
+        &= \frac{1}{2} \sum_{n=1}^\infty \frac{1}{n} [(-1)^{n-1} - (-1)^{2n-1}] x^n \\
+        &= \frac{1}{2} \sum_{n=1}^\infty \frac{1}{n} [(-1)^{n-1} + 1] x^n \\
+        &= \sum_{k=0}^\infty \frac{1}{2k + 1} x^{2k + 1}.
+        \end{align*}
+        $$L = \limsup_{k \to \infty} \sqrt[2k+1]{\left| \frac{1}{2k + 1} \right|} = 1,$$故收敛半径$R = 1$,当$x = 1$时,级数 $\sum \frac{1}{2k+1}$ 发散;当$x = -1$时,级数 $\sum \frac{-1}{2k+1}$ 发散.因此收敛区域为$(-1, 1)$.
+
+        \item[(4)]
+        \begin{align*}
+        (1 + x) \ln(1 + x) &= (1 + x) \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} x^n \\
+        &= \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} x^n + \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} x^{n+1} \\
+        &= x + \sum_{n=2}^\infty \frac{(-1)^{n-1}}{n} x^n + \sum_{n=2}^\infty \frac{(-1)^{n-2}}{n-1} x^n \\
+        &= x + \sum_{n=2}^\infty \left[ \frac{(-1)^{n-1}}{n} + \frac{(-1)^{n-2}}{n-1} \right] x^n \\
+        &= x + \sum_{n=2}^\infty \frac{(-1)^n}{n(n-1)} x^n.
+        \end{align*}
+        $$L = \lim_{n \to \infty} \sqrt[n]{\frac{1}{n(n-1)}} = 1,$$故收敛半径$R = 1$,当$x = \pm 1$时,级数 $\sum \frac{1}{n(n-1)}$ 绝对收敛.因此收敛区域为$[-1, 1]$.
+
+        \item[(5)]
+        \begin{align*}
+        \cos t^2 &= \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} (t^2)^{2n} = \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} t^{4n}. \\
+        \int_0^x \cos t^2 \mathrm{d}t &= \int_0^x \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} t^{4n} \mathrm{d}t \\
+        &= \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} \int_0^x t^{4n} \mathrm{d}t \\
+        &= \sum_{n=0}^\infty \frac{(-1)^n}{(2n)! (4n + 1)} x^{4n + 1}.
+        \end{align*}
+        $$L = \lim_{n \to \infty} \sqrt[4n+1]{\left| \frac{1}{(2n)! (4n + 1)} \right|} = 0,$$故收敛半径$R = +\infty$,收敛区域为$(-\infty, +\infty)$.
+
+        \item[(6)]
+        \begin{align*}
+        \frac{\sin t}{t} &= \frac{1}{t} \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!} t^{2n + 1} = \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!} t^{2n}. \\
+        \int_0^x \frac{\sin t}{t} \mathrm{d}t &= \int_0^x \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!} t^{2n} \mathrm{d}t \\
+        &= \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!} \int_0^x t^{2n} \mathrm{d}t \\
+        &= \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)! (2n + 1)} x^{2n + 1}.
+        \end{align*}
+        $$L = \lim_{n \to \infty} \sqrt[2n+1]{\left| \frac{1}{(2n + 1)! (2n + 1)} \right|} = 0,$$故收敛半径$R = +\infty$,收敛区域为$(-\infty, +\infty)$.
+
+        \item[(7)]
+        \begin{align*}
+        \mathrm{e}^{-t^2} &= \sum_{n=0}^\infty \frac{(-1)^n}{n!} (-t^2)^n = \sum_{n=0}^\infty \frac{(-1)^n}{n!} t^{2n}. \\
+        \int_0^x \mathrm{e}^{-t^2} \mathrm{d}t &= \int_0^x \sum_{n=0}^\infty \frac{(-1)^n}{n!} t^{2n} \mathrm{d}t \\
+        &= \sum_{n=0}^\infty \frac{(-1)^n}{n!} \int_0^x t^{2n} \mathrm{d}t \\
+        &= \sum_{n=0}^\infty \frac{(-1)^n}{n! (2n + 1)} x^{2n + 1}.
+        \end{align*}
+        $$L = \lim_{n \to \infty} \sqrt[2n+1]{\left| \frac{1}{n! (2n + 1)} \right|} = 0,$$故收敛半径$R = +\infty$,收敛区域为$(-\infty, +\infty)$.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.3.7]
+方程 $y + \lambda \sin y = x (\lambda \neq -1)$ 在 $x = 0$ 附近确定了一个隐函数 $y(x)$, 试求它的幂级数展开式中的前四项.
+\end{exercise}
+
+\begin{solution}
+设 $y(x) = a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 + \dots$ 是 Maclaurin 展开式.
+由 $y(0) + \lambda \sin(y(0)) = 0$, 得 $y(0) = 0$.
+
+对 $y + \lambda \sin y = x$ 求导:
+$$ y'(1 + \lambda \cos y) = 1 $$
+代入 $x=0$: $$y'(0)(1 + \lambda \cos 0) = 1 \quad \Rightarrow \quad y'(0) = \frac{1}{1 + \lambda}. $$
+
+对 $y'(1 + \lambda \cos y) = 1$ 求导:
+$$ y''(1 + \lambda \cos y) + y' (\lambda (-\sin y) y') = 0 $$
+代入 $x=0$: $$y''(0)(1 + \lambda) + y'(0) (\lambda (-\sin 0) y'(0)) = 0 \quad \Rightarrow \quad y''(0) = 0. $$
+
+对 $y'' (1 + \lambda \cos y) = \lambda (\sin y) (y')^2$ 求导:
+$$ y''' (1 + \lambda \cos y) + y'' (\lambda (-\sin y) y') = \lambda (\cos y) (y')^3 + \lambda (\sin y) 2y' y'' $$
+代入 $x=0$ (利用 $y(0)=0, y''(0)=0$):
+$$ y'''(0) (1 + \lambda) = \lambda (\cos 0) (y'(0))^3 + 0 $$
+$$ y'''(0) (1 + \lambda) = \lambda \left( \frac{1}{1 + \lambda} \right)^3 \quad \Rightarrow \quad y'''(0) = \frac{\lambda}{(1 + \lambda)^4}. $$
+
+因此$y(x)$的 Maclaurin 展开式为:
+\begin{align*}
+y(x) &= y(0) + y'(0)x + \frac{y''(0)}{2!}x^2 + \frac{y'''(0)}{3!}x^3 + \dots \\
+&= 0 + \left(\frac{1}{1 + \lambda}\right) x + 0 \cdot x^2 + \frac{1}{6} \left(\frac{\lambda}{(1 + \lambda)^4}\right) x^3 + \dots \\
+&= \frac{1}{1 + \lambda} x + \frac{\lambda}{6(1 + \lambda)^4} x^3 + \dots
+\end{align*}
+\end{solution}
+
+
+
+\newpage

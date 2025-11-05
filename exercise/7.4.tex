@@ -1,0 +1,130 @@
+\section{习题 7.4}
+
+\begin{exercise}[7.4.1]
+    求下列积分:
+    \begin{tasks}(2)
+        \task $\displaystyle \int_0^1 \mathrm{e}^{-x^2} \mathrm{d}x;$
+        \task $\displaystyle \int_0^1 \frac{\sin x}{x} \mathrm{d}x.$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 考虑展开式$\e^{-x^2} = \sum_{n=0}^\infty \frac{(-1)^n x^{2n}}{n!}$,
+              则$$L = \limsup_{n \to \infty} \sqrt[n]{\left| \frac{(-1)^n}{n!} \right|} = \lim_{n \to \infty} \frac{1}{\sqrt[n]{n!}} = 0,$$
+              故级数在$(-\infty, +\infty)$上收敛,
+              \begin{align*}
+                  \int_0^1 \mathrm{e}^{-x^2} \mathrm{d}x & = \int_0^1 \sum_{n=0}^\infty \frac{(-1)^n x^{2n}}{n!} \mathrm{d}x = \sum_{n=0}^\infty \int_0^1 \frac{(-1)^n x^{2n}}{n!} \mathrm{d}x \\
+                                                         & = \sum_{n=0}^\infty \frac{(-1)^n}{n!} \cdot \frac{1}{2n + 1} = 1 - \frac{1}{3} + \frac{1}{2 \cdot 5} - \frac{1}{6 \cdot 7} + \dots
+              \end{align*}
+        \item 考虑展开式$\sin x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{(2n+1)!}$,
+              则$$L = \limsup_{n \to \infty} \sqrt[n]{\left| \frac{(-1)^n}{(2n+1)!} \right|} = \lim_{n \to \infty} \frac{1}{\sqrt[n]{(2n+1)!}} = 0,$$
+              故级数在$(-\infty, +\infty)$上收敛,
+              \begin{align*}
+                  \int_0^1 \frac{\sin x}{x} \mathrm{d}x & = \int_0^1 \sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n+1)!} \mathrm{d}x = \sum_{n=0}^\infty \int_0^1 (-1)^n \frac{x^{2n}}{(2n+1)!} \mathrm{d}x        \\
+                                                        & = \sum_{n=0}^\infty (-1)^n \frac{1}{(2n+1)!} \cdot \frac{1}{2n + 1} = 1 - \frac{1}{3 \cdot 3!} + \frac{1}{5 \cdot 5!} - \frac{1}{7 \cdot 7!} + \dots
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.4.2]
+    求方程 $y'' - xy' + y = 0$ 的幂级数解.
+\end{exercise}
+
+\begin{solution}
+    设$y = \sum_{n=0}^\infty a_n x^n$,则
+    \begin{align*}
+        y'            & = \sum_{n=1}^\infty n a_n x^{n-1} = \sum_{n=0}^\infty (n+1) a_{n+1} x^n,           \\
+        y''           & = \sum_{n=2}^\infty n(n-1) a_n x^{n-2} = \sum_{n=0}^\infty (n+2)(n+1) a_{n+2} x^n, \\
+        -xy'          & = -\sum_{n=0}^\infty (n+1) a_{n+1} x^{n+1} = -\sum_{n=1}^\infty n a_n x^n,         \\
+        y'' - xy' + y & = \sum_{n=0}^\infty \left[ (n+2)(n+1) a_{n+2} - n a_n + a_n \right] x^n = 0.
+    \end{align*}
+    故有递推关系$(n+2)(n+1) a_{n+2} = (n-1) a_n$,即$a_{n+2} = \frac{(n-1)}{(n+2)(n+1)} a_n$.
+
+    当$n$为奇数时,$a_1$为任意常数,$a_3 = 0, a_5 = 0, \dots$,故奇数项系数均为$0$;
+
+    当$n$为偶数时,$a_0$为任意常数,$a_2 = -\frac{1}{2} a_0, a_4 = -\frac{1}{8} a_0, a_6 = -\frac{1}{48} a_0, \dots$,
+    故偶数项系数为$a_{2k} = (-1)^k \frac{1}{2^k k!} a_0$.
+
+    因此幂级数解为$$y = a_0 \left(1 - \frac{x^2}{2} + \frac{x^4}{8} - \frac{x^6}{48} + \dots \right) + a_1 x.$$
+\end{solution}
+
+\begin{exercise}[7.4.3]
+    求方程 $y'' + y \sin x = 0, y(0) = 1, y'(0) = 0$ 的幂级数解至 $x^5$ 项.
+\end{exercise}
+
+\begin{solution}
+    设$y = \sum_{n=0}^\infty a_n x^n$,由初值条件$y(0) = 1, y'(0) = 0$,得$a_0 = 1, a_1 = 0$.
+
+    \begin{align*}
+         & y''(0) + y(0) \sin 0                                                          = 0 \Rightarrow 2 a_2 + 0 = 0 \Rightarrow a_2 = 0. \\
+         & y''' + y \cos x + y' \sin x                                                   = 0                                                \\
+         & y'''(0) + y(0) \cos 0 + y'(0) \sin 0                                          = 0                                                \\
+         & 6 a_3 + 1 + 0                                                                 = 0 \Rightarrow a_3 = -\frac{1}{6}.                \\
+         & y^{(4)} + y'' \sin x + 2 y' \cos x - y \sin x                                 = 0                                                \\
+         & y^{(4)}(0) + y''(0) \sin 0 + 2 y'(0) \cos 0 - y(0) \sin 0                     = 0                                                \\
+         & 24 a_4 + 0 + 0 - 0                                                            = 0 \Rightarrow a_4 = 0.                           \\
+         & y^{(5)} + y''' \sin x + 3 y'' \cos x - 3 y' \sin x - y \cos x                 = 0                                                \\
+         & y^{(5)}(0) + y'''(0) \sin 0 + 3 y''(0) \cos 0 - 3 y'(0) \sin 0 - y(0) \cos 0  = 0                                                \\
+         & 120 a_5 + 0 + 0 - 0 - 1                                                       = 0 \Rightarrow a_5 = \frac{1}{120}.
+    \end{align*}
+
+    因此幂级数解至$x^5$项为$$y = 1 - \frac{x^3}{6} + \frac{x^5}{120}.$$
+\end{solution}
+
+\begin{exercise}[7.4.4]
+    利用 Stirling 公式求极限.
+    \begin{tasks}(2)
+        \task $\displaystyle \lim_{n \to \infty} \sqrt[n^2]{n!};$
+        \task $\displaystyle \lim_{n \to \infty} \frac{n}{\sqrt[n]{n!}}.$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 由Stirling公式知,$n! \sim \sqrt{2 \pi n} \left( \frac{n}{\e} \right)^n$,故
+              \begin{align*}
+                  \lim_{n \to \infty} \sqrt[n^2]{n!} & = \lim_{n \to \infty} \sqrt[n^2]{\sqrt{2 \pi n} \left( \frac{n}{\e} \right)^n} = \lim_{n \to \infty} (2 \pi n)^{\frac{1}{2 n^2}} \cdot \lim_{n \to \infty} \left( \frac{n}{\e} \right)^{\frac{1}{n}} \\
+                                                     & = 1 \cdot 1 = 1.
+              \end{align*}
+        \item 由Stirling公式知,$n! \sim \sqrt{2 \pi n} \left( \frac{n}{\e} \right)^n$,故
+              \begin{align*}
+                  \lim_{n \to \infty} \frac{n}{\sqrt[n]{n!}} & = \lim_{n \to \infty} \frac{n}{\sqrt[n]{\sqrt{2 \pi n} \left( \frac{n}{\e} \right)^n}} = \lim_{n \to \infty} n (2 \pi n)^{-\frac{1}{2 n}} \cdot \lim_{n \to \infty} \frac{n}{\e}^{-1} \\
+                                                             & = \lim_{n \to \infty} (2 \pi n)^{-\frac{1}{2 n}} \cdot \e = 1 \cdot \e = \e.
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.4.5]
+    研究下列级数的敛散性.
+    \begin{tasks}(2)
+        \task $\displaystyle \sum_{n=3}^\infty \frac{1}{\ln(n!)};$
+        \task $\displaystyle \sum_{n=1}^\infty \frac{n! \mathrm{e}^n}{n^{n+p}}$ ($p$ 是实数).
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 由Stirling公式知,$n! \sim \sqrt{2 \pi n} \left( \frac{n}{\e} \right)^n$,故
+              $$\ln(n!) = O(\ln \sqrt{n} + n \ln n - n) = O(n \ln n),$$
+              故级数$\sum_{n=3}^\infty \frac{1}{\ln(n!)}$与$\sum_{n=3}^\infty \frac{1}{n \ln n}$同敛散性,而$\sum_{n=3}^\infty \frac{1}{n \ln n}$发散,故原级数发散.
+        \item 由Stirling公式知,
+              $$\frac{n! \mathrm{e}^n}{n^{n+p}} \sim \frac{\sqrt{2 \pi n} \left( \frac{n}{\e} \right)^n \mathrm{e}^n}{n^{n+p}} = \sqrt{2 \pi n} \cdot \frac{1}{n^p} = O\left( \frac{1}{n^{p - \frac{1}{2}}} \right),$$
+              故级数$\sum_{n=1}^\infty \frac{n! \mathrm{e}^n}{n^{n+p}}$与$\sum_{n=1}^\infty \frac{1}{n^{p - \frac{1}{2}}}$同敛散性,而$\sum_{n=1}^\infty \frac{1}{n^{p - \frac{1}{2}}}$当$p > \frac{3}{2}$时收敛,当$p \les \frac{3}{2}$时发散,故原级数当$p > \frac{3}{2}$时收敛,当$p \les \frac{3}{2}$时发散.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[7.4.6]
+    证明: 当 $n \to \infty$ 时, $\ln(n!) \sim \ln n^n$.
+\end{exercise}
+
+\begin{solution}
+    由Stirling公式知,$n! \sim \sqrt{2 \pi n} \left( \frac{n}{\e} \right)^n$,故
+    \begin{align*}
+        \lim_{n \to \infty} \frac{\ln(n!)}{\ln n^n} & = \lim_{n \to \infty} \frac{\ln \left( \sqrt{2 \pi n} \left( \frac{n}{\e} \right)^n \right)}{\ln n^n} = \lim_{n \to \infty} \frac{\ln \sqrt{2 \pi n} + n \ln n - n}{n \ln n} \\
+                                                    & = \lim_{n \to \infty} \frac{\ln \sqrt{2 \pi n}}{n \ln n} + \lim_{n \to \infty} 1 - \lim_{n \to \infty} \frac{n}{n \ln n} = 0 + 1 - 0 = 1.
+    \end{align*}
+    因此$\ln(n!) \sim \ln n^n$.
+\end{solution}
+
+\newpage
