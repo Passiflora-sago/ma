@@ -157,29 +157,32 @@
                                                                            & = \exp\left(\lim_{x \to 0} \frac{1}{x} \left(\frac{1}{x} \left(x - \frac{1}{2}x^2 + o(x^2)\right) - 1\right)\right) = \mathrm{e}^{-\frac{1}{2}}
               \end{align*}
         \item \begin{align*}
-                  \lim_{x \to 1^-} \frac{\ln(1 - x) + \tan \frac{\pi}{2} x}{\cot \pi x} & \stackrel{y=1-x}{=} \lim_{y \to 0^+} \frac{\ln y + \tan \frac{\pi}{2} (1-y)}{\cot \pi (1-y)} = \lim_{y \to 0^+} \frac{\ln y + \tan \frac{\pi}{2} (y)}{\cot \pi y} \\
-                                                                                        & \stackrel{L'H}{=} \lim_{y \to 0^+} \frac{\frac{1}{y}+\frac{\pi}{2}\frac{1}{\cos^2 \frac{\pi}{2}x}}{\pi\frac{1}{\sin^2 \pi x}} \\             
-                                                                                        & = -\lim_{y \to 0^+} \frac{\sin \pi y}{\tan \frac{\pi}{2} y} = -2
+                  \lim_{x \to 1^-} \frac{\ln(1 - x) + \tan \frac{\pi}{2} x}{\cot \pi x} & \stackrel{y=1-x}{=} \lim_{y \to 0^+} \frac{\ln y + \tan \frac{\pi}{2} (1-y)}{\cot \pi (1-y)} = \lim_{y \to 0^+} \frac{\ln y + \cot \frac{\pi}{2} (y)}{-\cot \pi y} \\
+                & \stackrel{L'H}{=} \lim_{y \to 0^+} \frac{\frac{1}{y}-\frac{\pi}{2}\frac{1}{\sin^2 \frac{\pi}{2}y}}{\pi\frac{1}{\sin^2 \pi y}}=  \lim_{y \to 0^+}\left( \frac{\sin^2 \pi y}{\pi y}-\frac{ 1}{2}\frac{\sin^2 \pi y}{\sin^2 \frac{\pi}{2}y}\right)\\ 
+                &=0-2 = -2
               \end{align*}
         \item \begin{align*}
-                  \lim_{x \to 0} \frac{(\arcsin x^3)^2}{(1 - \cos x)(\mathrm{e}^{x^2} - 1) \tan^2 x} & = \lim_{x \to 0} \frac{(x^3)^2}{(\frac{1}{2} x^2)(x^2) x^2} = 2
+                  \lim_{x \to 0} \frac{(\arcsin x^3)^2}{(1 - \cos x)(\mathrm{e}^{x^2} - 1) \tan^2 x} & = \lim_{x \to 0} \frac{(x^3)^2}{\frac{1}{2} x^2\cdot x^2\cdot x^2} = 2
               \end{align*}
-        \item 当$x$充分大时,$1 < \ln(1+x) < x^{1/2}$,此时$\frac{1}{x} < \frac{\ln(1+x)}{x} < \frac{1}{x^{1/2}}$,同时
-              \begin{align*}
-                  \lim_{x \to +\infty} \left(\frac{1}{x}\right)^{1/x}       & = \lim_{x \to +\infty} \exp\left(\lim_{x \to +\infty} \frac{1}{x} \ln(1/x)\right) = 1      \\
-                  \lim_{x \to +\infty} \left(\frac{1}{x^{1/2}}\right)^{1/x} & = \lim_{x \to +\infty} \exp\left(\lim_{x \to +\infty} \frac{1}{x} \ln(x^{-1/2})\right) = 1
+        \item \begin{align*}
+                  \lim_{x \to +\infty} \left(\frac{\ln (1+x)}{x}\right)^{1/x}       & = \exp\left(\lim_{x \to +\infty} \frac{\ln\ln(1+x)-\ln x}{x} \right) = 
+                  \exp\left(\lim_{x \to +\infty} \frac{\frac{1}{\ln (1+x)}\frac{1}{1+x}-\frac{1}{x} }{1} \right)\\
+                  &=\exp 0 = 1
               \end{align*}
-              因此$\lim_{x \to +\infty} \left(\frac{1}{x}\right)^{1/x} = \lim_{x \to +\infty} \left(\frac{1}{x^{1/2}}\right)^{1/x} = 1$.
         \item \begin{align*}
                   \lim_{x \to 0} \frac{\arctan x^2}{\sqrt{1 + x \sin x} - \sqrt{\cos x}} \cdot \left(2 - \frac{x}{\mathrm{e}^x - 1}\right) & = \lim_{x \to 0} \frac{x^2(\sqrt{1 + x \sin x} + \sqrt{\cos x})}{1 + x \sin x - \cos x} \cdot \lim_{x \to 0} \left(2 - \frac{x}{\mathrm{e}^x - 1}\right) \\
-                                                                                                                                           & = \lim_{x \to 0} \frac{x^2(1 + 1)}{1 + x \sin x - (1 - \frac{1}{2}x^2 + o(x^2))}                                                                         \\
-                                                                                                                                           & = \lim_{x \to 0} \frac{2x^2}{x^2 + \frac{1}{2}x^2 + o(x^2)} = \frac{4}{3}
+                                                                                                                                           & = \lim_{x \to 0} \frac{x^2\cdot (1 + 1)}{1 + x \sin x - \cos x} \cdot (2-1)                                                                        \\
+                                                                                                                                           & = \lim_{x \to 0} \frac{4x}{\sin x+x\cos x+\sin x} = \lim_{x \to 0} \frac{4}{\frac{2\sin x}{x}+\cos x}= \frac{4}{3}
               \end{align*}
-        \item 转而证明:$$\lim_{x \to + \infty} \frac{x^k}{a^x} = 0.$$
-              而后由Heine定理即得.
+        \item 只需证明:$$\lim_{x \to + \infty} \frac{x^k}{a^x} = 0.$$
+              再由Heine定理即得.
+
+              对于$\lim_{x \to + \infty} \frac{x^k}{a^x}$
               $$\lim_{x \to + \infty} \frac{x^k}{a^x} \les \lim_{x \to + \infty} \frac {x^{\llceil k \rrceil}}{a^x} \overset{\text{L'Hôpital 法则}}{=} \lim_{x \to + \infty} \frac{\llceil k \rrceil x^{\llceil k \rrceil - 1}}{(\ln a) a^x} = \cdots = \lim_{x \to + \infty} \frac{\llceil k \rrceil !}{(\ln a)^{\llceil k \rrceil} a^x} = 0.$$
-        \item 转而证明:$$\lim_{x \to + \infty} \frac{\ln x}{x^k} = 0.$$
-              而后由Henie定理即得.
+        \item 只需证明:$$\lim_{x \to + \infty} \frac{\ln x}{x^k} = 0.$$
+              再由Heine定理即得.
+
+              对于$\lim_{x \to + \infty} \frac{\ln x}{x^k}$
               $$\lim_{x \to + \infty} \frac{\ln x}{x^k} \overset{\text{L'Hôpital 法则}}{=} \lim_{x \to + \infty} \frac{\frac{1}{x}}{k x^{k-1}} = \lim_{x \to + \infty} \frac{1}{k x^k} = 0.$$
     \end{enumerate}
 \end{solution}
@@ -196,7 +199,7 @@
 
 \begin{solution}
     \begin{enumerate}
-        \item $\{x_n\}$ 是递减的, 因为 $x_{n+1} - x_n = f(x_n) - x_n < 0$. $\{x_n\}$ 具有下界 $0$, 故可设 $\{x_n\}$ 收敛到 $x$. 令 $n \to \infty$, 由 $f$ 的连续性, 得 $x = f(x)$, 故 $x = 0$.
+        \item $\{x_n\}$ 是递减的, 因为 $x_{n+1} - x_n = f(x_n) - x_n < 0$. $\{x_n\}$ 具有下界 $0$, 故可设 $\{x_n\}$ 收敛到 $x$. 令 $n \to \infty$, 由 $f$ 的连续性, 得 $x = f(x)$, 同时利用夹逼准则可知$f(0)=0$是唯一满足$x = f(x)$的,故 $x = 0$.
         \item 由泰勒展开, $f(x) = x + \frac{f''(0)}{2}x^2 + o(x^2)$,因此
               \begin{align*}
                   \lim_{n \to \infty} n x_n & \stackrel{\text{Stolz}}{=} \lim_{n \to \infty} \frac{n+1 - n}{\frac{1}{x_{n+1}} - \frac{1}{x_n}}
