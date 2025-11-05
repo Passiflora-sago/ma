@@ -1,1 +1,257 @@
 \section{习题 6.2}
+
+\begin{exercise}[6.2.1]
+    在下列方程中, 已知方程的一个特解 $y_1$, 试求它们的通解.
+    \begin{tasks}(2)
+        \task $y'' + \frac{2}{x} y' + y = 0, y_1 = \frac{\sin x}{x};$
+        \task $y'' \sin^2 x = 2y, y_1 = \cot x;$
+        \task $(1 - x^2)y'' - 2xy' + 2y = 0, y_1 = x.$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 微分方程在$x \ne 0$上有解,在$x>0$中取$x_0=1$,则
+              \begin{align*}
+                  y_2 & = y_1 \int \frac{1}{y_1^2} \e^{-\int_1^x p(t) \dif t} \dif x = \frac{\sin x}{x} \int \frac{x^2}{\sin^2 x} \cdot \frac{1}{x^2} \dif x \\
+                      & = \frac{\sin x}{x} \int \csc^2 x \dif x = \frac{\sin x}{x} (-\cot x + C) = \frac{\cos x}{x} + C \frac{\sin x}{x}.
+              \end{align*}
+              在$x<0$中取$x_0=-1$,同理可得相同的结果,所以通解为
+              $$y = C_1 \frac{\sin x}{x} + C_2 \frac{\sin x}{x} (-\cot x) = C_1 \frac{\sin x}{x} + C_2 \frac{\cos x}{x}.$$
+        \item 微分方程在$x \ne k\pi, k \in \Z$上有解,在$(0, \pi)$中取$x_0 = \frac{\pi}{2}$,则
+              $$y_2 = y_1 \int \frac{1}{y_1^2} \e^{-\int_{\frac{\pi}{2}}^x p(t) \dif t} \dif x = \cot x \int \tan^2 x \dif x = \cot x (\tan x - x + C) = 1 - x \cot x + C \cot x.$$
+              在$(-\pi, 0)$中取$x_0 = -\frac{\pi}{2}$,同理可得相同的结果,所以通解为
+              $$y = C_1 \cot x + C_2 (1 - x \cot x).$$
+        \item 微分方程在$(-1, 1)$上有解,取$x_0 = 0$,则
+              \begin{align*}
+                  y_2 & = y_1 \int \frac{1}{y_1^2} \e^{-\int_0^x p(t) \dif t} \dif x = x \int \frac{1}{x^2} \e^{\int_0^x \frac{2t}{1 - t^2} \dif t} \dif x             \\
+                      & = x \int \frac{1}{x^2} \cdot \frac{1}{1 - x^2} \dif x = x \left( - \frac{1}{x} + \frac{1}{2} \ln \left| \frac{1 + x}{1 - x} \right|+ C \right)
+                  = -1 + \frac{x}{2} \ln \left| \frac{1 + x}{1 - x} \right| + Cx.
+              \end{align*}
+              所以通解为
+              $$y = C_1 x + C_2 \left( -1 + \frac{x}{2} \ln \left| \frac{1 + x}{1 - x} \right| \right).$$
+              \begin{remark}
+                  严格来说,上述解有独立的三支,分别位于$(-\infty, -1), (-1, 1), (1, +\infty)$上.三支的通解形式相同,但常数$C_1, C_2$是独立的.所以整体解应写为
+                  $$y = C_1^{(-\infty, -1)} x + C_2^{(-\infty, -1)} \left( -1 + \frac{x}{2} \ln \left| \frac{1 + x}{1 - x} \right| \right), \quad x < -1;$$
+                  $$y = C_1^{(-1, 1)} x + C_2^{(-1, 1)} \left( -1 + \frac{x}{2} \ln \left| \frac{1 + x}{1 - x} \right| \right), \quad -1 < x < 1;$$
+                  $$y = C_1^{(1, +\infty)} x + C_2^{(1, +\infty)} \left( -1 + \frac{x}{2} \ln \left| \frac{1 + x}{1 - x} \right| \right), \quad x > 1.$$
+              \end{remark}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[6.2.2]
+    先用观察法求下列齐次方程的一个非零特解, 然后求方程的通解.
+    \begin{tasks}(2)
+        \task $x^2 y'' - 2xy' + 2y = 0, x \neq 0;$
+        \task $xy'' - (1 + x)y' + y = 0, x \neq 0.$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 观察可得一个特解$y_1 = x$.取$x_0 = 1$,则
+              \begin{align*}
+                  y_2 & = y_1 \int \frac{1}{y_1^2} \e^{-\int_1^x p(t) \dif t} \dif x = x \int \frac{1}{x^2} \e^{\int_1^x \frac{2}{t} \dif t} \dif x \\
+                      & = x \int \frac{1}{x^2} \cdot x^2 \dif x = x ( x + C ) = x^2 + C x.
+              \end{align*}
+              所以通解为
+              $$y = C_1 x + C_2 x^2.$$
+        \item 观察可得一个特解$y_1 = x+1$.取$x_0 = 1$,则
+              \begin{align*}
+                  y_2 & = y_1 \int \frac{1}{y_1^2} \e^{-\int_1^x p(t) \dif t} \dif x = (x+1) \int \frac{1}{(x+1)^2} \e^{\int_1^x \frac{1 + t}{t} \dif t} \dif x \\
+                      & = (x+1) \int \frac{1}{(x+1)^2} \cdot x \e^x \dif x = (x+1) \left( \frac{\e^x}{x+1} + C \right) = \e^x + C (x+1).
+              \end{align*}
+              因此通解为
+              $$y = C_1 (x+1) + C_2 \e^x.$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[6.2.3]
+    已知方程 $(1 + x^2)y'' + 2xy' - 6x^2 - 2 = 0$ 的一个特解 $y_1 = x^2$, 试求该方程满足初值条件 $y(-1) = 0, y'(-1) = 0$ 的特解.
+\end{exercise}
+
+\begin{solution}
+    先求齐次方程$(1 + x^2)y'' + 2xy' = 0$的通解.令$p = y'$, 则齐次方程化为$(1 + x^2)p' + 2xp = 0$.分离变量得
+    $$\ln |p| = - \ln (1 + x^2) + C \implies p = \frac{C}{1 + x^2}.$$
+    因此齐次方程的通解为
+    $$y = C_1 + C_2 \arctan x.$$
+    又有非齐次方程的一个特解$y_1 = x^2$, 故非齐次方程的通解为
+    $$y = C_1 + C_2 \arctan x + x^2.$$
+    由初值条件$y(-1) = 0, y'(-1) = 0$可得
+    $$\begin{cases}
+            C_1 - \frac{\pi}{4} C_2 + 1 = 0, \\
+            \frac{C_2}{2} - 2 = 0.
+        \end{cases}$$
+    解得$C_1 = \pi - 1, C_2 = 4$.因此所求特解为
+    $$y = \pi - 1 + 4 \arctan x + x^2.$$
+\end{solution}
+
+\begin{exercise}[6.2.4]
+    求下列常系数齐次方程的通解.
+    \begin{tasks}(2)
+        \task $y'' - 2y' - y = 0;$
+        \task $y'' + 2y' + 2y = 0;$
+        \task $y'' + y' - 6y = 0.$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 特征方程为$r^2 - 2r - 1 = 0$, 解得$r_1 = 1 + \sqrt{2}, r_2 = 1 - \sqrt{2}$.因此通解为
+              $$y = C_1 \e^{(1 + \sqrt{2})x} + C_2 \e^{(1 - \sqrt{2})x}.$$
+        \item 特征方程为$r^2 + 2r + 2 = 0$, 解得$r_{1,2} = -1 \pm \mathrm{i}$.因此通解为
+              $$y = \e^{-x} (C_1 \cos x + C_2 \sin x).$$
+        \item 特征方程为$r^2 + r - 6 = 0$, 解得$r_1 = 2, r_2 = -3$.因此通解为
+              $$y = C_1 \e^{2x} + C_2 \e^{-3x}.$$
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}[6.2.5]
+    求下列常系数非齐次方程的一个特解.
+    \begin{tasks}(2)
+        \task $y'' + y = 2 \sin \frac{x}{2};$
+        \task $y'' - 6y' + 9y = (x + 1)\mathrm{e}^{2x}.$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 设特解形如$y = C(x) \sin \frac{x}{2}$,代入方程得
+              \begin{align*}
+                  \left( \left(C''(x) -  \frac{C(x)}{4}\right) \sin \frac{x}{2} + \frac{C'(x)}{2} \cos \frac{x}{2} \right)+ C(x) \sin \frac{x}{2} & = 2 \sin \frac{x}{2} \\
+                  \implies \left( C''(x) +  \frac{3}{4} C(x) \right) \sin \frac{x}{2} + \frac{C'(x)}{2} \cos \frac{x}{2}                          & = 2 \sin \frac{x}{2}
+              \end{align*}
+              比对$y'' + y = 2 \sin \frac{x}{2}$的系数
+              可得$$\begin{cases}
+                      C'' +  \frac{3}{4} C = 2, \\
+                  \end{cases}$$
+              取$C = \frac{8}{3}$可解得上式,因此一个特解为
+              $$y^* = \frac{8}{3} \sin \frac{x}{2}.$$
+        \item 设特解形如$y = (Ax + B) \e^{2x}$,代入方程得
+              \begin{align*}
+                  \left( (4Ax + 4B + 4A) - 6(2Ax + 2B + A) + 9(Ax + B) \right) \e^{2x} & = (x + 1)\e^{2x} \\
+                  \implies ( Ax + (B - 2A) ) \e^{2x}                                   & = (x + 1)\e^{2x}
+              \end{align*}
+              比对$y'' - 6y' + 9y = (x + 1)\mathrm{e}^{2x}$的系数
+              可得$$\begin{cases}
+                      A = 1, \\
+                      B - 2A = 1.
+                  \end{cases}$$
+              解得$A = 1, B = 3$,因此一个特解为
+              $$y^* = (x + 3) \e^{2x}.$$
+    \end{enumerate}
+\end{solution}
+
+此类待定系数中,所使用的特解形式有如下命题
+\begin{proposition*}[$f(x) = \e^{\lambda x} P_m(x)$ 型]\quad 
+
+    求解非齐次方程 $y'' + py' + qy = \e^{\lambda x} P_m(x)$ 时候,可设特解为:
+    $$ y^* = x^k P_m(x) \e^{\lambda x} $$
+
+    其中:
+    $$
+        \begin{cases}
+            \e^{\lambda x} \text{照抄},             \\
+            P_m(x) \text{为} m \text{次一般多项式,} \\
+            k =
+            \begin{cases}
+                0, & \text{当 } \lambda \text{不是特征根,} \\
+                1, & \text{当 } \lambda \text{是特征单根,} \\
+                2, & \text{当 } \lambda \text{是特征重根.}
+            \end{cases}
+        \end{cases}
+    $$
+\end{proposition*}
+
+\begin{proposition*}[$f(x) = \e^{\lambda x} \left( P_l(x) \cos \omega x + Q_n(x) \sin \omega x\right) $ 型]\quad
+
+    求解非齐次方程 $y'' + py' + qy = \e^{\lambda x} \big[P_l(x) \cos \omega x + Q_n(x) \sin \omega x\big]$ 时候,可设特解为:
+    $$ y^* = x^k \e^{\lambda x} \big[P_m(x) \cos \omega x + Q_m(x) \sin \omega x\big] $$
+
+    其中：
+    $$\begin{cases}
+            \e^{\lambda x} \text{照抄},                                                        \\
+            m = \max\{l, n\}, \, P_m(x) \text{和 } Q_m(x) \text{分别为} m \text{次一般多项式,} \\
+            k =
+            \begin{cases}
+                0, & \text{当 } \lambda + \omega \i \text{不是特征根,} \\
+                1, & \text{当 } \lambda + \omega \i \text{是特征根.}
+            \end{cases}
+        \end{cases}
+    $$
+\end{proposition*}
+
+\begin{exercise}[6.2.6]
+    验证函数组 $1, x, x^2, \dots, x^n$ 在实轴上线性无关, 函数组 $1, \cos^2 x, \sin^2 x$ 在实轴上线性相关.
+\end{exercise}
+
+\begin{solution}
+    设存在常数$C_0, C_1, \dots, C_n$使得
+    $$C_0 + C_1 x + C_2 x^2 + \dots + C_n x^n = 0, \quad \forall x \in \R.$$
+    则上式为一个恒等式,对$x$求导$n$次可得
+    $$n! C_n = 0 \implies C_n = 0.$$
+    依此类推可得$C_{n-1} = 0, C_{n-2} = 0, \dots, C_0 = 0$.因此函数组$1, x, x^2, \dots, x^n$在实轴上线性无关.
+
+    $$1 - \cos^2 x - \sin^2 x = 0, \quad \forall x \in \R.$$
+    因此函数组$1, \cos^2 x, \sin^2 x$在实轴上线性相关.
+\end{solution}
+
+\begin{exercise}[6.2.7]
+    证明: 在区间 $I$ 上任何线性相关的两个函数 $y_1(x), y_2(x)$, 它们的 Wronski 行列式一定恒为零.
+\end{exercise}
+
+\begin{solution}
+    设$y_1, y_2$在区间$I$上线性相关, 则存在常数$C_1, C_2$, 不全为零,使得
+    $$C_1 y_1(x) + C_2 y_2(x) = 0, \quad \forall x \in I.$$
+    对上式求导可得
+    $$C_1 y_1'(x) + C_2 y_2'(x) = 0, \quad \forall x \in I.$$
+    将上述两式联立可得
+    $$\begin{vmatrix}
+            y_1(x)  & y_2(x)  \\
+            y_1'(x) & y_2'(x)
+        \end{vmatrix} = 0, \quad \forall x \in I.$$
+    因此$y_1, y_2$的Wronski行列式恒为零.
+\end{solution}
+
+\begin{exercise}[6.2.8]
+    证明下列函数在区间 $(0, 2)$ 上是线性无关的, 但是它们的 Wronski 行列式却恒为零:
+    $$ y_1(x) = \begin{cases} (x - 1)^2, & 0 \les x \les 1, \\ 0, & 1 < x \les 2; \end{cases} \quad y_2(x) = \begin{cases} 0, & 0 \les x \les 1, \\ (x - 1)^2, & 1 < x \les 2. \end{cases} $$
+\end{exercise}
+
+\begin{solution}
+    设存在常数$C_1, C_2$使得
+    $$C_1 y_1(x) + C_2 y_2(x) = 0, \quad \forall x \in (0, 2).$$
+    当$0 < x < 1$时,上式化为$C_1 (x - 1)^2 = 0$,因此$C_1 = 0$;当$1 < x < 2$时,上式化为$C_2 (x - 1)^2 = 0$,因此$C_2 = 0$.所以函数组$y_1, y_2$在区间$(0, 2)$上线性无关.
+
+    又因为
+    $$y_1'(x) = \begin{cases} 2(x - 1), & 0 \les x \les 1, \\ 0, & 1 < x \les 2; \end{cases} \quad y_2'(x) = \begin{cases} 0, & 0 \les x \les 1, \\ 2(x - 1), & 1 < x \les 2; \end{cases}$$
+    所以
+    $$\begin{vmatrix}
+            y_1(x)  & y_2(x)  \\
+            y_1'(x) & y_2'(x)
+        \end{vmatrix} = 0, \quad \forall x \in (0, 2).$$
+    因此$y_1, y_2$的Wronski行列式恒为零.
+\end{solution}
+
+\begin{exercise}[6.2.9]
+    求下列方程的通解.
+    \begin{tasks}(2)
+        \task $x''' + 3x'' + 3x' + x = 0;$
+        \task $x''' - 2x'' + x' - 2 x = 0;$
+        \task $x^{(4)} - 8x'' + 18x = 0;$
+        \task $x^{(4)} + 2x'' + x = 0.$
+    \end{tasks}
+\end{exercise}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 特征方程为$r^3 + 3r^2 + 3r + 1 = 0$, 解得$r_1 = -1$为三重根.因此通解为
+              $$x = (C_1 + C_2 t + C_3 t^2) \e^{-t}.$$
+        \item 特征方程为$r^3 - 2r^2 + r - 2 = 0$, 解得$r_1 = 2, r_{2,3} = \pm i$,因此通解为
+              $$x = C_1 \e^{2t} + C_2 \cos t + C_3 \sin t.$$
+        \item 特征方程为$r^4 - 8r^2 + 18 = 0$, 解得$r_{1,2} = 2 + \i, r_{3,4} = 2 - \i$.因此通解为
+              $$x = \e^{2t} \left( C_1 \cos t + C_2 \sin t + C_3 t \cos t + C_4 t \sin t \right).$$
+        \item 特征方程为$r^4 + 2r^2 + 1 = 0$, 解得$r_{1,2} = \i, r_{3,4} = -\i$.因此通解为
+              $$x = C_1 \cos t + C_2 \sin t + C_3 t \cos t + C_4 t \sin t.$$
+    \end{enumerate}
+\end{solution}

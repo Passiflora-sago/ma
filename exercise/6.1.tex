@@ -18,15 +18,15 @@
                            & (1 + x^2)\mathrm{d}y = y \mathrm{d}x                    \\
                   \implies & \frac{1}{y} \mathrm{d}y = \frac{1}{1 + x^2} \mathrm{d}x \\
                   \implies & \ln |y| = \arctan x + C                                 \\
-                  \implies & y = C' \mathrm{e}^{\arctan x}, \quad C' = \e^C > 0.
+                  \implies & y = C' \mathrm{e}^{\arctan x}, \quad C' = \e^C
               \end{align*}
               综上, 方程的解为
-              $$y = C \e^{\arctan x},\quad C \in \mathbb{R}.$$
+              $$y = C \e^{\arctan x}$$
         \item \begin{align*}
                            & y' = \mathrm{e}^{x-y}                                    \\
                   \implies & \mathrm{e}^y \mathrm{d}y = \mathrm{e}^x \mathrm{d}x      \\
                   \implies & \mathrm{e}^y = \mathrm{e}^x + C ,\quad C > -\mathrm{e}^x \\
-                  \implies & y = \ln (\mathrm{e}^x + C), \quad C > -\mathrm{e}^x.
+                  \implies & y = \ln (\mathrm{e}^x + C)
               \end{align*}
         \item 不难验证$y\equiv 0,1$是方程的解. 当$y\neq0,1$时,
               \begin{align*}
@@ -34,15 +34,15 @@
                   \implies & \frac{\mathrm{d}y}{y(y-1)} = \frac{\mathrm{d}x}{x} \\
                   \implies & \ln \left| \frac{y-1}{y} = \ln |x| + C \right.     \\
                   \implies & \frac{y-1}{y} = C' x, \quad C' = \e^C \neq 0       \\
-                  \implies & y = \frac{1}{1 - C' x}, \quad C' \neq 0.
+                  \implies & y = \frac{1}{1 - C' x}
               \end{align*}
               综上, 方程的解为
-              $$y = 0; \quad y = \frac{1}{1 - C x}, \quad C \in \mathbb{R}$$
+              $$y = 0; \quad y = \frac{1}{1 - C x}$$
         \item \begin{align*}
                            & yy' = \frac{1 - 2x}{y}                               \\
                   \implies & y^2 \mathrm{d}y = (1 - 2x) \mathrm{d}x               \\
                   \implies & \frac{1}{3} y^3 = x - x^2 + C                        \\
-                  \implies & y = \sqrt[3]{3x - 3x^2 + C}, \quad C \in \mathbb{R}.
+                  \implies & y = \sqrt[3]{3x - 3x^2 + C}.
               \end{align*}
               且由题设得$y \ne 0$,因此方程的所有解为:
               %   \begin{align*}
@@ -51,11 +51,9 @@
               %       \cup & \left\{y =  \sqrt[3]{3x - 3x^2 + C} \mid C \ges -\frac{3}{4}, x \in \left(\frac{1}{2}, +\infty \right) ,y < 0\right\} \\
               %       \cup & \left\{y = \sqrt[3]{3x - 3x^2 + C} \mid C \ges -\frac{3}{4} , y > 0 \right\}
               %   \end{align*}
-              $$y = \sqrt[3]{3x - 3x^2 + C}, x \in \mathcal{D_C} = \{ x \in \R \mid 3x - 3x^2 + C \ne 0 \}, C \in \mathbb{R}.$$
+              $$\frac{3x-3x^2+C}{y^3} = 1$$
               \begin{remark}
-                  也可以将所有解写为:
-                  $$\frac{3x-3x^2+C}{y^3} = 1$$
-                  后面为了方便,我们也写成:
+                  后面为了方便,我们也将所有解写成:
                   $$y^3 = 3x - 3x^2 + C, \quad y \ne 0.$$
               \end{remark}
     \end{enumerate}
@@ -86,8 +84,8 @@
               同时注意到$y - 2x = \frac{3C'x^4}{1-C' x^3}$, 函数被分为$y-2x \ges 0, y - 2x < 0$两支,这两支的解是独立的,因此综上所述
               $$y = \frac{2x + C_1 x^4}{1 - C_1 x^3}, C_1 \in \mathbb{R}, y - 2x \ges 0; \quad y = \frac{2x + C_2 x^4}{1 - C_2 x^3}, C_2 \in \mathbb{R}, y - 2x < 0.$$
               \begin{remark}
-                  为了方便,我们还是写为
-                  $$y = \frac{2x + C x^4}{1 - C x^3},\quad , x \ne 0$$
+                  为了方便,我们也写为
+                  $$y = \frac{2x + C x^4}{1 - C x^3},\quad x \ne 0$$
               \end{remark}
         \item 记$p = \frac{y}{x}$, 则$y = px$, $y' = p'x + p$. 代入方程得
               \begin{align*}
@@ -99,17 +97,21 @@
               \end{align*}
               由于微分方程在$x = 0$处不连续, $x$正负半轴的解是独立的,
               $$y^2 = x^2 (2 \ln x + C_1), x > 0; \quad y^2 = x^2 (2 \ln (-x) + C_2), x < 0.$$
-              我们还是允许如下的表示$$y^2 = x^2 (2 \ln |x| + C), x \ne 0.$$
-        \item 记$p = \frac{y}{x}$, 则$y = px$, $ y' = p'x + p$. 代入方程得
+              或者$$y^2 = x^2 (2 \ln |x| + C), x \ne 0.$$
+        \item 记$p = \frac{y}{x}$, 则$y = px$, $ y' = p'x + p$. $y = x,y=2x$显然为方程的解,$u \ne 0,1,2$时代入方程得
               \begin{align*}
                            & \frac{1}{x^2 - x(px) + (px)^2} \mathrm{d}x = \frac{1}{2(px)^2 - x(px)} \mathrm{d}(px)                                            \\
                   \implies & \frac{\dif x}{x} = \frac{p^2 -p +1}{p(p-1)(p-2)} \dif p                                                                          \\
                   \implies & \int \frac{\dif x}{x} = \int \left( - \frac{1}{2} \frac{\dif p}{p} + \frac{\dif p}{p-1} - \frac{3}{2} \frac{\dif p}{p-2} \right) \\
-                  \implies & x p^\frac12 (p-1)^{-1} (p-2)^\frac32 = C                                                                                         \\
-                  \implies & (y-x)^2 = C' xy (y-2x)^3, \quad C' = C^2 > 0
+                  \implies & x^{-1} p^\frac12 (p-1)^{-1} (p-2)^\frac32 = C                                                                                         \\
+                  \implies & C'(y-x)^2 =y(y-2x)^3, \quad C' = C^2
               \end{align*}
               综上, 方程的解为
-              $$ (y - x)^2 = C xy (y - 2x)^3, \quad 2y^2-xy \ne 0.$$
+              $$ C_1 (y - x)^2 = y (y - 2x)^3, y > 0, \quad C_2 (y - x)^2 = y (y - 2x)^3, y < 0, \quad y = x, y \ne 0, \quad y = 2x, y \ne 0$$
+              或者 
+              $$ C (y - x)^2 = y (y - 2x)^3, y \ne 0, \quad y = x, y \ne 0, \quad y = 2x, y \ne 0$$
+              或者 
+              $$ C (y - x)^2 = y (y - 2x)^3, y \ne 0, \quad y = x, y \ne 0$$
         \item 记$p = \frac{y}{x}$, 则$y = px$, $ y' = p'x + p$. 代入方程得$x \ne 0$时,
               \begin{align*}
                            & (x^2 + 3 (px)^2) \mathrm{d}x - 2x(px) \mathrm{d}(px)       \\
@@ -178,7 +180,8 @@
               $$ \arctan\left(\frac{v}{u}\right) = \frac{1}{2} \ln(u^2+v^2) - \frac{1}{2}\ln(u^2) + \ln|u| + C = \frac{1}{2} \ln(u^2+v^2) + C $$
               代回 $u=x+2, v=y+1$:
               $$ \arctan\left(\frac{y+1}{x+2}\right) - \frac{1}{2} \ln((x+2)^2 + (y+1)^2) = C $$
-
+                即,微分方程的解为
+                $$y+1 = (x+2) \tan\left( \frac{1}{2} \ln((x+2)^2 + (y+1)^2) + C \right), x - y + 1 \ne 0$$
         \item 这里 $a_1=2, b_1=4, a_2=1, b_2=2$. $D = 2 \cdot 2 - 4 \cdot 1 = 0$. 令 $z = x+2y$. 则 $\frac{\mathrm{d}z}{\mathrm{d}x} = 1 + 2 \frac{\mathrm{d}y}{\mathrm{d}x}$.
               原方程变为 $\frac{\mathrm{d}y}{\mathrm{d}x} = \frac{2(x+2y)+3}{x+2y+1} = \frac{2z+3}{z+1}$.
               代入 $\frac{\mathrm{d}z}{\mathrm{d}x}$ 的表达式:
@@ -192,6 +195,8 @@
               $$ 5(x+2y) - 2 \ln|5x+10y+7| = 25x + C' $$
               $$ 10y - 20x - 2 \ln|5x+10y+7| = C' $$
               $$ 10x - 5y + \ln|5x+10y+7| = C'' $$
+              即,微分方程的解为
+              $$ 10x - 5y + \ln|5x+10y+7| = C, x+2y+1 \ne 0$$
     \end{enumerate}
 \end{solution}
 
@@ -218,10 +223,10 @@
                     & = (1+x^2) (x+C).
               \end{align*}
               综上, 方程的解为
-              $$y = (x + C)(1+x^2), \quad C \in \mathbb{R}.$$
+              $$y = (x + C)(1+x^2)$$
         \item 原方程可写为 $y' = 1 - \frac{1-2x}{x} = 1 - \frac{1}{x} + 2 = 3 - \frac{1}{x}$.
               分离变量得 $\dif y = \left(3 - \frac{1}{x}\right) \dif x$. 积分得
-              $$y = 3x - \ln|x| + C, \quad C \in \mathbb{R}.$$
+              $$y = 3x - \ln|x| + C$$
         \item 将方程视为 $x$ 关于 $y$ 的函数. 原方程可写为 $\frac{\mathrm{d}x}{\mathrm{d}y} = \frac{x+y^3}{y} = \frac{x}{y} + y^2$.
               整理得: $$\frac{\mathrm{d}x}{\mathrm{d}y} - \frac{1}{y} x = y^2.$$
               这是一个关于 $x$ 的线性方程. $P(y) = -\frac{1}{y}, Q(y) = y^2$.
@@ -233,7 +238,7 @@
                     & = y \left( \int y \dif y + C \right) \quad (\text{假设 } y > 0)   \\
                     & = y \left( \frac{1}{2}y^2 + C \right) = \frac{y^3}{2} + Cy.
               \end{align*}
-              解为 $x = \frac{y^3}{2} + Cy, \quad C \in \mathbb{R}.$
+              解为 $x = \frac{y^3}{2} + Cy, x+y^3 \ne 0$
         \item 这是 Bernoulli 方程. $y \equiv 0$ 是一个解. 当 $y \neq 0$ 时, 方程两边同除以 $y^2$:
               $$y^{-2} y' + \frac{1}{x} y^{-1} = \ln x.$$
               作代换 $u = y^{-1}$, 则 $u' = -y^{-2}y'$. 方程变为:
@@ -258,13 +263,13 @@
               \end{align*}
               假设 $\cos x > 0$, 则 $u = \cos x \left( \int (-1) \dif x + C \right) = \cos x (-x+C)$.
               所以 $y^{-1} = (C-x)\cos x$, 即 $y = \frac{1}{(C-x)\cos x}$.
-              通解为 $y=0$ 和 $y = \frac{\sec x}{C-x}$.
+              通解为 $$y = 0 ,\text{ 和 } 1 = y \cos x (C - x).$$
         \item 这是 Bernoulli 方程. $y \equiv 0$ 是一个解. 当 $y \neq 0$ 时, 将方程整理为标准形式:
               $$ y' \cos x = y - y^2(1-\sin x)\cos x \implies y' - (\sec x)y = -(1-\sin x)y^2. $$
               两边同除以 $y^2$: $y^{-2}y' - (\sec x)y^{-1} = -(1-\sin x)$.
               令 $u = y^{-1}$, 则 $u' = -y^{-2}y'$. 方程变为:
               $$-u' - (\sec x)u = -(1-\sin x) \implies u' + (\sec x)u = 1-\sin x.$$
-              这是一个线性方程. $\int \sec x \dif x = \ln|\sec x + \tan x|$.
+               这是一个线性方程. $\int \sec x \dif x = \ln|\sec x + \tan x|$.
               \begin{align*}
                   u & = \e^{-\ln|\sec x + \tan x|} \left( \int (1-\sin x) \e^{\ln|\sec x + \tan x|} \dif x + C \right) \\
                     & = \frac{1}{|\sec x + \tan x|} \left( \int (1-\sin x)|\sec x + \tan x| \dif x + C \right).
@@ -276,7 +281,18 @@
                                                           & = \int \cos x \dif x = \sin x.
               \end{align*}
               所以 $u = \frac{1}{\sec x + \tan x}(\sin x + C)$.
-              通解为 $y=0$ 和 $y = \frac{\sec x+ \tan x}{\sin x + C}$.
+
+            \begin{remark}
+                此处只需要考虑 $\sec x + \tan x > 0$ 的情形, 从另一个角度来理解是这样的:
+\begin{align*}
+                \diff \left( (\tan x + \sec x) u \right) &=\left( (\sec x + \tan x )u' + \sec x(\sec x + \tan x) u \right)\dif x\\
+                &= \left( (\sec x + \tan x) (1-\sin x) \right) \dif x
+              \end{align*}
+因此$$(\tan x + \sec x) u = \int (\sec x + \tan x)(1-\sin x) \dif x + C = \sin x + C.$$
+             
+            \end{remark}
+              故微分方程的解为
+              $$y = 0 \quad \text{ 和 } \quad y (\sin x + C) = \sec x + \tan x.$$
     \end{enumerate}
 \end{solution}
 
@@ -354,8 +370,7 @@
         因此\begin{align*}
             &\ln | 1+ \cos y| = \frac{1}{2} x^2 + C \\
             \implies & 1 + \cos y = C' \e^{\frac{1}{2} x^2} \\
-            \implies & y = \arccos \left( C' \e^{\frac{1}{2} x^2} - 1 \right) + 2k \pi, k \in \Z
-        \end{align*}
+            \end{align*}
     \end{enumerate}
 \end{solution}
 
