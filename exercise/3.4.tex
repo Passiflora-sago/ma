@@ -1,62 +1,62 @@
 \section{习题 3.4}
+%3.4.1-3.4.4删除
+% \begin{exercise}[3.4.1]
+%     试给出 Cauchy 中值定理的几何解释.
+% \end{exercise}
 
-\begin{exercise}[3.4.1]
-    试给出 Cauchy 中值定理的几何解释.
-\end{exercise}
+% \begin{solution}
+%     设函数 $f(x)$ 和 $g(x)$ 在闭区间 $[a, b]$ 上连续, 在开区间 $(a, b)$ 内可微. 根据 Cauchy 中值定理, 存在 $\xi \in (a, b)$, 使得
+%     $$\frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f'(\xi)}{g'(\xi)}.$$
 
-\begin{solution}
-    设函数 $f(x)$ 和 $g(x)$ 在闭区间 $[a, b]$ 上连续, 在开区间 $(a, b)$ 内可微. 根据 Cauchy 中值定理, 存在 $\xi \in (a, b)$, 使得
-    $$\frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f'(\xi)}{g'(\xi)}.$$
+%     几何上, 这意味着在区间 $[a, b]$ 上, 存在一点 $\xi$, 使得函数 $f(x)$ 在该点的瞬时变化率（导数）与函数 $g(x)$ 在该点的瞬时变化率之比等于它们在端点处的平均变化率之比.换句话说,存在一条切线,其斜率与通过点 $(a, f(a))$ 和 $(b, f(b))$ 的割线的斜率成比例关系,这个比例由函数 $g(x)$ 的变化决定.
+% \end{solution}
 
-    几何上, 这意味着在区间 $[a, b]$ 上, 存在一点 $\xi$, 使得函数 $f(x)$ 在该点的瞬时变化率（导数）与函数 $g(x)$ 在该点的瞬时变化率之比等于它们在端点处的平均变化率之比.换句话说,存在一条切线,其斜率与通过点 $(a, f(a))$ 和 $(b, f(b))$ 的割线的斜率成比例关系,这个比例由函数 $g(x)$ 的变化决定.
-\end{solution}
+% \begin{exercise}[3.4.2]
+%     试说明在闭区间 $[-1, 1]$ 上 Cauchy 中值定理对函数 $f(x) = x^2$ 和 $g(x) = x^3$ 为什么不正确.
+% \end{exercise}
 
-\begin{exercise}[3.4.2]
-    试说明在闭区间 $[-1, 1]$ 上 Cauchy 中值定理对函数 $f(x) = x^2$ 和 $g(x) = x^3$ 为什么不正确.
-\end{exercise}
+% \begin{solution}
+%     在闭区间 $[-1, 1]$ 上, 函数 $f(x) = x^2$ 和 $g(x) = x^3$ 都是连续的, 并且在开区间 $(-1, 1)$ 内可微. 然而, 我们计算它们在端点处的变化:
+%     $$f(1) - f(-1) = 1^2 - (-1)^2 = 0,$$
+%     $$g(1) - g(-1) = 1^3 - (-1)^3 = 2.$$
 
-\begin{solution}
-    在闭区间 $[-1, 1]$ 上, 函数 $f(x) = x^2$ 和 $g(x) = x^3$ 都是连续的, 并且在开区间 $(-1, 1)$ 内可微. 然而, 我们计算它们在端点处的变化:
-    $$f(1) - f(-1) = 1^2 - (-1)^2 = 0,$$
-    $$g(1) - g(-1) = 1^3 - (-1)^3 = 2.$$
+%     因此, Cauchy 中值定理要求存在 $\xi \in (-1, 1)$, 使得
+%     $$\frac{f(1) - f(-1)}{g(1) - g(-1)} = \frac{0}{2} = 0 = \frac{f'(\xi)}{g'(\xi)}.$$
 
-    因此, Cauchy 中值定理要求存在 $\xi \in (-1, 1)$, 使得
-    $$\frac{f(1) - f(-1)}{g(1) - g(-1)} = \frac{0}{2} = 0 = \frac{f'(\xi)}{g'(\xi)}.$$
+%     计算导数:
+%     $$f'(x) = 2x, \quad g'(x) = 3x^2.$$
 
-    计算导数:
-    $$f'(x) = 2x, \quad g'(x) = 3x^2.$$
+%     因此,
+%     $$\frac{f'(\xi)}{g'(\xi)} = \frac{2\xi}{3\xi^2} = \frac{2}{3\xi}.$$
 
-    因此,
-    $$\frac{f'(\xi)}{g'(\xi)} = \frac{2\xi}{3\xi^2} = \frac{2}{3\xi}.$$
+%     要使得 $\frac{2}{3\xi} = 0$, 必须有 $\xi \to \infty$, 这显然不可能在区间 $(-1, 1)$ 内实现.因此, 在这个例子中, Cauchy 中值定理不成立.
 
-    要使得 $\frac{2}{3\xi} = 0$, 必须有 $\xi \to \infty$, 这显然不可能在区间 $(-1, 1)$ 内实现.因此, 在这个例子中, Cauchy 中值定理不成立.
+%     这个例子说明了Cauchy中值定理的适用条件必须严格满足, 其中要求$g'(x)$在$(a, b)$内不为零,否则可能导致分母为零的情况,从而使得定理无法应用.
+% \end{solution}
 
-    这个例子说明了Cauchy中值定理的适用条件必须严格满足, 其中要求$g'(x)$在$(a, b)$内不为零,否则可能导致分母为零的情况,从而使得定理无法应用.
-\end{solution}
+% \begin{exercise}[3.4.3]
+%     设 $b > a > 0$,函数 $f(x)$ 在 $[a, b]$ 上连续,在 $(a, b)$ 内可微,求证：存在 $\xi \in (a, b)$,使得
+%     $$2\xi (f(b) - f(a)) = (b^2 - a^2) f'(\xi).$$
+% \end{exercise}
 
-\begin{exercise}[3.4.3]
-    设 $b > a > 0$,函数 $f(x)$ 在 $[a, b]$ 上连续,在 $(a, b)$ 内可微,求证：存在 $\xi \in (a, b)$,使得
-    $$2\xi (f(b) - f(a)) = (b^2 - a^2) f'(\xi).$$
-\end{exercise}
+% \begin{solution}
+%     设 $g(x) = x^2$,则 $g'(x) = 2x$. 根据 Cauchy 中值定理,存在 $\xi \in (a, b)$,使得
+%     $$
+%         \frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f'(\xi)}{g'(\xi)} = \frac{2\xi}{f'(\xi)}.
+%     $$
+%     整理即得.
+% \end{solution}
 
-\begin{solution}
-    设 $g(x) = x^2$,则 $g'(x) = 2x$. 根据 Cauchy 中值定理,存在 $\xi \in (a, b)$,使得
-    $$
-        \frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f'(\xi)}{g'(\xi)} = \frac{2\xi}{f'(\xi)}.
-    $$
-    整理即得.
-\end{solution}
+% \begin{exercise}[3.4.4]
+%     设 $f(x)$ 在 $[a, b]$ 上连续 ($ab > 0$),在 $(a, b)$ 上可微. 求证：存在 $\xi \in (a, b)$,使
+%     $$\frac{a f(b) - b f(a)}{a - b} = f(\xi) - \xi f'(\xi).$$
+% \end{exercise}
 
-\begin{exercise}[3.4.4]
-    设 $f(x)$ 在 $[a, b]$ 上连续 ($ab > 0$),在 $(a, b)$ 上可微. 求证：存在 $\xi \in (a, b)$,使
-    $$\frac{a f(b) - b f(a)}{a - b} = f(\xi) - \xi f'(\xi).$$
-\end{exercise}
-
-\begin{solution}
-    由Cauchy中值定理,存在$\xi \in (a, b)$,使得
-    $$\frac{ \frac{f(b)}{b} - \frac{f(a)}{a} }{ \frac{1}{b} - \frac{1}{a} } = \frac{\frac{f'(\xi)\xi - f(\xi)}{\xi^2}}{-\frac{1}{\xi^2}}.$$
-    整理即得.
-\end{solution}
+% \begin{solution}
+%     由Cauchy中值定理,存在$\xi \in (a, b)$,使得
+%     $$\frac{ \frac{f(b)}{b} - \frac{f(a)}{a} }{ \frac{1}{b} - \frac{1}{a} } = \frac{\frac{f'(\xi)\xi - f(\xi)}{\xi^2}}{-\frac{1}{\xi^2}}.$$
+%     整理即得.
+% \end{solution}
 
 \begin{exercise}[3.4.5]
     求下列极限.
@@ -87,7 +87,7 @@
         $\displaystyle \lim_{x \to 0} x \sin \frac{1}{x}$;
 
         \task
-        $\displaystyle \lim_{x \to \frac{\pi}{2}} \frac{\cos^2 x}{\tan x}$;
+        $\displaystyle \lim_{x \to 0}\frac{x^2\cos\frac{1}{x}}{\tan x}$;
 
         \task
         $\displaystyle \lim_{x \to 0} \left(\frac{1}{\arctan^2 x} - \frac{1}{x^2}\right)$;
@@ -99,7 +99,7 @@
         $\displaystyle \lim_{x \to \frac{\pi}{2}^-} (\tan x)^{2x - \pi}$;
 
         \task
-        $\displaystyle \lim_{x \to 0} \frac{\left(1 + x\right)^{1/x} - \mathrm{e}}{x}$ % 使用 \mathrm{e}
+        $\displaystyle \lim_{x \to 0} \left(\frac{(1+x)^{1/x}}{\e}\right)^{1/x}$ % 使用 \mathrm{e}
 
         \task
         $\displaystyle \lim_{x \to 1^-} \frac{\ln(1 - x) + \tan \frac{\pi}{2} x}{\cot \pi x}$;
@@ -137,11 +137,11 @@
               $$\left(a^x \right)'' = \ln^2(a) a^x \to \ln^2(a) \quad (x \to 0)$$
               $$\lim_{x \to 0} \frac{(a + x)^x - a^x}{x^2} \overset{\text{L'Hôpital 法则}}{=} \cdots = \frac{(\ln a)^2 + \frac{2}{a} - (\ln a)^2}{2} = \frac{1}{a}.$$
         \item $$\left| \lim_{x \to 0} x \sin \frac{1}{x} \right| \les \lim_{x \to 0} |x| = 0.$$
-        \item $$\left| \lim_{x \to \frac{\pi}{2}} \frac{\cos^2 x}{\tan x} \right| \les \lim_{x \to \frac{\pi}{2}} \frac{1}{\left| \tan x \right|} = \lim_{x \to \frac{\pi}{2}} |\cot x| = 0.$$
+        \item $$\left| \lim_{x \to 0}\frac{x^2\cos\frac{1}{x}}{\tan x} \right|= \left|\lim_{x \to 0}x\cos\frac{1}{x} \right| \les \lim_{x \to 0} \left| x \right|= 0.$$
         \item \begin{align*}
                   \lim_{x \to 0} \left(\frac{1}{\arctan^2 x} - \frac{1}{x^2}\right) & = \lim_{x \to 0} \frac{x^2 - \arctan^2 x}{x^2 \arctan^2 x}    = \lim_{x \to 0} \frac{x^2 - \arctan^2 x}{x^4}                   \\
-                                                                                    & = \lim_{x \to 0} \frac{(x - \arctan x)(x + \arctan x)}{x^4}   = \lim_{x \to 0} 2 \frac{x - \arctan x}{x^3}                     \\
-                                                                                    & \stackrel{x = \tan y}{=} \lim_{y \to 0} 2 \frac{\tan y - y}{\tan^3 y}  = 2 \lim_{y \to 0} \frac{\tan y - y}{y^3} = \frac{2}{3}
+                                                                                    & = \lim_{x \to 0} \frac{x - \arctan x}{x^3} \cdot\frac{x + \arctan x}{x}   = 2\lim_{x \to 0} \frac{x - \arctan x}{x^3}                     \\
+                                                                                    & \stackrel{x = \tan y}{=} 2\lim_{y \to 0}  \frac{\tan y - y}{\tan^3 y}  = 2 \lim_{y \to 0} \frac{\tan y - y}{y^3} = \frac{2}{3}
               \end{align*}
         \item \begin{align*}
                   \lim_{x \to 1^-} \ln x \ln(1 - x) & = \lim_{x \to 0^+} \ln(1 - x) \ln x = \lim_{x \to 0^+} -x \ln x                                        \\
@@ -153,12 +153,12 @@
                                                                      & \stackrel{x - \frac{\pi}{2} = y}{=} \exp\left(\lim_{y \to 0^+} \frac{-4y^2}{-\sin 2y}\right) = \mathrm{e}^0 = 1
               \end{align*}
         \item \begin{align*}
-                  \lim_{x \to 0} \frac{\left(1 + x\right)^{1/x} - \mathrm{e}}{x} & = \exp\left(\lim_{x \to 0} \frac{1}{x} \left(\frac{1}{x} \ln(1 + x) - 1\right)\right)                                                           \\
-                                                                                 & = \exp\left(\lim_{x \to 0} \frac{1}{x} \left(\frac{1}{x} \left(x - \frac{1}{2}x^2 + o(x^2)\right) - 1\right)\right) = \mathrm{e}^{-\frac{1}{2}}
+                  \lim_{x \to 0} \left(\frac{(1+x)^{1/x}}{\e}\right)^{1/x} & = \exp\left(\lim_{x \to 0} \frac{1}{x} \left(\frac{1}{x} \ln(1 + x) - 1\right)\right)                                                           \\
+                                                                           & = \exp\left(\lim_{x \to 0} \frac{1}{x} \left(\frac{1}{x} \left(x - \frac{1}{2}x^2 + o(x^2)\right) - 1\right)\right) = \mathrm{e}^{-\frac{1}{2}}
               \end{align*}
         \item \begin{align*}
-                  \lim_{x \to 1^-} \frac{\ln(1 - x) + \tan \frac{\pi}{2} x}{\cot \pi x} & \stackrel{y=1-x}{=} \lim_{y \to 0^+} \frac{\ln y + \tan \frac{\pi}{2} (1-y)}{\cot \pi (1-y)} \\
-                                                                                        & = \lim_{y \to 0^+} \frac{\sin \pi y(\ln y + \tan \frac{\pi}{2} y)}{-\cos \pi y}              \\ % 这一步使用了 \cot \pi y = \frac{\cos \pi y}{\sin \pi y}
+                  \lim_{x \to 1^-} \frac{\ln(1 - x) + \tan \frac{\pi}{2} x}{\cot \pi x} & \stackrel{y=1-x}{=} \lim_{y \to 0^+} \frac{\ln y + \tan \frac{\pi}{2} (1-y)}{\cot \pi (1-y)} = \lim_{y \to 0^+} \frac{\ln y + \tan \frac{\pi}{2} (y)}{\cot \pi y} \\
+                                                                                        & \stackrel{L'H}{=} \lim_{y \to 0^+} \frac{\frac{1}{y}+\frac{\pi}{2}\frac{1}{\cos^2 \frac{\pi}{2}x}}{\pi\frac{1}{\sin^2 \pi x}} \\             
                                                                                         & = -\lim_{y \to 0^+} \frac{\sin \pi y}{\tan \frac{\pi}{2} y} = -2
               \end{align*}
         \item \begin{align*}
