@@ -59,27 +59,31 @@
 \end{exercise}
 
 \begin{solution}
-    设$x_0$ 是区间 $I$ 的一个内点, 即证明 $\lim_{x \to x_0} f(x) = f(x_0)$.
-    仅证右连续$\lim_{x \to x_0^+} f(x) = f(x_0)$, 左连续同理.
+    设$x_0$ 是区间 $I$ 的一个内点, 需要证明 $\lim_{x \to x_0} f(x) = f(x_0)$.
 
-    由于$x_0$ 是区间 $I$ 的内点, 故存在 $\delta > 0$, 使得区间 $(x_0-\delta, x_0 + \delta) \subset I$.
+    由于$x_0$ 是区间 $I$ 的内点, 故存在 $\delta > 0$, 使得区间 $(x_0-2\delta, x_0 + 2\delta) \subset I$.
 
-    任取$x \in (x_0, x_0 + \delta)$, 则由凸函数的定义, 对任意 $a \in (x_0 - \delta, x_0)$, 有
-    $$\frac{f(x) - f(x_0-\delta)}{x - (x_0 - \delta)} \les \frac{f(x)-f(x_0)}{x-x_0} \les \frac{f(x_0 + \delta) - f(x_0)}{(x_0 + \delta) - x_0}.$$
-    记 $M_1 = \frac{f(x_0) - f(x_0 - \delta)}{\delta}$, $M_2 = \frac{f(x_0 + \delta) - f(x_0)}{\delta}$, 则 $M_1, M_2$ 均为常数, 上式可写为
-    $$M_1(x-x_0) \les f(x) - f(x_0) \les M_2 (x - x_0).$$
+    任取$x \in (x_0-\delta, x_0 + \delta)$, 则由凸函数, 有
+    $$\frac{f(x_0) - f(x_0-\delta)}{x_0 - (x_0 - \delta)} \les \frac{f(x)-f(x_0)}{x-x_0} \les \frac{f(x_0 + \delta) - f(x_0)}{(x_0 + \delta) - x_0}.$$
+    记 $M_1 = \frac{f(x_0) - f(x_0 - \delta)}{\delta}$, $M_2 = \frac{f(x_0 + \delta) - f(x_0)}{\delta}$, 则 $M_1, M_2$ 均为常数, 
+    
+    因此$$M_1 \les \frac{f(x)-f(x_0)}{x-x_0} \les M_2.$$
+
+    可知对于$M=\max\{|M_1|, |M_2|\}$, 有
+    $$-M\left|x-x_0\right| \les\left| f(x) - f(x_0) \right|\les M\left|x-x_0\right|.$$
     当 $x \to x_0^+$ 时, 由夹逼定理可知, $\lim_{x \to x_0^+} f(x) = f(x_0)$.
 \end{solution}
+
 
 \begin{exercise}[3.5.5]
     设函数 $f(x)$ 在区间 $I$ 上处处可导, 且除了有限个点之外, 均有 $f''(x) > 0$, 证明: $f(x)$ 在 $I$ 上是凸的. \text{将本题用于} $f(-x)$, \text{就得到关于凹函数的类似结论.}
 \end{exercise}
 
 \begin{solution}
-    由题设条件以及\hyperref[ex:3.3.13]{习题 3.3.13}知,可得,$f'(x)$单调增,由一阶导判别法即证.
+    由题设条件以及\hyperref[ex:3.3.13]{习题 3.3.13}知,可得,$f'(x)$单调递增,由一阶导判别法即证.
 \end{solution}
 
-其中,一阶导判别法表述为:
+这里,相关的几个判别法表述为:
 \begin{theorem*}[零阶导判别法]\label{thm:3.27}
     $f(x)$在区间$I$上为凸函数 $\Leftrightarrow$ $\forall x_1,x_2 \in I, x_1<x_2$都有 $$\dfrac{f(x) - f(x_1)}{x-x_1} \les \dfrac{f(x_2) - f(x_1)}{x_2-x_1} \les \dfrac{f(x_2) - f(x)}{x_2 - x}.$$
 \end{theorem*}
@@ -89,22 +93,26 @@
 \end{theorem*}
 
 \begin{proof}
-    必要求  任取 $x_1, x_2 \in I, x_1 < x_2, x_1 < x < x_2$,应用\autoref{thm:3.27} 中第一个不等式,有
+    \begin{enumerate}
+        \item 必要性:任取 $x_1, x_2 \in I, x_1 < x_2,$ 任取$x_1 < x < x_2$,对\autoref{thm:3.27} 中第一个不等式,有
     $$
         \frac{f(x) - f(x_1)}{x - x_1} \les \frac{f(x_2) - f(x_1)}{x_2 - x_1}
     $$
-
-    同理,对 $x_1 < x' < x_2$,应用\autoref{thm:3.27} 中的第二个不等式,有
+    令 $x \to x_1$,有
+    $$
+       f'(x_1) \les  \frac{f(x_2) - f(x_1)}{x_2 - x_1} .
+    $$
+    同理,对\autoref{thm:3.27} 中的第二个不等式,有
     $$
         \frac{f(x) - f(x_1)}{x - x_1} \les \frac{f(x_2) - f(x_1)}{x_2 - x_1}
     $$
     并令 $x' \to x_2$,有
     $$
-        \frac{f(x_2) - f(x_1)}{x_2 - x_1} \les f'(x_1)
+        \frac{f(x_2) - f(x_1)}{x_2 - x_1} \les f'(x_2)
     $$
-    所以 $f'(x_1) \les \frac{f(x_2) - f(x_1)}{x_2 - x_1}$.根据 $x_1, x_2$ 的任意性,必须性证明毕.
+    所以 $f'(x_1) \les f'(x_2)$.根据 $x_1, x_2$ 的任意性,必须性证明毕.
 
-    充分析 对任意的 $x_1 < x < x_2$,由微分中值定理,存在 $\xi \in (x_1, x_2), \eta \in (x_1, x_2)$,使得
+    \item 充分性:对任意的 $x_1 < x < x_2$,由微分中值定理,存在 $\xi \in (x_1, x), \eta \in (x, x_2)$,使得
     $$
         f(x) - f(x_1) = f'(\xi) \cdot (x - x_1), \quad f(x_2) - f(x_1) = f'(\eta) \cdot (x_2 - x_1)
     $$
@@ -113,6 +121,9 @@
         f'(\xi) \les f'(\eta)
     $$
     可知函数 $f$ 是凸函数.
+    \end{enumerate}
+    
+
 \end{proof}
 
 \begin{theorem*}[二阶导判别法]\label{thm:3.28}
@@ -170,8 +181,13 @@
                   \item 当 $x \in (-\infty, 0)$ 时, $y'' < 0$, 函数在 $(-\infty, 0)$ 上为凹函数;
               \end{itemize}
               $y=y(x)$在$x=0$处无定义, 故无拐点.
-        \item $y' = \frac{5}{3} x^{2/3}$, $y'' = \frac{10}{9} x^{-1/3}$.函数只在$x\ges0$上有定义,此时$y'' > 0$, 函数在 $[0, +\infty)$ 上为凸函数,无拐点.
-        \item $y' = (1+2x+x^2)\mathrm{e}^x$, $y'' = (3 + 4x + x^2)\mathrm{e}^x$.
+        \item $y' = \frac{5}{3} x^{2/3}$, $y'' = \frac{10}{9} x^{-1/3}$.
+        \begin{itemize}
+                  \item 当 $x \in (0, +\infty)$ 时, $y'' > 0$, 函数在 $(0, +\infty)$ 上为凸函数;
+                  \item 当 $x \in (-\infty, 0)$ 时, $y'' < 0$, 函数在 $(-\infty, 0)$ 上为凹函数;
+              \end{itemize}
+              $x = 0$ 为拐点.
+        \item $y' = (1+2x+x^2)\mathrm{e}^x$, $y'' = (3 + 4x + x^2)\mathrm{e}^x=(x+1)(x+3)\mathrm{e}^x$.
               \begin{itemize}
                   \item 当 $x \in (-\infty, -3) \cup (-1, +\infty)$ 时, $y'' > 0$, 函数在 $(-\infty, -3) \cup (-1, +\infty)$ 上为凸函数;
                   \item 当 $x \in (-3, -1)$ 时, $y'' < 0$, 函数在 $(-3, -1)$ 上为凹函数;
@@ -180,8 +196,8 @@
         \item $y' = 4x^3$, $y'' = 12x^2 \ges 0$, 函数在 $(-\infty, +\infty)$ 上为凸函数,无拐点.
         \item $y' = 1 + \cos x$, $y'' = -\sin x$.
               \begin{itemize}
+                  \item 当 $x \in ((2k-1)\pi, 2k\pi), k \in \mathbb{Z}$ 时, $y'' > 0$, 函数在 $((2k+1)\pi, 2(k+1)\pi)$ 上为凸函数;
                   \item 当 $x \in (2k\pi, (2k+1)\pi), k \in \mathbb{Z}$ 时, $y'' < 0$, 函数在 $(2k\pi, (2k+1)\pi)$ 上为凹函数;
-                  \item 当 $x \in ((2k+1)\pi, 2(k+1)\pi), k \in \mathbb{Z}$ 时, $y'' > 0$, 函数在 $((2k+1)\pi, 2(k+1)\pi)$ 上为凸函数;
               \end{itemize}
               $x = k\pi, k \in \mathbb{Z}$ 为拐点.
     \end{enumerate}
@@ -197,8 +213,8 @@
             3 = a + b; \\
             0 = 6a + 2b.
         \end{cases} \Rightarrow \begin{cases}
-            a = 1; \\
-            b = 2.
+            a = -\frac{3}{2}; \\
+            b = \frac{9}{2}.
         \end{cases}$$
 \end{solution}
 
