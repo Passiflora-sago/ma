@@ -337,13 +337,15 @@
 \end{solution}
 
 \begin{exercise}[5.C.17]
-    (1) 设函数 $f(x)$ 是 $[1, +\infty)$ 上的递增、非负函数, 证明: 对任意正整数 $n$, 有
+    \begin{enumerate}
+        \item 设函数 $f(x)$ 是 $[1, +\infty)$ 上的递增、非负函数, 证明: 对任意正整数 $n$, 有
     $$ 0 \les \sum_{k=1}^n f(k) - \int_1^n f(x) \mathrm{d}x \les f(n); $$
-    (2) 设函数 $f(x)$ 是 $[1, +\infty)$ 上的递减、非负函数, 证明: 对任意正整数 $n$, 有
+    \item 设函数 $f(x)$ 是 $[1, +\infty)$ 上的递减、非负函数, 证明: 对任意正整数 $n$, 有
     $$ 0 \les \sum_{k=1}^n f(k) - \int_1^n f(x) \mathrm{d}x \les f(1). $$
     此外, 极限
     $$ \lim_{n \to \infty} \left( \sum_{k=1}^n f(k) - \int_1^n f(x) \mathrm{d}x \right) = \alpha $$
     存在, 且 $0 \les \alpha \les f(1)$.
+    \end{enumerate}
 
     (提示: 对于 (1), 应用习题 5.1 中第 5 题可知,
     $$ f(k) \les \int_k^{k+1} f(x) \mathrm{d}x \les f(k+1), $$

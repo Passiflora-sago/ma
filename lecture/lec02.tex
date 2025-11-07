@@ -1319,7 +1319,7 @@ Cauchy收敛准则的强大之处在于,它不要求事先猜出极限值.也正
     \begin{enumerate}[(1)]
         \item $a_n = \left(1 - \frac{1}{2}\right) \left(1 - \frac{1}{2^2}\right) \cdots \left(1 - \frac{1}{2^n}\right)$;
         \item $a_n = \frac{1}{3+1} + \frac{1}{3^2+1} + \cdots + \frac{1}{3^n+1}$;
-        \item $a_n = \alpha_0 + \alpha_1 q + \cdots + \alpha_n q^n$, 其中 $|\alpha_k| \le M, (k=1, 2, \ldots)$, 而 $|q| < 1$;
+        \item $a_n = \alpha_0 + \alpha_1 q + \cdots + \alpha_n q^n$, 其中 $|\alpha_k| \les M, (k=1, 2, \ldots)$, 而 $|q| < 1$;
         \item $a_n = \frac{\cos 1}{1 \cdot 2} + \frac{\cos 2}{2 \cdot 3} + \frac{\cos 3}{3 \cdot 4} + \cdots + \frac{\cos n}{n(n+1)}$.
     \end{enumerate}
 \end{exercise}
@@ -1345,7 +1345,7 @@ Cauchy收敛准则的强大之处在于,它不要求事先猜出极限值.也正
     证明下列数列收敛, 并求出其极限:
     \begin{enumerate}[(1)]
         \item $a_n = \frac{n}{c^n}, \ (c>1)$;
-        \item $a_1 = \frac{c}{2}, \ a_{n+1} = \frac{c}{2} + \frac{a_n^2}{2} \ (0 \le c \le 1)$;
+        \item $a_1 = \frac{c}{2}, \ a_{n+1} = \frac{c}{2} + \frac{a_n^2}{2} \ (0 \les c \les 1)$;
         \item $a > 0, a_0 > 0, a_{n+1} = \frac{1}{2} \left(a_n + \frac{a}{a_n}\right)$ (提示: 先证明 $a_n^2 \ge a$);
         \item $a_0 = 1, \ a_n = 1 + \frac{a_{n-1}}{a_{n-1} + 1}$;
         \item $a_n = \sin \sin \cdots \sin 1$ ($n$ 个 $\sin$).
@@ -1377,11 +1377,11 @@ Cauchy收敛准则的强大之处在于,它不要求事先猜出极限值.也正
 \section{综合练习}
 
 \begin{exercise}[1.2.19]
-    设 $a_n \le a \le b_n \ (n=1, 2, \ldots)$, 且 $\lim_{n\to\infty} (a_n - b_n) = 0$. 求证: $\lim_{n\to\infty} a_n = a$, $\lim_{n\to\infty} b_n = a$.
+    设 $a_n \les a \les b_n \ (n=1, 2, \ldots)$, 且 $\lim_{n\to\infty} (a_n - b_n) = 0$. 求证: $\lim_{n\to\infty} a_n = a$, $\lim_{n\to\infty} b_n = a$.
 \end{exercise}
 
 \begin{solution}
-    由$\lim_{n\to\infty} (a_n - b_n) = 0$,对$\forall \ve > 0$,存在$N\in \mathbb{N}^*$,使得当$n>N$时,$|a_n - b_n| < \ve$.又由$a_n \le a \le b_n$,可知$|a_n - a| = a -a_n \les b_n - a_n < \ve$,同理$|b_n - a| < \ve$.因此$\lim_{n\to\infty} a_n = a$, $\lim_{n\to\infty} b_n = a$.
+    由$\lim_{n\to\infty} (a_n - b_n) = 0$,对$\forall \ve > 0$,存在$N\in \mathbb{N}^*$,使得当$n>N$时,$|a_n - b_n| < \ve$.又由$a_n \les a \les b_n$,可知$|a_n - a| = a -a_n \les b_n - a_n < \ve$,同理$|b_n - a| < \ve$.因此$\lim_{n\to\infty} a_n = a$, $\lim_{n\to\infty} b_n = a$.
 \end{solution}
 
 \begin{example}\label{exp:sqrt_mean}
@@ -1407,12 +1407,12 @@ Cauchy收敛准则的强大之处在于,它不要求事先猜出极限值.也正
 \end{solution}
 
 \begin{exercise}[1.2.21]
-    设数列 $\{a_n\}$, $\{b_n\}$ 是正数列, 满足 $\frac{a_{n+1}}{a_n} \le \frac{b_{n+1}}{b_n}, \ n=1, 2, \ldots$. 求证: 若 $\{b_n\}$ 收敛, 则 $\{a_n\}$ 收敛.
+    设数列 $\{a_n\}$, $\{b_n\}$ 是正数列, 满足 $\frac{a_{n+1}}{a_n} \les \frac{b_{n+1}}{b_n}, \ n=1, 2, \ldots$. 求证: 若 $\{b_n\}$ 收敛, 则 $\{a_n\}$ 收敛.
 \end{exercise}
 
 \begin{solution}
     若$\lim_{n\to\infty} b_n = 0$,则由$a_n = a_1 \cdot \frac{a_2}{a_1} \cdot \frac{a_3}{a_2} \cdots \frac{a_n}{a_{n-1}} \les a_1 \cdot \frac{b_2}{b_1} \cdot \frac{b_3}{b_2} \cdots \frac{b_n}{b_{n-1}} = a_1 \cdot \frac{b_n}{b_1}$可知$\lim_{n\to\infty} a_n = 0$.
-    若$\lim_{n\to\infty} b_n = b > 0$,由原式有$\frac{a_{n+1}}{b_{n+1}} \le \frac{a_n}{b_n}$,因此$\left\{ \frac{a_n}{b_n} \right\}$单调减,且$\frac{a_n}{b_n} > 0$,因此$\left\{ \frac{a_n}{b_n} \right\}$收敛,设$\lim_{n\to\infty} \frac{a_n}{b_n} = c$,则$\lim_{n\to\infty} a_n = \lim_{n\to\infty} b_n \cdot \lim_{n\to\infty} \frac{a_n}{b_n} = bc$.
+    若$\lim_{n\to\infty} b_n = b > 0$,由原式有$\frac{a_{n+1}}{b_{n+1}} \les \frac{a_n}{b_n}$,因此$\left\{ \frac{a_n}{b_n} \right\}$单调减,且$\frac{a_n}{b_n} > 0$,因此$\left\{ \frac{a_n}{b_n} \right\}$收敛,设$\lim_{n\to\infty} \frac{a_n}{b_n} = c$,则$\lim_{n\to\infty} a_n = \lim_{n\to\infty} b_n \cdot \lim_{n\to\infty} \frac{a_n}{b_n} = bc$.
 \end{solution}
 
 \begin{exercise}[1.2.22]

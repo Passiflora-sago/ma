@@ -197,13 +197,12 @@
               这里加强,证明$\xi \in (a,b)$.
 
               \begin{proof}
-                  下列三种情况是平凡的,不需要多加讨论：
-
-                  (1) 如果积分 $\int_a^b g(x)dx = 0$,则积分第一中值定理可以通过不等式左边也等于 $0$,于是 $\xi$ 可取,结论已成立.
-
-                  (2) 如果 $f$ 在 $[a,b]$ 的最小值和最大值相等,即 $m = M$,则 $f$ 为常值函数,因此 $\xi$ 也可取.
-
-                  (3) 如果 $m < M$,且 $\eta \in (m,M)$ 时,连续函数的介值性可知存在 $\xi \in (a,b)$,使得 $f(\xi) = \eta$.
+                  下列三种情况是平凡的,不需要多加讨论:
+                  \begin{enumerate}
+                    \item 如果积分 $\int_a^b g(x)dx = 0$,则积分第一中值定理可以通过不等式左边也等于 $0$,于是 $\xi$ 可取,结论已成立.
+                    \item 如果 $f$ 在 $[a,b]$ 的最小值和最大值相等,即 $m = M$,则 $f$ 为常值函数,因此 $\xi$ 也可取.
+                    \item 如果 $m < M$,且 $\eta \in (m,M)$ 时,连续函数的介值性可知存在 $\xi \in (a,b)$,使得 $f(\xi) = \eta$.
+                  \end{enumerate}
 
                   要讨论的只是以上三种情况之外的问题.不妨设 $g$ 在区间 $[a,b]$ 上非负,且有
                   $\int_a^b g(x)dx > 0.$
@@ -644,9 +643,11 @@
 \end{solution}
 
 \begin{exercise}[5.2.27]
-    (1) 设 $f(x)$ 是 $[0, 1]$ 上单调递减的连续函数, 证明: 对任意 $\alpha \in (0, 1)$, 有
+    \begin{enumerate}
+        \item 设 $f(x)$ 是 $[0, 1]$ 上单调递减的连续函数, 证明: 对任意 $\alpha \in (0, 1)$, 有
     $$ \int_0^\alpha f(x) \mathrm{d}x \ges \alpha \int_0^1 f(x) \mathrm{d}x; $$
-    (2) 若仅仅设 $f(x)$ 在 $[0, 1]$ 上单调递减, 证明同样的结论.
+    \item 若仅仅设 $f(x)$ 在 $[0, 1]$ 上单调递减, 证明同样的结论.
+    \end{enumerate}
 
     (提示: (1) 有几种证法. 第一种方法: 利用 $\displaystyle \int_0^\alpha f(x) \mathrm{d}x = \alpha \int_0^1 f(\alpha x) \mathrm{d}x$; 第二种方法: 考虑 $g(\alpha) = \displaystyle \frac{1}{\alpha} \int_0^\alpha f(x) \mathrm{d}x$ ($0 < \alpha < 1$), 证明 $g(\alpha)$ 是减函数. 注意, 这两种方法都需要 $f(x)$ 连续这一假设, 因此都不适用于解决 (2).)
 \end{exercise}

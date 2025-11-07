@@ -5,11 +5,11 @@
 \end{exercise}
 
 \begin{solution}
-    设$\sum_{n=1}^\infty u_n(x)$和$\sum_{n=1}^\infty v_n(x)$在区间$I$上一致收敛,则对任意$\varepsilon > 0$,存在$N_1, N_2$,当$m > n \geq N_1$时,有
+    设$\sum_{n=1}^\infty u_n(x)$和$\sum_{n=1}^\infty v_n(x)$在区间$I$上一致收敛,则对任意$\varepsilon > 0$,存在$N_1, N_2$,当$m > n \ges N_1$时,有
     $$\left| \sum_{k=n}^m u_k(x) \right| < \frac{\varepsilon}{2},$$
     当$m > n \ges N_2$时,有
     $$\left| \sum_{k=n}^m v_k(x) \right| < \frac{\varepsilon}{2}.$$
-    取$N = \max\{N_1, N_2\}$,则当$m > n \geq N$时,有
+    取$N = \max\{N_1, N_2\}$,则当$m > n \ges N$时,有
     \begin{align*}
         \left| \sum_{k=n}^m [u_k(x) + v_k(x)] \right| & = \left| \sum_{k=n}^m u_k(x) + \sum_{k=n}^m v_k(x) \right|                   \\
                                                       & \les \left| \sum_{k=n}^m u_k(x) \right| + \left| \sum_{k=n}^m v_k(x) \right| \\
@@ -224,8 +224,5 @@
               反之,若级数$\sum_{n=1}^\infty u_n(x)$在$[a,b]$上一致收敛,则部分和函数$S_n(x) = \sum_{k=1}^n u_k(x)$在$[a,b]$上一致收敛到$S(x)$,且每个$S_n(x)$在$[a,b]$上连续,由教材定理7.34知,$S(x)$在$[a,b]$上连续.
     \end{enumerate}
 \end{solution}
-
-
-
 
 \newpage
