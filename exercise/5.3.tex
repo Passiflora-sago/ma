@@ -5,7 +5,7 @@
     \begin{tasks}(1)
         \task 抛物线 $y = x^2$ 在 $x = -a$ 到 $x = a$ 之间的弧;
         \task 星形线 $\begin{cases} x = a \cos^3 t, \\ y = a \sin^3 t \end{cases}$ ($0 \les t < 2\pi$, $a > 0$ 为常数);
-        \task Archimedes 螺线 $r = a\theta$ ($0 \les \theta \le 2\pi$).
+        \task Archimedes 螺线 $r = a\theta$ ($0 \les \theta \les 2\pi$).
     \end{tasks}
 \end{exercise}
 
@@ -38,7 +38,7 @@
     计算下面的曲线所围成的平面图形的面积.
     \begin{tasks}(1)
         \task 双纽线 $r^2 = a^2 \cos 2\theta$ ($\displaystyle 0 \les \theta \les \frac{\pi}{4} \cup \left[\frac{3\pi}{4}, \frac{5\pi}{4}\right]$, $a$ 为正常数);
-        \task $\begin{cases} x = t - \sin t, \\ y = 1 - \cos t \end{cases}$ ($0 \les t \le 2\pi$) 及 $x$ 轴;
+        \task $\begin{cases} x = t - \sin t, \\ y = 1 - \cos t \end{cases}$ ($0 \les t \les 2\pi$) 及 $x$ 轴;
         \task $y = \mathrm{e}^x, y = \mathrm{e}^{-x}$ 及 $x = 1$.
     \end{tasks}
 \end{exercise}
@@ -55,8 +55,8 @@
     计算下列旋转体的体积.
     \begin{tasks}(1)
         \task $y = \sin x$ ($0 \les x \les \pi$) 与 $x$ 轴围成的图形分别绕 $x$ 轴及 $y$ 轴旋转一周;
-        \task $y = \mathrm{e}^{x^2}$ ($0 \les x \le 1$) 与 $y$ 轴围成的图形绕 $y$ 轴旋转一周;
-        \task $\begin{cases} x = t - \sin t, \\ y = 1 - \cos t \end{cases}$ ($0 \les t \le 2\pi$) 与 $x$ 轴围成的图形绕 $x$ 轴旋转一周.
+        \task $y = \mathrm{e}^{x^2}$ ($0 \les x \les 1$) 与 $y$ 轴围成的图形绕 $y$ 轴旋转一周;
+        \task $\begin{cases} x = t - \sin t, \\ y = 1 - \cos t \end{cases}$ ($0 \les t \les 2\pi$) 与 $x$ 轴围成的图形绕 $x$ 轴旋转一周.
     \end{tasks}
 \end{exercise}
 
@@ -150,9 +150,9 @@
     $$\mathrm{d}F = G \frac{\lambda \mathrm{d}x \cdot \lambda \mathrm{d}y}{(y - x)^2} = G \frac{m^2}{L^2} \frac{\mathrm{d}x \mathrm{d}y}{(y - x)^2},$$
     则两杆之间的引力为
     \begin{align*}
-        F & = \int_0^L \int_{L+l}^{2L+l} G \frac{m^2}{L^2} \frac{\mathrm{d}x \mathrm{d}y}{(y - x)^2} \\
-          & = G \frac{m^2}{L^2} \int_0^L \left( \frac{1}{L + l - x} - \frac{1}{2L + l - x} \right) \mathrm{d}x       \\
-          & = G \frac{m^2}{L^2} \left( \log\frac{L + l}{l} - \log\frac{2L + l}{L + l} \right)                     \\
+        F & = \int_0^L \int_{L+l}^{2L+l} G \frac{m^2}{L^2} \frac{\mathrm{d}x \mathrm{d}y}{(y - x)^2}           \\
+          & = G \frac{m^2}{L^2} \int_0^L \left( \frac{1}{L + l - x} - \frac{1}{2L + l - x} \right) \mathrm{d}x \\
+          & = G \frac{m^2}{L^2} \left( \log\frac{L + l}{l} - \log\frac{2L + l}{L + l} \right)                  \\
           & = G \frac{m^2}{L^2} \log\frac{(L + l)^2}{l(2L + l)}
     \end{align*}
 \end{solution}
