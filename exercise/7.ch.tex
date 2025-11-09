@@ -1,13 +1,13 @@
 \section{第 7 章综合习题}
 
 \begin{exercise}[7.C.1]
-计算级数 $\displaystyle \sum_{n=1}^\infty \frac{1}{n(n+1)} \left( 1 + \frac{1}{2} + \dots + \frac{1}{n} \right)$ 的和.
+计算级数 $\displaystyle \sum_{n=1}^\infty \frac{1}{n(n+1)} \left( 1 + \frac{1}{2} + \cdots + \frac{1}{n} \right)$ 的和.
 \end{exercise}
 
 \begin{solution}
-    由Abell求和公式,有
+    由Abel求和公式,有
     \begin{align*}
-        \sum_{n=1}^N \frac{1}{n(n+1)} \left( 1 + \frac{1}{2} + \dots + \frac{1}{n} \right) & = \sum_{n=1}^N \frac{1}{n(n+1)} \sum_{k=1}^n \frac{1}{k}                      \\
+        \sum_{n=1}^N \frac{1}{n(n+1)} \left( 1 + \frac{1}{2} + \cdots + \frac{1}{n} \right) & = \sum_{n=1}^N \frac{1}{n(n+1)} \sum_{k=1}^n \frac{1}{k}                      \\
                                                                                            & = \sum_{k=1}^N \frac{1}{k} \sum_{n=k}^N \frac{1}{n(n+1)}                      \\
                                                                                            & = \sum_{k=1}^N \frac{1}{k} \left( \frac{1}{k} - \frac{1}{N+1} \right)         \\
                                                                                            & = \sum_{k=1}^N \frac{1}{k^2} - \frac{1}{N+1} \sum_{k=1}^N \frac{1}{k}.
@@ -33,17 +33,33 @@
 \end{exercise}
 
 \begin{solution}
-    若$a_n$有上界$M$,则 
-    $$\sum_{n=1}^N \left( \frac{a_{n+1}}{a_n} - 1 \right) = \sum_{n=1}^N \frac{a_{n+1} - a_n}{a_n} \les \frac{1}{a_1} \sum_{n=1}^N (a_{n+1} - a_n) = \frac{a_{N+1} - a_1}{a_1} \les \frac{M - a_1}{a_1},$$
-    故正项级数$\sum_{n=1}^\infty \left( \frac{a_{n+1}}{a_n} - 1 \right)$收敛.
 
-    若$a_n$无上界,则对任意$M > 0$,存在$a_n$的子列$\{a_{n_k}\}$使得$a_{n_{k+1}} \ges 2 a_{n_k}$,则对任意$k \in \mathbb{N}^+$,有
-    \begin{align*}
-\sum_{n=1}^\infty \left(\frac{a_{n+1}}{a_n} - 1\right) &\ges \sum_{k=1}^\infty \sum_{n=n_k}^{n_{k+1}-1} \frac{a_{n+1} - a_n}{a_{n_{k+1}}} \\
-&\ges \sum_{k=1}^\infty \sum_{n=n_k}^{n_{k+1}-1} \frac{a_{n+1} - a_n}{a_{n_{k+1}}} \\
-&\ges \sum_{k=1}^\infty \frac{1}{2}
-\end{align*}
- 因此正项级数$\sum_{n=1}^\infty \left( \frac{a_{n+1}}{a_n} - 1 \right)$发散.
+%     若$a_n$有上界$M$,则 
+%     $$\sum_{n=1}^N \left( \frac{a_{n+1}}{a_n} - 1 \right) = \sum_{n=1}^N \frac{a_{n+1} - a_n}{a_n} \les \frac{1}{a_1} \sum_{n=1}^N (a_{n+1} - a_n) = \frac{a_{N+1} - a_1}{a_1} \les \frac{M - a_1}{a_1},$$
+%     故正项级数$\sum_{n=1}^\infty \left( \frac{a_{n+1}}{a_n} - 1 \right)$收敛.
+
+%     若$a_n$无上界,则对任意$M > 0$,存在$a_n$的子列$\{a_{n_k}\}$使得$a_{n_{k+1}} \ges 2 a_{n_k}$,则对任意$k \in \mathbb{N}^+$,有
+%     \begin{align*}
+% \sum_{n=1}^\infty \left(\frac{a_{n+1}}{a_n} - 1\right) &\ges \sum_{k=1}^\infty \sum_{n=n_k}^{n_{k+1}-1} \frac{a_{n+1} - a_n}{a_{n_{k+1}}} \\
+% &\ges \sum_{k=1}^\infty \sum_{n=n_k}^{n_{k+1}-1} \frac{a_{n+1} - a_n}{a_{n_{k+1}}} \\
+% &\ges \sum_{k=1}^\infty \frac{1}{2}
+% \end{align*}
+%  因此正项级数$\sum_{n=1}^\infty \left( \frac{a_{n+1}}{a_n} - 1 \right)$发散.
+
+    我们设$b_n = \frac{a_{n+1}}{a_n} - 1$,则$b_n \ges 0$.
+    同时有如下等式成立$\frac{a_{n+1}}{a_1}=\prod_{k=1}^n (1+b_k)$.
+    利用\autoref[ex:1.1.6]{习题1.1.6}的结果,我们有$$\prod_{k=1}^n (1+b_k)\ges 1+\sum_{k=1}^{n}b_n$$
+    
+    另一方面,$$\prod_{k=1}^n (1+b_k)=\exp \left(\sum_{k=1}^{n} \ln(1+b_k)\right)\les\exp \left(\sum_{k=1}^{n} b_k\right)$$
+
+    由此,我们得到了$$1+\sum_{k=1}^{n}b_n\les\frac{a_{n+1}}{a_1}\les\exp \left(\sum_{k=1}^{n} b_k\right)$$
+
+    \begin{enumerate}
+        \item 必要性 : 若级数$\sum_{n=1}^\infty b_n$收敛到$B$,则有$$\frac{a_{n+1}}{a_1}\les\exp \left(\sum_{k=1}^{n} b_k\right)\les \e^B \quad \Rightarrow \quad a_{n+1}\les a_1\e^B$$即有界.
+        \item 充分性 : 若数列$\{a_n\}$有上界$M$,则$$1+\sum_{k=1}^{n}b_n\les\frac{a_{n+1}}{a_1}\les \frac{M}{a_1} \quad \Rightarrow \quad \sum_{k=1}^{n}b_n \les \frac{M}{a_1} - 1$$
+        因此级数$\sum_{n=1}^\infty b_n$收敛.
+    \end{enumerate}
+
 \end{solution}
 
 \begin{exercise}[7.C.4]
@@ -51,20 +67,42 @@
 \end{exercise}
 
 \begin{solution}
-    记$b_n = \frac{1}{a_n}$,则$b_n$为正的递减数列,且
-    $$\sum_{n=1}^\infty \frac{a_{n+1} - a_n}{a_{n+1} a_n^\alpha} = \sum_{n=1}^\infty (b_n - b_{n+1}) b_n^{\alpha} \les \sum_{n=1}^\infty (b_n - b_{n+1}) b_1^{\alpha} = b_1^{\alpha} \lim_{N \to \infty} (b_1 - b_{N+1}) \les b_1^{\alpha + 1} < +\infty.$$
-    故级数收敛.
+    记$b_n = \frac{1}{a_n}$,是正的递减数列.
+    我们有$ \frac{a_{n+1} - a_n}{a_{n+1} a_n^\alpha}=\left(\frac{1}{a_n}-\frac{1}{a_{n+1}}\right)\frac{1}{a_n^{\alpha-1}}=\left(b_n-b_{n+1}\right)b_n^{\alpha -1}$
+
+    \begin{enumerate}
+        \item $\alpha \ges 1$时,$b_n^{\alpha -1}\les b_1^{\alpha -1}$,因此
+        $$\sum_{n=1}^\infty\left(b_n-b_{n+1}\right)b_n^{\alpha -1}\les\sum_{n=1}^\infty\left(b_n-b_{n+1}\right)b_1^{\alpha -1}=\lim_{N\to\infty}\left(b_1-b_{N+1}\right)b_1^{\alpha -1}\les b_1^{\alpha} $$故收敛. 
+        \item $\alpha < 1$时,我们利用微分中值定理,考虑$f(x) = x^{\alpha}$在区间$[b_{n+1}, b_n]$上有\begin{align*}
+            b_n^\alpha - b_{n+1}^\alpha =\alpha\xi_n^{\alpha-1}(b_n - b_{n+1})\ges \alpha b_n^{\alpha-1}(b_n - b_{n+1})
+        \end{align*}
+        因此我们有$$\sum_{n=1}^\infty\left(b_n-b_{n+1}\right)b_n^{\alpha -1}\les \frac{1}{\alpha}\sum_{n=1}^\infty\left(b_n^\alpha - b_{n+1}^\alpha\right)=\frac{1}{\alpha}\lim_{N\to\infty}\left(b_1^\alpha - b_{N+1}^\alpha\right)\les\frac{1}{\alpha}b_1^\alpha$$故收敛. 
+    \end{enumerate}
+    
+    
+    
+    
+    % 则$b_n$为正的递减数列,且
+    % $$\sum_{n=1}^\infty \frac{a_{n+1} - a_n}{a_{n+1} a_n^\alpha} = \sum_{n=1}^\infty (b_n - b_{n+1}) b_n^{\alpha} \les \sum_{n=1}^\infty (b_n - b_{n+1}) b_1^{\alpha} = b_1^{\alpha} \lim_{N \to \infty} (b_1 - b_{N+1}) \les b_1^{\alpha + 1} < +\infty.$$
+    % 故级数收敛.
+
+    % 我们设$b_n = \frac{1}{a_n}-\frac{1}{a_{n+1}}=\frac{a_{n+1} - a_n}{a_{n+1} a_n},c_n=\frac{1}{a_n^{\alpha-1}}$,则$b_n,c_n \ges 0$,且$c_n$为递减数列.
+
+    % $$\sum_{k=1}^{n}b_k=\frac{1}{a_1}-\frac{1}{a_{n+1}}\les \frac{1}{a_1}$$有界,
+    % 因此正项级数$\sum_{n=1}^\infty b_n c_n$收敛.
+
+    
 \end{solution}
 
 \begin{exercise}[7.C.5]
-设 $\phi(x)$ 是 $(0, +\infty)$ 上正的严格增函数, $\{a_n\}, \{b_n\}, \{c_n\}$ 是三个非负数列, 满足
-$$ a_{n+1} \les a_n - b_n \phi(a_n) + c_n a_n, \quad \sum_{n=1}^\infty b_n = +\infty, \quad \sum_{n=1}^\infty c_n < +\infty. $$
+设 $\Phi(x)$ 是 $(0, +\infty)$ 上正的严格增函数, $\{a_n\}, \{b_n\}, \{c_n\}$ 是三个非负数列, 满足
+$$ a_{n+1} \les a_n - b_n \Phi(a_n) + c_n a_n, \quad \sum_{n=1}^\infty b_n = +\infty, \quad \sum_{n=1}^\infty c_n < +\infty. $$
 求证: $\displaystyle \lim_{n \to \infty} a_n = 0.$
 \end{exercise}
 
 \begin{exercise}[7.C.6]
 设 $\{a_n\}$ 是正数数列使得 $\displaystyle \sum_{n=1}^\infty \frac{1}{a_n}$ 收敛. 求证: 存在常数 $M > 0$ 使得
-$$ \sum_{n=1}^\infty \frac{n}{a_1 + a_2 + \dots + a_n} \les M \sum_{n=1}^\infty \frac{1}{a_n}. $$
+$$ \sum_{n=1}^\infty \frac{n}{a_1 + a_2 + \cdots + a_n} \les M \sum_{n=1}^\infty \frac{1}{a_n}. $$
 \end{exercise}
 
 \begin{exercise}[7.C.7]
@@ -72,6 +110,25 @@ $$ \sum_{n=1}^\infty \frac{n}{a_1 + a_2 + \dots + a_n} \les M \sum_{n=1}^\infty 
 
 求证: 级数 $\displaystyle \sum_{n=1}^\infty \frac{1}{a_{n+1} - a_n}$ 发散.
 \end{exercise}
+
+\begin{solution}
+    
+    
+    反证,假设$\displaystyle \sum_{n=1}^\infty \frac{1}{a_{n+1} - a_n}$ 收敛,
+
+    并用上题结论,我们补充$a_0=0$,并令$b_n=a_{n} - a_{n-1}$,可知这是一个正数数列.
+
+    则$$\sum_{n=1}^{\infty}\frac{n}{b_1+\cdots b_n}=\sum_{n=1}^{\infty}\frac{n}{a_{n}}\les M\sum_{n=1}^\infty \frac{1}{b_{n}}=M\left(\frac{1}{a_1}+\sum_{n=1}^\infty \frac{1}{a_{n+1}-a_n}\right)$$
+
+    可知$\sum_{n=1}^{\infty}\frac{n}{a_{n}}$收敛
+    
+    但$$\sum_{n=1}^{\infty}\frac{n}{a_{n}}\ges  \sum_{n=1}^{\infty}\frac{n}{n^2\ln n}=\sum_{n=1}^{\infty}\frac{1}{n\ln n}$$
+
+    由于$\sum_{n=1}^{\infty}\frac{1}{n\ln n}$与$\int_{1}^{+\infty}\frac{1}{x\ln x}\dif x$同敛散,而$\int_{1}^{+\infty}\frac{1}{x\ln x}\dif x=\ln \ln x \bigg|_{1}^{+\infty}$发散,故矛盾.
+
+    因此原级数发散.
+\end{solution}
+
 
 \begin{exercise}[7.C.8]
 如果级数 $\displaystyle \sum_{n=1}^\infty |a_{n+1} - a_n|$ 收敛, 就称数列 $\{a_n\}$ 是具有有界变差的.
@@ -92,7 +149,7 @@ $$ \sum_{n=1}^\infty \frac{n}{a_1 + a_2 + \dots + a_n} \les M \sum_{n=1}^\infty 
 \end{solution}
 
 \begin{exercise}[7.C.9]
-设函数列 $\{f_n(x)\}, n = 1, 2, \dots$ 在区间 $[0, 1]$ 上由等式
+设函数列 $\{f_n(x)\}, n = 1, 2, \cdots$ 在区间 $[0, 1]$ 上由等式
 $$ f_0(x) = 1, \quad f_n(x) = \sqrt{x f_{n-1}(x)} $$
 定义. 证明: 当 $n \to \infty$ 时, 函数列在 $[0, 1]$ 上一致收敛到一个连续函数.
 \end{exercise}
@@ -104,7 +161,7 @@ $$ f_0(x) = 1, \quad f_n(x) = \sqrt{x f_{n-1}(x)} $$
 \end{solution}
 
 \begin{exercise}[7.C.10]
-递归定义连续可微函数列 $f_1, f_2, \dots : [0, 1] \to \mathbb{R}$ 如下: $f_1 = 1$, 在 $(0, 1)$ 上有
+递归定义连续可微函数列 $f_1, f_2, \cdots : [0, 1] \to \mathbb{R}$ 如下: $f_1 = 1$, 在 $(0, 1)$ 上有
 $$ f'_{n+1} = f_n f_{n+1}, $$
 且 $f_{n+1}(0) = 1$. 求证: 对每一个 $x \in (0, 1)$, $\displaystyle \lim_{n \to \infty} f_n(x)$ 存在, 并求出其极限函数.
 \end{exercise}
@@ -118,15 +175,15 @@ $$ f'_{n+1} = f_n f_{n+1}, $$
     $$f_{k+1}(x) = \mathrm{e}^{\int_0^x f_k(t) \mathrm{d}t} \les \mathrm{e}^{\int_0^x \frac{1}{1-t} \mathrm{d}t} = \frac{1}{1-x},$$
     故对任意$n \in \mathbb{N}^+$,有$f_n(x) \les \frac{1}{1-x}.$
 
-    再归纳的证明$$f_n(x) \ges 1 + x + x^2 + \dots + x^{n-1},$$$n=1$时已知成立,假设$n=k$时成立,则
+    再归纳的证明$$f_n(x) \ges 1 + x + x^2 + \cdots + x^{n-1},$$$n=1$时已知成立,假设$n=k$时成立,则
     \begin{align*}
-        f_{k+1}(x) & = \mathrm{e}^{\int_0^x f_k(t) \mathrm{d}t} \ges \mathrm{e}^{\int_0^x (1 + t + t^2 + \dots + t^{k-1}) \mathrm{d}t} \\
-                   & = \mathrm{e}^{x + \frac{x^2}{2} + \frac{x^3}{3} + \dots + \frac{x^k}{k}} \ges 1 + x + x^2 + \dots + x^k.
+        f_{k+1}(x) & = \mathrm{e}^{\int_0^x f_k(t) \mathrm{d}t} \ges \mathrm{e}^{\int_0^x (1 + t + t^2 + \cdots + t^{k-1}) \mathrm{d}t} \\
+                   & = \mathrm{e}^{x + \frac{x^2}{2} + \frac{x^3}{3} + \cdots + \frac{x^k}{k}} \ges 1 + x + x^2 + \cdots + x^k.
     \end{align*}
-    故对任意$n \in \mathbb{N}^+$,有$f_n(x) \ges 1 + x + x^2 + \dots + x^{n-1}.$
+    故对任意$n \in \mathbb{N}^+$,有$f_n(x) \ges 1 + x + x^2 + \cdots + x^{n-1}.$
 
     综上,对任意$x \in (0, 1)$,有
-    $$1 + x + x^2 + \dots + x^{n-1} \les f_n(x) \les \frac{1}{1-x},$$
+    $$1 + x + x^2 + \cdots + x^{n-1} \les f_n(x) \les \frac{1}{1-x},$$
     故$\lim_{n \to \infty} f_n(x) = \frac{1}{1-x}.$
 \end{solution}
 
@@ -137,7 +194,7 @@ $$ f_n(x) = \int_0^x f_{n-1}(u) \mathrm{d}u $$
 \end{exercise}
 
 \begin{solution}
-    由$f_0(x)$在$[0, a]$上连续,故存在$M > 0$,使得对任意$x \in [0, a]$,有$|f_0(x)| \les M$.下归纳的证明:$f_n(x) \les \frac{M a^n}{n!}, n=0, 1, 2, \dots$当$n=0$时由$M$的定义已知.假设$n=k-1$时成立,则当$x \in [0, a]$时,
+    由$f_0(x)$在$[0, a]$上连续,故存在$M > 0$,使得对任意$x \in [0, a]$,有$|f_0(x)| \les M$.下归纳的证明:$f_n(x) \les \frac{M a^n}{n!}, n=0, 1, 2, \cdots$当$n=0$时由$M$的定义已知.假设$n=k-1$时成立,则当$x \in [0, a]$时,
     \begin{align*}
 |f_n(x)| &\les \int_0^x |f_{n-1}(u)| \mathrm{d}u \\
 &\les \int_0^x \frac{M u^{n-1}}{(n - 1)!} \mathrm{d}u = \frac{M x^n}{n!}
@@ -153,7 +210,7 @@ $$ f_n(x) = \int_0^x f_{n-1}(u) \mathrm{d}u $$
 
 \begin{solution}
     由二项式级数,有
-    $$\sqrt{2} = (1 + 1)^{\frac{1}{2}} = \sum_{n=0}^\infty \binom{\frac{1}{2}}{n} 1^n = 1 + \frac{1}{2} - \frac{1}{8} + \frac{1}{16} - \frac{5}{128} + \dots$$
+    $$\sqrt{2} = (1 + 1)^{\frac{1}{2}} = \sum_{n=0}^\infty \binom{\frac{1}{2}}{n} 1^n = 1 + \frac{1}{2} - \frac{1}{8} + \frac{1}{16} - \frac{5}{128} + \cdots$$
     取前五项和为$1.4140625$.
 \end{solution}
 
